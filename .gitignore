@@ -1,0 +1,5 @@
+*.xpi
+META-INF/
+*.zip
+*.log
+web-ext-artifacts/
