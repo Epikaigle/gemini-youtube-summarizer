@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630">
+      <stop offset="0" stop-color="#0a0a0f"/>
+      <stop offset="1" stop-color="#121421"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="160" y1="140" x2="970" y2="500">
+      <stop offset="0" stop-color="#b5a7ff"/>
+      <stop offset=".5" stop-color="#7b6cff"/>
+      <stop offset="1" stop-color="#63dcff"/>
+    </linearGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="60"/></filter>
+  </defs>
+  <rect width="1200" height="630" rx="36" fill="url(#bg)"/>
+  <circle cx="985" cy="130" r="210" fill="#705eff" opacity=".15" filter="url(#blur)"/>
+  <circle cx="180" cy="570" r="200" fill="#4ad6ff" opacity=".08" filter="url(#blur)"/>
+  <g transform="translate(80 78)">
+    <rect width="64" height="64" rx="20" fill="url(#accent)"/>
+    <path d="M27 20.5 46 32 27 43.5v-23Z" fill="#fff"/>
+    <path d="M51 2c.6 3.2 2.3 4.9 5.5 5.5C53.3 8.1 51.6 9.8 51 13c-.6-3.2-2.3-4.9-5.5-5.5C48.7 6.9 50.4 5.2 51 2Z" fill="#fff"/>
+  </g>
+  <text x="165" y="118" fill="#f6f7fb" font-family="Arial,Helvetica,sans-serif" font-size="30" font-weight="700">Résumé YouTube</text>
+  <text x="165" y="151" fill="#aaa2ff" font-family="Arial,Helvetica,sans-serif" font-size="20" font-weight="700">par Gemini</text>
+  <text x="80" y="265" fill="#f8f8fb" font-family="Arial,Helvetica,sans-serif" font-size="68" font-weight="800">Une vidéo YouTube.</text>
+  <text x="80" y="340" fill="url(#accent)" font-family="Arial,Helvetica,sans-serif" font-size="68" font-weight="800">Un clic. Un résumé.</text>
+  <text x="80" y="405" fill="#afb1bf" font-family="Arial,Helvetica,sans-serif" font-size="27">Le lien de la vidéo et votre consigne sont envoyés à Gemini.</text>
+  <g transform="translate(80 465)">
+    <rect width="250" height="64" rx="18" fill="#fff"/>
+    <text x="125" y="41" text-anchor="middle" fill="#11121a" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="800">Ajouter à Firefox</text>
+  </g>
+  <g transform="translate(770 205)">
+    <rect width="340" height="230" rx="28" fill="#171923" stroke="#ffffff" stroke-opacity=".11"/>
+    <rect x="28" y="28" width="284" height="124" rx="18" fill="#212431"/>
+    <circle cx="170" cy="90" r="28" fill="#fff"/>
+    <path d="m162 75 27 15-27 15V75Z" fill="#171923"/>
+    <rect x="188" y="170" width="124" height="36" rx="18" fill="#7b6cff"/>
+    <text x="250" y="194" text-anchor="middle" fill="#fff" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="700">✦ Résumer</text>
+  </g>
+</svg>
