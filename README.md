@@ -60,7 +60,7 @@ Fichiers utiles pour la soumission Firefox Add-ons :
 - `AMO_REVIEW_NOTES.md`
 
 Archive de soumission :
-- generer une archive propre avec `npx --yes web-ext build --source-dir . --overwrite-dest --ignore-files README.md TESTING.md AMO_SUBMISSION.md AMO_REVIEW_NOTES.md PRIVACY_POLICY.md docs`
+- generer une archive propre avec `npx --yes web-ext build --source-dir . --overwrite-dest --ignore-files README.md TESTING.md AMO_SUBMISSION.md AMO_REVIEW_NOTES.md PRIVACY_POLICY.md "docs/**"`
 - envoyer ensuite l'archive sur le portail developpeur AMO
 
 ## Notes
