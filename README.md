@@ -24,11 +24,12 @@ Une fois GitHub Pages configuré sur la branche `main` avec le dossier `/docs`, 
 `https://epikaigle.github.io/resume-youtube-gemini/`
 
 Le site contient :
-- une landing page responsive
-- une présentation du fonctionnement de l'extension
-- les instructions d'installation manuelle
+- une landing page courte et responsive
+- une démonstration visuelle du flux YouTube → Résumer → Gemini
+- un bouton d'installation vers la fiche officielle Firefox Add-ons
+- une présentation du prompt personnalisable et de la confidentialité
 - une page de politique de confidentialité
-- des liens vers la documentation, le code source et les issues GitHub
+- des liens vers le code source et Firefox Add-ons
 
 ## Structure
 
