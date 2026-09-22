@@ -153,7 +153,7 @@ h1,h2,h3,p{margin-top:0}
 .prompt{position:relative;min-height:112px;padding:13px 42px 13px 13px;border:1px solid rgba(255,255,255,.07);border-radius:13px;background:#151620}
 .prompt-label{display:block;margin-bottom:7px;color:#6e7080;text-transform:uppercase;letter-spacing:.12em;font-size:6px;font-weight:850}
 .prompt p{margin:0}.prompt-text{color:#e7e8ef;font-size:9px;font-weight:750}.prompt-url{margin-top:4px!important;color:#7d8090;font-size:7px}
-.prompt button{position:absolute;right:10px;bottom:10px;width:26px;height:26px;border:0;border-radius:8px;color:white;background:#796aff}
+.prompt .send-button{position:absolute;right:10px;bottom:10px;width:26px;height:26px;display:grid;place-items:center;border-radius:8px;color:white;background:#796aff}
 .answer{display:flex;gap:8px;margin-top:11px;padding:10px;border-radius:12px;background:rgba(124,108,255,.045);animation:answerPulse 4.8s ease-in-out infinite}
 .answer>div{flex:1;padding-top:2px}.answer i{display:block;height:5px;margin-bottom:5px;border-radius:99px;background:#2b2d39}.answer i.short{width:60%}
 .visual-caption{position:absolute;z-index:8;padding:7px 10px;border:1px solid rgba(255,255,255,.1);border-radius:999px;background:rgba(12,13,18,.8);color:#aeb0bd;font-size:8px;font-weight:760;backdrop-filter:blur(12px)}
