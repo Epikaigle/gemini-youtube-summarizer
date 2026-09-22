@@ -2,418 +2,225 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#07070b">
-  <meta name="description" content="Résumé YouTube par Gemini : l’extension Firefox qui ajoute un bouton Résumer sur YouTube, ouvre Gemini et envoie automatiquement la vidéo avec votre prompt personnalisé.">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0a0a0f">
+  <meta name="description" content="Résumé YouTube par Gemini ajoute un bouton Résumer directement dans YouTube, puis ouvre Gemini avec la vidéo et votre prompt personnalisé.">
   <meta property="og:title" content="Résumé YouTube par Gemini">
   <meta property="og:description" content="Un clic sur YouTube. Gemini s’ouvre. Votre résumé démarre.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://epikaigle.github.io/resume-youtube-gemini/">
-  <meta name="twitter:card" content="summary">
-  <title>Résumé YouTube par Gemini — Résumez YouTube en un clic</title>
+  <title>Résumé YouTube par Gemini — Extension Firefox</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="landing">
-  <div class="scroll-progress" aria-hidden="true"><span></span></div>
-  <div class="cursor-glow" aria-hidden="true"></div>
-  <a class="skip-link" href="#main">Aller au contenu</a>
+<body>
+  <div class="progress" aria-hidden="true"><span></span></div>
 
-  <header class="site-header" id="top">
-    <div class="container nav-wrap">
-      <a class="brand" href="#top" aria-label="Résumé YouTube par Gemini — accueil">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 42 42">
-            <defs>
-              <linearGradient id="logoGradient" x1="4" y1="4" x2="38" y2="38">
-                <stop stop-color="#a47cff"/>
-                <stop offset=".52" stop-color="#685cff"/>
-                <stop offset="1" stop-color="#40c9ff"/>
-              </linearGradient>
-            </defs>
-            <rect x="3" y="3" width="36" height="36" rx="12" fill="url(#logoGradient)"/>
-            <path d="m17 13.7 12.5 7.3L17 28.3V13.7Z" fill="#fff"/>
-            <path d="M33.6 3.8c.45 2.16 1.62 3.33 3.78 3.78-2.16.45-3.33 1.62-3.78 3.78-.45-2.16-1.62-3.33-3.78-3.78 2.16-.45 3.33-1.62 3.78-3.78Z" fill="#fff"/>
-          </svg>
-        </span>
-        <span class="brand-copy">Résumé YouTube <b>par Gemini</b></span>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Accueil">
+        <span class="brand-icon">✦</span>
+        <span>Résumé YouTube <b>par Gemini</b></span>
       </a>
 
-      <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="nav-links">
         <span></span><span></span><span></span>
         <span class="sr-only">Ouvrir le menu</span>
       </button>
 
-      <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
-        <a href="#demo">Démo</a>
-        <a href="#fonctionnalites">Fonctionnalités</a>
-        <a href="#confidentialite">Confidentialité</a>
+      <nav class="nav-links" id="nav-links">
+        <a href="#comment">Comment ça marche</a>
+        <a href="#avantages">Pourquoi</a>
+        <a href="privacy.html">Confidentialité</a>
         <a href="https://github.com/Epikaigle/resume-youtube-gemini" target="_blank" rel="noreferrer">GitHub</a>
-        <a class="nav-install" href="https://addons.mozilla.org/fr/firefox/addon/gemini-youtube-summarizer/" target="_blank" rel="noreferrer">
-          Ajouter à Firefox
-          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2v10.1l3.45-3.45 1.4 1.4L10 14.9l-4.85-4.85 1.4-1.4L9 12.1V2h1Zm-6 14h12v2H4v-2Z"/></svg>
-        </a>
+        <a class="nav-install" href="https://addons.mozilla.org/fr/firefox/addon/gemini-youtube-summarizer/" target="_blank" rel="noreferrer">Ajouter à Firefox ↗</a>
       </nav>
     </div>
   </header>
 
-  <main id="main">
-    <section class="hero" id="demo">
-      <div class="hero-noise" aria-hidden="true"></div>
-      <div class="orb orb-a" aria-hidden="true"></div>
-      <div class="orb orb-b" aria-hidden="true"></div>
-      <div class="orb orb-c" aria-hidden="true"></div>
+  <main id="top">
+    <section class="hero">
+      <div class="hero-light hero-light-a" aria-hidden="true"></div>
+      <div class="hero-light hero-light-b" aria-hidden="true"></div>
 
-      <div class="container hero-inner">
+      <div class="container hero-grid">
         <div class="hero-copy reveal">
-          <a class="official-pill" href="https://addons.mozilla.org/fr/firefox/addon/gemini-youtube-summarizer/" target="_blank" rel="noreferrer">
-            <span class="official-dot"></span>
-            Disponible sur Firefox Add-ons
-            <span class="official-arrow">↗</span>
+          <a class="amo-pill" href="https://addons.mozilla.org/fr/firefox/addon/gemini-youtube-summarizer/" target="_blank" rel="noreferrer">
+            <span></span> Disponible sur Firefox Add-ons ↗
           </a>
 
-          <h1>Regardez moins.<br><span>Comprenez plus.</span></h1>
-          <p class="hero-lead">Un bouton <strong>Résumer</strong> directement dans YouTube. Un clic, Gemini s’ouvre avec la vidéo et votre consigne, puis lance la demande.</p>
+          <h1>Une vidéo YouTube.<br><em>Un clic.</em> Un résumé.</h1>
+          <p class="hero-text">L’extension ajoute un bouton <strong>Résumer</strong> directement dans YouTube. Au clic, elle ouvre Gemini avec la vidéo choisie et votre propre consigne.</p>
 
           <div class="hero-actions">
-            <a class="button button-firefox" href="https://addons.mozilla.org/fr/firefox/addon/gemini-youtube-summarizer/" target="_blank" rel="noreferrer">
-              <span class="browser-glyph" aria-hidden="true">✦</span>
+            <a class="button button-primary" href="https://addons.mozilla.org/fr/firefox/addon/gemini-youtube-summarizer/" target="_blank" rel="noreferrer">
+              <span class="firefox-mark">✦</span>
               Ajouter à Firefox
-              <span class="button-arrow">↗</span>
+              <span>↗</span>
             </a>
-            <a class="button button-quiet" href="#fonctionnement">
-              Voir comment ça marche
-              <span>↓</span>
-            </a>
+            <a class="button button-secondary" href="#comment">Voir la démo ↓</a>
           </div>
 
-          <div class="hero-proof" aria-label="Informations principales">
-            <span><i></i> Firefox desktop</span>
-            <span><i></i> Firefox Android</span>
-            <span><i></i> Open source</span>
-            <span><i></i> Sans tracking</span>
+          <div class="proof">
+            <span>✓ Firefox desktop</span>
+            <span>✓ Firefox Android</span>
+            <span>✓ Open source</span>
+            <span>✓ Sans tracking développeur</span>
           </div>
         </div>
 
-        <div class="product-stage reveal" data-tilt>
-          <div class="stage-aura" aria-hidden="true"></div>
-          <div class="stage-grid" aria-hidden="true"></div>
+        <div class="hero-visual reveal" aria-label="Aperçu de Résumé YouTube par Gemini">
+          <div class="extension-orb">
+            <img src="https://raw.githubusercontent.com/Epikaigle/resume-youtube-gemini/main/icons/icon-96.png" alt="Icône de l’extension Résumé YouTube par Gemini">
+          </div>
 
-          <div class="browser-window youtube-window">
-            <div class="window-bar">
-              <div class="traffic"><i></i><i></i><i></i></div>
-              <div class="address"><span>⌁</span> youtube.com/watch?v=...</div>
-              <div class="window-more">•••</div>
+          <div class="browser browser-youtube">
+            <div class="browser-bar">
+              <span class="traffic"><i></i><i></i><i></i></span>
+              <span class="address">youtube.com/watch?v=...</span>
             </div>
-            <div class="yt-page">
-              <div class="yt-video">
-                <div class="yt-video-glow"></div>
-                <div class="yt-play">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6.7 8.5 5.3L9 17.3V6.7Z"/></svg>
+            <div class="youtube-screen">
+              <div class="video-preview">
+                <div class="youtube-brand">
+                  <svg viewBox="0 0 28 20" aria-hidden="true"><path fill="#ff0033" d="M27.4 3.1A3.5 3.5 0 0 0 25 0.7C22.8 0 14 0 14 0S5.2 0 3 .7A3.5 3.5 0 0 0 .6 3.1 36.4 36.4 0 0 0 0 10a36.4 36.4 0 0 0 .6 6.9A3.5 3.5 0 0 0 3 19.3c2.2.7 11 .7 11 .7s8.8 0 11-.7a3.5 3.5 0 0 0 2.4-2.4A36.4 36.4 0 0 0 28 10a36.4 36.4 0 0 0-.6-6.9Z"/><path fill="#fff" d="m11.2 14.3 7.3-4.3-7.3-4.3v8.6Z"/></svg>
+                  <span>YouTube</span>
                 </div>
-                <div class="yt-timeline"><span></span></div>
+                <div class="fake-play">▶</div>
+                <div class="video-progress"><i></i></div>
               </div>
-              <div class="yt-title-line"></div>
-              <div class="yt-subline"></div>
-              <div class="yt-actions">
-                <span class="yt-chip ghost-chip">👍 J’aime</span>
-                <span class="yt-chip ghost-chip">↗ Partager</span>
-                <span class="yt-chip summarize-chip">
-                  <span class="spark-mini">✦</span>
-                  Résumer
-                  <span class="click-ring"></span>
-                </span>
+              <div class="fake-title"></div>
+              <div class="fake-subtitle"></div>
+              <div class="youtube-actions">
+                <span>👍 J’aime</span>
+                <span>↗ Partager</span>
+                <strong class="resume-button"><b>✦</b> Résumer <i></i></strong>
               </div>
             </div>
           </div>
 
-          <div class="transfer-path" aria-hidden="true">
-            <span class="path-line"></span>
-            <span class="flying-link">youtube.com/watch?v=…</span>
+          <div class="flow-arrow" aria-hidden="true">
+            <span class="flow-dot"></span>
+            <svg viewBox="0 0 180 80"><path d="M5 40 C60 0,120 80,175 40" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="5 8"/><path d="m166 31 10 9-10 9" fill="none" stroke="currentColor" stroke-width="2"/></svg>
           </div>
 
-          <div class="browser-window gemini-window">
-            <div class="gemini-top">
-              <div class="gemini-logo">✦</div>
-              <div>
-                <strong>Gemini</strong>
-                <small>Nouveau chat</small>
-              </div>
-              <span class="ready-dot">Prêt</span>
+          <div class="browser browser-gemini">
+            <div class="gemini-head">
+              <span class="gemini-star">✦</span>
+              <div><strong>Gemini</strong><small>Nouveau chat</small></div>
+              <i>Prêt</i>
             </div>
-            <div class="gemini-body">
-              <div class="prompt-card">
-                <span class="prompt-label">Votre prompt</span>
-                <p class="typed-prompt" data-prompts='["Résume-moi la vidéo :", "Donne-moi les idées clés :", "Fais-moi un plan détaillé :"]'>Résume-moi la vidéo :</p>
-                <p class="prompt-url">https://www.youtube.com/watch?v=VIDEO_ID</p>
-                <span class="send-orb">↑</span>
+            <div class="gemini-screen">
+              <div class="prompt">
+                <span class="prompt-label">Votre demande</span>
+                <p class="prompt-text">Résume-moi la vidéo :</p>
+                <p class="prompt-url">youtube.com/watch?v=VIDEO_ID</p>
+                <button type="button" aria-label="Illustration du bouton envoyer">↑</button>
               </div>
-              <div class="summary-preview">
-                <span class="summary-spark">✦</span>
-                <div>
-                  <span></span>
-                  <span></span>
-                  <span class="short"></span>
-                </div>
+              <div class="answer">
+                <span class="gemini-star small">✦</span>
+                <div><i></i><i></i><i class="short"></i></div>
               </div>
             </div>
           </div>
 
-          <div class="stage-badge badge-click"><span>01</span> Cliquez</div>
-          <div class="stage-badge badge-send"><span>02</span> Gemini travaille</div>
-        </div>
-      </div>
-
-      <div class="hero-marquee" aria-hidden="true">
-        <div class="marquee-track">
-          <span>UN CLIC</span><b>✦</b><span>YOUTUBE</span><b>✦</b><span>GEMINI</span><b>✦</b><span>PROMPT PERSONNALISÉ</span><b>✦</b><span>FIREFOX</span><b>✦</b><span>OPEN SOURCE</span><b>✦</b>
-          <span>UN CLIC</span><b>✦</b><span>YOUTUBE</span><b>✦</b><span>GEMINI</span><b>✦</b><span>PROMPT PERSONNALISÉ</span><b>✦</b><span>FIREFOX</span><b>✦</b><span>OPEN SOURCE</span><b>✦</b>
+          <span class="visual-caption caption-one">1. Cliquez sur Résumer</span>
+          <span class="visual-caption caption-two">2. Gemini reçoit la vidéo</span>
         </div>
       </div>
     </section>
 
-    <section class="section story" id="fonctionnement">
+    <section class="how" id="comment">
       <div class="container">
-        <div class="section-intro reveal">
-          <span class="kicker">Le principe</span>
-          <h2>Votre raccourci entre<br>YouTube et Gemini.</h2>
-          <p>Pas de copier-coller, pas d’onglets à préparer, pas de prompt à retaper. L’extension automatise juste ce qui est répétitif.</p>
+        <div class="section-title reveal">
+          <span class="kicker">Simple par conception</span>
+          <h2>YouTube → Résumer → Gemini.</h2>
+          <p>C’est tout. L’extension automatise seulement les étapes répétitives.</p>
         </div>
 
-        <div class="journey">
-          <article class="journey-card reveal" data-step="01">
-            <div class="journey-visual youtube-mini">
-              <div class="mini-video"><span>▶</span></div>
-              <div class="mini-lines"><i></i><i></i></div>
-              <div class="mini-resume">✦ Résumer</div>
+        <div class="steps">
+          <article class="step reveal">
+            <span class="number">01</span>
+            <div class="step-icon youtube-mini">
+              <svg viewBox="0 0 28 20" aria-hidden="true"><path fill="#ff0033" d="M27.4 3.1A3.5 3.5 0 0 0 25 .7C22.8 0 14 0 14 0S5.2 0 3 .7A3.5 3.5 0 0 0 .6 3.1 36 36 0 0 0 0 10a36 36 0 0 0 .6 6.9A3.5 3.5 0 0 0 3 19.3c2.2.7 11 .7 11 .7s8.8 0 11-.7a3.5 3.5 0 0 0 2.4-2.4A36 36 0 0 0 28 10a36 36 0 0 0-.6-6.9Z"/><path fill="#fff" d="m11.2 14.3 7.3-4.3-7.3-4.3v8.6Z"/></svg>
             </div>
-            <div class="journey-copy">
-              <span class="step-label">01 — Sur YouTube</span>
-              <h3>Le bouton est déjà là où vous en avez besoin.</h3>
-              <p>Sur une vidéo en lecture ou dans les menus compatibles, cliquez simplement sur <strong>Résumer</strong>.</p>
-            </div>
+            <h3>Choisissez votre vidéo</h3>
+            <p>Le bouton <strong>Résumer</strong> est disponible sur la page de lecture et dans les menus YouTube compatibles.</p>
           </article>
 
-          <div class="journey-connector" aria-hidden="true"><span></span></div>
-
-          <article class="journey-card reveal" data-step="02">
-            <div class="journey-visual prompt-mini">
-              <span class="prompt-mini-label">Prompt</span>
-              <div class="prompt-mini-text" data-rotating-copy>Résume-moi la vidéo :</div>
-              <div class="prompt-mini-url">youtube.com/watch?v=…</div>
-              <div class="prompt-mini-send">↑</div>
-            </div>
-            <div class="journey-copy">
-              <span class="step-label">02 — Automatiquement</span>
-              <h3>Votre consigne et le lien voyagent ensemble.</h3>
-              <p>Le texte configuré dans les options est associé à l’URL exacte de la vidéo. Vous pouvez même laisser le texte vide.</p>
-            </div>
+          <article class="step reveal">
+            <span class="number">02</span>
+            <div class="step-icon click-mini">✦</div>
+            <h3>Cliquez sur Résumer</h3>
+            <p>L’extension associe automatiquement l’URL de la vidéo à votre consigne personnalisée.</p>
           </article>
 
-          <div class="journey-connector" aria-hidden="true"><span></span></div>
-
-          <article class="journey-card reveal" data-step="03">
-            <div class="journey-visual gemini-mini">
-              <div class="gemini-mini-head"><span>✦</span> Gemini</div>
-              <div class="gemini-answer-line"></div>
-              <div class="gemini-answer-line"></div>
-              <div class="gemini-answer-line short"></div>
-            </div>
-            <div class="journey-copy">
-              <span class="step-label">03 — Dans Gemini</span>
-              <h3>La demande est prête — et l’envoi est tenté pour vous.</h3>
-              <p>Gemini s’ouvre, le prompt est injecté, puis l’extension tente de lancer la demande automatiquement.</p>
-            </div>
+          <article class="step reveal">
+            <span class="number">03</span>
+            <div class="step-icon gemini-mini">✦</div>
+            <h3>Gemini prend le relais</h3>
+            <p>Gemini s’ouvre, le prompt est injecté et l’envoi de la demande est tenté automatiquement.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section bento-section" id="fonctionnalites">
-      <div class="container">
-        <div class="section-intro reveal">
-          <span class="kicker">Petit outil, vrai gain de temps</span>
-          <h2>Conçue pour disparaître<br>dans votre quotidien.</h2>
-        </div>
-
-        <div class="bento">
-          <article class="bento-card bento-large reveal interactive-card">
-            <div class="card-shine" aria-hidden="true"></div>
-            <span class="card-tag">1 clic</span>
-            <h3>De la vidéo au résumé,<br>sans casser votre rythme.</h3>
-            <p>L’action s’intègre directement dans YouTube. Vous restez concentré sur le contenu, pas sur la mécanique.</p>
-            <div class="one-click-art" aria-hidden="true">
-              <div class="one-click-ring ring-a"></div>
-              <div class="one-click-ring ring-b"></div>
-              <div class="one-click-core">✦</div>
-              <div class="one-click-label">Résumer</div>
-            </div>
-          </article>
-
-          <article class="bento-card prompt-card-feature reveal interactive-card">
-            <div class="card-shine" aria-hidden="true"></div>
-            <span class="card-tag">Personnalisable</span>
-            <h3>Votre prompt.<br>Vos règles.</h3>
-            <p>« Résume-moi », « Liste les idées clés », « Explique comme à un débutant »… vous choisissez.</p>
-            <div class="prompt-cycler">
-              <span class="prompt-cycler-prefix">✦</span>
-              <span class="prompt-cycler-text">Résume-moi la vidéo :</span>
-              <span class="prompt-caret"></span>
-            </div>
-          </article>
-
-          <article class="bento-card places-card reveal interactive-card">
-            <div class="card-shine" aria-hidden="true"></div>
-            <span class="card-tag">Partout sur YouTube</span>
-            <h3>Pas seulement sur la page de lecture.</h3>
-            <div class="surface-cloud" aria-label="Surfaces YouTube compatibles">
-              <span>Accueil</span>
-              <span>Abonnements</span>
-              <span>Lecture</span>
-              <span>Playlists</span>
-              <span>Chaînes</span>
-              <span>Vidéos</span>
-              <span>Lives</span>
-            </div>
-          </article>
-
-          <article class="bento-card privacy-bento reveal interactive-card" id="confidentialite">
-            <div class="card-shine" aria-hidden="true"></div>
-            <div class="privacy-orbit" aria-hidden="true">
-              <span class="privacy-core">
-                <svg viewBox="0 0 28 28"><path d="M14 2.4 23 5.9v6.7c0 5.5-3.6 10.1-9 12-5.4-1.9-9-6.5-9-12V5.9l9-3.5Zm0 3L7.8 7.8v4.8c0 4 2.5 7.5 6.2 9.1 3.7-1.6 6.2-5.1 6.2-9.1V7.8L14 5.4Z"/></svg>
-              </span>
-            </div>
-            <span class="card-tag">Vie privée</span>
-            <h3>Pas de serveur du développeur.<br>Pas de tracking.</h3>
-            <p>Le texte du prompt reste stocké localement. Lors de votre clic, l’URL de la vidéo et votre consigne sont envoyées à Gemini — pas au développeur.</p>
-            <a class="inline-link" href="privacy.html">Lire la politique <span>→</span></a>
-          </article>
-
-          <article class="bento-card open-card reveal interactive-card">
-            <div class="card-shine" aria-hidden="true"></div>
-            <span class="card-tag">Open source</span>
-            <div class="code-window" aria-hidden="true">
-              <span><b>const</b> action = <em>"Résumer"</em>;</span>
-              <span><b>open</b>(gemini, videoUrl);</span>
-              <span class="code-muted">// simple, visible, vérifiable</span>
-            </div>
-            <h3>Le code est public.</h3>
-            <a class="inline-link" href="https://github.com/Epikaigle/resume-youtube-gemini" target="_blank" rel="noreferrer">Voir sur GitHub <span>↗</span></a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section install-section">
-      <div class="container">
-        <div class="install-panel reveal">
-          <div class="install-aurora" aria-hidden="true"></div>
-          <div class="install-copy">
-            <span class="kicker kicker-light">Prêt en quelques secondes</span>
-            <h2>Ajoutez le bouton<br><span>Résumer</span> à YouTube.</h2>
-            <p>L’extension est publiée sur Mozilla Add-ons. Installez-la depuis Firefox, ouvrez YouTube, et c’est prêt.</p>
-
-            <div class="install-actions">
-              <a class="button button-white button-big" href="https://addons.mozilla.org/fr/firefox/addon/gemini-youtube-summarizer/" target="_blank" rel="noreferrer">
-                <span class="browser-glyph dark" aria-hidden="true">✦</span>
-                Ajouter à Firefox
-                <span>↗</span>
-              </a>
-              <a class="button button-glass" href="https://github.com/Epikaigle/resume-youtube-gemini" target="_blank" rel="noreferrer">Voir le code source</a>
-            </div>
-
-            <div class="install-note">
-              <span>✓ Firefox desktop</span>
-              <span>✓ Firefox Android</span>
-              <span>✓ Version 3.7</span>
-            </div>
+    <section class="benefits" id="avantages">
+      <div class="container benefits-grid">
+        <div class="benefit-main reveal">
+          <div class="benefit-copy">
+            <span class="kicker">Votre prompt, votre façon de travailler</span>
+            <h2>Demandez exactement ce dont vous avez besoin.</h2>
+            <p>« Résume-moi la vidéo », « donne-moi les idées clés », « explique comme à un débutant »… Le texte placé avant le lien YouTube est entièrement personnalisable.</p>
           </div>
 
-          <div class="install-art" aria-hidden="true">
-            <div class="extension-card ext-back">
-              <span class="ext-icon">✦</span>
-              <span></span><span></span>
-            </div>
-            <div class="extension-card ext-front">
-              <div class="ext-head">
-                <span class="ext-logo">✦</span>
-                <div><strong>Résumé YouTube</strong><small>par Gemini</small></div>
-              </div>
-              <div class="ext-toggle-row"><span>Bouton Résumer</span><i></i></div>
-              <div class="ext-prompt-row"><small>Prompt</small><span>Résume-moi la vidéo :</span></div>
-              <div class="ext-status"><i></i> Prêt sur YouTube</div>
-            </div>
-            <div class="install-spark spark-1">✦</div>
-            <div class="install-spark spark-2">✦</div>
-            <div class="install-spark spark-3">✦</div>
+          <div class="prompt-demo">
+            <span>Prompt personnalisé</span>
+            <div><b>✦</b><p id="rotating-prompt">Résume-moi la vidéo :</p><i></i></div>
+            <small>+ lien YouTube ajouté automatiquement</small>
           </div>
         </div>
-      </div>
-    </section>
 
-    <section class="section faq-section">
-      <div class="container faq-grid">
-        <div class="section-intro reveal">
-          <span class="kicker">Questions rapides</span>
-          <h2>Avant<br>d’installer.</h2>
-        </div>
-
-        <div class="faq-list reveal">
-          <details>
-            <summary>Est-ce que l’extension résume elle-même la vidéo ? <span>+</span></summary>
-            <p>Non. Elle simplifie le passage de YouTube vers Gemini : elle récupère l’URL de la vidéo choisie, prépare votre prompt, ouvre Gemini et tente d’envoyer la demande.</p>
-          </details>
-          <details>
-            <summary>Puis-je changer la consigne envoyée à Gemini ? <span>+</span></summary>
-            <p>Oui. Dans les options de l’extension, vous pouvez écrire votre propre texte jusqu’à 1 200 caractères, ou laisser le champ vide pour envoyer uniquement le lien.</p>
-          </details>
-          <details>
-            <summary>Est-ce disponible sur Android ? <span>+</span></summary>
-            <p>Oui, la fiche Mozilla Add-ons indique que l’extension est disponible sur Firefox pour Android.</p>
-          </details>
-          <details>
-            <summary>Mes données sont-elles envoyées au développeur ? <span>+</span></summary>
-            <p>Non. L’extension n’utilise pas de serveur de collecte du développeur. L’URL de la vidéo et votre texte sont transmis à Gemini lorsque vous déclenchez volontairement l’action.</p>
-          </details>
+        <div class="benefit-side reveal" id="confidentialite">
+          <span class="privacy-icon">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2.6 26 6.5v7.5c0 6.1-4 11.3-10 13.4C10 25.3 6 20.1 6 14V6.5l10-3.9Zm0 3.3L9 8.6V14c0 4.5 2.8 8.5 7 10.4 4.2-1.9 7-5.9 7-10.4V8.6l-7-2.7Z"/></svg>
+          </span>
+          <span class="kicker">Vie privée</span>
+          <h3>Pas de serveur de collecte du développeur.</h3>
+          <p>Votre prompt reste stocké localement. Lorsque vous cliquez sur <strong>Résumer</strong>, l’URL choisie et votre consigne sont envoyées à Gemini, pas au développeur.</p>
+          <a href="privacy.html">Lire la politique de confidentialité →</a>
         </div>
       </div>
     </section>
 
-    <section class="final-cta">
-      <div class="container final-cta-inner reveal">
-        <span class="final-spark" aria-hidden="true">✦</span>
-        <p>Une vidéo trop longue ?</p>
-        <h2>Résumez-la en un clic.</h2>
-        <a class="button button-firefox button-big" href="https://addons.mozilla.org/fr/firefox/addon/gemini-youtube-summarizer/" target="_blank" rel="noreferrer">
-          Ajouter à Firefox
-          <span>↗</span>
-        </a>
+    <section class="install">
+      <div class="container install-card reveal">
+        <div class="install-copy">
+          <img src="https://raw.githubusercontent.com/Epikaigle/resume-youtube-gemini/main/icons/icon-96.png" alt="" aria-hidden="true">
+          <div>
+            <span class="kicker light">Extension Firefox • v3.7</span>
+            <h2>Ajoutez Résumer à YouTube.</h2>
+            <p>Installez l’extension depuis Mozilla Add-ons, ouvrez YouTube et commencez.</p>
+          </div>
+        </div>
+
+        <div class="install-actions">
+          <a class="button button-white" href="https://addons.mozilla.org/fr/firefox/addon/gemini-youtube-summarizer/" target="_blank" rel="noreferrer">Ajouter à Firefox ↗</a>
+          <a class="code-link" href="https://github.com/Epikaigle/resume-youtube-gemini" target="_blank" rel="noreferrer">Voir le code source</a>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer>
     <div class="container footer-row">
-      <div class="footer-main">
-        <a class="brand" href="#top">
-          <span class="brand-mark" aria-hidden="true">
-            <svg viewBox="0 0 42 42"><rect x="3" y="3" width="36" height="36" rx="12" fill="#7565ff"/><path d="m17 13.7 12.5 7.3L17 28.3V13.7Z" fill="#fff"/></svg>
-          </span>
-          <span class="brand-copy">Résumé YouTube <b>par Gemini</b></span>
-        </a>
-        <p>Une extension Firefox open source pour aller plus vite de YouTube à Gemini.</p>
-      </div>
-      <div class="footer-links">
-        <a href="https://addons.mozilla.org/fr/firefox/addon/gemini-youtube-summarizer/" target="_blank" rel="noreferrer">Firefox Add-ons ↗</a>
+      <span>Résumé YouTube par Gemini</span>
+      <div>
         <a href="privacy.html">Confidentialité</a>
-        <a href="https://github.com/Epikaigle/resume-youtube-gemini" target="_blank" rel="noreferrer">GitHub ↗</a>
+        <a href="https://github.com/Epikaigle/resume-youtube-gemini" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://addons.mozilla.org/fr/firefox/addon/gemini-youtube-summarizer/" target="_blank" rel="noreferrer">Firefox Add-ons</a>
       </div>
     </div>
-    <div class="container footer-bottom">
-      <span>Version 3.7</span>
-      <span>Projet indépendant — non affilié à YouTube, Google ou Mozilla.</span>
-    </div>
+    <div class="container legal-line">Projet indépendant — non affilié à YouTube, Google ou Mozilla.</div>
   </footer>
 
   <script src="script.js"></script>
