@@ -20,7 +20,7 @@ Pages à tester :
 
 Vérifier aussi :
 - bouton `Résumer` visible à côté des actions vidéo
-- bouton séparé du bloc `J'aime / Je n'aime pas`
+- bouton séparé du bloc `J’aime / Je n’aime pas`
 - espacement cohérent avec `Partager`
 
 ## Gemini
@@ -28,17 +28,17 @@ Vérifier aussi :
 Vérifier :
 - ouverture de Gemini avec `?prompt=...`
 - prompt bien injecté
-- envoi automatique déclenché quand l'interface est prête
+- envoi automatique déclenché quand l’interface est prête
 
 ## Options
 
 Vérifier :
-- ouverture de la page d'options depuis les details de l'extension
-- sauvegarde d'un texte personnalise avant le lien
-- sauvegarde d'un champ vide pour envoyer uniquement le lien
-- aperçu du prompt mis a jour
-- message d'erreur visible si le stockage est indisponible
-- Gemini reçoit le texte personnalise suivi de l'URL YouTube
+- ouverture de la page d’options depuis les détails de l’extension
+- sauvegarde d’un texte personnalisé avant le lien
+- sauvegarde d’un champ vide pour envoyer uniquement le lien
+- aperçu du prompt mis à jour
+- message d’erreur visible si le stockage est indisponible
+- Gemini reçoit le texte personnalisé suivi de l’URL YouTube
 - réinitialisation vers `Résume-moi la vidéo :`
 
 ## Régressions visuelles
