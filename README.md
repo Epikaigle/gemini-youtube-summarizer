@@ -70,7 +70,12 @@ Archive de soumission :
 - générer une archive propre avec `npx --yes web-ext build --source-dir . --overwrite-dest --ignore-files README.md TESTING.md AMO_SUBMISSION.md AMO_REVIEW_NOTES.md PRIVACY_POLICY.md "docs/**"`
 - envoyer ensuite l’archive sur le portail développeur AMO
 
+## Licence
+
+Ce projet est publié sous **The Unlicense**. Voir `LICENSE`.
+
 ## Notes
+
 
 - Les fichiers `META-INF/` ne font pas partie des sources. Ils sont générés lors du packaging/signature.
 - Le dossier `docs/` contient uniquement le site de présentation et doit être exclu du package de l'extension.
