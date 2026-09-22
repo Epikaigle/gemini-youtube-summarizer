@@ -1,4 +1,4 @@
-# Resume YouTube par Gemini
+# Résumé YouTube par Gemini
 
 Extension Firefox minimaliste qui ajoute une action `Résumer` sur YouTube.
 
@@ -11,7 +11,7 @@ Extension Firefox minimaliste qui ajoute une action `Résumer` sur YouTube.
 Le flux est le suivant :
 - sur YouTube, `Résumer` apparaît dans les menus `3 points`
 - sur une page `watch`, un bouton `Résumer` apparaît aussi à côté des actions vidéo
-- le texte place avant le lien YouTube peut etre personnalise dans les options de l'extension
+- le texte placé avant le lien YouTube peut être personnalisé dans les options de l’extension
 - au clic, l'extension ouvre Gemini avec un prompt contenant ce texte et l'URL normalisée de la vidéo
 - sur Gemini, le prompt est injecté et l'envoi est tenté automatiquement
 
@@ -49,13 +49,13 @@ Le site contient :
 
 ## Options
 
-La page d'options permet de personnaliser le texte ajoute avant l'URL YouTube. Le champ peut rester vide pour envoyer uniquement le lien.
+La page d’options permet de personnaliser le texte ajouté avant l’URL YouTube. Le champ peut rester vide pour envoyer uniquement le lien.
 
-Valeur par defaut :
+Valeur par défaut :
 
 `Résume-moi la vidéo :`
 
-Exemple de prompt envoye a Gemini :
+Exemple de prompt envoyé à Gemini :
 
 `Résume-moi la vidéo : https://www.youtube.com/watch?v=VIDEO_ID`
 
@@ -67,12 +67,12 @@ Fichiers utiles pour la soumission Firefox Add-ons :
 - `AMO_REVIEW_NOTES.md`
 
 Archive de soumission :
-- generer une archive propre avec `npx --yes web-ext build --source-dir . --overwrite-dest --ignore-files README.md TESTING.md AMO_SUBMISSION.md AMO_REVIEW_NOTES.md PRIVACY_POLICY.md "docs/**"`
-- envoyer ensuite l'archive sur le portail developpeur AMO
+- générer une archive propre avec `npx --yes web-ext build --source-dir . --overwrite-dest --ignore-files README.md TESTING.md AMO_SUBMISSION.md AMO_REVIEW_NOTES.md PRIVACY_POLICY.md "docs/**"`
+- envoyer ensuite l’archive sur le portail développeur AMO
 
 ## Notes
 
-- Les fichiers `META-INF/` ne font pas partie du source. Ils sont générés lors du packaging/signature.
+- Les fichiers `META-INF/` ne font pas partie des sources. Ils sont générés lors du packaging/signature.
 - Le dossier `docs/` contient uniquement le site de présentation et doit être exclu du package de l'extension.
 - Pour une installation persistante, il faut reconstruire une archive `.xpi` propre puis la signer.
 - La connexion Google peut être bloquée dans un navigateur automatisé. Le test réel doit se faire dans Firefox normal.
@@ -87,4 +87,4 @@ Archive de soumission :
 - onglet `videos`
 - onglet `streams`
 
-Le comportement dépend du DOM de YouTube et de Gemini, donc des ajustements peuvent être nécessaires si leur interface change.
+Le comportement dépend du DOM de YouTube et de Gemini ; des ajustements peuvent donc être nécessaires si leurs interfaces changent.
