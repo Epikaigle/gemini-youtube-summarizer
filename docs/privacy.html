@@ -3,28 +3,45 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b0d12">
+  <meta name="theme-color" content="#07070b">
   <meta name="description" content="Politique de confidentialité de l’extension Firefox Résumé YouTube par Gemini.">
   <title>Politique de confidentialité — Résumé YouTube par Gemini</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header scrolled">
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+  <header class="site-header">
     <div class="container nav-wrap">
       <a class="brand" href="./" aria-label="Retour à l’accueil">
         <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 32 32"><path d="M7 7.75A3.75 3.75 0 0 1 10.75 4h10.5A3.75 3.75 0 0 1 25 7.75v16.5A3.75 3.75 0 0 1 21.25 28h-10.5A3.75 3.75 0 0 1 7 24.25V7.75Z"/><path class="brand-mark-play" d="m13.25 11.8 7.15 4.2-7.15 4.2v-8.4Z"/></svg>
+          <svg viewBox="0 0 42 42">
+            <defs>
+              <linearGradient id="privacyLogoGradient" x1="4" y1="4" x2="38" y2="38">
+                <stop stop-color="#a47cff"/>
+                <stop offset=".52" stop-color="#685cff"/>
+                <stop offset="1" stop-color="#40c9ff"/>
+              </linearGradient>
+            </defs>
+            <rect x="3" y="3" width="36" height="36" rx="12" fill="url(#privacyLogoGradient)"/>
+            <path d="m17 13.7 12.5 7.3L17 28.3V13.7Z" fill="#fff"/>
+          </svg>
         </span>
-        <span>Résumé YouTube <strong>par Gemini</strong></span>
+        <span class="brand-copy">Résumé YouTube <b>par Gemini</b></span>
       </a>
+
       <button class="menu-button" type="button" aria-expanded="false" aria-controls="legal-nav">
         <span></span><span></span><span></span>
         <span class="sr-only">Ouvrir le menu</span>
       </button>
+
       <nav class="main-nav" id="legal-nav" aria-label="Navigation">
         <a href="./">Accueil</a>
         <a href="https://github.com/Epikaigle/resume-youtube-gemini" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="nav-install" href="https://addons.mozilla.org/fr/firefox/addon/gemini-youtube-summarizer/" target="_blank" rel="noreferrer">
+          Ajouter à Firefox
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2v10.1l3.45-3.45 1.4 1.4L10 14.9l-4.85-4.85 1.4-1.4L9 12.1V2h1Zm-6 14h12v2H4v-2Z"/></svg>
+        </a>
       </nav>
     </div>
   </header>
@@ -74,7 +91,7 @@
 
       <section>
         <h2>Services tiers</h2>
-        <p>Gemini est un service fourni par Google. Son utilisation est soumise aux conditions d’utilisation et à la politique de confidentialité de Google.</p>
+        <p>Gemini est un service fourni par Google. L’utilisation de Gemini est soumise aux conditions et à la politique de confidentialité de Google.</p>
       </section>
 
       <section>
@@ -91,11 +108,23 @@
 
   <footer class="site-footer">
     <div class="container footer-row">
-      <p>Résumé YouTube par Gemini • Version 3.7</p>
+      <div class="footer-main">
+        <a class="brand" href="./">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 42 42"><rect x="3" y="3" width="36" height="36" rx="12" fill="#7565ff"/><path d="m17 13.7 12.5 7.3L17 28.3V13.7Z" fill="#fff"/></svg>
+          </span>
+          <span class="brand-copy">Résumé YouTube <b>par Gemini</b></span>
+        </a>
+      </div>
       <div class="footer-links">
         <a href="./">Accueil</a>
-        <a href="https://github.com/Epikaigle/resume-youtube-gemini" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://addons.mozilla.org/fr/firefox/addon/gemini-youtube-summarizer/" target="_blank" rel="noreferrer">Firefox Add-ons ↗</a>
+        <a href="https://github.com/Epikaigle/resume-youtube-gemini" target="_blank" rel="noreferrer">GitHub ↗</a>
       </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>Version 3.7</span>
+      <span>Projet indépendant — non affilié à YouTube, Google ou Mozilla.</span>
     </div>
   </footer>
 
