@@ -10,7 +10,7 @@ AMO accepte les archives `.zip` pour la soumission.
 
 Commande de generation :
 
-`npx --yes web-ext build --source-dir . --overwrite-dest --ignore-files README.md TESTING.md AMO_SUBMISSION.md AMO_REVIEW_NOTES.md PRIVACY_POLICY.md docs`
+`npx --yes web-ext build --source-dir . --overwrite-dest --ignore-files README.md TESTING.md AMO_SUBMISSION.md AMO_REVIEW_NOTES.md PRIVACY_POLICY.md "docs/**"`
 
 Le dossier `docs/` contient le site GitHub Pages et ne doit pas etre inclus dans l'archive de l'extension.
 
