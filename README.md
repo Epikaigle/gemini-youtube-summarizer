@@ -9,6 +9,21 @@ Le flux est le suivant :
 - au clic, l'extension ouvre Gemini avec un prompt contenant ce texte et l'URL normalisée de la vidéo
 - sur Gemini, le prompt est injecté et l'envoi est tenté automatiquement
 
+## Site web
+
+Le site de présentation de l'extension est versionné dans le même dépôt, dans le dossier `docs/`.
+
+Une fois GitHub Pages configuré sur la branche `main` avec le dossier `/docs`, le site est disponible à l'adresse :
+
+`https://epikaigle.github.io/resume-youtube-gemini/`
+
+Le site contient :
+- une landing page responsive
+- une présentation du fonctionnement de l'extension
+- les instructions d'installation manuelle
+- une page de politique de confidentialité
+- des liens vers la documentation, le code source et les issues GitHub
+
 ## Structure
 
 - `manifest.json` : configuration de l'extension
@@ -16,6 +31,7 @@ Le flux est le suivant :
 - `gemini_auto_submit.js` : logique Gemini, remplissage et soumission du prompt
 - `options.html`, `options.css`, `options.js` : page d'options pour personnaliser le texte avant le lien
 - `icons/` : icônes de l'extension
+- `docs/` : site GitHub Pages de présentation de l'extension
 
 ## Installation locale dans Firefox
 
@@ -44,12 +60,13 @@ Fichiers utiles pour la soumission Firefox Add-ons :
 - `AMO_REVIEW_NOTES.md`
 
 Archive de soumission :
-- generer une archive propre avec `npx --yes web-ext build --source-dir . --overwrite-dest --ignore-files README.md TESTING.md AMO_SUBMISSION.md AMO_REVIEW_NOTES.md PRIVACY_POLICY.md`
+- generer une archive propre avec `npx --yes web-ext build --source-dir . --overwrite-dest --ignore-files README.md TESTING.md AMO_SUBMISSION.md AMO_REVIEW_NOTES.md PRIVACY_POLICY.md docs`
 - envoyer ensuite l'archive sur le portail developpeur AMO
 
 ## Notes
 
 - Les fichiers `META-INF/` ne font pas partie du source. Ils sont générés lors du packaging/signature.
+- Le dossier `docs/` contient uniquement le site de présentation et doit être exclu du package de l'extension.
 - Pour une installation persistante, il faut reconstruire une archive `.xpi` propre puis la signer.
 - La connexion Google peut être bloquée dans un navigateur automatisé. Le test réel doit se faire dans Firefox normal.
 
