@@ -2,129 +2,101 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#07070b">
-  <meta name="description" content="Politique de confidentialité de l’extension Firefox Résumé YouTube par Gemini.">
-  <title>Politique de confidentialité — Résumé YouTube par Gemini</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0a0a0f">
+  <meta name="description" content="Politique de confidentialité de l’extension Résumé YouTube par Gemini.">
+  <title>Confidentialité — Résumé YouTube par Gemini</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="scroll-progress" aria-hidden="true"><span></span></div>
-  <header class="site-header">
-    <div class="container nav-wrap">
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <header class="site-header scrolled">
+    <div class="container nav">
       <a class="brand" href="./" aria-label="Retour à l’accueil">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 42 42">
-            <defs>
-              <linearGradient id="privacyLogoGradient" x1="4" y1="4" x2="38" y2="38">
-                <stop stop-color="#a47cff"/>
-                <stop offset=".52" stop-color="#685cff"/>
-                <stop offset="1" stop-color="#40c9ff"/>
-              </linearGradient>
-            </defs>
-            <rect x="3" y="3" width="36" height="36" rx="12" fill="url(#privacyLogoGradient)"/>
-            <path d="m17 13.7 12.5 7.3L17 28.3V13.7Z" fill="#fff"/>
-          </svg>
-        </span>
-        <span class="brand-copy">Résumé YouTube <b>par Gemini</b></span>
+        <span class="brand-icon">✦</span>
+        <span>Résumé YouTube <b>par Gemini</b></span>
       </a>
 
-      <button class="menu-button" type="button" aria-expanded="false" aria-controls="legal-nav">
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="nav-links">
         <span></span><span></span><span></span>
         <span class="sr-only">Ouvrir le menu</span>
       </button>
 
-      <nav class="main-nav" id="legal-nav" aria-label="Navigation">
+      <nav class="nav-links" id="nav-links">
         <a href="./">Accueil</a>
         <a href="https://github.com/Epikaigle/resume-youtube-gemini" target="_blank" rel="noreferrer">GitHub</a>
-        <a class="nav-install" href="https://addons.mozilla.org/fr/firefox/addon/gemini-youtube-summarizer/" target="_blank" rel="noreferrer">
-          Ajouter à Firefox
-          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2v10.1l3.45-3.45 1.4 1.4L10 14.9l-4.85-4.85 1.4-1.4L9 12.1V2h1Zm-6 14h12v2H4v-2Z"/></svg>
-        </a>
+        <a class="nav-install" href="https://addons.mozilla.org/fr/firefox/addon/gemini-youtube-summarizer/" target="_blank" rel="noreferrer">Ajouter à Firefox ↗</a>
       </nav>
     </div>
   </header>
 
-  <main class="legal-main">
-    <section class="legal-hero">
-      <div class="container">
+  <main class="privacy-page">
+    <section class="privacy-hero">
+      <div class="container narrow">
         <span class="kicker">Transparence</span>
         <h1>Politique de confidentialité</h1>
-        <p>Résumé YouTube par Gemini ne collecte aucune donnée pour le compte du développeur.</p>
+        <p>L’extension ne collecte aucune donnée pour le compte du développeur.</p>
       </div>
     </section>
 
-    <article class="container legal-content">
-      <p class="legal-note"><strong>En bref :</strong> rien n’est envoyé sans action explicite sur le bouton « Résumer ». L’extension ne possède aucun serveur de collecte, aucun système de télémétrie et aucun compte utilisateur.</p>
+    <article class="container narrow privacy-content">
+      <div class="privacy-summary">
+        <strong>En bref</strong>
+        <p>Rien n’est envoyé sans votre clic sur <b>Résumer</b>. L’extension ne possède aucun serveur de collecte, aucun système de télémétrie et aucun compte utilisateur.</p>
+      </div>
 
       <section>
         <h2>Fonctionnement</h2>
-        <p>L’extension agit uniquement lorsque vous cliquez volontairement sur <strong>Résumer</strong> dans YouTube.</p>
-        <p>À ce moment, elle récupère l’URL de la vidéo sélectionnée, lit le texte personnalisé enregistré localement dans Firefox, ouvre <code>https://gemini.google.com/</code> avec un prompt contenant ces informations, puis tente de remplir et d’envoyer ce prompt dans l’interface Gemini.</p>
+        <p>Lorsque vous cliquez sur <strong>Résumer</strong> dans YouTube, l’extension récupère l’URL de la vidéo sélectionnée, lit votre texte personnalisé enregistré localement dans Firefox, puis ouvre Gemini avec un prompt contenant ces informations.</p>
       </section>
 
       <section>
-        <h2>Données transmises à un tiers</h2>
+        <h2>Données transmises à Gemini</h2>
         <ul>
-          <li>L’URL de la vidéo YouTube que vous avez choisi de résumer.</li>
-          <li>Le texte personnalisé configuré dans les options de l’extension, le cas échéant.</li>
+          <li>l’URL de la vidéo YouTube que vous avez choisi de résumer ;</li>
+          <li>le texte personnalisé configuré dans les options de l’extension, le cas échéant.</li>
         </ul>
-        <p>Ces informations sont destinées à Gemini, un service de Google, afin de réaliser la demande que vous avez déclenchée.</p>
+        <p>Ces informations sont envoyées à Gemini uniquement pour exécuter l’action demandée par l’utilisateur.</p>
       </section>
 
       <section>
-        <h2>Données non collectées par le développeur</h2>
+        <h2>Ce que le développeur ne collecte pas</h2>
         <ul>
-          <li>Aucun compte utilisateur.</li>
-          <li>Aucun historique stocké par l’extension.</li>
-          <li>Aucune statistique, télémétrie ou technologie de suivi.</li>
-          <li>Aucun cookie ajouté par l’extension.</li>
-          <li>Aucun contenu envoyé à un serveur du développeur.</li>
+          <li>aucun compte utilisateur ;</li>
+          <li>aucun historique ;</li>
+          <li>aucune statistique ou télémétrie ;</li>
+          <li>aucun cookie ajouté par l’extension ;</li>
+          <li>aucun contenu envoyé à un serveur du développeur.</li>
         </ul>
       </section>
 
       <section>
         <h2>Stockage local</h2>
-        <p>L’extension stocke uniquement le texte personnalisé du prompt dans le stockage local de Firefox. Ce texte reste dans votre navigateur et n’est pas envoyé au développeur.</p>
+        <p>Le texte personnalisé du prompt est stocké uniquement dans le stockage local de Firefox. Il reste dans votre navigateur jusqu’au moment où vous déclenchez volontairement une demande vers Gemini.</p>
       </section>
 
       <section>
-        <h2>Services tiers</h2>
-        <p>Gemini est un service fourni par Google. L’utilisation de Gemini est soumise aux conditions et à la politique de confidentialité de Google.</p>
-      </section>
-
-      <section>
-        <h2>Contrôle utilisateur</h2>
-        <p>Rien n’est envoyé sans votre action explicite sur le bouton <strong>Résumer</strong>. Vous pouvez désinstaller l’extension à tout moment depuis Firefox.</p>
+        <h2>Service tiers</h2>
+        <p>Gemini est un service fourni par Google. Son utilisation reste soumise aux conditions et à la politique de confidentialité de Google.</p>
       </section>
 
       <section>
         <h2>Code source</h2>
-        <p>Le code de l’extension est public et peut être consulté sur <a class="text-link" href="https://github.com/Epikaigle/resume-youtube-gemini" target="_blank" rel="noreferrer">GitHub ↗</a>.</p>
+        <p>Le code de l’extension est public et peut être vérifié sur <a href="https://github.com/Epikaigle/resume-youtube-gemini" target="_blank" rel="noreferrer">GitHub ↗</a>.</p>
       </section>
     </article>
   </main>
 
-  <footer class="site-footer">
+  <footer>
     <div class="container footer-row">
-      <div class="footer-main">
-        <a class="brand" href="./">
-          <span class="brand-mark" aria-hidden="true">
-            <svg viewBox="0 0 42 42"><rect x="3" y="3" width="36" height="36" rx="12" fill="#7565ff"/><path d="m17 13.7 12.5 7.3L17 28.3V13.7Z" fill="#fff"/></svg>
-          </span>
-          <span class="brand-copy">Résumé YouTube <b>par Gemini</b></span>
-        </a>
-      </div>
-      <div class="footer-links">
+      <span>Résumé YouTube par Gemini</span>
+      <div>
         <a href="./">Accueil</a>
-        <a href="https://addons.mozilla.org/fr/firefox/addon/gemini-youtube-summarizer/" target="_blank" rel="noreferrer">Firefox Add-ons ↗</a>
-        <a href="https://github.com/Epikaigle/resume-youtube-gemini" target="_blank" rel="noreferrer">GitHub ↗</a>
+        <a href="https://github.com/Epikaigle/resume-youtube-gemini" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://addons.mozilla.org/fr/firefox/addon/gemini-youtube-summarizer/" target="_blank" rel="noreferrer">Firefox Add-ons</a>
       </div>
-    </div>
-    <div class="container footer-bottom">
-      <span>Version 3.7</span>
-      <span>Projet indépendant — non affilié à YouTube, Google ou Mozilla.</span>
     </div>
   </footer>
 
