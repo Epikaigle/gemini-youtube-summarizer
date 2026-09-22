@@ -9,16 +9,40 @@
   <meta property="og:description" content="Un clic sur YouTube. Gemini s’ouvre. Votre résumé démarre.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://epikaigle.github.io/resume-youtube-gemini/">
+  <meta property="og:image" content="https://epikaigle.github.io/resume-youtube-gemini/assets/social-preview.svg">
+  <meta property="og:image:alt" content="Résumé YouTube par Gemini — de YouTube à Gemini en un clic">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Résumé YouTube par Gemini">
+  <meta name="twitter:description" content="Un clic sur YouTube. Gemini s’ouvre avec le lien et votre consigne.">
+  <meta name="twitter:image" content="https://epikaigle.github.io/resume-youtube-gemini/assets/social-preview.svg">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://epikaigle.github.io/resume-youtube-gemini/">
   <title>Résumé YouTube par Gemini — Extension Firefox</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">\n  <link rel="preconnect" href="https://raw.githubusercontent.com">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="site.webmanifest">
   <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Résumé YouTube par Gemini",
+    "applicationCategory": "BrowserApplication",
+    "operatingSystem": "Firefox",
+    "description": "Extension Firefox qui ajoute un bouton Résumer sur YouTube et ouvre Gemini avec le lien de la vidéo et un prompt personnalisable.",
+    "url": "https://epikaigle.github.io/resume-youtube-gemini/",
+    "downloadUrl": "https://addons.mozilla.org/fr/firefox/addon/gemini-youtube-summarizer/",
+    "isAccessibleForFree": true,
+    "codeRepository": "https://github.com/Epikaigle/resume-youtube-gemini"
+  }
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
   <div class="progress" aria-hidden="true"><span></span></div>
 
   <header class="site-header">
     <div class="container nav">
-      <a class="brand" href="#top" aria-label="Accueil">
+      <a class="brand" href="#main" aria-label="Accueil">
         <span class="brand-icon">✦</span>
         <span>Résumé YouTube <b>par Gemini</b></span>
       </a>
@@ -38,7 +62,7 @@
     </div>
   </header>
 
-  <main id="top">
+  <main id="main">
     <section class="hero">
       <div class="hero-light hero-light-a" aria-hidden="true"></div>
       <div class="hero-light hero-light-b" aria-hidden="true"></div>
@@ -50,7 +74,7 @@
           </a>
 
           <h1>Une vidéo YouTube.<br><em>Un clic.</em> Un résumé.</h1>
-          <p class="hero-text">L’extension ajoute un bouton <strong>Résumer</strong> directement dans YouTube. Au clic, elle ouvre Gemini avec la vidéo choisie et votre propre consigne.</p>
+          <p class="hero-text">L’extension ajoute un bouton <strong>Résumer</strong> directement dans YouTube. Au clic, elle ouvre Gemini avec le lien de la vidéo choisie et votre propre consigne.</p>
 
           <div class="hero-actions">
             <a class="button button-primary" href="https://addons.mozilla.org/fr/firefox/addon/gemini-youtube-summarizer/" target="_blank" rel="noreferrer">
@@ -69,9 +93,9 @@
           </div>
         </div>
 
-        <div class="hero-visual reveal" aria-label="Aperçu de Résumé YouTube par Gemini">
+        <div class="hero-visual reveal" role="img" aria-label="Aperçu illustré : sur YouTube, un clic sur Résumer transmet le lien de la vidéo et votre consigne à Gemini.">
           <div class="extension-orb">
-            <img src="https://raw.githubusercontent.com/Epikaigle/resume-youtube-gemini/main/icons/icon-96.png" width="96" height="96" decoding="async" alt="Icône de l’extension Résumé YouTube par Gemini">
+            <img src="assets/extension-icon.png" width="96" height="96" decoding="async" alt="" aria-hidden="true">
           </div>
 
           <div class="browser browser-youtube">
@@ -124,7 +148,7 @@
           </div>
 
           <span class="visual-caption caption-one">1. Cliquez sur Résumer</span>
-          <span class="visual-caption caption-two">2. Gemini reçoit la vidéo</span>
+          <span class="visual-caption caption-two">2. Gemini reçoit le lien + votre consigne</span>
         </div>
       </div>
     </section>
@@ -195,9 +219,9 @@
     <section class="install">
       <div class="container install-card reveal">
         <div class="install-copy">
-          <img src="https://raw.githubusercontent.com/Epikaigle/resume-youtube-gemini/main/icons/icon-96.png" width="96" height="96" loading="lazy" decoding="async" alt="" aria-hidden="true">
+          <img src="assets/extension-icon.png" width="96" height="96" loading="lazy" decoding="async" alt="" aria-hidden="true">
           <div>
-            <span class="kicker light">Extension Firefox • v3.7</span>
+            <span class="kicker light">Extension Firefox</span>
             <h2>Ajoutez Résumer à YouTube.</h2>
             <p>Installez l’extension depuis Mozilla Add-ons, ouvrez YouTube et commencez.</p>
           </div>
