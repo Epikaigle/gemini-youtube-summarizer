@@ -47,8 +47,16 @@
     <div class="container nav">
       <a class="brand" href="./" aria-label="Retour à l’accueil">
         <img class="brand-icon" src="assets/extension-icon.png?v=20260923" width="34" height="34" alt="" aria-hidden="true">
-        <span>Résumé YouTube <b>par Gemini</b></span>
+        <span class="brand-text">Résumé YouTube <b>par Gemini</b></span>
       </a>
+
+      <!-- Sélecteur de Langue (FR, EN, ES, ZH) -->
+      <div class="lang-switcher" role="group" aria-label="Choisir la langue / Select language">
+        <button class="lang-btn active" data-lang="fr" type="button" aria-label="Français">FR</button>
+        <button class="lang-btn" data-lang="en" type="button" aria-label="English">EN</button>
+        <button class="lang-btn" data-lang="es" type="button" aria-label="Español">ES</button>
+        <button class="lang-btn" data-lang="zh" type="button" aria-label="中文">ZH</button>
+      </div>
 
       <button class="theme-toggle" type="button" aria-label="Passer au thème clair" aria-pressed="false" title="Changer de thème">
         <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
@@ -61,9 +69,9 @@
       </button>
 
       <nav class="nav-links" id="nav-links">
-        <a href="./">Accueil</a>
+        <a href="./" data-i18n="nav_home">Accueil</a>
         <a href="https://github.com/Epikaigle/resume-youtube-gemini" target="_blank" rel="noreferrer">GitHub</a>
-        <a class="nav-install" href="https://addons.mozilla.org/fr/firefox/addon/gemini-youtube-summarizer/" target="_blank" rel="noreferrer">Ajouter à Firefox ↗</a>
+        <a class="nav-install" href="https://addons.mozilla.org/firefox/addon/gemini-youtube-summarizer/" target="_blank" rel="noreferrer" data-i18n="nav_install">Ajouter à Firefox ↗</a>
       </nav>
     </div>
   </header>
@@ -71,16 +79,16 @@
   <main class="privacy-page" id="main">
     <section class="privacy-hero">
       <div class="container narrow">
-        <span class="kicker">Transparence</span>
-        <h1>Politique de confidentialité</h1>
-        <p>L’extension ne collecte aucune donnée pour le compte du développeur.</p>
+        <span class="kicker" data-i18n="privacy_kicker">Transparence</span>
+        <h1 data-i18n="privacy_title">Politique de confidentialité</h1>
+        <p data-i18n="privacy_subtitle">L’extension ne collecte aucune donnée pour le compte du développeur.</p>
       </div>
     </section>
 
     <article class="container narrow privacy-content">
       <div class="privacy-summary">
-        <strong>En bref</strong>
-        <p>Rien n’est envoyé sans votre clic sur <b>Résumer</b>. L’extension ne possède aucun serveur de collecte, aucun système de télémétrie et aucun compte utilisateur.</p>
+        <strong data-i18n="privacy_summary_label">En bref</strong>
+        <p data-i18n="privacy_summary_text">Rien n’est envoyé sans votre clic sur <b>Résumer</b>. L’extension ne possède aucun serveur de collecte, aucun système de télémétrie et aucun compte utilisateur.</p>
       </div>
 
       <section>
@@ -127,14 +135,14 @@
 
   <footer>
     <div class="container footer-row">
-      <span>Résumé YouTube par Gemini</span>
+      <span class="footer-brand-title" data-i18n="footer_brand">Résumé YouTube par Gemini</span>
       <div>
-        <a href="./">Accueil</a>
+        <a href="./" data-i18n="nav_home">Accueil</a>
         <a href="https://github.com/Epikaigle/resume-youtube-gemini" target="_blank" rel="noreferrer">GitHub</a>
-        <a href="https://addons.mozilla.org/fr/firefox/addon/gemini-youtube-summarizer/" target="_blank" rel="noreferrer">Firefox Add-ons</a>
+        <a href="https://addons.mozilla.org/firefox/addon/gemini-youtube-summarizer/" target="_blank" rel="noreferrer">Firefox Add-ons</a>
       </div>
     </div>
-    <div class="container legal-line">Projet indépendant — non affilié à YouTube, Google ou Mozilla.</div>
+    <div class="container legal-line" data-i18n="footer_legal">Projet indépendant — non affilié à YouTube, Google ou Mozilla.</div>
   </footer>
 
   <script src="script.js?v=20260923"></script>
