@@ -93,62 +93,101 @@
           </div>
         </div>
 
-        <div class="hero-visual reveal" role="img" aria-label="Aperçu illustré : sur YouTube, un clic sur Résumer transmet le lien de la vidéo et votre consigne à Gemini.">
-          <div class="extension-orb">
-            <img src="assets/extension-icon.png" width="96" height="96" decoding="async" alt="" aria-hidden="true">
-          </div>
+        <div class="hero-visual reveal" role="img" aria-label="Maquette fidèle d’une page vidéo YouTube : le bouton Résumer est ajouté dans la rangée d’actions, puis le lien de la vidéo et votre consigne sont envoyés à Gemini.">
+          <div class="youtube-page-mock">
+            <div class="yt-appbar">
+              <div class="yt-left">
+                <span class="yt-menu">☰</span>
+                <span class="yt-logo">
+                  <svg viewBox="0 0 28 20" aria-hidden="true"><path fill="#ff0033" d="M27.4 3.1A3.5 3.5 0 0 0 25 .7C22.8 0 14 0 14 0S5.2 0 3 .7A3.5 3.5 0 0 0 .6 3.1 36 36 0 0 0 0 10a36 36 0 0 0 .6 6.9A3.5 3.5 0 0 0 3 19.3c2.2.7 11 .7 11 .7s8.8 0 11-.7a3.5 3.5 0 0 0 2.4-2.4A36 36 0 0 0 28 10a36 36 0 0 0-.6-6.9Z"/><path fill="#fff" d="m11.2 14.3 7.3-4.3-7.3-4.3v8.6Z"/></svg>
+                  <b>YouTube</b>
+                </span>
+              </div>
 
-          <div class="browser browser-youtube">
-            <div class="browser-bar">
-              <span class="traffic"><i></i><i></i><i></i></span>
-              <span class="address">youtube.com/watch?v=...</span>
+              <div class="yt-search">
+                <span>Rechercher</span>
+                <b>⌕</b>
+              </div>
+
+              <div class="yt-top-actions">
+                <span>＋ Créer</span>
+                <i></i>
+              </div>
             </div>
-            <div class="youtube-screen">
-              <div class="video-preview">
-                <div class="youtube-brand">
-                  <svg viewBox="0 0 28 20" aria-hidden="true"><path fill="#ff0033" d="M27.4 3.1A3.5 3.5 0 0 0 25 0.7C22.8 0 14 0 14 0S5.2 0 3 .7A3.5 3.5 0 0 0 .6 3.1 36.4 36.4 0 0 0 0 10a36.4 36.4 0 0 0 .6 6.9A3.5 3.5 0 0 0 3 19.3c2.2.7 11 .7 11 .7s8.8 0 11-.7a3.5 3.5 0 0 0 2.4-2.4A36.4 36.4 0 0 0 28 10a36.4 36.4 0 0 0-.6-6.9Z"/><path fill="#fff" d="m11.2 14.3 7.3-4.3-7.3-4.3v8.6Z"/></svg>
-                  <span>YouTube</span>
+
+            <div class="yt-layout">
+              <div class="yt-watch">
+                <div class="yt-player">
+                  <div class="yt-scene">
+                    <div class="scene-orb scene-orb-a"></div>
+                    <div class="scene-orb scene-orb-b"></div>
+                    <span class="player-center">▶</span>
+                  </div>
+                  <div class="yt-progress-track"><i></i></div>
+                  <div class="yt-controls">
+                    <span>▶</span><span>🔊</span><small>4:18 / 12:42</small>
+                    <div><span>CC</span><span>⚙</span><span>▭</span><span>⛶</span></div>
+                  </div>
                 </div>
-                <div class="fake-play">▶</div>
-                <div class="video-progress"><i></i></div>
+
+                <h3 class="yt-title">Comprendre un sujet complexe en moins de 15 minutes</h3>
+
+                <div class="yt-info-row">
+                  <div class="yt-channel">
+                    <span class="yt-avatar">E</span>
+                    <div><strong>Exemple</strong><small>128 k abonnés</small></div>
+                    <button type="button">S’abonner</button>
+                  </div>
+
+                  <div class="yt-actions-row">
+                    <span>👍 12 k</span>
+                    <span>↗ Partager</span>
+                    <span>⇩ Télécharger</span>
+                    <strong class="yt-resume-action"><b>✦</b> Résumer <i></i></strong>
+                    <span class="yt-more">•••</span>
+                  </div>
+                </div>
+
+                <div class="yt-description">
+                  <strong>84 k vues · il y a 2 jours</strong>
+                  <span>Dans cette vidéo, on découvre les idées essentielles du sujet...</span>
+                </div>
               </div>
-              <div class="fake-title"></div>
-              <div class="fake-subtitle"></div>
-              <div class="youtube-actions">
-                <span>👍 J’aime</span>
-                <span>↗ Partager</span>
-                <strong class="resume-button"><b>✦</b> Résumer <i></i></strong>
-              </div>
+
+              <aside class="yt-sidebar" aria-hidden="true">
+                <span class="yt-filter">Tout</span>
+                <div class="yt-rec"><i class="thumb thumb-a"></i><div><b></b><b></b><small></small></div></div>
+                <div class="yt-rec"><i class="thumb thumb-b"></i><div><b></b><b></b><small></small></div></div>
+                <div class="yt-rec"><i class="thumb thumb-c"></i><div><b></b><b></b><small></small></div></div>
+                <div class="yt-rec"><i class="thumb thumb-d"></i><div><b></b><b></b><small></small></div></div>
+              </aside>
             </div>
           </div>
 
-          <div class="flow-arrow" aria-hidden="true">
-            <span class="flow-dot"></span>
-            <svg viewBox="0 0 180 80"><path d="M5 40 C60 0,120 80,175 40" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="5 8"/><path d="m166 31 10 9-10 9" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          <div class="resume-callout">
+            <img src="assets/extension-icon.png" width="96" height="96" alt="" aria-hidden="true">
+            <div><span>Ton extension ajoute</span><strong>✦ Résumer</strong></div>
           </div>
 
-          <div class="browser browser-gemini">
-            <div class="gemini-head">
+          <div class="handoff-arrow" aria-hidden="true">
+            <span></span>
+            <svg viewBox="0 0 120 46"><path d="M3 23 C34 3,82 43,116 22" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="4 6"/><path d="m108 14 9 8-9 8" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+
+          <div class="gemini-result-card">
+            <div class="gemini-result-head">
               <span class="gemini-star">✦</span>
               <div><strong>Gemini</strong><small>Nouveau chat</small></div>
               <i>Prêt</i>
             </div>
-            <div class="gemini-screen">
-              <div class="prompt">
-                <span class="prompt-label">Votre demande</span>
-                <p class="prompt-text">Résume-moi la vidéo :</p>
-                <p class="prompt-url">youtube.com/watch?v=VIDEO_ID</p>
-                <span class="send-button" aria-hidden="true">↑</span>
-              </div>
-              <div class="answer">
-                <span class="gemini-star small">✦</span>
-                <div><i></i><i></i><i class="short"></i></div>
-              </div>
+            <div class="gemini-result-body">
+              <span class="prompt-label">Votre demande</span>
+              <p><strong>Résume-moi la vidéo :</strong></p>
+              <p class="gemini-url">youtube.com/watch?v=VIDEO_ID</p>
+              <span class="gemini-send">↑</span>
+              <div class="gemini-answer-lines"><i></i><i></i><i class="short"></i></div>
             </div>
           </div>
-
-          <span class="visual-caption caption-one">1. Cliquez sur Résumer</span>
-          <span class="visual-caption caption-two">2. Gemini reçoit le lien + votre consigne</span>
         </div>
       </div>
     </section>
