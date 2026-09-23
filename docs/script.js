@@ -93,4 +93,113 @@
       }, 160);
     }, 2900);
   }
+
+  const flow = document.querySelector('.hero-visual[data-flow-phase]');
+  if (flow) {
+    const resumeButton = flow.querySelector('.yt-resume-action');
+    const statusText = flow.querySelector('.flow-status-text');
+    const promptOutput = flow.querySelector('.composer-prompt');
+    const fullPrompt = promptOutput?.dataset.fullPrompt || 'Résume-moi la vidéo : youtube.com/watch?v=VIDEO_ID';
+
+    const phaseLabels = {
+      idle: 'Sur YouTube',
+      approach: 'Le curseur va vers Résumer',
+      click: 'Clic sur Résumer',
+      transfer: 'Ouverture de Gemini',
+      compose: 'Prompt injecté automatiquement',
+      send: 'Envoi automatique',
+      thinking: 'Gemini analyse la vidéo',
+      answer: 'Résumé généré'
+    };
+
+    const sleep = (ms) => new Promise((resolve) => window.setTimeout(resolve, ms));
+
+    const setPhase = (phase) => {
+      flow.dataset.flowPhase = phase;
+      if (statusText) statusText.textContent = phaseLabels[phase] || '';
+    };
+
+    const updateCursorTarget = () => {
+      if (!resumeButton) return;
+      const flowRect = flow.getBoundingClientRect();
+      const buttonRect = resumeButton.getBoundingClientRect();
+      const x = buttonRect.left - flowRect.left + buttonRect.width * 0.52;
+      const y = buttonRect.top - flowRect.top + buttonRect.height * 0.56;
+      flow.style.setProperty('--cursor-target-x', `${x}px`);
+      flow.style.setProperty('--cursor-target-y', `${y}px`);
+    };
+
+    const typePrompt = async () => {
+      if (!promptOutput) return;
+      promptOutput.textContent = '';
+      const perCharacter = Math.max(14, Math.min(28, Math.round(1050 / fullPrompt.length)));
+      for (const character of fullPrompt) {
+        promptOutput.textContent += character;
+        await sleep(perCharacter);
+      }
+    };
+
+    updateCursorTarget();
+    window.addEventListener('resize', updateCursorTarget, { passive: true });
+
+    if (reducedMotion) {
+      if (promptOutput) promptOutput.textContent = fullPrompt;
+      setPhase('answer');
+    } else {
+      let demoVisible = true;
+
+      if ('IntersectionObserver' in window) {
+        const flowObserver = new IntersectionObserver((entries) => {
+          const entry = entries[0];
+          demoVisible = Boolean(entry?.isIntersecting);
+        }, { threshold: 0.18 });
+        flowObserver.observe(flow);
+      }
+
+      const waitUntilVisible = async () => {
+        while (!demoVisible || document.hidden) {
+          await sleep(350);
+        }
+      };
+
+      const runFlow = async () => {
+        while (true) {
+          await waitUntilVisible();
+          updateCursorTarget();
+
+          if (promptOutput) promptOutput.textContent = '';
+          setPhase('idle');
+          await sleep(750);
+
+          setPhase('approach');
+          await sleep(1050);
+
+          setPhase('click');
+          await sleep(560);
+
+          setPhase('transfer');
+          await sleep(1150);
+
+          setPhase('compose');
+          await typePrompt();
+          await sleep(260);
+
+          setPhase('send');
+          await sleep(620);
+
+          setPhase('thinking');
+          await sleep(1850);
+
+          setPhase('answer');
+          await sleep(3550);
+
+          setPhase('idle');
+          await sleep(900);
+        }
+      };
+
+      runFlow();
+    }
+  }
+
 })();
