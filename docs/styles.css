@@ -335,6 +335,10 @@ footer{padding:34px 0 25px;border-top:1px solid var(--line);background:#07070b}
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   .reveal{opacity:1;transform:none}
+  .gemini-user-message,.gemini-response,.response-line{opacity:1!important;transform:none!important}
+  .gemini-thinking{opacity:0!important}
+  .composer-placeholder{opacity:0!important}
+  .composer-prompt{opacity:1!important}
 }
 
 @media (max-width:1000px){
