@@ -1192,3 +1192,127 @@ html[data-theme="light"] .yt-card-menu span:hover{background:#f1f2f5}
   .gemini-app-mock{right:-1%!important;transform:none!important}
   .gemini-user-message,.gemini-response,.response-line{transform:none!important}
 }
+
+
+/* Crisp YouTube rendering: keep text off rotated/scaled compositor layers */
+.youtube-page-mock,
+.youtube-feed-mock{
+  left:0;
+  transform:none!important;
+  transform-origin:center;
+  transition:left .55s cubic-bezier(.2,.75,.2,1),opacity .45s ease,box-shadow .45s ease;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:geometricPrecision;
+  backface-visibility:visible;
+}
+
+/* Keep the handoff readable without scaling/rasterizing the whole YouTube surface. */
+.hero-visual[data-flow-phase="transfer"] .youtube-page-mock,
+.hero-visual[data-flow-phase="compose"] .youtube-page-mock,
+.hero-visual[data-flow-phase="send"] .youtube-page-mock,
+.hero-visual[data-flow-phase="thinking"] .youtube-page-mock,
+.hero-visual[data-flow-phase="answer"] .youtube-page-mock{
+  left:-3%;
+  transform:none!important;
+  opacity:.58;
+  filter:none!important;
+}
+.hero-visual[data-flow-mode="feed"][data-flow-phase="transfer"] .youtube-feed-mock,
+.hero-visual[data-flow-mode="feed"][data-flow-phase="compose"] .youtube-feed-mock,
+.hero-visual[data-flow-mode="feed"][data-flow-phase="send"] .youtube-feed-mock,
+.hero-visual[data-flow-mode="feed"][data-flow-phase="thinking"] .youtube-feed-mock,
+.hero-visual[data-flow-mode="feed"][data-flow-phase="answer"] .youtube-feed-mock{
+  left:-3%;
+  transform:none!important;
+  opacity:.58;
+  filter:none!important;
+}
+
+/* Watch page typography: large enough to render sharply at 100% zoom. */
+.yt-logo b{font-size:10.5px}
+.yt-search{font-size:9px}
+.yt-top-actions{font-size:8.6px}
+.yt-create{font-size:8.4px}
+.yt-controls{font-size:9px}
+.yt-controls small{font-size:7.6px}
+.yt-controls>div{font-size:7.8px}
+.yt-title{font-size:13.2px;line-height:1.28}
+.yt-avatar{font-size:9px}
+.yt-channel strong{font-size:9.2px}
+.yt-channel small{font-size:7px}
+.yt-subscribe{font-size:8px}
+.yt-actions-row>span,.yt-resume-action{font-size:8px}
+.yt-resume-action>b{font-size:9px}
+.yt-description{font-size:7.2px;line-height:1.46}
+.yt-filter{font-size:7px}
+.thumb span{font-size:6px}
+
+/* Feed page typography. */
+.yt-feed-search{font-size:9px}
+.yt-card-thumb span{font-size:6px}
+.yt-card-avatar{font-size:8px}
+.yt-card-copy b{font-size:8.6px;line-height:1.34}
+.yt-card-copy small{font-size:6.8px;line-height:1.4}
+.yt-card-more,.yt-card-dots{font-size:14px}
+.yt-card-menu{
+  transform:none!important;
+  transition:opacity .18s ease;
+}
+.yt-card-menu span,.yt-card-menu strong{font-size:7.8px}
+.hero-visual[data-flow-mode="feed"][data-flow-phase="click"] .yt-card-menu,
+.hero-visual[data-flow-mode="feed"][data-flow-phase="select"] .yt-card-menu,
+.hero-visual[data-flow-mode="feed"][data-flow-phase="transfer"] .yt-card-menu{
+  transform:none!important
+}
+
+/* Click feedback without scaling text-bearing buttons. */
+.hero-visual[data-flow-phase="click"] .yt-resume-action{
+  transform:none!important;
+}
+.hero-visual[data-flow-mode="feed"][data-flow-phase="select"] .yt-card-resume{
+  transform:none!important;
+}
+
+/* Preserve sharp rendering in light mode too. */
+html[data-theme="light"] .youtube-page-mock,
+html[data-theme="light"] .youtube-feed-mock{
+  transform:none!important
+}
+
+@media(max-width:760px){
+  .yt-title{font-size:12.4px}
+  .yt-channel strong{font-size:8.8px}
+  .yt-channel small{font-size:6.8px}
+  .yt-actions-row>span,.yt-resume-action{font-size:7.6px}
+  .yt-card-copy b{font-size:8.2px}
+  .yt-card-copy small{font-size:6.5px}
+}
+@media(max-width:620px){
+  .yt-title{font-size:11.4px}
+  .yt-description{font-size:6.8px}
+}
+@media(max-width:500px){
+  .youtube-page-mock,.youtube-feed-mock{left:0}
+  .yt-logo b{font-size:9px}
+  .yt-search,.yt-feed-search{font-size:8px}
+  .yt-title{font-size:10.4px}
+  .yt-channel strong{font-size:8.2px}
+  .yt-channel small{font-size:6.5px}
+  .yt-subscribe{font-size:7.2px}
+  .yt-actions-row>span,.yt-resume-action{font-size:7px}
+  .yt-card-copy b{font-size:7.5px}
+  .yt-card-copy small{font-size:6.1px}
+  .yt-card-menu span,.yt-card-menu strong{font-size:7px}
+}
+@media(max-width:380px){
+  .yt-search,.yt-feed-search{font-size:7.6px}
+  .yt-title{font-size:10px}
+  .yt-actions-row>span,.yt-resume-action{font-size:6.8px}
+  .yt-card-copy b{font-size:7.2px}
+}
+@media(prefers-reduced-motion:reduce){
+  .youtube-page-mock,.youtube-feed-mock{
+    transform:none!important;
+    filter:none!important
+  }
+}
