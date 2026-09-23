@@ -8,20 +8,27 @@
   <meta property="og:title" content="Résumé YouTube par Gemini">
   <meta property="og:description" content="Un clic sur YouTube. Gemini s’ouvre. Votre résumé démarre.">
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Résumé YouTube par Gemini">
   <meta property="og:url" content="https://epikaigle.github.io/resume-youtube-gemini/">
   <meta property="og:image" content="https://epikaigle.github.io/resume-youtube-gemini/assets/social-preview.svg">
   <meta property="og:image:alt" content="Résumé YouTube par Gemini — de YouTube à Gemini en un clic">
+  <meta property="og:image:type" content="image/svg+xml">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Résumé YouTube par Gemini">
   <meta name="twitter:description" content="Un clic sur YouTube. Gemini s’ouvre avec le lien et votre consigne.">
   <meta name="twitter:image" content="https://epikaigle.github.io/resume-youtube-gemini/assets/social-preview.svg">
+  <meta name="twitter:image:alt" content="Résumé YouTube par Gemini — de YouTube à Gemini en un clic">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://epikaigle.github.io/resume-youtube-gemini/">
   <title>Résumé YouTube par Gemini — Extension Firefox</title>
-  <link rel="icon" href="assets/extension-icon.png" type="image/png">\n  <link rel="apple-touch-icon" href="assets/extension-icon.png">
-  <link rel="manifest" href="site.webmanifest">
+  <link rel="icon" href="assets/extension-icon.png?v=20260923" type="image/png">
+  <link rel="apple-touch-icon" href="assets/extension-icon.png?v=20260923">
   <script>
     (() => {
+      document.documentElement.classList.add('js');
       try {
         const saved = localStorage.getItem('site-theme');
         const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -31,7 +38,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20260923">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -43,7 +50,8 @@
     "url": "https://epikaigle.github.io/resume-youtube-gemini/",
     "downloadUrl": "https://addons.mozilla.org/fr/firefox/addon/gemini-youtube-summarizer/",
     "isAccessibleForFree": true,
-    "codeRepository": "https://github.com/Epikaigle/resume-youtube-gemini"
+    "codeRepository": "https://github.com/Epikaigle/resume-youtube-gemini",
+    "image": "https://epikaigle.github.io/resume-youtube-gemini/assets/social-preview.svg"
   }
   </script>
 </head>
@@ -54,7 +62,7 @@
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="#main" aria-label="Accueil">
-        <img class="brand-icon" src="assets/extension-icon.png" width="34" height="34" alt="" aria-hidden="true">
+        <img class="brand-icon" src="assets/extension-icon.png?v=20260923" width="34" height="34" alt="" aria-hidden="true">
         <span>Résumé YouTube <b>par Gemini</b></span>
       </a>
 
@@ -98,11 +106,11 @@
               Ajouter à Firefox
               <span>↗</span>
             </a>
-            <a class="button button-secondary" href="#comment">Voir la démo ↓</a>
+            <a class="button button-secondary" href="#demo">Voir la démo ↓</a>
           </div>
         </div>
 
-        <div class="hero-visual reveal" data-flow-mode="watch" data-flow-phase="idle" role="img" aria-label="Démonstration animée : sur une page vidéo, le curseur clique sur Résumer ; sur l’accueil YouTube, il ouvre le menu trois points puis clique sur Résumer. Dans les deux cas, le lien et la consigne sont envoyés à Gemini, qui génère un résumé.">
+        <div class="hero-visual reveal" id="demo" data-flow-mode="watch" data-flow-phase="idle" role="img" aria-label="Démonstration animée : sur une page vidéo, le curseur clique sur Résumer ; sur l’accueil YouTube, il ouvre le menu trois points puis clique sur Résumer. Dans les deux cas, le lien et la consigne sont envoyés à Gemini, qui génère un résumé.">
           <div class="demo-cursor" aria-hidden="true">
             <svg viewBox="0 0 24 30"><path d="M3 2.5 20.5 18l-8.2 1.2 4.5 7.2-4.1 2.3-4.4-7.2L3 27V2.5Z" fill="#fff" stroke="#171820" stroke-width="1.5"/></svg>
             <span class="cursor-click-ring"></span>
@@ -148,7 +156,7 @@
                   </div>
                 </div>
 
-                <h3 class="yt-title">Comprendre un sujet complexe en moins de 15 minutes</h3>
+                <div class="yt-title">Comprendre un sujet complexe en moins de 15 minutes</div>
 
                 <div class="yt-info-row">
                   <div class="yt-channel">
@@ -260,11 +268,6 @@
             </div>
           </div>
 
-          <div class="resume-callout">
-            <img src="assets/extension-icon.png" width="96" height="96" alt="" aria-hidden="true">
-            <div><span>Ton extension ajoute</span><strong>✦ Résumer</strong></div>
-          </div>
-
           <div class="handoff-arrow" aria-hidden="true">
             <span class="transfer-packet"><b>URL + prompt</b></span>
             <svg viewBox="0 0 120 46"><path d="M3 23 C34 3,82 43,116 22" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="4 6"/><path d="m108 14 9 8-9 8" fill="none" stroke="currentColor" stroke-width="2"/></svg>
@@ -309,7 +312,7 @@
 
                 <div class="gemini-response">
                   <div class="gemini-response-brand"><span class="gemini-glyph">✦</span><strong>Gemini</strong></div>
-                  <h4>Résumé de la vidéo</h4>
+                  <div class="gemini-response-title">Résumé de la vidéo</div>
                   <p class="response-line response-intro">La vidéo présente une méthode simple pour comprendre rapidement un sujet complexe.</p>
                   <ul>
                     <li class="response-line response-one"><b>Idée clé :</b> commencer par identifier les concepts essentiels.</li>
@@ -352,14 +355,19 @@
           <article class="step reveal">
             <span class="number">02</span>
             <div class="step-icon extension-mini">
-              <img src="assets/extension-icon.png" width="44" height="44" loading="lazy" decoding="async" alt="" aria-hidden="true">
+              <img src="assets/extension-icon.png?v=20260923" width="44" height="44" loading="lazy" decoding="async" alt="" aria-hidden="true">
             </div>
             <h3>Cliquez sur Résumer</h3>
           </article>
 
           <article class="step reveal">
             <span class="number">03</span>
-            <div class="step-icon gemini-mini">✦</div>
+            <div class="step-icon gemini-mini" aria-hidden="true">
+              <svg viewBox="0 0 48 48">
+                <defs><linearGradient id="gemini-step-gradient" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#4f8cff"/><stop offset=".48" stop-color="#8d6df1"/><stop offset="1" stop-color="#e46fc6"/></linearGradient></defs>
+                <path d="M24 4c1.8 10.1 9.9 18.2 20 20-10.1 1.8-18.2 9.9-20 20-1.8-10.1-9.9-18.2-20-20C14.1 22.2 22.2 14.1 24 4Z" fill="url(#gemini-step-gradient)"/>
+              </svg>
+            </div>
             <h3>Gemini prend le relais</h3>
           </article>
         </div>
@@ -392,7 +400,7 @@
     <section class="install">
       <div class="container install-card reveal">
         <div class="install-copy">
-          <img src="assets/extension-icon.png" width="96" height="96" loading="lazy" decoding="async" alt="" aria-hidden="true">
+          <img src="assets/extension-icon.png?v=20260923" width="96" height="96" loading="lazy" decoding="async" alt="" aria-hidden="true">
           <div>
             <h2>Ajoutez Résumer à YouTube.</h2>
           </div>
@@ -418,6 +426,6 @@
     <div class="container legal-line">Projet indépendant — non affilié à YouTube, Google ou Mozilla.</div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=20260923"></script>
 </body>
 </html>
