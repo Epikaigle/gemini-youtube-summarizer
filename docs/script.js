@@ -140,35 +140,97 @@
 
   const flow = document.querySelector('.hero-visual[data-flow-phase]');
   if (flow) {
-    const resumeButton = flow.querySelector('.yt-resume-action');
     const statusText = flow.querySelector('.flow-status-text');
     const promptOutput = flow.querySelector('.composer-prompt');
     const fullPrompt = promptOutput?.dataset.fullPrompt || 'Résume-moi la vidéo : youtube.com/watch?v=VIDEO_ID';
 
+    let currentMode = 'watch';
+
     const phaseLabels = {
-      idle: 'Sur YouTube',
-      approach: 'Le curseur va vers Résumer',
-      click: 'Clic sur Résumer',
-      transfer: 'Ouverture de Gemini',
-      compose: 'Prompt injecté automatiquement',
-      send: 'Envoi automatique',
-      thinking: 'Gemini analyse la vidéo',
-      answer: 'Résumé généré'
+      watch: {
+        idle: 'Page vidéo YouTube',
+        approach: 'Le curseur va vers Résumer',
+        click: 'Clic sur Résumer',
+        transfer: 'Ouverture de Gemini',
+        compose: 'Prompt injecté automatiquement',
+        send: 'Envoi automatique',
+        thinking: 'Gemini analyse la vidéo',
+        answer: 'Résumé généré'
+      },
+      feed: {
+        idle: 'Accueil YouTube',
+        approach: 'Le curseur va vers ⋮',
+        click: 'Ouverture du menu',
+        select: 'Clic sur Résumer',
+        transfer: 'Ouverture de Gemini',
+        compose: 'Prompt injecté automatiquement',
+        send: 'Envoi automatique',
+        thinking: 'Gemini analyse la vidéo',
+        answer: 'Résumé généré'
+      }
+    };
+
+    const sequences = {
+      watch: [
+        ['idle', 800],
+        ['approach', 1050],
+        ['click', 560],
+        ['transfer', 1150],
+        ['compose', null],
+        ['send', 620],
+        ['thinking', 1850],
+        ['answer', 3550]
+      ],
+      feed: [
+        ['idle', 850],
+        ['approach', 1000],
+        ['click', 780],
+        ['select', 900],
+        ['transfer', 1150],
+        ['compose', null],
+        ['send', 620],
+        ['thinking', 1850],
+        ['answer', 3550]
+      ]
     };
 
     const sleep = (ms) => new Promise((resolve) => window.setTimeout(resolve, ms));
 
-    const setPhase = (phase) => {
-      flow.dataset.flowPhase = phase;
-      if (statusText) statusText.textContent = phaseLabels[phase] || '';
+    const setMode = (mode) => {
+      currentMode = mode;
+      flow.dataset.flowMode = mode;
     };
 
-    const updateCursorTarget = () => {
-      if (!resumeButton) return;
+    const setPhase = (phase) => {
+      flow.dataset.flowPhase = phase;
+      if (statusText) statusText.textContent = phaseLabels[currentMode]?.[phase] || '';
+    };
+
+    const getCursorTarget = (phase) => {
+      if (currentMode === 'watch') {
+        return flow.querySelector('.yt-resume-action');
+      }
+
+      if (phase === 'approach' || phase === 'click') {
+        return flow.querySelector('.yt-card-more');
+      }
+
+      if (phase === 'select') {
+        return flow.querySelector('.yt-card-resume');
+      }
+
+      return null;
+    };
+
+    const updateCursorTarget = (phase = flow.dataset.flowPhase || 'approach') => {
+      const target = getCursorTarget(phase);
+      if (!target) return;
+
       const flowRect = flow.getBoundingClientRect();
-      const buttonRect = resumeButton.getBoundingClientRect();
-      const x = buttonRect.left - flowRect.left + buttonRect.width * 0.52;
-      const y = buttonRect.top - flowRect.top + buttonRect.height * 0.56;
+      const targetRect = target.getBoundingClientRect();
+      const x = targetRect.left - flowRect.left + targetRect.width * 0.52;
+      const y = targetRect.top - flowRect.top + targetRect.height * 0.55;
+
       flow.style.setProperty('--cursor-target-x', `${x}px`);
       flow.style.setProperty('--cursor-target-y', `${y}px`);
     };
@@ -176,6 +238,7 @@
     const typePrompt = async () => {
       if (!promptOutput) return;
       promptOutput.textContent = '';
+
       const perCharacter = Math.max(14, Math.min(28, Math.round(1050 / fullPrompt.length)));
       for (const character of fullPrompt) {
         promptOutput.textContent += character;
@@ -183,10 +246,14 @@
       }
     };
 
-    updateCursorTarget();
-    window.addEventListener('resize', updateCursorTarget, { passive: true });
+    const resetGeminiPrompt = () => {
+      if (promptOutput) promptOutput.textContent = '';
+    };
+
+    window.addEventListener('resize', () => updateCursorTarget(), { passive: true });
 
     if (reducedMotion) {
+      setMode('watch');
       if (promptOutput) promptOutput.textContent = fullPrompt;
       setPhase('answer');
     } else {
@@ -194,8 +261,7 @@
 
       if ('IntersectionObserver' in window) {
         const flowObserver = new IntersectionObserver((entries) => {
-          const entry = entries[0];
-          demoVisible = Boolean(entry?.isIntersecting);
+          demoVisible = Boolean(entries[0]?.isIntersecting);
         }, { threshold: 0.18 });
         flowObserver.observe(flow);
       }
@@ -206,39 +272,42 @@
         }
       };
 
+      const modes = ['watch', 'feed'];
+      let modeIndex = 0;
+
+      const runScenario = async (mode) => {
+        setMode(mode);
+        resetGeminiPrompt();
+        setPhase('idle');
+
+        // Allow the new mockup to become visible before measuring cursor targets.
+        await sleep(120);
+
+        for (const [phase, duration] of sequences[mode]) {
+          setPhase(phase);
+
+          if (phase === 'approach' || phase === 'click' || phase === 'select') {
+            updateCursorTarget(phase);
+          }
+
+          if (phase === 'compose') {
+            await typePrompt();
+            await sleep(260);
+          } else {
+            await sleep(duration);
+          }
+        }
+
+        setPhase('idle');
+        await sleep(900);
+      };
+
       const runFlow = async () => {
         while (true) {
           await waitUntilVisible();
-          updateCursorTarget();
-
-          if (promptOutput) promptOutput.textContent = '';
-          setPhase('idle');
-          await sleep(750);
-
-          setPhase('approach');
-          await sleep(1050);
-
-          setPhase('click');
-          await sleep(560);
-
-          setPhase('transfer');
-          await sleep(1150);
-
-          setPhase('compose');
-          await typePrompt();
-          await sleep(260);
-
-          setPhase('send');
-          await sleep(620);
-
-          setPhase('thinking');
-          await sleep(1850);
-
-          setPhase('answer');
-          await sleep(3550);
-
-          setPhase('idle');
-          await sleep(900);
+          const mode = modes[modeIndex % modes.length];
+          modeIndex += 1;
+          await runScenario(mode);
         }
       };
 
