@@ -140,35 +140,10 @@
 
   const flow = document.querySelector('.hero-visual[data-flow-phase]');
   if (flow) {
-    const statusText = flow.querySelector('.flow-status-text');
     const promptOutput = flow.querySelector('.composer-prompt');
     const fullPrompt = promptOutput?.dataset.fullPrompt || 'Résume-moi la vidéo : youtube.com/watch?v=VIDEO_ID';
 
     let currentMode = 'watch';
-
-    const phaseLabels = {
-      watch: {
-        idle: 'Page vidéo YouTube',
-        approach: 'Le curseur va vers Résumer',
-        click: 'Clic sur Résumer',
-        transfer: 'Ouverture de Gemini',
-        compose: 'Prompt injecté automatiquement',
-        send: 'Envoi automatique',
-        thinking: 'Gemini analyse la vidéo',
-        answer: 'Résumé généré'
-      },
-      feed: {
-        idle: 'Accueil YouTube',
-        approach: 'Le curseur va vers ⋮',
-        click: 'Ouverture du menu',
-        select: 'Clic sur Résumer',
-        transfer: 'Ouverture de Gemini',
-        compose: 'Prompt injecté automatiquement',
-        send: 'Envoi automatique',
-        thinking: 'Gemini analyse la vidéo',
-        answer: 'Résumé généré'
-      }
-    };
 
     const sequences = {
       watch: [
@@ -203,7 +178,6 @@
 
     const setPhase = (phase) => {
       flow.dataset.flowPhase = phase;
-      if (statusText) statusText.textContent = phaseLabels[currentMode]?.[phase] || '';
     };
 
     const getCursorTarget = (phase) => {
