@@ -1316,3 +1316,25 @@ html[data-theme="light"] .youtube-feed-mock{
     filter:none!important
   }
 }
+
+
+/* Extension logo in the 3-step flow */
+.extension-mini{
+  padding:0;
+  overflow:visible;
+  border:0;
+  background:transparent;
+  box-shadow:none;
+}
+.extension-mini img{
+  display:block;
+  width:44px;
+  height:44px;
+  object-fit:contain;
+  border-radius:12px;
+  box-shadow:0 10px 24px rgba(42,35,105,.22);
+}
+html[data-theme="light"] .extension-mini{background:transparent;border:0}
+@media(max-width:500px){
+  .extension-mini img{width:42px;height:42px}
+}
