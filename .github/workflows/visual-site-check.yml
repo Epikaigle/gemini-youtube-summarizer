@@ -1,0 +1,57 @@
+name: Visual site checks
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/**"
+      - "tests/site-visual.mjs"
+      - ".github/workflows/visual-site-check.yml"
+  pull_request:
+    paths:
+      - "docs/**"
+      - "tests/site-visual.mjs"
+      - ".github/workflows/visual-site-check.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  visual:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps firefox
+
+      - name: Start local site
+        run: |
+          python3 -m http.server 4173 --directory docs > /tmp/site-server.log 2>&1 &
+          for i in {1..20}; do
+            curl -fsS http://127.0.0.1:4173/ >/dev/null && exit 0
+            sleep 1
+          done
+          cat /tmp/site-server.log
+          exit 1
+
+      - name: Run visual checks
+        run: node tests/site-visual.mjs
+
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-site-screenshots
+          path: artifacts/visual
+          if-no-files-found: ignore
+          retention-days: 14
