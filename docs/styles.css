@@ -151,6 +151,43 @@ a:focus-visible,button:focus-visible{
 .hero-light-b{
   width:360px;height:360px;left:-140px;bottom:-120px;background:radial-gradient(circle,rgba(99,220,255,.08),transparent 70%)
 }
+
+/* Spot violet interactif & illumination dynamique du quadrillage */
+.hero-mouse-glow{
+  position:absolute;inset:0;pointer-events:none;z-index:1;
+  background:radial-gradient(
+    680px circle at var(--mouse-x, 48%) var(--mouse-y, 35%),
+    rgba(142, 108, 255, 0.3) 0%,
+    rgba(118, 75, 245, 0.15) 35%,
+    rgba(80, 50, 220, 0.05) 55%,
+    transparent 72%
+  );
+  opacity:var(--mouse-glow-opacity, 0.85);
+  transition:opacity .35s ease;
+  will-change:background;
+}
+.hero-grid-spotlight{
+  position:absolute;inset:0;pointer-events:none;z-index:1;
+  background-image:
+    linear-gradient(rgba(182, 160, 255, 0.32) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(182, 160, 255, 0.32) 1px, transparent 1px);
+  background-size:56px 56px;
+  mask-image:radial-gradient(
+    400px circle at var(--mouse-x, 48%) var(--mouse-y, 35%),
+    black 0%,
+    rgba(0, 0, 0, 0.65) 45%,
+    transparent 80%
+  );
+  -webkit-mask-image:radial-gradient(
+    400px circle at var(--mouse-x, 48%) var(--mouse-y, 35%),
+    black 0%,
+    rgba(0, 0, 0, 0.65) 45%,
+    transparent 80%
+  );
+  opacity:var(--mouse-grid-opacity, 0.9);
+  transition:opacity .35s ease;
+  will-change:mask-image, -webkit-mask-image;
+}
 .hero-grid{
   position:relative;z-index:2;display:grid;grid-template-columns:.92fr 1.08fr;gap:60px;align-items:center
 }
@@ -1174,6 +1211,31 @@ html[data-theme="light"] .hero{
 }
 html[data-theme="light"] .hero::after{
   background-image:linear-gradient(rgba(20,24,35,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(20,24,35,.035) 1px,transparent 1px)
+}
+html[data-theme="light"] .hero-mouse-glow{
+  background:radial-gradient(
+    600px circle at var(--mouse-x, 48%) var(--mouse-y, 35%),
+    rgba(130, 110, 255, 0.22) 0%,
+    rgba(155, 135, 255, 0.1) 35%,
+    transparent 68%
+  );
+}
+html[data-theme="light"] .hero-grid-spotlight{
+  background-image:
+    linear-gradient(rgba(115, 85, 235, 0.28) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(115, 85, 235, 0.28) 1px, transparent 1px);
+  mask-image:radial-gradient(
+    340px circle at var(--mouse-x, 48%) var(--mouse-y, 35%),
+    black 0%,
+    rgba(0, 0, 0, 0.6) 40%,
+    transparent 80%
+  );
+  -webkit-mask-image:radial-gradient(
+    340px circle at var(--mouse-x, 48%) var(--mouse-y, 35%),
+    black 0%,
+    rgba(0, 0, 0, 0.6) 40%,
+    transparent 80%
+  );
 }
 html[data-theme="light"] .amo-pill,
 html[data-theme="light"] .button-secondary{

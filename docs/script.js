@@ -956,5 +956,70 @@
     } catch {}
   };
 
+  /* ---------------- Spotlight Dynamique qui suit la souris ---------------- */
+  const heroSection = document.querySelector('.hero');
+  if (heroSection && !reducedMotion) {
+    let targetX = 50;
+    let targetY = 35;
+    let currentX = 50;
+    let currentY = 35;
+    let rafId = null;
+    let isMoving = false;
+    let idleTimer = null;
+
+    const lerp = (start, end, factor) => start + (end - start) * factor;
+
+    const updateGlow = () => {
+      currentX = lerp(currentX, targetX, 0.12);
+      currentY = lerp(currentY, targetY, 0.12);
+
+      heroSection.style.setProperty('--mouse-x', `${currentX.toFixed(2)}%`);
+      heroSection.style.setProperty('--mouse-y', `${currentY.toFixed(2)}%`);
+
+      const deltaX = Math.abs(targetX - currentX);
+      const deltaY = Math.abs(targetY - currentY);
+
+      if (deltaX > 0.05 || deltaY > 0.05) {
+        rafId = window.requestAnimationFrame(updateGlow);
+      } else {
+        rafId = null;
+      }
+    };
+
+    const scheduleGlowUpdate = () => {
+      if (!rafId) {
+        rafId = window.requestAnimationFrame(updateGlow);
+      }
+    };
+
+    const handlePointerMove = (event) => {
+      const rect = heroSection.getBoundingClientRect();
+      if (event.clientY >= rect.top - 80 && event.clientY <= rect.bottom + 120) {
+        const x = ((event.clientX - rect.left) / rect.width) * 100;
+        const y = ((event.clientY - rect.top) / rect.height) * 100;
+
+        targetX = Math.max(-5, Math.min(105, x));
+        targetY = Math.max(-5, Math.min(105, y));
+
+        if (!isMoving) {
+          isMoving = true;
+          heroSection.style.setProperty('--mouse-glow-opacity', '1');
+          heroSection.style.setProperty('--mouse-grid-opacity', '1');
+        }
+
+        clearTimeout(idleTimer);
+        idleTimer = setTimeout(() => {
+          isMoving = false;
+          heroSection.style.setProperty('--mouse-glow-opacity', '0.85');
+          heroSection.style.setProperty('--mouse-grid-opacity', '0.75');
+        }, 1200);
+
+        scheduleGlowUpdate();
+      }
+    };
+
+    window.addEventListener('pointermove', handlePointerMove, { passive: true });
+  }
+
   runFlow(flowAbortController.signal);
 })();
