@@ -163,7 +163,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #8f82ff;outline-offset:3p
 .yt-channel{display:flex;align-items:center;gap:7px;min-width:0}
 .yt-avatar{width:28px;height:28px;display:grid;place-items:center;flex:0 0 auto;border-radius:50%;background:linear-gradient(135deg,#8f78ff,#59d0ff);font-size:8px;font-weight:850}
 .yt-channel>div{min-width:0}.yt-channel strong{display:block;color:#eee;font-size:8px;line-height:1.1}.yt-channel small{display:block;margin-top:2px;color:#888;font-size:6px}
-.yt-channel button{height:26px;padding:0 10px;border:0;border-radius:999px;background:#fff;color:#0f0f0f;font-size:7px;font-weight:800}
+.yt-subscribe{height:26px;display:inline-flex;align-items:center;padding:0 10px;border-radius:999px;background:#fff;color:#0f0f0f;font-size:7px;font-weight:800}
 .yt-actions-row{display:flex;align-items:center;justify-content:flex-end;gap:5px;min-width:0}
 .yt-actions-row>span,.yt-resume-action{
   height:26px;display:inline-flex;align-items:center;gap:4px;padding:0 8px;border-radius:999px;background:#272727;color:#ddd;font-size:7px;font-weight:760;white-space:nowrap
@@ -333,7 +333,7 @@ footer{padding:34px 0 25px;border-top:1px solid var(--line);background:#07070b}
   .yt-actions-row{width:100%;justify-content:flex-start;overflow:hidden}
   .yt-actions-row>span:nth-child(3){display:none}
   .yt-actions-row .yt-more{display:none}
-  .yt-channel button{height:24px}
+  .yt-subscribe{height:24px}
   .yt-description{display:none}
   .resume-callout{left:auto;right:5%;top:62%;padding:6px 8px}
   .resume-callout img{width:28px;height:28px}
