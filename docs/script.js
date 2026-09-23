@@ -11,6 +11,7 @@
   const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
   const compactNav = window.matchMedia('(max-width: 920px)');
 
+  /* ---------------- Thème Sombre / Clair ---------------- */
   const getStoredTheme = () => {
     try {
       return localStorage.getItem('site-theme');
@@ -51,6 +52,8 @@
     if (!getStoredTheme()) applyTheme(event.matches ? 'dark' : 'light');
   });
 
+  /* ---------------- Barre de Défilement Throttlée ---------------- */
+  let scrollTicking = false;
   const updateScroll = () => {
     const y = window.scrollY;
     header?.classList.toggle('scrolled', y > 14);
@@ -62,12 +65,27 @@
   };
 
   updateScroll();
-  window.addEventListener('scroll', updateScroll, { passive: true });
+  window.addEventListener('scroll', () => {
+    if (!scrollTicking) {
+      window.requestAnimationFrame(() => {
+        updateScroll();
+        scrollTicking = false;
+      });
+      scrollTicking = true;
+    }
+  }, { passive: true });
 
+  /* ---------------- Navigation Mobile Accessible ---------------- */
   if (menuButton && nav) {
+    const updateMenuText = (isOpen) => {
+      const sr = menuButton.querySelector('.sr-only');
+      if (sr) sr.textContent = isOpen ? 'Fermer le menu' : 'Ouvrir le menu';
+    };
+
     const closeMenu = ({ restoreFocus = false } = {}) => {
       nav.classList.remove('open');
       menuButton.setAttribute('aria-expanded', 'false');
+      updateMenuText(false);
       document.body.classList.remove('menu-open');
       if (restoreFocus) menuButton.focus({ preventScroll: true });
     };
@@ -75,6 +93,7 @@
     menuButton.addEventListener('click', () => {
       const open = nav.classList.toggle('open');
       menuButton.setAttribute('aria-expanded', String(open));
+      updateMenuText(open);
       document.body.classList.toggle('menu-open', open);
 
       if (open) nav.querySelector('a')?.focus({ preventScroll: true });
@@ -88,12 +107,19 @@
       }
     });
 
+    document.addEventListener('click', (event) => {
+      if (nav.classList.contains('open') && !nav.contains(event.target) && !menuButton.contains(event.target)) {
+        closeMenu();
+      }
+    });
+
     const syncNavMode = () => {
       if (!compactNav.matches && nav.classList.contains('open')) closeMenu();
     };
     compactNav.addEventListener?.('change', syncNavMode);
   }
 
+  /* ---------------- Animations d'apparition (Reveal) ---------------- */
   if (reducedMotion || !('IntersectionObserver' in window)) {
     reveals.forEach((item) => item.classList.add('visible'));
   } else {
@@ -108,75 +134,55 @@
     reveals.forEach((item) => revealObserver.observe(item));
   }
 
-  const promptTarget = document.querySelector('#rotating-prompt');
-  if (promptTarget && !reducedMotion) {
-    const prompts = [
-      'Résume-moi la vidéo :',
-      'Donne-moi les idées clés :',
-      'Explique cette vidéo simplement :',
-      'Fais-moi un plan détaillé :'
-    ];
+  /* ---------------- Studio de Personnalisation du Prompt ---------------- */
+  const studioInput = document.querySelector('#interactive-prompt-input');
+  const studioPreview = document.querySelector('#interactive-prompt-preview');
+  const presetChips = document.querySelectorAll('.preset-chip');
 
-    let promptIndex = 0;
-    let promptVisible = true;
-    let promptTimer = null;
+  if (studioInput && studioPreview) {
+    const sampleVideoUrl = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
 
-    const rotatePrompt = () => {
-      if (!promptVisible || document.hidden) return;
-
-      promptIndex = (promptIndex + 1) % prompts.length;
-      promptTarget.animate(
-        [
-          { opacity: 1, transform: 'translateY(0)' },
-          { opacity: 0, transform: 'translateY(-4px)' },
-          { opacity: 0, transform: 'translateY(4px)' },
-          { opacity: 1, transform: 'translateY(0)' }
-        ],
-        { duration: 360, easing: 'ease-out' }
-      );
-
-      window.setTimeout(() => {
-        if (promptVisible && !document.hidden) promptTarget.textContent = prompts[promptIndex];
-      }, 160);
+    const updateStudioPreview = (value) => {
+      const clean = (typeof value === 'string' ? value : studioInput.value).trim();
+      const output = clean ? `${clean} ${sampleVideoUrl}` : sampleVideoUrl;
+      studioPreview.textContent = output;
     };
 
-    const startPromptRotation = () => {
-      if (promptTimer || !promptVisible || document.hidden) return;
-      promptTimer = window.setInterval(rotatePrompt, 2900);
-    };
-
-    const stopPromptRotation = () => {
-      if (!promptTimer) return;
-      window.clearInterval(promptTimer);
-      promptTimer = null;
-    };
-
-    if ('IntersectionObserver' in window) {
-      const promptObserver = new IntersectionObserver((entries) => {
-        promptVisible = Boolean(entries[0]?.isIntersecting);
-        if (promptVisible) startPromptRotation();
-        else stopPromptRotation();
-      }, { threshold: 0.1 });
-      promptObserver.observe(promptTarget);
-    } else {
-      startPromptRotation();
-    }
-
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) stopPromptRotation();
-      else startPromptRotation();
+    studioInput.addEventListener('input', () => {
+      updateStudioPreview(studioInput.value);
+      // Synchroniser l'état des puces prédéfinies
+      presetChips.forEach((chip) => {
+        chip.classList.toggle('active', chip.dataset.preset === studioInput.value);
+      });
     });
 
-    startPromptRotation();
+    presetChips.forEach((chip) => {
+      chip.addEventListener('click', () => {
+        presetChips.forEach((c) => c.classList.remove('active'));
+        chip.classList.add('active');
+        studioInput.value = chip.dataset.preset;
+        updateStudioPreview(studioInput.value);
+        studioInput.focus();
+      });
+    });
+
+    updateStudioPreview(studioInput.value);
   }
 
+  /* ---------------- Démonstration Hero Animée & Contrôles ---------------- */
   const flow = document.querySelector('.hero-visual[data-flow-phase]');
   if (!flow) return;
 
   const promptOutput = flow.querySelector('.composer-prompt');
   const fullPrompt = promptOutput?.dataset.fullPrompt || 'Résume-moi la vidéo : youtube.com/watch?v=VIDEO_ID';
+  const ctrlToggle = document.querySelector('#demo-ctrl-toggle');
+  const ctrlReplay = document.querySelector('#demo-ctrl-replay');
+  const modeTabs = document.querySelectorAll('.demo-mode-tab');
+
   let currentMode = 'watch';
   let demoVisible = true;
+  let isPaused = false;
+  let flowAbortController = new AbortController();
 
   const sequences = {
     watch: [
@@ -204,11 +210,12 @@
 
   const sleep = (ms) => new Promise((resolve) => window.setTimeout(resolve, ms));
 
-  const waitWhileActive = async (ms) => {
+  const waitWhileActive = async (ms, signal) => {
     let elapsed = 0;
     while (elapsed < ms) {
-      if (!demoVisible || document.hidden) {
-        await sleep(250);
+      if (signal?.aborted) throw new Error('aborted');
+      if (isPaused || !demoVisible || document.hidden) {
+        await sleep(200);
         continue;
       }
       const slice = Math.min(100, ms - elapsed);
@@ -217,13 +224,21 @@
     }
   };
 
-  const waitUntilVisible = async () => {
-    while (!demoVisible || document.hidden) await sleep(250);
+  const waitUntilVisible = async (signal) => {
+    while (isPaused || !demoVisible || document.hidden) {
+      if (signal?.aborted) throw new Error('aborted');
+      await sleep(200);
+    }
   };
 
   const setMode = (mode) => {
     currentMode = mode;
     flow.dataset.flowMode = mode;
+    modeTabs.forEach((tab) => {
+      const match = tab.dataset.mode === mode;
+      tab.classList.toggle('active', match);
+      tab.setAttribute('aria-selected', String(match));
+    });
   };
 
   const setPhase = (phase) => {
@@ -247,15 +262,15 @@
     flow.style.setProperty('--cursor-target-y', `${targetRect.top - flowRect.top + targetRect.height * 0.55}px`);
   };
 
-  const typePrompt = async () => {
+  const typePrompt = async (signal) => {
     if (!promptOutput) return;
     promptOutput.textContent = '';
 
     const perCharacter = Math.max(14, Math.min(28, Math.round(1050 / fullPrompt.length)));
     for (const character of fullPrompt) {
-      await waitUntilVisible();
+      await waitUntilVisible(signal);
       promptOutput.textContent += character;
-      await waitWhileActive(perCharacter);
+      await waitWhileActive(perCharacter, signal);
     }
   };
 
@@ -268,6 +283,44 @@
     window.cancelAnimationFrame(resizeFrame);
     resizeFrame = window.requestAnimationFrame(() => updateCursorTarget());
   }, { passive: true });
+
+  /* ---------------- Contrôles Pause / Play / Replay / Modes ---------------- */
+  if (ctrlToggle) {
+    ctrlToggle.addEventListener('click', () => {
+      isPaused = !isPaused;
+      flow.classList.toggle('demo-paused', isPaused);
+      ctrlToggle.classList.toggle('is-paused', isPaused);
+      ctrlToggle.setAttribute('aria-label', isPaused ? 'Reprendre l’animation' : 'Mettre en pause l’animation');
+      ctrlToggle.title = isPaused ? 'Reprendre l’animation' : 'Mettre en pause l’animation';
+    });
+  }
+
+  const restartCurrentFlow = () => {
+    flowAbortController.abort();
+    flowAbortController = new AbortController();
+    runFlow(flowAbortController.signal);
+  };
+
+  if (ctrlReplay) {
+    ctrlReplay.addEventListener('click', () => {
+      if (isPaused) {
+        isPaused = false;
+        flow.classList.remove('demo-paused');
+        ctrlToggle?.classList.remove('is-paused');
+      }
+      restartCurrentFlow();
+    });
+  }
+
+  modeTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const mode = tab.dataset.mode;
+      if (mode && mode !== currentMode) {
+        setMode(mode);
+        restartCurrentFlow();
+      }
+    });
+  });
 
   if (reducedMotion) {
     setMode('watch');
@@ -283,17 +336,18 @@
     flowObserver.observe(flow);
   }
 
-  const modes = ['watch', 'feed'];
-  let modeIndex = 0;
+  document.addEventListener('visibilitychange', () => {
+    // La pause automatique se fait via document.hidden dans waitWhileActive
+  });
 
-  const runScenario = async (mode) => {
+  const runScenario = async (mode, signal) => {
     setMode(mode);
     resetGeminiPrompt();
     setPhase('idle');
-    await waitWhileActive(120);
+    await waitWhileActive(120, signal);
 
     for (const [phase, duration] of sequences[mode]) {
-      await waitUntilVisible();
+      await waitUntilVisible(signal);
       setPhase(phase);
 
       if (phase === 'approach' || phase === 'click' || phase === 'select') {
@@ -301,25 +355,32 @@
       }
 
       if (phase === 'compose') {
-        await typePrompt();
-        await waitWhileActive(260);
+        await typePrompt(signal);
+        await waitWhileActive(260, signal);
       } else {
-        await waitWhileActive(duration);
+        await waitWhileActive(duration, signal);
       }
     }
 
     setPhase('idle');
-    await waitWhileActive(900);
+    await waitWhileActive(900, signal);
   };
 
-  const runFlow = async () => {
-    while (true) {
-      await waitUntilVisible();
-      const mode = modes[modeIndex % modes.length];
-      modeIndex += 1;
-      await runScenario(mode);
+  const runFlow = async (signal) => {
+    const modes = ['watch', 'feed'];
+    try {
+      while (!signal?.aborted) {
+        await waitUntilVisible(signal);
+        await runScenario(currentMode, signal);
+        if (signal?.aborted) break;
+        // Alterne automatiquement vers l'autre mode si l'utilisateur n'a pas sélectionné manuellement
+        const nextMode = currentMode === 'watch' ? 'feed' : 'watch';
+        setMode(nextMode);
+      }
+    } catch {
+      // Annulé par changement de mode ou rejouer
     }
   };
 
-  runFlow();
+  runFlow(flowAbortController.signal);
 })();
