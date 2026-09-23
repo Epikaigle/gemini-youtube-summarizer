@@ -109,7 +109,7 @@
           </div>
         </div>
 
-        <div class="hero-visual reveal" data-flow-phase="idle" role="img" aria-label="Démonstration animée : le curseur clique sur Résumer dans YouTube, le lien et la consigne sont transférés vers Gemini, puis Gemini génère un résumé.">
+        <div class="hero-visual reveal" data-flow-mode="watch" data-flow-phase="idle" role="img" aria-label="Démonstration animée : le curseur clique sur Résumer dans YouTube, le lien et la consigne sont transférés vers Gemini, puis Gemini génère un résumé.">
           <div class="demo-cursor" aria-hidden="true">
             <svg viewBox="0 0 24 30"><path d="M3 2.5 20.5 18l-8.2 1.2 4.5 7.2-4.1 2.3-4.4-7.2L3 27V2.5Z" fill="#fff" stroke="#171820" stroke-width="1.5"/></svg>
             <span class="cursor-click-ring"></span>
@@ -191,6 +191,84 @@
                 <div class="yt-rec"><i class="thumb thumb-c"><span>6:05</span></i><div><b></b><b></b><small></small><em></em></div></div>
                 <div class="yt-rec"><i class="thumb thumb-d"><span>15:24</span></i><div><b></b><b></b><small></small><em></em></div></div>
               </aside>
+            </div>
+          </div>
+
+          <div class="youtube-feed-mock" aria-hidden="true">
+            <div class="yt-feed-top">
+              <div class="yt-feed-brand">
+                <span class="yt-menu">☰</span>
+                <span class="yt-logo">
+                  <svg viewBox="0 0 28 20" aria-hidden="true"><path fill="#ff0033" d="M27.4 3.1A3.5 3.5 0 0 0 25 .7C22.8 0 14 0 14 0S5.2 0 3 .7A3.5 3.5 0 0 0 .6 3.1 36 36 0 0 0 0 10a36 36 0 0 0 .6 6.9A3.5 3.5 0 0 0 3 19.3c2.2.7 11 .7 11 .7s8.8 0 11-.7a3.5 3.5 0 0 0 2.4-2.4A36 36 0 0 0 28 10a36 36 0 0 0-.6-6.9Z"/><path fill="#fff" d="m11.2 14.3 7.3-4.3-7.3-4.3v8.6Z"/></svg>
+                  <b>YouTube</b>
+                </span>
+              </div>
+
+              <div class="yt-feed-search">
+                <span>Rechercher</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m15.6 15.6 4.1 4.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </div>
+
+              <div class="yt-feed-actions">
+                <span class="yt-create">＋ Créer</span>
+                <i class="yt-profile"></i>
+              </div>
+            </div>
+
+            <div class="yt-feed-layout">
+              <article class="yt-card featured-card">
+                <div class="yt-card-thumb thumb-a"><span>12:42</span></div>
+                <div class="yt-card-meta">
+                  <span class="yt-card-avatar">E</span>
+                  <div class="yt-card-copy">
+                    <b>Comprendre un sujet complexe en moins de 15 minutes</b>
+                    <small>Exemple · 84 k vues · il y a 2 jours</small>
+                  </div>
+                  <span class="yt-card-more">⋮</span>
+                </div>
+
+                <div class="yt-card-menu">
+                  <span>▱ Ajouter à la file</span>
+                  <span>⇩ Télécharger</span>
+                  <strong class="yt-card-resume">✦ Résumer</strong>
+                </div>
+              </article>
+
+              <article class="yt-card">
+                <div class="yt-card-thumb thumb-b"><span>8:42</span></div>
+                <div class="yt-card-meta">
+                  <span class="yt-card-avatar">A</span>
+                  <div class="yt-card-copy">
+                    <b>Les idées essentielles à retenir</b>
+                    <small>42 k vues · il y a 3 jours</small>
+                  </div>
+                  <span class="yt-card-dots">⋮</span>
+                </div>
+              </article>
+
+              <article class="yt-card">
+                <div class="yt-card-thumb thumb-c"><span>6:05</span></div>
+                <div class="yt-card-meta">
+                  <span class="yt-card-avatar">M</span>
+                  <div class="yt-card-copy">
+                    <b>Résumé rapide d’un sujet complexe</b>
+                    <small>21 k vues · il y a 1 semaine</small>
+                  </div>
+                  <span class="yt-card-dots">⋮</span>
+                </div>
+              </article>
+
+              <article class="yt-card">
+                <div class="yt-card-thumb thumb-d"><span>15:24</span></div>
+                <div class="yt-card-meta">
+                  <span class="yt-card-avatar">S</span>
+                  <div class="yt-card-copy">
+                    <b>Tout comprendre en quelques minutes</b>
+                    <small>63 k vues · il y a 5 jours</small>
+                  </div>
+                  <span class="yt-card-dots">⋮</span>
+                </div>
+              </article>
             </div>
           </div>
 
