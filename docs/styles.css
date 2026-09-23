@@ -795,3 +795,11 @@ html[data-theme="light"] .flow-status{background:rgba(255,255,255,.9);color:#555
 .yt-actions-row{flex-wrap:wrap}
 .yt-actions-row>span,.yt-resume-action{flex:0 0 auto}
 .yt-title,.yt-description span{overflow-wrap:anywhere}
+
+.yt-search>b svg{width:16px;height:16px}
+.yt-voice svg{width:14px;height:14px}
+.yt-bell svg{width:16px;height:16px}
+@media(max-width:500px){
+  .yt-search>b svg{width:15px;height:15px}
+  .yt-voice svg{width:13px;height:13px}
+}
