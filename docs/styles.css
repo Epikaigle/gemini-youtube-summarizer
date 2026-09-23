@@ -45,7 +45,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #8f82ff;outline-offset:3p
   border-color:var(--line);
   backdrop-filter:blur(18px) saturate(140%);
 }
-.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+.nav{height:76px;display:flex;align-items:center;gap:14px}
 .brand{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:720;letter-spacing:-.02em}
 .brand b{color:#b8b0ff}
 .brand-icon{
@@ -53,7 +53,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #8f82ff;outline-offset:3p
   background:linear-gradient(135deg,var(--purple),var(--cyan));
   color:white;font-size:14px;box-shadow:0 10px 30px rgba(89,91,255,.18)
 }
-.nav-links{display:flex;align-items:center;gap:26px;color:#b9bbc8;font-size:12px;font-weight:700}
+.nav-links{display:flex;align-items:center;gap:24px;color:#b9bbc8;font-size:12px;font-weight:700}
 .nav-links>a:not(.nav-install){transition:color .2s ease}
 .nav-links>a:not(.nav-install):hover{color:white}
 .nav-install{
@@ -121,26 +121,26 @@ a:focus-visible,button:focus-visible{outline:3px solid #8f82ff;outline-offset:3p
   transform:rotate(-.65deg);transform-origin:center;
 }
 .yt-appbar{
-  height:54px;display:grid;grid-template-columns:118px minmax(210px,1fr) 112px;align-items:center;gap:12px;
+  height:56px;display:grid;grid-template-columns:124px minmax(0,1fr) 124px;align-items:center;gap:10px;
   padding:0 13px;background:#0f0f0f
 }
 .yt-left,.yt-logo,.yt-top-actions,.yt-search-wrap{display:flex;align-items:center}
 .yt-left{gap:12px;min-width:0}
 .yt-menu{width:20px;color:#e2e2e2;font-size:13px;text-align:center}
 .yt-logo{gap:5px;min-width:0}.yt-logo svg{width:21px;flex:0 0 auto}.yt-logo b{font-size:9.5px;line-height:1;letter-spacing:-.045em;color:#f1f1f1}
-.yt-search-wrap{justify-self:center;width:min(100%,340px);gap:7px}
+.yt-search-wrap{justify-self:center;width:min(100%,360px);gap:7px}
 .yt-search{
-  flex:1;min-width:0;height:34px;display:flex;align-items:center;justify-content:space-between;
+  flex:1;min-width:0;height:36px;display:flex;align-items:center;justify-content:space-between;
   overflow:hidden;border:1px solid #303030;border-radius:999px;background:#121212;color:#8b8b8b;
   box-shadow:0 1px 2px rgba(0,0,0,.25) inset;font-size:8px
 }
 .yt-search>span{padding-left:13px}
 .yt-search>b{
-  height:100%;width:42px;display:grid;place-items:center;flex:0 0 auto;
+  height:100%;width:44px;display:grid;place-items:center;align-content:center;justify-content:center;flex:0 0 auto;
   border-left:1px solid #303030;background:#222;color:#d2d2d2;font-size:14px;font-weight:500
 }
 .yt-voice{
-  width:30px;height:30px;display:grid;place-items:center;flex:0 0 auto;border-radius:50%;
+  width:32px;height:32px;display:grid;place-items:center;flex:0 0 auto;border-radius:50%;
   background:#272727;color:#bdbdbd;font-size:5px;box-shadow:0 0 0 1px rgba(255,255,255,.015) inset
 }
 .yt-top-actions{justify-content:flex-end;gap:8px;color:#ddd;font-size:8px}
@@ -180,23 +180,23 @@ a:focus-visible,button:focus-visible{outline:3px solid #8f82ff;outline-offset:3p
 }
 .yt-controls small{color:#efefef;font-size:6.8px}.yt-controls>div{margin-left:auto;display:flex;align-items:center;gap:9px;color:#f3f3f3;font-size:7px}
 .yt-title{margin:10px 0 8px;color:#f1f1f1;font-size:12.2px;font-weight:700;line-height:1.25;letter-spacing:-.02em}
-.yt-info-row{display:flex;align-items:center;justify-content:space-between;gap:9px;min-width:0}
-.yt-channel{display:flex;align-items:center;gap:7px;min-width:0;flex:1 1 auto}
+.yt-info-row{display:flex;align-items:center;gap:8px;min-width:0;flex-wrap:wrap}
+.yt-channel{display:flex;align-items:center;gap:8px;min-width:0;flex:1 1 100%}
 .yt-avatar{
   width:30px;height:30px;display:grid;place-items:center;flex:0 0 auto;border-radius:50%;
   background:linear-gradient(135deg,#8f78ff,#59d0ff);font-size:8px;font-weight:850
 }
 .yt-channel>div{min-width:0;line-height:1.1}
-.yt-channel strong{display:block;max-width:66px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#f0f0f0;font-size:8px}
-.yt-channel small{display:block;margin-top:3px;color:#8a8a8a;font-size:5.8px;white-space:nowrap}
+.yt-channel strong{display:block;max-width:104px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#f0f0f0;font-size:8.4px}
+.yt-channel small{display:block;margin-top:3px;color:#8a8a8a;font-size:6.1px;white-space:nowrap}
 .yt-subscribe{
-  height:28px;display:inline-flex;align-items:center;flex:0 0 auto;padding:0 10px;border-radius:999px;
-  background:#f2f2f2;color:#0f0f0f;font-size:7px;font-weight:800
+  height:30px;display:inline-flex;align-items:center;flex:0 0 auto;padding:0 10px;border-radius:999px;
+  background:#f2f2f2;color:#0f0f0f;font-size:7.3px;font-weight:800
 }
-.yt-actions-row{display:flex;align-items:center;justify-content:flex-end;gap:5px;min-width:0;flex:0 1 auto}
+.yt-actions-row{display:flex;align-items:center;justify-content:flex-start;gap:5px;min-width:0;flex:1 1 100%;overflow:visible}
 .yt-actions-row>span,.yt-resume-action{
-  height:28px;display:inline-flex;align-items:center;gap:4px;padding:0 9px;border-radius:999px;
-  background:#272727;color:#e3e3e3;font-size:7px;font-weight:760;white-space:nowrap
+  height:30px;display:inline-flex;align-items:center;justify-content:center;gap:4px;padding:0 10px;border-radius:999px;
+  background:#272727;color:#e3e3e3;font-size:7.3px;font-weight:760;white-space:nowrap
 }
 .yt-actions-row>span:first-child{padding-inline:10px}
 .yt-resume-action{
@@ -205,7 +205,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #8f82ff;outline-offset:3p
 }
 .yt-resume-action>b{font-size:8px}
 .yt-resume-action>i{position:absolute;inset:-4px;border:1px solid rgba(166,146,255,.46);border-radius:999px;opacity:0;animation:flowClick 10s ease-out infinite}
-.yt-actions-row .yt-more{width:28px;padding:0;justify-content:center}
+.yt-actions-row .yt-more{width:30px;padding:0;justify-content:center}
 .yt-description{
   margin-top:9px;padding:9px 10px;border-radius:10px;background:#272727;color:#b0b0b0;font-size:6.4px;line-height:1.42
 }
@@ -684,3 +684,114 @@ footer{padding:34px 0 25px;border-top:1px solid var(--line);background:#07070b}
   .flow-status{font-size:6px;padding:6px 8px}
   .handoff-arrow{right:22%;bottom:88px;width:28%}
 }
+
+
+/* Theme switcher */
+.theme-toggle{
+  position:relative;width:42px;height:34px;display:grid;place-items:center;flex:0 0 auto;margin-left:auto;
+  border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.045);color:var(--text);
+  cursor:pointer;transition:background .2s ease,border-color .2s ease,transform .2s ease
+}
+.theme-toggle:hover{transform:translateY(-1px)}
+.theme-icon{position:absolute;font-size:15px;line-height:1;transition:opacity .2s ease,transform .25s ease}
+.theme-icon-sun{opacity:0;transform:rotate(-35deg) scale(.75)}
+.theme-icon-moon{opacity:1;transform:rotate(0) scale(1)}
+html[data-theme="light"] .theme-icon-sun{opacity:1;transform:rotate(0) scale(1)}
+html[data-theme="light"] .theme-icon-moon{opacity:0;transform:rotate(35deg) scale(.75)}
+
+html[data-theme="light"]{
+  --bg:#f7f8fc;
+  --bg-soft:#eef1f7;
+  --panel:#ffffff;
+  --text:#151720;
+  --muted:#656a78;
+  --line:rgba(19,24,38,.11);
+  --line-strong:rgba(19,24,38,.18);
+}
+html[data-theme="light"] body{background:#f7f8fc;color:var(--text)}
+html[data-theme="light"] .site-header.scrolled{background:rgba(247,248,252,.84);border-color:var(--line)}
+html[data-theme="light"] .nav-links{color:#5f6472}
+html[data-theme="light"] .nav-links>a:not(.nav-install):hover{color:#171922}
+html[data-theme="light"] .menu-button>span:not(.sr-only){background:#171922}
+html[data-theme="light"] .theme-toggle{background:#fff;box-shadow:0 5px 18px rgba(31,38,55,.07)}
+html[data-theme="light"] .hero{
+  background:
+    radial-gradient(circle at 82% 22%,rgba(86,211,255,.16),transparent 25%),
+    radial-gradient(circle at 15% 18%,rgba(123,108,255,.13),transparent 30%),
+    linear-gradient(180deg,#fbfbfe 0%,#f3f5fb 100%)
+}
+html[data-theme="light"] .hero::after{background-image:linear-gradient(rgba(20,24,35,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(20,24,35,.035) 1px,transparent 1px)}
+html[data-theme="light"] .amo-pill,
+html[data-theme="light"] .button-secondary{color:#565b68;background:rgba(255,255,255,.72);border-color:rgba(20,24,35,.09)}
+html[data-theme="light"] .hero-text{color:#5f6471}
+html[data-theme="light"] .hero-text strong{color:#171922}
+html[data-theme="light"] .proof{color:#747986}
+html[data-theme="light"] .how{background:#f0f2f8;border-color:var(--line)}
+html[data-theme="light"] .benefits,
+html[data-theme="light"] .install{background:#f7f8fc}
+html[data-theme="light"] .step,
+html[data-theme="light"] .benefit-main,
+html[data-theme="light"] .benefit-side{background:#fff;border-color:rgba(20,24,35,.09);box-shadow:0 12px 34px rgba(35,40,58,.045)}
+html[data-theme="light"] .step p,
+html[data-theme="light"] .benefit-copy p,
+html[data-theme="light"] .benefit-side p{color:#686d7a}
+html[data-theme="light"] .prompt-demo{background:#fff;border-color:rgba(20,24,35,.09)}
+html[data-theme="light"] .prompt-demo>div{background:#f1f3f8}
+html[data-theme="light"] .prompt-demo p{color:#252833}
+html[data-theme="light"] footer{background:#eef1f6;border-color:var(--line)}
+html[data-theme="light"] .footer-row{color:#656a77}
+html[data-theme="light"] .privacy-page{background:radial-gradient(circle at 50% -10%,rgba(123,108,255,.14),transparent 28%),#f7f8fc}
+html[data-theme="light"] .privacy-summary{background:rgba(48,160,105,.07);border-color:rgba(48,160,105,.18)}
+html[data-theme="light"] .privacy-content p,
+html[data-theme="light"] .privacy-content li{color:#626775}
+
+/* YouTube mock: light mode mirrors YouTube's light surface without changing the demo layout. */
+html[data-theme="light"] .youtube-page-mock,
+html[data-theme="light"] .yt-appbar{background:#fff}
+html[data-theme="light"] .youtube-page-mock{border-color:rgba(0,0,0,.1);box-shadow:0 28px 66px rgba(31,35,48,.18)}
+html[data-theme="light"] .yt-menu,
+html[data-theme="light"] .yt-logo b,
+html[data-theme="light"] .yt-title,
+html[data-theme="light"] .yt-channel strong{color:#0f0f0f}
+html[data-theme="light"] .yt-search{background:#fff;border-color:#d3d3d3;color:#606060;box-shadow:0 1px 2px rgba(0,0,0,.05) inset}
+html[data-theme="light"] .yt-search>b{background:#f8f8f8;border-left-color:#d3d3d3;color:#222}
+html[data-theme="light"] .yt-voice,
+html[data-theme="light"] .yt-create,
+html[data-theme="light"] .yt-actions-row>span{background:#f2f2f2;color:#0f0f0f}
+html[data-theme="light"] .yt-bell{color:#222}
+html[data-theme="light"] .yt-channel small{color:#606060}
+html[data-theme="light"] .yt-description{background:#f2f2f2;color:#525252}
+html[data-theme="light"] .yt-description strong{color:#202020}
+html[data-theme="light"] .yt-filter{background:#0f0f0f;color:#fff}
+html[data-theme="light"] .yt-rec b,
+html[data-theme="light"] .yt-rec small,
+html[data-theme="light"] .yt-rec em{background:#dadde3}
+html[data-theme="light"] .yt-rec small{background:#e4e6eb}
+html[data-theme="light"] .yt-rec em{background:#eceef2}
+
+/* Gemini mock follows the selected site theme too. */
+html[data-theme="light"] .gemini-app-mock{background:#fff;border-color:rgba(0,0,0,.1);box-shadow:0 30px 70px rgba(31,35,48,.2)}
+html[data-theme="light"] .gemini-sidebar-mock{background:#f0f3f8;border-right-color:#e3e6ec;color:#626775}
+html[data-theme="light"] .gemini-side-brand{color:#242731}
+html[data-theme="light"] .gemini-new-chat{background:#e7eaf0;color:#313540}
+html[data-theme="light"] .gemini-history i{background:#d9dde5}
+html[data-theme="light"] .gemini-main-mock{background:#fff}
+html[data-theme="light"] .gemini-topbar-mock{border-bottom-color:#eceef2}
+html[data-theme="light"] .gemini-topbar-mock strong{color:#232630}
+html[data-theme="light"] .gemini-user-message{background:#eef0f4;color:#22252e}
+html[data-theme="light"] .gemini-user-message small{color:#6a6e79}
+html[data-theme="light"] .gemini-thinking,
+html[data-theme="light"] .gemini-response{color:#282b35}
+html[data-theme="light"] .gemini-response p,
+html[data-theme="light"] .gemini-response li{color:#4f5460}
+html[data-theme="light"] .gemini-response li b{color:#232630}
+html[data-theme="light"] .gemini-composer{background:#f1f3f6;border-color:#d9dce3}
+html[data-theme="light"] .composer-placeholder{color:#7a7f89}
+html[data-theme="light"] .composer-prompt{color:#30333c}
+html[data-theme="light"] .flow-status{background:rgba(255,255,255,.9);color:#555b69;border-color:rgba(20,24,35,.1)}
+
+/* Additional YouTube overflow protection */
+.yt-watch,.yt-info-row,.yt-actions-row,.yt-channel{max-width:100%}
+.yt-actions-row{flex-wrap:wrap}
+.yt-actions-row>span,.yt-resume-action{flex:0 0 auto}
+.yt-title,.yt-description span{overflow-wrap:anywhere}
