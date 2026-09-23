@@ -174,18 +174,64 @@
             <svg viewBox="0 0 120 46"><path d="M3 23 C34 3,82 43,116 22" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="4 6"/><path d="m108 14 9 8-9 8" fill="none" stroke="currentColor" stroke-width="2"/></svg>
           </div>
 
-          <div class="gemini-result-card">
-            <div class="gemini-result-head">
-              <span class="gemini-star">✦</span>
-              <div><strong>Gemini</strong><small>Nouveau chat</small></div>
-              <i>Prêt</i>
-            </div>
-            <div class="gemini-result-body">
-              <span class="prompt-label">Votre demande</span>
-              <p><strong>Résume-moi la vidéo :</strong></p>
-              <p class="gemini-url">youtube.com/watch?v=VIDEO_ID</p>
-              <span class="gemini-send">↑</span>
-              <div class="gemini-answer-lines"><i></i><i></i><i class="short"></i></div>
+          <div class="gemini-app-mock" aria-hidden="true">
+            <aside class="gemini-sidebar-mock">
+              <div class="gemini-side-brand">
+                <span>☰</span>
+                <strong>Gemini</strong>
+              </div>
+              <div class="gemini-new-chat">＋ <span>Nouveau chat</span></div>
+              <small>Récents</small>
+              <div class="gemini-history">
+                <i></i><i></i><i class="short"></i>
+              </div>
+              <div class="gemini-side-settings">⚙</div>
+            </aside>
+
+            <div class="gemini-main-mock">
+              <div class="gemini-topbar-mock">
+                <div>
+                  <strong>Gemini</strong>
+                  <small>Nouveau chat</small>
+                </div>
+                <span class="gemini-account">E</span>
+              </div>
+
+              <div class="gemini-thread">
+                <div class="gemini-user-message">
+                  <span>Résume-moi la vidéo :</span>
+                  <small>youtube.com/watch?v=VIDEO_ID</small>
+                </div>
+
+                <div class="gemini-thinking">
+                  <span class="gemini-glyph">✦</span>
+                  <div>
+                    <strong>Analyse de la vidéo</strong>
+                    <span class="thinking-dots"><i></i><i></i><i></i></span>
+                  </div>
+                </div>
+
+                <div class="gemini-response">
+                  <div class="gemini-response-brand"><span class="gemini-glyph">✦</span><strong>Gemini</strong></div>
+                  <h4>Résumé de la vidéo</h4>
+                  <p class="response-line response-intro">La vidéo présente une méthode simple pour comprendre rapidement un sujet complexe.</p>
+                  <ul>
+                    <li class="response-line response-one"><b>Idée clé :</b> commencer par identifier les concepts essentiels.</li>
+                    <li class="response-line response-two"><b>Méthode :</b> relier les informations entre elles plutôt que les mémoriser isolément.</li>
+                    <li class="response-line response-three"><b>À retenir :</b> une synthèse courte facilite la compréhension et la mémorisation.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="gemini-composer">
+                <span class="gemini-add">＋</span>
+                <div class="gemini-composer-copy">
+                  <span class="composer-placeholder">Demander à Gemini</span>
+                  <span class="composer-prompt">Résume-moi la vidéo : <b>youtube.com/watch?v=…</b></span>
+                </div>
+                <span class="gemini-mic">⌁</span>
+                <span class="gemini-send-animated">↑<i></i></span>
+              </div>
             </div>
           </div>
         </div>
