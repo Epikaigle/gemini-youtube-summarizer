@@ -111,7 +111,6 @@ a:focus-visible,button:focus-visible{outline:3px solid #8f82ff;outline-offset:3p
 .button-secondary{color:#dadbe4;border:1px solid var(--line);background:rgba(255,255,255,.035)}
 .button-white{color:#101018;background:white}
 .firefox-mark{width:27px;height:27px;display:grid;place-items:center;border-radius:9px;color:white;background:linear-gradient(135deg,#ff7d4f,#ff4aad 50%,#755cff)}
-.proof{display:flex;gap:10px 18px;flex-wrap:wrap;margin-top:23px;color:#747786;font-size:10px;font-weight:700}
 
 .hero-visual{position:relative;min-height:640px}
 .youtube-page-mock{
@@ -299,51 +298,51 @@ a:focus-visible,button:focus-visible{outline:3px solid #8f82ff;outline-offset:3p
 }
 .gemini-send-animated i{position:absolute;inset:-4px;border:1px solid rgba(176,164,255,.55);border-radius:50%;opacity:0;animation:geminiSendRing 10s ease-out infinite}
 
-.how{padding:105px 0;background:#0d0d14;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.section-title{max-width:720px;margin-bottom:44px}
+.how{padding:82px 0;background:#0d0d14;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.section-title{max-width:720px;margin-bottom:30px}
 .kicker{display:inline-flex;color:#a99fff;text-transform:uppercase;letter-spacing:.14em;font-size:9px;font-weight:850}
 .kicker.light{color:rgba(255,255,255,.72)}
-.section-title h2,.benefit-copy h2,.install h2{margin:12px 0 14px;font-size:clamp(38px,4.7vw,58px);line-height:1.04;letter-spacing:-.055em}
+.section-title h2,.benefit-copy h2,.install h2{margin:0;font-size:clamp(38px,4.7vw,58px);line-height:1.04;letter-spacing:-.055em}
 .section-title p{max-width:620px;margin:0;color:var(--muted);font-size:15px}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.step{position:relative;min-height:260px;padding:26px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,255,255,.012))}
+.step{position:relative;min-height:185px;padding:24px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,255,255,.012))}
 .number{position:absolute;right:22px;top:19px;color:#4e5060;font-size:10px;font-weight:850;letter-spacing:.12em}
-.step-icon{width:44px;height:44px;display:grid;place-items:center;margin-bottom:46px;border:1px solid var(--line);border-radius:14px;background:#15161f}
+.step-icon{width:44px;height:44px;display:grid;place-items:center;margin-bottom:28px;border:1px solid var(--line);border-radius:14px;background:#15161f}
 .step-icon svg{width:23px}.click-mini,.gemini-mini{color:#a89fff;font-size:16px}
 .gemini-mini{background:linear-gradient(135deg,rgba(95,124,255,.1),rgba(154,99,233,.07))}
-.step h3{margin-bottom:9px;font-size:18px;letter-spacing:-.025em}.step p{margin:0;color:#9295a4;font-size:13px}.step strong{color:#d8d9e2}
+.step h3{margin:0;font-size:18px;letter-spacing:-.025em}.step p{margin:0;color:#9295a4;font-size:13px}.step strong{color:#d8d9e2}
 
-.benefits{padding:92px 0;background:#09090e}
+.benefits{padding:74px 0;background:#09090e}
 .benefits-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:14px}
 .benefit-main,.benefit-side{border:1px solid var(--line);border-radius:26px;background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,255,255,.012))}
-.benefit-main{display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:center;padding:36px}
-.benefit-copy h2{font-size:clamp(34px,4vw,48px)}
+.benefit-main{display:grid;grid-template-columns:1fr .95fr;gap:30px;align-items:center;padding:32px}
+.benefit-copy h2{font-size:clamp(34px,4vw,48px);line-height:1.04}
 .benefit-copy p{margin:0;color:#9799a8;font-size:14px}
-.prompt-demo{padding:18px;border:1px solid rgba(255,255,255,.07);border-radius:17px;background:#11121a;box-shadow:0 18px 40px rgba(0,0,0,.2)}
+.prompt-demo{padding:14px;border:1px solid rgba(255,255,255,.07);border-radius:17px;background:#11121a;box-shadow:0 18px 40px rgba(0,0,0,.2)}
 .prompt-demo>span{display:block;margin-bottom:12px;color:#6d7080;text-transform:uppercase;letter-spacing:.12em;font-size:7px;font-weight:850}
-.prompt-demo>div{display:flex;align-items:center;gap:9px;min-height:54px;padding:0 13px;border-radius:12px;background:#171822}
+.prompt-demo>div{display:flex;align-items:center;gap:9px;min-height:50px;padding:0 13px;border-radius:12px;background:#171822}
 .prompt-demo b{width:28px;height:28px;display:grid;place-items:center;border-radius:9px;background:linear-gradient(135deg,#637cff,#a062ec)}
 .prompt-demo p{margin:0;color:#e1e2e9;font-size:12px;font-weight:700}
 .prompt-demo i{width:1px;height:17px;background:#9186ff;animation:caret .85s steps(1) infinite}
 .prompt-demo small{display:block;margin-top:10px;color:#666978;font-size:8px}
-.benefit-side{padding:32px}
-.privacy-icon{width:52px;height:52px;display:grid;place-items:center;margin-bottom:24px;border:1px solid rgba(99,220,255,.12);border-radius:17px;background:rgba(99,220,255,.055)}
+.benefit-side{padding:30px}
+.privacy-icon{width:50px;height:50px;display:grid;place-items:center;margin-bottom:18px;border:1px solid rgba(99,220,255,.12);border-radius:17px;background:rgba(99,220,255,.055)}
 .privacy-icon svg{width:25px;fill:#68dafa}
-.benefit-side h3{margin:10px 0 11px;font-size:27px;line-height:1.12;letter-spacing:-.04em}
+.benefit-side h3{margin:0 0 10px;font-size:27px;line-height:1.12;letter-spacing:-.04em}
 .benefit-side p{color:#9698a7;font-size:13px}
 .benefit-side a{display:inline-flex;margin-top:7px;color:#b7afff;font-size:11px;font-weight:800}
 
-.install{padding:20px 0 80px;background:#09090e}
+.install{padding:12px 0 68px;background:#09090e}
 .install-card{
   position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:34px;
-  padding:38px 40px;border-radius:28px;
+  padding:32px 36px;border-radius:28px;
   background:radial-gradient(circle at 80% 10%,rgba(99,220,255,.2),transparent 30%),linear-gradient(125deg,#6657df 0%,#7658d8 45%,#4c78bf 100%);
   box-shadow:0 28px 70px rgba(50,48,130,.2)
 }
 .install-card::after{content:"";position:absolute;width:320px;height:320px;right:-130px;top:-160px;border:1px solid rgba(255,255,255,.1);border-radius:50%;box-shadow:0 0 0 60px rgba(255,255,255,.03)}
 .install-copy{position:relative;z-index:2;display:flex;align-items:center;gap:20px}
 .install-copy img{width:72px;height:72px;border-radius:18px;box-shadow:0 18px 36px rgba(34,28,102,.25)}
-.install h2{margin:7px 0 5px;font-size:clamp(32px,4vw,48px)}
+.install h2{margin:0;font-size:clamp(32px,4vw,48px)}
 .install p{margin:0;color:rgba(255,255,255,.75);font-size:13px}
 .install-actions{position:relative;z-index:2;display:flex;flex-direction:column;align-items:stretch;gap:9px;min-width:190px}
 .code-link{text-align:center;color:rgba(255,255,255,.72);font-size:10px;font-weight:750}
@@ -418,8 +417,8 @@ footer{padding:34px 0 25px;border-top:1px solid var(--line);background:#07070b}
   .gemini-app-mock{width:63%;right:0;height:300px}
   .handoff-arrow{right:18%;bottom:112px;width:22%}
   .steps{grid-template-columns:1fr}
-  .step{min-height:220px}
-  .step-icon{margin-bottom:30px}
+  .step{min-height:170px}
+  .step-icon{margin-bottom:22px}
   .benefit-main{grid-template-columns:1fr}
   .install-card{align-items:flex-start;flex-direction:column;padding:32px 26px}
   .install-actions{width:100%}
@@ -461,8 +460,8 @@ footer{padding:34px 0 25px;border-top:1px solid var(--line);background:#07070b}
   .gemini-thread{padding-inline:9px}
   .gemini-response{left:9px;right:9px}
   .gemini-composer{left:8px;right:8px}
-  .how{padding:82px 0}
-  .benefits{padding:76px 0}
+  .how{padding:68px 0}
+  .benefits{padding:64px 0}
   .benefit-main,.benefit-side{padding:25px}
   .install-copy{align-items:flex-start}
   .install-copy img{width:60px;height:60px}
@@ -506,14 +505,6 @@ footer{padding:34px 0 25px;border-top:1px solid var(--line);background:#07070b}
   position:absolute;left:4px;top:2px;width:22px;height:22px;border:2px solid rgba(159,143,255,.8);border-radius:50%;
   opacity:0;transform:scale(.35);box-shadow:0 0 18px rgba(128,106,255,.3)
 }
-.flow-status{
-  position:absolute;z-index:31;left:14px;bottom:12px;display:flex;align-items:center;gap:7px;
-  padding:7px 10px;border:1px solid rgba(255,255,255,.1);border-radius:999px;
-  background:rgba(13,14,20,.84);backdrop-filter:blur(14px);color:#afb2c0;font-size:7px;font-weight:780;
-  box-shadow:0 10px 26px rgba(0,0,0,.2)
-}
-.flow-status-dot{width:6px;height:6px;border-radius:50%;background:#7465ff;box-shadow:0 0 0 4px rgba(116,101,255,.1)}
-.flow-status-text{white-space:nowrap}
 .resume-callout{display:none}
 
 /* Stop the old independent loops: the JavaScript phase engine controls the whole story. */
@@ -677,11 +668,9 @@ footer{padding:34px 0 25px;border-top:1px solid var(--line);background:#07070b}
 
 @media (max-width:760px){
   .demo-cursor{width:23px;height:29px}
-  .flow-status{left:8px;bottom:8px}
 }
 @media (max-width:500px){
   .demo-cursor{width:21px;height:27px}
-  .flow-status{font-size:6px;padding:6px 8px}
   .handoff-arrow{right:22%;bottom:88px;width:28%}
 }
 
@@ -1035,8 +1024,6 @@ html[data-theme="light"] .yt-card-menu span:hover{background:#f1f2f5}
   .gemini-app-mock{width:84%;height:286px}
   .gemini-thread{padding:10px}
   .gemini-response{left:10px;right:10px}
-  .flow-status{max-width:calc(100% - 16px)}
-  .flow-status-text{overflow:hidden;text-overflow:ellipsis}
 }
 
 @media (max-width:380px){
