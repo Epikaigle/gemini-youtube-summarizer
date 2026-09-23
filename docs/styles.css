@@ -49,9 +49,8 @@ a:focus-visible,button:focus-visible{outline:3px solid #8f82ff;outline-offset:3p
 .brand{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:720;letter-spacing:-.02em}
 .brand b{color:#b8b0ff}
 .brand-icon{
-  width:34px;height:34px;display:grid;place-items:center;border-radius:11px;
-  background:linear-gradient(135deg,var(--purple),var(--cyan));
-  color:white;font-size:14px;box-shadow:0 10px 30px rgba(89,91,255,.18)
+  width:34px;height:34px;display:block;flex:0 0 auto;object-fit:contain;border-radius:10px;
+  box-shadow:0 10px 26px rgba(42,35,105,.22)
 }
 .nav-links{display:flex;align-items:center;gap:24px;color:#b9bbc8;font-size:12px;font-weight:700}
 .nav-links>a:not(.nav-install){transition:color .2s ease}
