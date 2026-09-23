@@ -1550,7 +1550,7 @@ html[data-theme="light"]
   opacity:1;transform:translateY(0) scale(1)
 }
 .hero-visual[data-flow-mode="feed"][data-flow-phase="select"] .yt-card-resume{
-  transform:scale(.96);box-shadow:0 0 0 7px rgba(122,99,255,.13),0 9px 25px rgba(118,95,255,.42)
+  transform:none!important;box-shadow:0 0 0 7px rgba(122,99,255,.13),0 9px 25px rgba(118,95,255,.42)
 }
 
 /* Feed → Gemini uses the exact same downstream extension flow */
@@ -1838,10 +1838,6 @@ html[data-theme="light"] .yt-card-menu span:hover{
 .hero-visual[data-flow-phase="click"] .yt-resume-action{
   transform:none!important;
 }
-.hero-visual[data-flow-mode="feed"][data-flow-phase="select"] .yt-card-resume{
-  transform:none!important;
-}
-
 /* Preserve sharp rendering in light mode too. */
 html[data-theme="light"] .youtube-page-mock,
 html[data-theme="light"] .youtube-feed-mock{
