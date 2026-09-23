@@ -20,6 +20,17 @@
   <title>Résumé YouTube par Gemini — Extension Firefox</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="site.webmanifest">
+  <script>
+    (() => {
+      try {
+        const saved = localStorage.getItem('site-theme');
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.dataset.theme = saved || (systemDark ? 'dark' : 'light');
+      } catch {
+        document.documentElement.dataset.theme = 'dark';
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="styles.css">
   <script type="application/ld+json">
   {
@@ -46,6 +57,11 @@
         <span class="brand-icon">✦</span>
         <span>Résumé YouTube <b>par Gemini</b></span>
       </a>
+
+      <button class="theme-toggle" type="button" aria-label="Passer au thème clair" aria-pressed="false" title="Changer de thème">
+        <span class="theme-icon theme-icon-sun" aria-hidden="true">☀</span>
+        <span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span>
+      </button>
 
       <button class="menu-button" type="button" aria-expanded="false" aria-controls="nav-links">
         <span></span><span></span><span></span>
