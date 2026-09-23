@@ -50,7 +50,8 @@ const braceBalance = (source) => {
 check(braceBalance(files.css), 'styles.css has unbalanced braces');
 check(files.css.includes('@media (max-width:920px)'), 'CSS compact navigation breakpoint must remain 920px');
 check(files.js.includes("(max-width: 920px)"), 'JS compact navigation breakpoint must remain 920px');
-check(files.index.includes('id="demo"') && files.index.includes('href="#demo"'), 'Demo CTA must target #demo');
+check(files.index.includes('id="demo"'), 'Demo stage must have id="demo"');
+check(files.index.includes('href="#avantages"'), 'Custom prompt CTA must target #avantages');
 check(files.css.includes('.reveal{opacity:1;transform:none}'), 'Reveal content must remain visible without JavaScript');
 check(!files.index.includes('site.webmanifest'), 'Do not re-add the incomplete PWA manifest without full icon support');
 check(!files.index.includes('favicon.svg') && !files.privacy.includes('favicon.svg'), 'Obsolete favicon.svg reference detected');

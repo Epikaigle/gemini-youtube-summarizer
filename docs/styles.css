@@ -156,35 +156,35 @@ a:focus-visible,button:focus-visible{
 .hero-mouse-glow{
   position:absolute;inset:0;pointer-events:none;z-index:1;
   background:radial-gradient(
-    680px circle at var(--mouse-x, 48%) var(--mouse-y, 35%),
-    rgba(142, 108, 255, 0.3) 0%,
-    rgba(118, 75, 245, 0.15) 35%,
-    rgba(80, 50, 220, 0.05) 55%,
-    transparent 72%
+    250px circle at var(--mouse-x, 48%) var(--mouse-y, 35%),
+    rgba(142, 108, 255, 0.16) 0%,
+    rgba(118, 75, 245, 0.08) 35%,
+    rgba(80, 50, 220, 0.02) 55%,
+    transparent 70%
   );
-  opacity:var(--mouse-glow-opacity, 0.85);
+  opacity:var(--mouse-glow-opacity, 0.55);
   transition:opacity .35s ease;
   will-change:background;
 }
 .hero-grid-spotlight{
   position:absolute;inset:0;pointer-events:none;z-index:1;
   background-image:
-    linear-gradient(rgba(182, 160, 255, 0.32) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(182, 160, 255, 0.32) 1px, transparent 1px);
+    linear-gradient(rgba(182, 160, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(182, 160, 255, 0.12) 1px, transparent 1px);
   background-size:56px 56px;
   mask-image:radial-gradient(
-    400px circle at var(--mouse-x, 48%) var(--mouse-y, 35%),
+    200px circle at var(--mouse-x, 48%) var(--mouse-y, 35%),
     black 0%,
-    rgba(0, 0, 0, 0.65) 45%,
-    transparent 80%
+    rgba(0, 0, 0, 0.5) 45%,
+    transparent 75%
   );
   -webkit-mask-image:radial-gradient(
-    400px circle at var(--mouse-x, 48%) var(--mouse-y, 35%),
+    200px circle at var(--mouse-x, 48%) var(--mouse-y, 35%),
     black 0%,
-    rgba(0, 0, 0, 0.65) 45%,
-    transparent 80%
+    rgba(0, 0, 0, 0.5) 45%,
+    transparent 75%
   );
-  opacity:var(--mouse-grid-opacity, 0.9);
+  opacity:var(--mouse-grid-opacity, 0.40);
   transition:opacity .35s ease;
   will-change:mask-image, -webkit-mask-image;
 }
@@ -1214,27 +1214,27 @@ html[data-theme="light"] .hero::after{
 }
 html[data-theme="light"] .hero-mouse-glow{
   background:radial-gradient(
-    600px circle at var(--mouse-x, 48%) var(--mouse-y, 35%),
-    rgba(130, 110, 255, 0.22) 0%,
-    rgba(155, 135, 255, 0.1) 35%,
+    220px circle at var(--mouse-x, 48%) var(--mouse-y, 35%),
+    rgba(130, 110, 255, 0.12) 0%,
+    rgba(155, 135, 255, 0.05) 35%,
     transparent 68%
   );
 }
 html[data-theme="light"] .hero-grid-spotlight{
   background-image:
-    linear-gradient(rgba(115, 85, 235, 0.28) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(115, 85, 235, 0.28) 1px, transparent 1px);
+    linear-gradient(rgba(115, 85, 235, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(115, 85, 235, 0.12) 1px, transparent 1px);
   mask-image:radial-gradient(
-    340px circle at var(--mouse-x, 48%) var(--mouse-y, 35%),
+    190px circle at var(--mouse-x, 48%) var(--mouse-y, 35%),
     black 0%,
-    rgba(0, 0, 0, 0.6) 40%,
-    transparent 80%
+    rgba(0, 0, 0, 0.5) 40%,
+    transparent 75%
   );
   -webkit-mask-image:radial-gradient(
-    340px circle at var(--mouse-x, 48%) var(--mouse-y, 35%),
+    190px circle at var(--mouse-x, 48%) var(--mouse-y, 35%),
     black 0%,
-    rgba(0, 0, 0, 0.6) 40%,
-    transparent 80%
+    rgba(0, 0, 0, 0.5) 40%,
+    transparent 75%
   );
 }
 html[data-theme="light"] .amo-pill,
@@ -1833,7 +1833,7 @@ html[data-theme="light"] .yt-card-menu span:hover{
   backface-visibility:visible;
 }
 
-/* Keep the handoff readable without scaling/rasterizing the whole YouTube surface. */
+/* Keep YouTube opaque behind Gemini so background lights do not bleed through */
 .hero-visual[data-flow-phase="transfer"] .youtube-page-mock,
 .hero-visual[data-flow-phase="compose"] .youtube-page-mock,
 .hero-visual[data-flow-phase="send"] .youtube-page-mock,
@@ -1841,8 +1841,8 @@ html[data-theme="light"] .yt-card-menu span:hover{
 .hero-visual[data-flow-phase="answer"] .youtube-page-mock{
   left:-3%;
   transform:none!important;
-  opacity:.58;
-  filter:none!important;
+  opacity:1!important;
+  filter:brightness(.65) saturate(.85)!important;
 }
 .hero-visual[data-flow-mode="feed"][data-flow-phase="transfer"] .youtube-feed-mock,
 .hero-visual[data-flow-mode="feed"][data-flow-phase="compose"] .youtube-feed-mock,
@@ -1851,8 +1851,8 @@ html[data-theme="light"] .yt-card-menu span:hover{
 .hero-visual[data-flow-mode="feed"][data-flow-phase="answer"] .youtube-feed-mock{
   left:-3%;
   transform:none!important;
-  opacity:.58;
-  filter:none!important;
+  opacity:1!important;
+  filter:brightness(.65) saturate(.85)!important;
 }
 
 /* Watch page typography: large enough to render sharply at 100% zoom. */

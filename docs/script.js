@@ -24,7 +24,7 @@
       hero_text: "L’extension ajoute un bouton <strong>Résumer</strong> natif directement dans YouTube. Au clic, elle ouvre Gemini avec le lien de la vidéo et <strong>votre prompt 100% personnalisable</strong>.",
       hero_cta_add: "Ajouter à Firefox",
       hero_cta_demo: "Voir la démo en direct ↓",
-      hero_cta_custom: "Personnaliser son prompt →",
+      hero_cta_custom: "Personnaliser son prompt ↓",
       demo_tab_watch: "Page Vidéo",
       demo_tab_feed: "Accueil YouTube",
       how_title: "YouTube → Résumer → Gemini.",
@@ -118,7 +118,7 @@
       hero_text: "The extension adds a native <strong>Summarize</strong> button directly in YouTube. Click it to open Gemini with the video link and <strong>your 100% customizable prompt</strong>.",
       hero_cta_add: "Add to Firefox",
       hero_cta_demo: "Watch live demo ↓",
-      hero_cta_custom: "Customize prompt →",
+      hero_cta_custom: "Customize prompt ↓",
       demo_tab_watch: "Watch Page",
       demo_tab_feed: "YouTube Feed",
       how_title: "YouTube → Summarize → Gemini.",
@@ -212,7 +212,7 @@
       hero_text: "La extensión añade un botón nativo <strong>Resumir</strong> directamente en YouTube. Al hacer clic, abre Gemini con el enlace del video y <strong>tu prompt 100% personalizable</strong>.",
       hero_cta_add: "Añadir a Firefox",
       hero_cta_demo: "Ver la demo en vivo ↓",
-      hero_cta_custom: "Personalizar prompt →",
+      hero_cta_custom: "Personalizar prompt ↓",
       demo_tab_watch: "Página de Video",
       demo_tab_feed: "Inicio de YouTube",
       how_title: "YouTube → Resumir → Gemini.",
@@ -306,7 +306,7 @@
       hero_text: "插件直接在 YouTube 中嵌入原生的<strong>总结</strong>按钮。一键即可打开 Gemini 并自动附带视频链接与<strong>完全自定义的提示词</strong>。",
       hero_cta_add: "添加到 Firefox",
       hero_cta_demo: "查看实时演示 ↓",
-      hero_cta_custom: "自定义提示词 →",
+      hero_cta_custom: "自定义提示词 ↓",
       demo_tab_watch: "视频播放页",
       demo_tab_feed: "YouTube 首页推荐",
       how_title: "YouTube → 一键总结 → Gemini。",
@@ -1003,15 +1003,15 @@
 
         if (!isMoving) {
           isMoving = true;
-          heroSection.style.setProperty('--mouse-glow-opacity', '1');
-          heroSection.style.setProperty('--mouse-grid-opacity', '1');
+          heroSection.style.setProperty('--mouse-glow-opacity', '0.85');
+          heroSection.style.setProperty('--mouse-grid-opacity', '0.70');
         }
 
         clearTimeout(idleTimer);
         idleTimer = setTimeout(() => {
           isMoving = false;
-          heroSection.style.setProperty('--mouse-glow-opacity', '0.85');
-          heroSection.style.setProperty('--mouse-grid-opacity', '0.75');
+          heroSection.style.setProperty('--mouse-glow-opacity', '0.55');
+          heroSection.style.setProperty('--mouse-grid-opacity', '0.40');
         }, 1200);
 
         scheduleGlowUpdate();
