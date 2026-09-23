@@ -401,7 +401,11 @@ footer{padding:34px 0 25px;border-top:1px solid var(--line);background:#07070b}
   .resume-callout img{width:28px;height:28px}
   .handoff-arrow{right:24%;bottom:92px;width:26%}
   .gemini-app-mock{width:80%;right:0;bottom:0;height:270px;grid-template-columns:58px 1fr}
-  .gemini-sidebar-mock{padding-inline:6px}\n  .gemini-new-chat span{display:none}\n  .gemini-thread{padding-inline:9px}\n  .gemini-response{left:9px;right:9px}\n  .gemini-composer{left:8px;right:8px}
+  .gemini-sidebar-mock{padding-inline:6px}
+  .gemini-new-chat span{display:none}
+  .gemini-thread{padding-inline:9px}
+  .gemini-response{left:9px;right:9px}
+  .gemini-composer{left:8px;right:8px}
   .how{padding:82px 0}
   .benefits{padding:76px 0}
   .benefit-main,.benefit-side{padding:25px}
@@ -427,4 +431,201 @@ footer{padding:34px 0 25px;border-top:1px solid var(--line);background:#07070b}
 @media(max-width:760px){
   .privacy-hero{padding:125px 0 42px}
   .privacy-content{padding:44px 0 72px}
+}
+
+
+/* Unified YouTube → Gemini workflow demo */
+.hero-visual{
+  --cursor-target-x:55%;
+  --cursor-target-y:52%;
+  isolation:isolate;
+}
+.demo-cursor{
+  position:absolute;z-index:30;left:28%;top:31%;width:25px;height:31px;
+  opacity:0;pointer-events:none;filter:drop-shadow(0 7px 12px rgba(0,0,0,.45));
+  transform:translate(-4px,-3px) scale(.92);
+  transition:left .85s cubic-bezier(.2,.8,.2,1),top .85s cubic-bezier(.2,.8,.2,1),opacity .22s ease,transform .22s ease;
+}
+.demo-cursor svg{width:100%;height:100%}
+.cursor-click-ring{
+  position:absolute;left:4px;top:2px;width:22px;height:22px;border:2px solid rgba(159,143,255,.8);border-radius:50%;
+  opacity:0;transform:scale(.35);box-shadow:0 0 18px rgba(128,106,255,.3)
+}
+.flow-status{
+  position:absolute;z-index:31;left:14px;bottom:12px;display:flex;align-items:center;gap:7px;
+  padding:7px 10px;border:1px solid rgba(255,255,255,.1);border-radius:999px;
+  background:rgba(13,14,20,.84);backdrop-filter:blur(14px);color:#afb2c0;font-size:7px;font-weight:780;
+  box-shadow:0 10px 26px rgba(0,0,0,.2)
+}
+.flow-status-dot{width:6px;height:6px;border-radius:50%;background:#7465ff;box-shadow:0 0 0 4px rgba(116,101,255,.1)}
+.flow-status-text{white-space:nowrap}
+.resume-callout{display:none}
+
+/* Stop the old independent loops: the JavaScript phase engine controls the whole story. */
+.yt-resume-action>i,
+.handoff-arrow>span,
+.gemini-user-message,
+.gemini-thinking,
+.gemini-response,
+.response-intro,.response-one,.response-two,.response-three,
+.composer-placeholder,.composer-prompt,
+.gemini-send-animated,
+.gemini-send-animated i{
+  animation:none;
+}
+.youtube-page-mock{
+  transition:transform .65s cubic-bezier(.2,.75,.2,1),opacity .65s ease,filter .65s ease;
+}
+.gemini-app-mock{
+  opacity:0;
+  transform:translate3d(58px,12px,0) rotate(2.5deg) scale(.95);
+  transform-origin:right bottom;
+  transition:opacity .58s ease,transform .72s cubic-bezier(.2,.78,.2,1),box-shadow .6s ease;
+}
+.handoff-arrow{
+  opacity:0;transform:rotate(7deg) scale(.92);
+  transition:opacity .24s ease,transform .55s ease;
+}
+.transfer-packet{
+  position:absolute;z-index:3;left:0;top:50%;display:flex;align-items:center;justify-content:center;
+  width:8px;height:8px;border-radius:50%;background:#8e7eff;color:transparent;
+  opacity:0;box-shadow:0 0 18px rgba(142,126,255,.8);
+  transform:translate(-50%,-50%);
+}
+.transfer-packet b{
+  position:absolute;left:50%;top:-24px;transform:translateX(-50%);padding:4px 7px;border:1px solid rgba(255,255,255,.1);
+  border-radius:999px;background:#151621;color:#b9bbca;font-size:5px;white-space:nowrap;opacity:0;
+}
+.composer-placeholder{opacity:1;transition:opacity .18s ease}
+.composer-prompt{opacity:0;color:#e5e7ec;transition:opacity .18s ease}
+.composer-prompt b{color:#9fa3ae;font-weight:600}
+.composer-caret{
+  display:none;width:1px;height:13px;margin-left:1px;background:#9f94ff;animation:caret .8s steps(1) infinite
+}
+.gemini-send-animated{
+  background:#3a3b40;color:#777a83;transform:scale(1);
+  transition:background .2s ease,color .2s ease,transform .16s ease,box-shadow .2s ease
+}
+.gemini-send-animated i{opacity:0;transform:scale(.7)}
+.gemini-user-message,.gemini-thinking,.gemini-response{
+  opacity:0;transform:translateY(7px);
+  transition:opacity .34s ease,transform .34s ease
+}
+.response-line{
+  opacity:0;transform:translateY(5px);
+  transition:opacity .42s ease,transform .42s ease
+}
+
+/* 1 — cursor arrives on the extension button */
+.hero-visual[data-flow-phase="approach"] .demo-cursor,
+.hero-visual[data-flow-phase="click"] .demo-cursor{
+  left:var(--cursor-target-x);top:var(--cursor-target-y);opacity:1;transform:translate(-4px,-3px) scale(1)
+}
+.hero-visual[data-flow-phase="click"] .demo-cursor{transform:translate(-4px,-3px) scale(.86)}
+.hero-visual[data-flow-phase="click"] .cursor-click-ring{
+  animation:phaseClickRing .55s ease-out both
+}
+.hero-visual[data-flow-phase="click"] .yt-resume-action{
+  transform:scale(.94);box-shadow:0 0 0 7px rgba(122,99,255,.13),0 9px 25px rgba(118,95,255,.42)
+}
+.yt-resume-action{transition:transform .16s ease,box-shadow .18s ease}
+
+/* 2 — the action leaves YouTube and Gemini opens */
+.hero-visual[data-flow-phase="transfer"] .demo-cursor,
+.hero-visual[data-flow-phase="compose"] .demo-cursor,
+.hero-visual[data-flow-phase="send"] .demo-cursor,
+.hero-visual[data-flow-phase="thinking"] .demo-cursor,
+.hero-visual[data-flow-phase="answer"] .demo-cursor{opacity:0}
+.hero-visual[data-flow-phase="transfer"] .youtube-page-mock,
+.hero-visual[data-flow-phase="compose"] .youtube-page-mock,
+.hero-visual[data-flow-phase="send"] .youtube-page-mock,
+.hero-visual[data-flow-phase="thinking"] .youtube-page-mock,
+.hero-visual[data-flow-phase="answer"] .youtube-page-mock{
+  transform:translateX(-5%) rotate(-1.7deg) scale(.94);opacity:.72;filter:saturate(.78) brightness(.78)
+}
+.hero-visual[data-flow-phase="transfer"] .gemini-app-mock,
+.hero-visual[data-flow-phase="compose"] .gemini-app-mock,
+.hero-visual[data-flow-phase="send"] .gemini-app-mock,
+.hero-visual[data-flow-phase="thinking"] .gemini-app-mock,
+.hero-visual[data-flow-phase="answer"] .gemini-app-mock{
+  opacity:1;transform:translate3d(0,0,0) rotate(1.3deg) scale(1);
+  box-shadow:0 34px 82px rgba(0,0,0,.5),0 0 0 1px rgba(133,113,255,.05)
+}
+.hero-visual[data-flow-phase="transfer"] .handoff-arrow{opacity:1;transform:rotate(7deg) scale(1)}
+.hero-visual[data-flow-phase="transfer"] .transfer-packet{
+  animation:phaseTransferPacket 1.05s cubic-bezier(.35,.05,.2,1) both
+}
+.hero-visual[data-flow-phase="transfer"] .transfer-packet b{animation:phaseTransferLabel 1.05s ease both}
+
+/* 3 — extension injects the prompt */
+.hero-visual[data-flow-phase="compose"] .composer-placeholder,
+.hero-visual[data-flow-phase="send"] .composer-placeholder,
+.hero-visual[data-flow-phase="thinking"] .composer-placeholder,
+.hero-visual[data-flow-phase="answer"] .composer-placeholder{opacity:0}
+.hero-visual[data-flow-phase="compose"] .composer-prompt,
+.hero-visual[data-flow-phase="send"] .composer-prompt{opacity:1}
+.hero-visual[data-flow-phase="compose"] .composer-caret{display:inline-block}
+
+/* 4 — automatic send */
+.hero-visual[data-flow-phase="send"] .gemini-send-animated{
+  background:#dfe1e6;color:#24252a;transform:scale(.86);box-shadow:0 0 0 7px rgba(151,135,255,.1)
+}
+.hero-visual[data-flow-phase="send"] .gemini-send-animated i{animation:phaseSendRing .65s ease-out both}
+
+/* 5 — Gemini receives the user message and analyses the video */
+.hero-visual[data-flow-phase="thinking"] .gemini-user-message,
+.hero-visual[data-flow-phase="answer"] .gemini-user-message{opacity:1;transform:translateY(0)}
+.hero-visual[data-flow-phase="thinking"] .gemini-thinking{opacity:1;transform:translateY(0)}
+.hero-visual[data-flow-phase="thinking"] .thinking-dots i{animation:geminiDot 1s ease-in-out infinite}
+.hero-visual[data-flow-phase="thinking"] .thinking-dots i:nth-child(2){animation-delay:.15s}
+.hero-visual[data-flow-phase="thinking"] .thinking-dots i:nth-child(3){animation-delay:.3s}
+
+/* 6 — Gemini writes the summary progressively */
+.hero-visual[data-flow-phase="answer"] .gemini-response{opacity:1;transform:translateY(0)}
+.hero-visual[data-flow-phase="answer"] .response-intro{opacity:1;transform:translateY(0);transition-delay:.15s}
+.hero-visual[data-flow-phase="answer"] .response-one{opacity:1;transform:translateY(0);transition-delay:.55s}
+.hero-visual[data-flow-phase="answer"] .response-two{opacity:1;transform:translateY(0);transition-delay:.95s}
+.hero-visual[data-flow-phase="answer"] .response-three{opacity:1;transform:translateY(0);transition-delay:1.35s}
+
+@keyframes phaseClickRing{
+  0%{opacity:0;transform:scale(.35)}
+  25%{opacity:1;transform:scale(.65)}
+  100%{opacity:0;transform:scale(1.55)}
+}
+@keyframes phaseTransferPacket{
+  0%{left:2%;opacity:0;transform:translate(-50%,-50%) scale(.6)}
+  10%{opacity:1}
+  48%{transform:translate(-50%,-82%) scale(1.15)}
+  88%{left:94%;opacity:1;transform:translate(-50%,-50%) scale(1)}
+  100%{left:98%;opacity:0;transform:translate(-50%,-50%) scale(.7)}
+}
+@keyframes phaseTransferLabel{
+  0%,8%{opacity:0;transform:translateX(-50%) translateY(4px)}
+  22%,72%{opacity:1;transform:translateX(-50%) translateY(0)}
+  100%{opacity:0;transform:translateX(-50%) translateY(-3px)}
+}
+@keyframes phaseSendRing{
+  0%{opacity:0;transform:scale(.65)}
+  25%{opacity:1}
+  100%{opacity:0;transform:scale(1.55)}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .demo-cursor,.handoff-arrow{display:none!important}
+  .youtube-page-mock{transform:translateX(-5%) rotate(-1.7deg) scale(.94)!important;opacity:.72!important;filter:saturate(.78) brightness(.78)!important}
+  .gemini-app-mock{opacity:1!important;transform:translate3d(0,0,0) rotate(1.3deg) scale(1)!important}
+  .composer-placeholder{opacity:0!important}
+  .composer-prompt{opacity:1!important}
+  .gemini-user-message,.gemini-response,.response-line{opacity:1!important;transform:none!important}
+  .gemini-thinking{opacity:0!important}
+}
+
+@media (max-width:760px){
+  .demo-cursor{width:23px;height:29px}
+  .flow-status{left:8px;bottom:8px}
+}
+@media (max-width:500px){
+  .demo-cursor{width:21px;height:27px}
+  .flow-status{font-size:6px;padding:6px 8px}
+  .handoff-arrow{right:22%;bottom:88px;width:28%}
 }
