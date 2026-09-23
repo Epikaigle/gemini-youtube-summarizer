@@ -242,11 +242,11 @@ a:focus-visible,button:focus-visible{outline:3px solid #8f82ff;outline-offset:3p
 .gemini-sidebar-mock{
   position:relative;padding:10px 8px;border-right:1px solid rgba(255,255,255,.06);background:#17181c;color:#aeb0b8
 }
-.gemini-side-brand{display:flex;align-items:center;gap:7px;color:#e7e8ec;font-size:7px}.gemini-side-brand>span{font-size:10px}.gemini-side-brand strong{font-size:8px}
+.gemini-side-brand{display:flex;align-items:center;gap:7px;color:#e7e8ec;font-size:7px}.gemini-side-brand strong{font-size:8px}
 .gemini-new-chat{display:flex;align-items:center;gap:5px;margin-top:14px;padding:7px;border-radius:12px;background:#24252a;color:#ddd;font-size:6px;font-weight:700}
 .gemini-sidebar-mock>small{display:block;margin:16px 0 8px;padding-left:4px;color:#777b84;font-size:5.5px;font-weight:750}
 .gemini-history{padding:0 4px}.gemini-history i{display:block;height:5px;margin-bottom:7px;border-radius:99px;background:#2b2c31}.gemini-history i:nth-child(2){width:84%}.gemini-history i.short{width:58%}
-.gemini-side-settings{position:absolute;left:12px;bottom:11px;color:#797c86;font-size:9px}
+.gemini-side-settings{position:absolute;left:12px;bottom:11px;color:#797c86}
 .gemini-main-mock{position:relative;min-width:0;background:#202124}
 .gemini-topbar-mock{
   height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 12px;border-bottom:1px solid rgba(255,255,255,.05)
@@ -1024,11 +1024,11 @@ html[data-theme="light"] .yt-card-menu span:hover{background:#f1f2f5}
 }
 .gemini-sidebar-mock{padding:12px 10px}
 .gemini-side-brand{gap:8px;font-size:8.5px}
-.gemini-side-brand>span{font-size:12px}
+
 .gemini-side-brand strong{font-size:10px}
 .gemini-new-chat{margin-top:16px;padding:8px;font-size:7.5px}
 .gemini-sidebar-mock>small{margin:17px 0 9px;font-size:7px}
-.gemini-side-settings{left:14px;bottom:13px;font-size:11px}
+.gemini-side-settings{left:14px;bottom:13px}
 
 .gemini-topbar-mock{height:48px;padding:0 14px}
 .gemini-topbar-mock strong{font-size:10.5px}
@@ -1293,3 +1293,17 @@ html[data-theme="light"] .extension-mini{background:transparent;border:0}
 @media(max-width:500px){
   .extension-mini img{width:42px;height:42px}
 }
+
+
+/* Stable inline SVG icons across platforms */
+.yt-menu{display:grid;place-items:center}
+.yt-menu svg{width:17px;height:17px}
+.player-center svg{width:18px;height:18px}
+.yt-control-icon{display:grid;place-items:center}
+.yt-control-icon svg{width:12px;height:12px}
+.yt-action-icon{width:13px;height:13px;flex:0 0 auto}
+.gemini-side-brand>span{width:18px;height:18px;display:grid;place-items:center}
+.gemini-side-brand>span svg{width:15px;height:15px}
+.gemini-side-settings{width:20px;height:20px;display:grid;place-items:center}
+.gemini-side-settings svg{width:15px;height:15px}
+.gemini-mic svg{width:14px;height:14px}
