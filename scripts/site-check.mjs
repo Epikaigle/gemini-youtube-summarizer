@@ -54,6 +54,9 @@ check(files.index.includes('id="demo"') && files.index.includes('href="#demo"'),
 check(files.css.includes('.reveal{opacity:1;transform:none}'), 'Reveal content must remain visible without JavaScript');
 check(!files.index.includes('site.webmanifest'), 'Do not re-add the incomplete PWA manifest without full icon support');
 check(!files.index.includes('favicon.svg') && !files.privacy.includes('favicon.svg'), 'Obsolete favicon.svg reference detected');
+check(files.index.includes('assets/social-preview.png'), 'Social metadata must use social-preview.png');
+check(!files.index.includes('og:image" content="https://epikaigle.github.io/resume-youtube-gemini/assets/social-preview.svg'), 'Open Graph must not use the SVG preview');
+check(!files.index.includes('twitter:image" content="https://epikaigle.github.io/resume-youtube-gemini/assets/social-preview.svg'), 'Twitter card must not use the SVG preview');
 
 try {
   new Function(files.js);
