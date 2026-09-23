@@ -803,3 +803,146 @@ html[data-theme="light"] .flow-status{background:rgba(255,255,255,.9);color:#555
   .yt-search>b svg{width:15px;height:15px}
   .yt-voice svg{width:13px;height:13px}
 }
+
+
+/* Alternate YouTube feed scenario */
+.youtube-feed-mock{
+  position:absolute;z-index:2;left:0;top:10px;width:97%;
+  overflow:hidden;border:1px solid rgba(255,255,255,.085);border-radius:19px;
+  background:#0f0f0f;box-shadow:0 30px 72px rgba(0,0,0,.44),0 1px 0 rgba(255,255,255,.025) inset;
+  opacity:0;pointer-events:none;transform:rotate(-.65deg) scale(.985);transform-origin:center;
+  transition:transform .65s cubic-bezier(.2,.75,.2,1),opacity .55s ease,filter .65s ease
+}
+.yt-feed-top{
+  height:56px;display:grid;grid-template-columns:124px minmax(0,1fr) 112px;align-items:center;gap:10px;
+  padding:0 13px;background:#0f0f0f
+}
+.yt-feed-brand,.yt-feed-actions{display:flex;align-items:center}
+.yt-feed-brand{gap:12px}.yt-feed-actions{justify-content:flex-end;gap:8px}
+.yt-feed-search{
+  justify-self:center;width:min(100%,360px);height:36px;display:flex;align-items:center;justify-content:space-between;
+  padding-left:13px;overflow:hidden;border:1px solid #303030;border-radius:999px;background:#121212;color:#8b8b8b;font-size:8px
+}
+.yt-feed-search svg{width:16px;height:16px;margin:0 13px 0 10px;flex:0 0 auto}
+.yt-feed-layout{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px 11px;padding:10px 12px 15px}
+.yt-card{position:relative;min-width:0}
+.featured-card{grid-column:span 2}
+.yt-card-thumb{
+  position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:10px;background:#202020;
+  box-shadow:0 1px 0 rgba(255,255,255,.02) inset
+}
+.yt-card-thumb span{
+  position:absolute;right:4px;bottom:4px;padding:1px 4px;border-radius:4px;background:rgba(0,0,0,.78);
+  color:#fff;font-size:5px;font-weight:800;line-height:1.45
+}
+.yt-card-meta{display:grid;grid-template-columns:28px minmax(0,1fr) 24px;gap:7px;align-items:start;margin-top:8px}
+.yt-card-avatar{
+  width:28px;height:28px;display:grid;place-items:center;border-radius:50%;
+  background:linear-gradient(135deg,#8f78ff,#59d0ff);color:#fff;font-size:7px;font-weight:850
+}
+.yt-card-copy{min-width:0}
+.yt-card-copy b{
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;
+  color:#f1f1f1;font-size:7.4px;line-height:1.3;letter-spacing:-.01em
+}
+.yt-card-copy small{display:block;margin-top:3px;color:#898989;font-size:5.7px;line-height:1.35}
+.yt-card-more,.yt-card-dots{
+  width:24px;height:24px;display:grid;place-items:center;border-radius:50%;
+  color:#d8d8d8;font-size:13px;line-height:1;user-select:none
+}
+.yt-card-menu{
+  position:absolute;z-index:12;right:5px;top:calc(100% - 23px);width:132px;padding:6px;
+  border:1px solid rgba(255,255,255,.08);border-radius:12px;background:#212226;
+  box-shadow:0 18px 48px rgba(0,0,0,.42);opacity:0;transform:translateY(6px) scale(.96);
+  transform-origin:top right;pointer-events:none;transition:opacity .2s ease,transform .22s ease
+}
+.yt-card-menu span,.yt-card-menu strong{
+  min-height:29px;display:flex;align-items:center;padding:0 9px;border-radius:8px;
+  color:#ececef;font-size:6.8px;font-weight:700;white-space:nowrap
+}
+.yt-card-menu span:hover{background:#303136}
+.yt-card-resume{
+  margin-top:2px;background:linear-gradient(135deg,#765fff,#9258d7);color:#fff!important;
+  box-shadow:0 6px 18px rgba(118,95,255,.22)
+}
+
+/* Alternate the two YouTube surfaces */
+.hero-visual[data-flow-mode="watch"] .youtube-page-mock{opacity:1;visibility:visible}
+.hero-visual[data-flow-mode="watch"] .youtube-feed-mock{opacity:0;visibility:hidden}
+.hero-visual[data-flow-mode="feed"] .youtube-page-mock{opacity:0;visibility:hidden;pointer-events:none}
+.hero-visual[data-flow-mode="feed"] .youtube-feed-mock{opacity:1;visibility:visible}
+
+/* Feed scenario: open ⋮ then click Résumer */
+.hero-visual[data-flow-mode="feed"][data-flow-phase="approach"] .demo-cursor,
+.hero-visual[data-flow-mode="feed"][data-flow-phase="click"] .demo-cursor,
+.hero-visual[data-flow-mode="feed"][data-flow-phase="select"] .demo-cursor{
+  left:var(--cursor-target-x);top:var(--cursor-target-y);opacity:1
+}
+.hero-visual[data-flow-mode="feed"][data-flow-phase="click"] .cursor-click-ring,
+.hero-visual[data-flow-mode="feed"][data-flow-phase="select"] .cursor-click-ring{
+  animation:phaseClickRing .55s ease-out both
+}
+.hero-visual[data-flow-mode="feed"][data-flow-phase="click"] .yt-card-menu,
+.hero-visual[data-flow-mode="feed"][data-flow-phase="select"] .yt-card-menu,
+.hero-visual[data-flow-mode="feed"][data-flow-phase="transfer"] .yt-card-menu{
+  opacity:1;transform:translateY(0) scale(1)
+}
+.hero-visual[data-flow-mode="feed"][data-flow-phase="select"] .yt-card-resume{
+  transform:scale(.96);box-shadow:0 0 0 7px rgba(122,99,255,.13),0 9px 25px rgba(118,95,255,.42)
+}
+.yt-card-resume{transition:transform .16s ease,box-shadow .18s ease}
+
+/* Feed → Gemini uses the exact same downstream extension flow */
+.hero-visual[data-flow-mode="feed"][data-flow-phase="transfer"] .youtube-feed-mock,
+.hero-visual[data-flow-mode="feed"][data-flow-phase="compose"] .youtube-feed-mock,
+.hero-visual[data-flow-mode="feed"][data-flow-phase="send"] .youtube-feed-mock,
+.hero-visual[data-flow-mode="feed"][data-flow-phase="thinking"] .youtube-feed-mock,
+.hero-visual[data-flow-mode="feed"][data-flow-phase="answer"] .youtube-feed-mock{
+  transform:translateX(-5%) rotate(-1.7deg) scale(.94);opacity:.72;filter:saturate(.78) brightness(.78)
+}
+.hero-visual[data-flow-mode="feed"][data-flow-phase="transfer"] .gemini-app-mock,
+.hero-visual[data-flow-mode="feed"][data-flow-phase="compose"] .gemini-app-mock,
+.hero-visual[data-flow-mode="feed"][data-flow-phase="send"] .gemini-app-mock,
+.hero-visual[data-flow-mode="feed"][data-flow-phase="thinking"] .gemini-app-mock,
+.hero-visual[data-flow-mode="feed"][data-flow-phase="answer"] .gemini-app-mock{
+  opacity:1;transform:translate3d(0,0,0) rotate(1.3deg) scale(1)
+}
+.hero-visual[data-flow-mode="feed"][data-flow-phase="transfer"] .handoff-arrow{opacity:1;transform:rotate(7deg) scale(1)}
+.hero-visual[data-flow-mode="feed"][data-flow-phase="transfer"] .transfer-packet{animation:phaseTransferPacket 1.05s cubic-bezier(.35,.05,.2,1) both}
+.hero-visual[data-flow-mode="feed"][data-flow-phase="transfer"] .transfer-packet b{animation:phaseTransferLabel 1.05s ease both}
+
+/* Light theme for feed */
+html[data-theme="light"] .youtube-feed-mock,
+html[data-theme="light"] .yt-feed-top{background:#fff}
+html[data-theme="light"] .youtube-feed-mock{border-color:rgba(0,0,0,.1);box-shadow:0 28px 66px rgba(31,35,48,.18)}
+html[data-theme="light"] .yt-feed-search{background:#fff;border-color:#d3d3d3;color:#606060}
+html[data-theme="light"] .yt-feed-brand .yt-logo b,
+html[data-theme="light"] .yt-card-copy b{color:#0f0f0f}
+html[data-theme="light"] .yt-card-copy small{color:#606060}
+html[data-theme="light"] .yt-card-more,
+html[data-theme="light"] .yt-card-dots{color:#222}
+html[data-theme="light"] .yt-card-menu{background:#fff;border-color:rgba(0,0,0,.1);box-shadow:0 18px 42px rgba(31,35,48,.18)}
+html[data-theme="light"] .yt-card-menu span{color:#25272e}
+html[data-theme="light"] .yt-card-menu span:hover{background:#f1f2f5}
+
+@media(max-width:760px){
+  .yt-feed-top{grid-template-columns:110px minmax(0,1fr) 96px}
+  .yt-feed-search{width:min(100%,300px)}
+  .yt-feed-layout{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+  .featured-card{grid-column:span 2}
+}
+@media(max-width:500px){
+  .youtube-feed-mock{top:6px;border-radius:16px}
+  .yt-feed-top{height:46px;grid-template-columns:auto 1fr;gap:10px;padding:0 10px}
+  .yt-feed-actions{display:none}
+  .yt-feed-search{justify-self:end;width:min(100%,190px);height:30px}
+  .yt-feed-search svg{width:15px;height:15px;margin-right:10px}
+  .yt-feed-layout{grid-template-columns:1fr 1fr;gap:9px;padding:8px}
+  .featured-card{grid-column:span 2}
+  .yt-card-meta{grid-template-columns:25px minmax(0,1fr) 20px;gap:6px;margin-top:6px}
+  .yt-card-avatar{width:25px;height:25px}
+  .yt-card-copy b{font-size:6.7px}
+  .yt-card-copy small{font-size:5.2px}
+  .yt-card-menu{right:3px;top:calc(100% - 18px);width:118px}
+  .yt-card-menu span,.yt-card-menu strong{min-height:27px;font-size:6.2px}
+}
