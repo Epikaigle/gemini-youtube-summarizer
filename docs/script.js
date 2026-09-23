@@ -83,6 +83,12 @@
         card2_meta: "Apprendre · 42 k vues · il y a 3 jours",
         card3_title: "Méthode simple pour retenir l'essentiel",
         card3_meta: "Méthode · 63 k vues · il y a 5 jours",
+        card4_title: "Guide complet : Maîtriser de nouvelles compétences",
+        card4_meta: "Science · 95 k vues · il y a 1 semaine",
+        card5_title: "Comment organiser ses notes et ses idées efficacement",
+        card5_meta: "Découverte · 51 k vues · il y a 4 jours",
+        card6_title: "Les secrets de la productivité moderne expliqués",
+        card6_meta: "Tech · 112 k vues · il y a 6 jours",
         menu_queue: "Ajouter à la file d'attente",
         menu_save: "Enregistrer pour plus tard",
         menu_share: "Partager",
@@ -171,6 +177,12 @@
         card2_meta: "Learning · 42K views · 3 days ago",
         card3_title: "Simple method to retain key concepts",
         card3_meta: "Method · 63K views · 5 days ago",
+        card4_title: "Complete guide: Mastering new skills fast",
+        card4_meta: "Science · 95K views · 1 week ago",
+        card5_title: "How to organize notes and ideas effectively",
+        card5_meta: "Discovery · 51K views · 4 days ago",
+        card6_title: "The secrets of modern productivity explained",
+        card6_meta: "Tech · 112K views · 6 days ago",
         menu_queue: "Add to queue",
         menu_save: "Save to Watch later",
         menu_share: "Share",
@@ -259,6 +271,12 @@
         card2_meta: "Aprender · 42 K vistas · hace 3 días",
         card3_title: "Método sencillo para recordar lo esencial",
         card3_meta: "Método · 63 K vistas · hace 5 días",
+        card4_title: "Guía completa: Dominar nuevas habilidades rápido",
+        card4_meta: "Ciencia · 95 K vistas · hace 1 semana",
+        card5_title: "Cómo organizar notas e ideas de forma eficaz",
+        card5_meta: "Descubrimiento · 51 K vistas · hace 4 días",
+        card6_title: "Los secretos de la productividad moderna explicados",
+        card6_meta: "Tech · 112 K vistas · hace 6 días",
         menu_queue: "Añadir a la cola",
         menu_save: "Guardar para ver más tarde",
         menu_share: "Compartir",
@@ -347,6 +365,12 @@
         card2_meta: "学习频道 · 4.2万次观看 · 3天前",
         card3_title: "高效记忆核心知识的极简方法",
         card3_meta: "高效方法 · 6.3万次观看 · 5天前",
+        card4_title: "完整指南：快速掌握新技能的核心方法",
+        card4_meta: "科学频道 · 9.5万次观看 · 1周前",
+        card5_title: "如何高效整理知识笔记与创意灵感",
+        card5_meta: "探索发现 · 5.1万次观看 · 4天前",
+        card6_title: "现代高效生产力背后的底层逻辑",
+        card6_meta: "科技频道 · 11.2万次观看 · 6天前",
         menu_queue: "添加到播放队列",
         menu_save: "保存到稍后观看",
         menu_share: "分享",
@@ -579,6 +603,21 @@
     if (elCard3Title) elCard3Title.textContent = t.card3_title;
     const elCard3Meta = flow.querySelector('.demo-card3-meta');
     if (elCard3Meta) elCard3Meta.textContent = t.card3_meta;
+
+    const elCard4Title = flow.querySelector('.demo-card4-title');
+    if (elCard4Title) elCard4Title.textContent = t.card4_title;
+    const elCard4Meta = flow.querySelector('.demo-card4-meta');
+    if (elCard4Meta) elCard4Meta.textContent = t.card4_meta;
+
+    const elCard5Title = flow.querySelector('.demo-card5-title');
+    if (elCard5Title) elCard5Title.textContent = t.card5_title;
+    const elCard5Meta = flow.querySelector('.demo-card5-meta');
+    if (elCard5Meta) elCard5Meta.textContent = t.card5_meta;
+
+    const elCard6Title = flow.querySelector('.demo-card6-title');
+    if (elCard6Title) elCard6Title.textContent = t.card6_title;
+    const elCard6Meta = flow.querySelector('.demo-card6-meta');
+    if (elCard6Meta) elCard6Meta.textContent = t.card6_meta;
 
     const elMenuQueue = flow.querySelector('.demo-menu-queue');
     if (elMenuQueue) elMenuQueue.textContent = t.menu_queue;

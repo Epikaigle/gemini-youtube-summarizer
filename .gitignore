@@ -3,5 +3,7 @@ META-INF/
 *.zip
 *.log
 web-ext-artifacts/
+artifacts/
 .DS_Store
 Thumbs.db
+
