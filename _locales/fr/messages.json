@@ -1,0 +1,18 @@
+{
+  "extensionName": {
+    "message": "Résumé YouTube avec Gemini",
+    "description": "Nom de l'extension"
+  },
+  "extensionDescription": {
+    "message": "Résumez n'importe quelle vidéo YouTube en un clic. L'extension ajoute un bouton 'Résumer' sur YouTube, ouvre Gemini avec le lien de la vidéo et votre prompt 100% personnalisable.",
+    "description": "Description de l'extension"
+  },
+  "buttonSummarize": {
+    "message": "Résumer",
+    "description": "Texte du bouton Résumer sur YouTube"
+  },
+  "defaultPromptPrefix": {
+    "message": "Résume-moi la vidéo :",
+    "description": "Consigne par défaut envoyée à Gemini"
+  }
+}

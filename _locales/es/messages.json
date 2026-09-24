@@ -1,0 +1,18 @@
+{
+  "extensionName": {
+    "message": "YouTube Summarizer with Gemini",
+    "description": "Nombre de la extensión"
+  },
+  "extensionDescription": {
+    "message": "Resume cualquier video de YouTube en un clic. Añade un botón nativo 'Resumir' en YouTube, abre Gemini con el enlace del video y tu instrucción 100% personalizable.",
+    "description": "Descripción de la extensión"
+  },
+  "buttonSummarize": {
+    "message": "Resumir",
+    "description": "Texto del botón Resumir en YouTube"
+  },
+  "defaultPromptPrefix": {
+    "message": "Resúmeme el video:",
+    "description": "Instrucción predeterminada enviada a Gemini"
+  }
+}

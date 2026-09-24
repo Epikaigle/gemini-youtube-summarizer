@@ -21,7 +21,7 @@ Le dossier `docs/` contient le site GitHub Pages et ne doit pas être inclus dan
 
 ## Points à renseigner sur AMO
 
-- Nom : `Résumé YouTube par Gemini`
+- Nom : `YouTube Summarizer with Gemini` (géré automatiquement en multilingue via `_locales` : `Résumé YouTube avec Gemini` en français)
 - Résumé court : extension qui ajoute `Résumer` sur YouTube et envoie l’URL de la vidéo choisie à Gemini avec un texte personnalisable
 - Politique de confidentialité : reprendre le contenu de `PRIVACY_POLICY.md`
 - Notes de revue : reprendre le contenu de `AMO_REVIEW_NOTES.md`

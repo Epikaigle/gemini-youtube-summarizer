@@ -1,12 +1,12 @@
-# Résumé YouTube par Gemini
+# YouTube Summarizer with Gemini (Résumé YouTube avec Gemini)
 
 Extension Firefox minimaliste qui ajoute une action `Résumer` sur YouTube.
 
 ## Liens officiels
 
-- Site : `https://epikaigle.github.io/resume-youtube-gemini/`
-- Firefox Add-ons : `https://addons.mozilla.org/fr/firefox/addon/gemini-youtube-summarizer/`
-- Code source : `https://github.com/Epikaigle/resume-youtube-gemini`
+- Site : `https://epikaigle.github.io/gemini-youtube-summarizer/`
+- Firefox Add-ons : `https://addons.mozilla.org/firefox/addon/gemini-youtube-summarizer/`
+- Code source : `https://github.com/Epikaigle/gemini-youtube-summarizer`
 
 Le flux est le suivant :
 - sur YouTube, `Résumer` apparaît dans les menus `3 points`
@@ -21,7 +21,7 @@ Le site de présentation de l'extension est versionné dans le même dépôt, da
 
 Une fois GitHub Pages configuré sur la branche `main` avec le dossier `/docs`, le site est disponible à l'adresse :
 
-`https://epikaigle.github.io/resume-youtube-gemini/`
+`https://epikaigle.github.io/gemini-youtube-summarizer/`
 
 Le site contient :
 - une landing page courte et responsive

@@ -1,6 +1,6 @@
 # Politique de confidentialite
 
-## Resume YouTube par Gemini
+## YouTube Summarizer with Gemini
 
 Cette extension n'envoie aucune donnee au developpeur de l'extension.
 

@@ -1,0 +1,18 @@
+{
+  "extensionName": {
+    "message": "YouTube Summarizer with Gemini",
+    "description": "Name of the extension"
+  },
+  "extensionDescription": {
+    "message": "Summarize any YouTube video in one click. Adds a native 'Summarize' button on YouTube, opens Gemini with the video link and your customizable prompt.",
+    "description": "Description of the extension"
+  },
+  "buttonSummarize": {
+    "message": "Summarize",
+    "description": "Label for the summarize button on YouTube"
+  },
+  "defaultPromptPrefix": {
+    "message": "Summarize this video:",
+    "description": "Default prompt sent to Gemini"
+  }
+}

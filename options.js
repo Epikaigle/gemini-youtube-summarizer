@@ -3,7 +3,7 @@
  */
 
 const PROMPT_PREFIX_STORAGE_KEY = "geminiPromptPrefix";
-const DEFAULT_PROMPT_PREFIX = "Résume-moi la vidéo :";
+const DEFAULT_PROMPT_PREFIX = (typeof chrome !== "undefined" && chrome.i18n?.getMessage?.("defaultPromptPrefix")) || "Résume-moi la vidéo :";
 const SAMPLE_VIDEO_URL = "https://www.youtube.com/watch?v=abcdefghijk";
 
 const form = document.getElementById("options-form");
@@ -11,6 +11,13 @@ const promptPrefixInput = document.getElementById("prompt-prefix");
 const promptPreview = document.getElementById("prompt-preview");
 const resetButton = document.getElementById("reset-button");
 const statusMessage = document.getElementById("status");
+
+const localizedName = typeof chrome !== "undefined" && chrome.i18n?.getMessage?.("extensionName");
+if (localizedName) {
+    const titleEl = document.getElementById("title");
+    if (titleEl) titleEl.textContent = localizedName;
+    document.title = `Options — ${localizedName}`;
+}
 
 let statusTimeoutId = 0;
 

@@ -14,6 +14,7 @@
   /* ---------------- Dictionnaire Multilingue (FR, EN, ES, ZH) ---------------- */
   const translations = {
     fr: {
+      nav_brand: "Résumé YouTube <b>avec Gemini</b>",
       nav_how: "Comment ça marche",
       nav_custom: "Personnaliser le prompt",
       nav_privacy: "Confidentialité",
@@ -54,7 +55,7 @@
       install_desc: "Gratuit, léger et open source. Installez en un clic sur Firefox.",
       install_btn: "Ajouter à Firefox ↗",
       install_source: "Voir le code source",
-      footer_brand: "Résumé YouTube par Gemini",
+      footer_brand: "Résumé YouTube avec Gemini",
       footer_legal: "Projet indépendant — non affilié à YouTube, Google ou Mozilla.",
       privacy_kicker: "Transparence",
       privacy_title: "Politique de confidentialité",
@@ -108,6 +109,7 @@
       }
     },
     en: {
+      nav_brand: "YouTube Summarizer <b>with Gemini</b>",
       nav_how: "How it works",
       nav_custom: "Custom Prompt",
       nav_privacy: "Privacy",
@@ -148,7 +150,7 @@
       install_desc: "Free, lightweight, and open source. Install in one click on Firefox.",
       install_btn: "Add to Firefox ↗",
       install_source: "View source code",
-      footer_brand: "YouTube Summarizer by Gemini",
+      footer_brand: "YouTube Summarizer with Gemini",
       footer_legal: "Independent project — not affiliated with YouTube, Google, or Mozilla.",
       privacy_kicker: "Transparency",
       privacy_title: "Privacy Policy",
@@ -202,6 +204,7 @@
       }
     },
     es: {
+      nav_brand: "Resumen de YouTube <b>con Gemini</b>",
       nav_how: "Cómo funciona",
       nav_custom: "Personalizar prompt",
       nav_privacy: "Privacidad",
@@ -242,7 +245,7 @@
       install_desc: "Gratis, ligero y de código abierto. Instálalo en un clic en Firefox.",
       install_btn: "Añadir a Firefox ↗",
       install_source: "Ver código fuente",
-      footer_brand: "Resumen de YouTube por Gemini",
+      footer_brand: "Resumen de YouTube con Gemini",
       footer_legal: "Proyecto independiente — no afiliado a YouTube, Google ni Mozilla.",
       privacy_kicker: "Transparencia",
       privacy_title: "Política de privacidad",
@@ -296,6 +299,7 @@
       }
     },
     zh: {
+      nav_brand: "YouTube 视频总结 <b>(Gemini)</b>",
       nav_how: "工作原理",
       nav_custom: "自定义提示词",
       nav_privacy: "隐私政策",
