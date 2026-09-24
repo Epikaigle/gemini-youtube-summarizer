@@ -5,10 +5,15 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#0a0a0f">
   <meta name="description" content="YouTube Summarizer with Gemini ajoute un bouton Résumer directement dans YouTube, puis ouvre Gemini avec la vidéo et votre prompt 100% personnalisable.">
+  <meta name="author" content="Epikaigle">
+  <meta name="keywords" content="YouTube Summarizer, Résumé YouTube, Gemini, Google Gemini, Extension Firefox, YouTube Summary, Video Summarizer, Custom Prompt, AI Summary, Open Source">
   <meta property="og:title" content="YouTube Summarizer with Gemini">
   <meta property="og:description" content="Un clic sur YouTube. Gemini s’ouvre. Votre résumé démarre avec votre prompt personnalisé.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="zh_CN">
   <meta property="og:site_name" content="YouTube Summarizer with Gemini">
   <meta property="og:url" content="https://epikaigle.github.io/gemini-youtube-summarizer/">
   <meta property="og:image" content="https://epikaigle.github.io/gemini-youtube-summarizer/assets/social-preview.png?v=20260924">
@@ -23,8 +28,10 @@
   <meta name="twitter:image:alt" content="YouTube Summarizer with Gemini — de YouTube à Gemini en un clic">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://epikaigle.github.io/gemini-youtube-summarizer/">
+  <link rel="alternate" type="text/markdown" href="llms.txt" title="Documentation LLM">
   <title>YouTube Summarizer with Gemini — Extension Firefox</title>
-  <link rel="icon" href="assets/extension-icon.png?v=20260923" type="image/png" sizes="96x96">
+  <link rel="icon" href="assets/extension-icon.png?v=20260924" type="image/png" sizes="96x96">
+  <link rel="apple-touch-icon" href="assets/extension-icon.png?v=20260924">
   <script>
     (() => {
       document.documentElement.classList.add('js');
@@ -41,16 +48,69 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "YouTube Summarizer with Gemini",
-    "applicationCategory": "BrowserApplication",
-    "operatingSystem": "Firefox",
-    "description": "Extension Firefox qui ajoute un bouton Résumer sur YouTube et ouvre Gemini avec le lien de la vidéo et un prompt personnalisable.",
-    "url": "https://epikaigle.github.io/gemini-youtube-summarizer/",
-    "downloadUrl": "https://addons.mozilla.org/firefox/addon/gemini-youtube-summarizer/",
-    "isAccessibleForFree": true,
-    "codeRepository": "https://github.com/Epikaigle/gemini-youtube-summarizer",
-    "image": "https://epikaigle.github.io/gemini-youtube-summarizer/assets/social-preview.png?v=20260924"
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "YouTube Summarizer with Gemini",
+        "alternateName": "Résumé YouTube avec Gemini",
+        "applicationCategory": "BrowserApplication",
+        "operatingSystem": "Firefox, Firefox for Android",
+        "softwareVersion": "3.7",
+        "description": "Extension Firefox qui ajoute un bouton Résumer sur YouTube et ouvre Gemini avec le lien de la vidéo et un prompt 100% personnalisable.",
+        "url": "https://epikaigle.github.io/gemini-youtube-summarizer/",
+        "downloadUrl": "https://addons.mozilla.org/firefox/addon/gemini-youtube-summarizer/",
+        "isAccessibleForFree": true,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Epikaigle",
+          "url": "https://github.com/Epikaigle"
+        },
+        "codeRepository": "https://github.com/Epikaigle/gemini-youtube-summarizer",
+        "image": "https://epikaigle.github.io/gemini-youtube-summarizer/assets/social-preview.png?v=20260924"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Comment fonctionne l'extension YouTube Summarizer with Gemini ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "L'extension ajoute un bouton Résumer directement sous le lecteur de vidéo YouTube et dans les menus trois points de chaque vidéo. Au clic, elle ouvre Google Gemini avec le lien normalisé de la vidéo et votre prompt personnalisé."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "L'extension est-elle gratuite et sans inscription ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui, l'extension est 100% gratuite, open source et ne nécessite aucune inscription ni abonnement. Elle fonctionne directement avec votre compte Gemini habituel sans clé API payante."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Peut-on personnaliser le prompt envoyé à Gemini ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolument. Contrairement aux extensions rigides, vous disposez d'une totale liberté dans les options : résumé classique, 5 idées clés, plan structuré, vulgarisation simple ou envoi du lien seul."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Mes données personnelles ou mon historique sont-ils collectés ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Non. Aucune donnée n'est collectée. Votre consigne est enregistrée exclusivement en local dans votre navigateur Firefox. L'extension n'a aucun serveur intermédiaire, aucune télémétrie et aucun suivi."
+            }
+          }
+        ]
+      }
+    ]
   }
   </script>
 </head>

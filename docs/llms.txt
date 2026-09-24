@@ -1,0 +1,36 @@
+# YouTube Summarizer with Gemini
+
+> Summarize any YouTube video in one click using Google Gemini and your 100% customizable prompt. Free, lightweight, and open source Firefox extension with zero telemetry and zero server-side data collection.
+
+## Key Information
+- Official Website: https://epikaigle.github.io/gemini-youtube-summarizer/
+- Firefox Add-ons (AMO): https://addons.mozilla.org/firefox/addon/gemini-youtube-summarizer/
+- Source Code Repository: https://github.com/Epikaigle/gemini-youtube-summarizer
+- License: The Unlicense (Public Domain / Open Source)
+- Browser Compatibility: Mozilla Firefox (Desktop & Android)
+
+## What the Extension Does
+YouTube Summarizer with Gemini injects a native "Summarize" ("Résumer") action directly into YouTube:
+1. Under the video player on watch pages (`/watch?v=...`).
+2. Inside the three-dots context menu on every video card across the Home feed, Subscriptions, Channel pages, and Recommendations.
+
+When the user clicks "Summarize":
+1. The extension captures the normalized URL of the selected YouTube video.
+2. It retrieves the user's custom instruction / prompt stored locally in `browser.storage.local`.
+3. It opens Google Gemini in a new browser tab with the video URL and the customized prompt pre-filled and submitted automatically.
+
+## Core Features & Differentiators
+- **100% Customizable Prompt**: Unlike rigid competitors that force a single hardcoded prompt, users have total freedom to define their own instructions in options (e.g. 5 key takeaways, actionable outline, ELI5 explanation, full transcript analysis, or link only).
+- **Native YouTube UI Integration**: The button matches YouTube's official design system (Light & Dark theme adapted, proper ripple effects, native icons).
+- **Privacy First (Zero Data Collection)**: No analytics, no telemetry, no tracking, no intermediate proxy servers, no user accounts required. The prompt is stored strictly inside Firefox's local storage.
+- **Direct to Gemini**: Works directly with Google Gemini without requiring any paid third-party API key.
+
+## Technical Details
+- Manifest Version: Manifest V3 (Firefox Gecko 140+)
+- Permissions: `storage` (for local prompt preference)
+- Content Scripts: Injected on `https://*.youtube.com/*` and `https://gemini.google.com/*`
+- Internationalization: Supported in French, English, Spanish, and Chinese via `_locales` and dynamic web components.
+
+## How to Install
+- For Firefox users: Visit https://addons.mozilla.org/firefox/addon/gemini-youtube-summarizer/ and click "Add to Firefox".
+- For developers: Clone https://github.com/Epikaigle/gemini-youtube-summarizer and load temporarily via `about:debugging#/runtime/this-firefox`.
