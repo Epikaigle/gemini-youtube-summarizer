@@ -258,7 +258,7 @@ a:focus-visible,button:focus-visible{
 }
 .youtube-page-mock{
   position:absolute;z-index:2;left:0;top:0;width:97%;
-  height:424px;min-height:424px;max-height:424px;
+  height:446px;min-height:446px;max-height:446px;
   overflow:hidden;border:1px solid rgba(255,255,255,.085);border-radius:19px;
   background:#0f0f0f;box-shadow:0 30px 72px rgba(0,0,0,.44),0 1px 0 rgba(255,255,255,.025) inset;
   transform:none;
@@ -330,7 +330,7 @@ a:focus-visible,button:focus-visible{
   min-width:0
 }
 .yt-player{
-  position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:12px;background:#171717;
+  position:relative;width:100%;aspect-ratio:16/9;max-height:215px;overflow:hidden;border-radius:12px;background:#171717;
   box-shadow:0 1px 0 rgba(255,255,255,.025) inset
 }
 .yt-player::after{
@@ -461,7 +461,7 @@ a:focus-visible,button:focus-visible{
   font-size:7px
 }
 .yt-rec{
-  display:grid;grid-template-columns:78px minmax(0,1fr);gap:7px;margin-bottom:9px
+  display:grid;grid-template-columns:78px minmax(0,1fr);gap:7px;margin-bottom:7px
 }
 .thumb{
   position:relative;aspect-ratio:16/9;height:auto;overflow:hidden;border-radius:7px;background:#202020
@@ -515,7 +515,7 @@ a:focus-visible,button:focus-visible{
   position:absolute;left:3%;top:45%;width:6px;height:6px;border-radius:50%;background:#8d7dff;box-shadow:0 0 14px rgba(141,125,255,.7);
 }
 .gemini-app-mock{
-  position:absolute;z-index:7;right:0;bottom:0;width:74%;height:380px;display:grid;grid-template-columns:116px minmax(0,1fr);
+  position:absolute;z-index:7;right:0;bottom:0;width:74%;height:385px;display:grid;grid-template-columns:116px minmax(0,1fr);
   overflow:hidden;border:1px solid rgba(255,255,255,.14);border-radius:20px;background:#1e1f20;
   box-shadow:0 30px 72px rgba(0,0,0,.5);
   opacity:0;pointer-events:none;
@@ -562,7 +562,7 @@ a:focus-visible,button:focus-visible{
   width:26px;height:26px;display:grid;place-items:center;border-radius:50%;background:linear-gradient(135deg,#7664ff,#55d1ff);color:white;font-size:10px;font-weight:800;
 }
 .gemini-thread{
-  position:absolute;left:0;right:0;top:44px;bottom:52px;overflow-y:auto;padding:12px 15px;
+  position:absolute;left:0;right:0;top:44px;bottom:50px;overflow-y:auto;padding:12px 14px;
 }
 .gemini-user-message{
   max-width:88%;margin-left:auto;padding:9px 12px;border-radius:16px 16px 4px 16px;background:#2b2c30;color:#edf0f4;
@@ -866,16 +866,6 @@ footer{
   .hero h1{font-size:clamp(48px,14vw,66px)}
   .hero-text{font-size:16px}
   .hero-actions .button{width:100%}
-  .hero-visual{min-height:570px;margin-top:18px}
-  .youtube-page-mock,.youtube-feed-mock{width:100%;top:8px;transform:none}
-  .yt-appbar{grid-template-columns:110px minmax(190px,1fr) 105px}
-  .yt-search-wrap{width:min(100%,310px)}
-  .yt-layout{grid-template-columns:minmax(0,1fr) 145px;gap:12px}
-  .yt-rec{grid-template-columns:70px minmax(0,1fr)}
-  .yt-actions-row>span:nth-child(3){display:none}
-  
-  .gemini-app-mock{width:63%;right:0;height:300px}
-  .handoff-arrow{right:18%;bottom:112px;width:22%}
   .steps{grid-template-columns:1fr}
   .step{min-height:170px}
   .step-icon{margin-bottom:22px}
@@ -889,36 +879,6 @@ footer{
 @media (max-width:500px){
   .hero h1{font-size:clamp(44px,13vw,58px)}
   .brand-text,.brand>span:last-child{max-width:85px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .hero-visual{min-height:500px}
-  .youtube-page-mock,.youtube-feed-mock{top:6px;border-radius:16px}
-  .yt-appbar{height:46px;grid-template-columns:auto 1fr;gap:10px;padding:0 10px}
-  .yt-top-actions{display:none}
-  .yt-menu{display:none}
-  .yt-logo b{font-size:8.5px}
-  .yt-search-wrap{justify-self:end;width:min(100%,190px);gap:5px}
-  .yt-search{height:30px}
-  .yt-search>span{padding-left:10px}
-  .yt-search>b{width:36px}
-  .yt-voice{width:28px;height:28px}
-  .yt-layout{grid-template-columns:1fr;padding:8px}
-  .yt-sidebar{display:none}
-  .yt-title{margin-top:8px;font-size:9.2px}
-  .yt-info-row{align-items:flex-start;flex-direction:column;gap:7px}
-  .yt-channel{width:100%}
-  .yt-actions-row{width:100%;justify-content:flex-start;overflow:hidden;gap:4px}
-  .yt-actions-row>span:nth-child(3){display:none}
-  .yt-actions-row .yt-more{display:none}
-  .yt-subscribe{height:25px}
-  .yt-actions-row>span,.yt-resume-action{height:25px;padding-inline:8px;font-size:6.3px}
-  .yt-description{display:none}
-  
-  
-  .handoff-arrow{right:24%;bottom:92px;width:26%}
-  .gemini-app-mock{width:80%;right:0;bottom:0;height:270px;grid-template-columns:58px 1fr}
-  .gemini-sidebar-mock{padding-inline:6px}
-  .gemini-new-chat span{display:none}
-  .gemini-thread{padding-inline:9px}
-  .gemini-composer{left:8px;right:8px}
   .how{padding:68px 0}
   .benefits{padding:64px 0}
   .benefit-main,.benefit-side{padding:25px}
@@ -1431,10 +1391,10 @@ html[data-theme="light"] .composer-prompt{
 /* Alternate YouTube feed scenario */
 .youtube-feed-mock{
   position:absolute;z-index:2;left:0;top:0;width:97%;
-  height:424px;min-height:424px;max-height:424px;
+  height:446px;min-height:446px;max-height:446px;
   overflow:hidden;border:1px solid rgba(255,255,255,.085);border-radius:19px;
   background:#0f0f0f;box-shadow:0 30px 72px rgba(0,0,0,.44),0 1px 0 rgba(255,255,255,.025) inset;
-  opacity:0;pointer-events:none;transform:rotate(-.65deg) scale(.985);transform-origin:center;
+  opacity:0;pointer-events:none;transform:none;transform-origin:center;
   transition:transform .65s cubic-bezier(.2,.75,.2,1),opacity .55s ease,filter .65s ease
 }
 .yt-feed-top{
@@ -1670,7 +1630,7 @@ html[data-theme="light"] .yt-card-menu span:hover{
 @media (max-width:1100px){
   .hero-grid{grid-template-columns:1fr;gap:42px}
   .hero-copy{max-width:780px}
-  .hero-visual{width:min(780px,100%);margin:0 auto}
+  .hero-visual{width:min(660px,100%);margin:0 auto}
   .benefits-grid{grid-template-columns:1fr}
 }
 
@@ -1697,20 +1657,96 @@ html[data-theme="light"] .yt-card-menu span:hover{
   }
 }
 
-/* Between phone and tablet sizes, recommendations consume too much width. */
-@media (max-width:620px){
-  .hero-visual{min-height:540px}
-  .yt-layout{grid-template-columns:1fr;padding:8px}
-  .yt-sidebar{display:none}
-  .yt-actions-row{width:100%;overflow:visible}
-  .yt-actions-row>span:nth-child(3){display:none}
-  .gemini-app-mock{width:82%;height:292px;grid-template-columns:62px minmax(0,1fr)}
-  .gemini-sidebar-mock{padding-inline:6px}
-  .gemini-new-chat span{display:none}
-  .handoff-arrow{right:21%;bottom:100px;width:28%}
+/* Responsive adjustments for demo stage & mockups */
+@media (max-width:760px){
+  .demo-stage{height:570px;min-height:570px}
+  .youtube-page-mock,.youtube-feed-mock{width:98%;height:410px;min-height:410px;max-height:410px}
+  .yt-player{max-height:200px}
+  .gemini-app-mock{width:78%;height:375px;grid-template-columns:80px minmax(0,1fr)}
+  .yt-title{font-size:12.4px}
+  .yt-channel strong{font-size:8.8px}
+  .yt-channel small{font-size:6.8px}
+  .yt-actions-row>span,.yt-resume-action{font-size:7.6px}
+  .yt-feed-top{grid-template-columns:110px minmax(0,1fr) 96px}
+  .yt-feed-search{width:min(100%,300px)}
+  .yt-feed-layout{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px 8px}
+  .featured-card{grid-column:span 1}
+  .yt-card-copy b{font-size:8.2px}
+  .yt-card-copy small{font-size:6.5px}
 }
 
-/* Very small phones: never clip the action row or feed popup. */
+@media (max-width:620px){
+  .hero-visual{min-height:580px}
+  .demo-stage{height:550px;min-height:550px}
+  .youtube-page-mock,.youtube-feed-mock{width:98%;height:375px;min-height:375px;max-height:375px;border-radius:18px;top:0}
+  .yt-appbar{height:46px;padding:0 10px;grid-template-columns:auto 1fr auto}
+  .yt-layout{grid-template-columns:1fr;padding:8px 10px}
+  .yt-sidebar{display:none}
+  .yt-player{max-height:180px}
+  .yt-title{margin:6px 0 4px;font-size:11.4px;line-height:1.25}
+  .yt-info-row{gap:6px;flex-wrap:nowrap}
+  .yt-channel{flex:1 1 auto;gap:6px}
+  .yt-avatar{width:26px;height:26px;font-size:8px}
+  .yt-channel strong{font-size:8.5px;max-width:80px}
+  .yt-channel small{font-size:6.5px}
+  .yt-subscribe{height:26px;padding:0 8px;font-size:7.5px}
+  .yt-actions-row{flex:0 0 auto;gap:4px;overflow:visible;flex-wrap:nowrap}
+  .yt-actions-row>span,.yt-resume-action{height:26px;padding:0 8px;font-size:7.5px}
+  .yt-actions-row>span:nth-child(3){display:none}
+  .yt-description{margin-top:6px;padding:6px 8px;font-size:6.8px;line-height:1.35}
+
+  .yt-feed-top{height:46px;padding:0 10px}
+  .yt-chips-bar{padding:2px 10px 6px;gap:6px}
+  .yt-chip{padding:2px 7px;font-size:7px}
+  .yt-feed-layout{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 6px;padding:4px 8px 10px}
+  .featured-card{grid-column:span 1}
+  .yt-card-meta{grid-template-columns:20px minmax(0,1fr) 16px;gap:4px;margin-top:4px}
+  .yt-card-avatar{width:20px;height:20px;font-size:7px}
+  .yt-card-copy b{font-size:7.5px;line-height:1.25}
+  .yt-card-copy small{font-size:6px}
+  .yt-card-more,.yt-card-dots{width:16px;height:16px;font-size:11px}
+  .yt-card-menu{width:125px;padding:4px;left:0;right:auto;top:calc(100% - 8px)}
+  .yt-card-menu span,.yt-card-menu strong{min-height:25px;font-size:6.8px;padding:0 6px}
+
+  .gemini-app-mock{width:92%;height:355px;grid-template-columns:46px minmax(0,1fr);border-radius:18px}
+  .gemini-sidebar-mock{padding:8px 4px;align-items:center}
+  .gemini-side-brand{justify-content:center}
+  .gemini-brand-badge{display:none}
+  .gemini-new-chat{width:30px;height:30px;padding:0;justify-content:center;margin-top:10px;font-size:13px}
+  .gemini-new-chat span{display:none}
+  .gemini-sidebar-mock>small{display:none}
+  .gemini-history{margin-top:10px;align-items:center;width:100%}
+  .gemini-history i{width:24px;height:4px}
+  .gemini-side-settings{position:static;margin-top:auto}
+
+  .gemini-topbar-mock{height:42px;padding:0 10px}
+  .gemini-model-pill{font-size:9.5px;padding:3px 7px}
+  .gemini-account{width:22px;height:22px;font-size:9px}
+
+  .gemini-thread{top:42px;bottom:48px;padding:8px 10px}
+  .gemini-user-message{padding:6px 9px;border-radius:12px 12px 3px 12px;max-width:92%}
+  .gemini-yt-chip{font-size:8.5px;padding:2px 6px;margin-bottom:3px}
+  .gemini-yt-chip svg{width:12px;height:12px}
+  .user-prompt-text{font-size:9.5px;line-height:1.3}
+
+  .gemini-response{margin-top:8px}
+  .gemini-response-brand{margin-bottom:4px;gap:5px}
+  .gemini-response-brand .gemini-glyph{width:16px;height:16px;font-size:8px}
+  .gemini-response-brand strong{font-size:10px}
+  .gemini-response-title{font-size:10.5px;margin-bottom:3px}
+  .gemini-response p{font-size:9px;line-height:1.35;margin-bottom:4px}
+  .gemini-response ul{padding-left:12px;margin-bottom:4px}
+  .gemini-response li{font-size:8.8px;line-height:1.32;margin-bottom:3px}
+  .gemini-response li b{font-size:8.8px}
+  .gemini-response-actions{margin-top:4px;padding-top:4px;font-size:10px;gap:8px}
+
+  .gemini-composer{height:36px;left:8px;right:8px;bottom:6px;padding:0 8px}
+  .gemini-add{width:20px;height:20px;font-size:10px}
+  .composer-placeholder,.composer-prompt{font-size:9px}
+  .gemini-send-animated{width:22px;height:22px;font-size:9px}
+  .handoff-arrow{right:21%;bottom:95px;width:28%}
+}
+
 @media (max-width:500px){
   .nav{gap:6px}
   .brand{gap:6px}
@@ -1720,13 +1756,18 @@ html[data-theme="light"] .yt-card-menu span:hover{
   .lang-btn{padding:3px 6px;font-size:10px}
   .theme-toggle{width:36px;height:32px}
   .menu-button{padding:6px;flex-shrink:0}
-  .hero-visual{min-height:525px}
-  .yt-actions-row{overflow:visible;flex-wrap:wrap}
-  .yt-actions-row>span,.yt-resume-action{min-width:0}
-  .youtube-page-mock,.youtube-feed-mock{width:100%;max-width:100%}
-  .yt-card-menu{right:2px;width:min(118px,calc(100% - 4px))}
-  .gemini-app-mock{width:84%;height:286px}
-  .gemini-thread{padding:10px}
+  .yt-actions-row{overflow:visible;flex-wrap:nowrap}
+  .yt-actions-row>span,.yt-resume-action{min-width:0;font-size:7.2px}
+  .youtube-page-mock,.youtube-feed-mock{left:0}
+  .yt-logo b{font-size:9px}
+  .yt-search,.yt-feed-search{font-size:8px}
+  .yt-title{font-size:10.4px}
+  .yt-channel strong{font-size:8.2px}
+  .yt-channel small{font-size:6.5px}
+  .yt-subscribe{font-size:7.2px}
+  .yt-card-copy b{font-size:7.5px}
+  .yt-card-copy small{font-size:6.1px}
+  .yt-card-menu span,.yt-card-menu strong{font-size:7px}
 }
 
 @media (max-width:390px){
@@ -1741,12 +1782,19 @@ html[data-theme="light"] .yt-card-menu span:hover{
   .menu-button{padding:4px;flex-shrink:0}
   .hero h1{font-size:40px;letter-spacing:-.055em}
   .hero-text{font-size:15px}
-  .hero-visual{min-height:505px}
   .yt-feed-search,.yt-search-wrap{width:min(100%,158px)}
   .yt-search>span,.yt-feed-search>span{font-size:7px}
-  .gemini-app-mock{width:88%;height:280px}
-  .gemini-response p{font-size:7px}
-  .gemini-response li{font-size:6.8px}
+}
+
+@media (max-width:380px){
+  .gemini-response p{font-size:8.6px}
+  .gemini-response li{font-size:8.4px}
+  .gemini-response li b{font-size:8.4px}
+  .user-prompt-text{font-size:9px}
+  .yt-search,.yt-feed-search{font-size:7.6px}
+  .yt-title{font-size:10px}
+  .yt-actions-row>span,.yt-resume-action{font-size:6.8px}
+  .yt-card-copy b{font-size:7.2px}
 }
 
 
@@ -1780,41 +1828,6 @@ html[data-theme="light"] .yt-card-menu span:hover{
   transform:none!important
 }
 
-@media(max-width:760px){
-  .gemini-app-mock{
-    width:72%;
-    height:320px;
-    grid-template-columns:78px minmax(0,1fr)
-  }
-}
-@media(max-width:620px){
-  .gemini-app-mock{
-    width:86%;
-    height:306px;
-    grid-template-columns:66px minmax(0,1fr)
-  }
-  .gemini-sidebar-mock{padding:9px 7px}
-  .gemini-side-brand strong{font-size:8.5px}
-  .gemini-new-chat{padding:7px;font-size:7px}
-  .gemini-sidebar-mock>small{font-size:6.5px}
-  .gemini-topbar-mock{height:46px;padding:0 11px}
-  .gemini-thread{top:46px;bottom:62px;padding:11px}
-  .gemini-response-title{font-size:9px}
-  .gemini-response p{font-size:7.2px}
-  .gemini-response li{font-size:6.8px}
-  .gemini-user-message span{font-size:7.8px}
-  .gemini-user-message small{font-size:6.6px}
-  .composer-placeholder,.composer-prompt{font-size:7px}
-  .gemini-composer{left:9px;right:9px;bottom:9px;height:42px}
-}
-@media(max-width:500px){
-  .gemini-app-mock{width:88%;height:300px}
-}
-@media(max-width:380px){
-  .gemini-app-mock{width:91%;height:294px}
-  .gemini-response p{font-size:6.8px}
-  .gemini-response li{font-size:6.4px}
-}
 @media(prefers-reduced-motion:reduce){
   .gemini-app-mock{right:-1%!important;transform:none!important}
   .gemini-user-message,.gemini-response,.response-line{transform:none!important}
@@ -1874,37 +1887,6 @@ html[data-theme="light"] .youtube-feed-mock{
   transform:none!important
 }
 
-@media(max-width:760px){
-  .yt-title{font-size:12.4px}
-  .yt-channel strong{font-size:8.8px}
-  .yt-channel small{font-size:6.8px}
-  .yt-actions-row>span,.yt-resume-action{font-size:7.6px}
-  .yt-card-copy b{font-size:8.2px}
-  .yt-card-copy small{font-size:6.5px}
-}
-@media(max-width:620px){
-  .yt-title{font-size:11.4px}
-  .yt-description{font-size:6.8px}
-}
-@media(max-width:500px){
-  .youtube-page-mock,.youtube-feed-mock{left:0}
-  .yt-logo b{font-size:9px}
-  .yt-search,.yt-feed-search{font-size:8px}
-  .yt-title{font-size:10.4px}
-  .yt-channel strong{font-size:8.2px}
-  .yt-channel small{font-size:6.5px}
-  .yt-subscribe{font-size:7.2px}
-  .yt-actions-row>span,.yt-resume-action{font-size:7px}
-  .yt-card-copy b{font-size:7.5px}
-  .yt-card-copy small{font-size:6.1px}
-  .yt-card-menu span,.yt-card-menu strong{font-size:7px}
-}
-@media(max-width:380px){
-  .yt-search,.yt-feed-search{font-size:7.6px}
-  .yt-title{font-size:10px}
-  .yt-actions-row>span,.yt-resume-action{font-size:6.8px}
-  .yt-card-copy b{font-size:7.2px}
-}
 @media(prefers-reduced-motion:reduce){
   .youtube-page-mock,.youtube-feed-mock{
     transform:none!important;
@@ -2024,5 +2006,4 @@ html[data-theme="light"] .yt-chip{background:rgba(0,0,0,.06);color:#0f0f0f}
 html[data-theme="light"] .yt-chip.active{background:#0f0f0f;color:#fff}
 @media(max-width:540px){
   .lang-btn{padding:3px 6px;font-size:10px}
-  .demo-stage{height:520px;min-height:520px}
 }

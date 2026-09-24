@@ -10,7 +10,8 @@ const viewports = [
   { name: 'laptop-1024', width: 1024, height: 900 },
   { name: 'tablet-768', width: 768, height: 900 },
   { name: 'mobile-500', width: 500, height: 900 },
-  { name: 'mobile-390', width: 390, height: 844 }
+  { name: 'mobile-390', width: 390, height: 844 },
+  { name: 'mobile-360', width: 360, height: 800 }
 ];
 const themes = ['dark', 'light'];
 const failures = [];
@@ -68,12 +69,39 @@ for (const viewport of viewports) {
         );
       }
 
+      const geminiThreadMetrics = await page.evaluate(() => {
+        const thread = document.querySelector('.gemini-thread');
+        const composer = document.querySelector('.gemini-composer');
+        const actions = document.querySelector('.gemini-response-actions');
+        if (!thread || !composer || !actions) return null;
+        return {
+          overflow: thread.scrollHeight - thread.clientHeight,
+          actionsGap: composer.getBoundingClientRect().top - actions.getBoundingClientRect().bottom
+        };
+      });
+      if (geminiThreadMetrics) {
+        check(geminiThreadMetrics.overflow <= 2, `${viewport.name}/${theme}: Gemini text clipped (overflow ${geminiThreadMetrics.overflow}px)`);
+        check(geminiThreadMetrics.actionsGap >= 0, `${viewport.name}/${theme}: Gemini actions hidden behind composer`);
+      }
+
       await hero.screenshot({ path: `${outputDir}/${viewport.name}-${theme}-watch.png` });
 
       await hero.evaluate((el) => {
         el.dataset.flowMode = 'feed';
         el.dataset.flowPhase = 'select';
       });
+
+      const feedMetrics = await page.evaluate(() => {
+        const feed = document.querySelector('.youtube-feed-mock');
+        const cards = Array.from(document.querySelectorAll('.yt-card'));
+        if (!feed || !cards.length) return null;
+        const visible = cards.filter(c => c.getBoundingClientRect().bottom <= feed.getBoundingClientRect().bottom);
+        return { visibleCount: visible.length };
+      });
+      if (feedMetrics) {
+        check(feedMetrics.visibleCount >= 4, `${viewport.name}/${theme}: Feed cards cut off (only ${feedMetrics.visibleCount} visible)`);
+      }
+
       await hero.screenshot({ path: `${outputDir}/${viewport.name}-${theme}-feed.png` });
     }
 
