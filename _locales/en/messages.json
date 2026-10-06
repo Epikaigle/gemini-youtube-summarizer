@@ -43,6 +43,10 @@
     "message": "English",
     "description": "English language option"
   },
+  "languageEs": {
+    "message": "Español",
+    "description": "Spanish language option"
+  },
   "geminiSectionTitle": {
     "message": "Gemini Behavior",
     "description": "Gemini section title"

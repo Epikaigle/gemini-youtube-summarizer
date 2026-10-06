@@ -2,15 +2,17 @@
 
 ## Archive à envoyer
 
-Fichier généré :
+Fichiers générés :
 
-`web-ext-artifacts/youtube_summarizer_with_gemini-3.8.zip`
+- `web-ext-artifacts/youtube_summarizer_with_gemini-3.8.xpi`
+- `web-ext-artifacts/youtube_summarizer_with_gemini-3.8.zip`
 
-AMO accepte les archives `.zip` pour la soumission.
+AMO (Mozilla Add-ons Developer Hub) accepte indifféremment les archives `.zip` ou `.xpi` pour la mise à jour et la soumission.
 
 Commande de génération :
 
-`npx --yes web-ext build --source-dir . --overwrite-dest --ignore-files README.md TESTING.md AMO_SUBMISSION.md AMO_REVIEW_NOTES.md PRIVACY_POLICY.md "docs/**" "tests/**" "scripts/**" "artifacts/**"`
+`npx --yes web-ext build --source-dir . --overwrite-dest --ignore-files README.md TESTING.md AMO_SUBMISSION.md AMO_REVIEW_NOTES.md PRIVACY_POLICY.md docs scripts tests artifacts "docs/**" "tests/**" "scripts/**" "artifacts/**"`
+`cp web-ext-artifacts/youtube_summarizer_with_gemini-3.8.zip web-ext-artifacts/youtube_summarizer_with_gemini-3.8.xpi`
 
 Le dossier `docs/` contient le site GitHub Pages et ne doit pas être inclus dans l’archive de l’extension.
 

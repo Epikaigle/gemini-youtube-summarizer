@@ -17,7 +17,9 @@
         "envoyer le message",
         "soumettre",
         "demander",
-        "ask gemini"
+        "ask gemini",
+        "enviar",
+        "enviar mensaje"
     ];
     const SUBMIT_EXCLUDED_LABEL_HINTS = [
         "micro",
@@ -32,7 +34,11 @@
         "stop",
         "arrêter",
         "cancel",
-        "annuler"
+        "annuler",
+        "voz",
+        "detener",
+        "subir",
+        "adjuntar"
     ];
     const INPUT_SELECTORS = [
         "rich-textarea > div[role='textbox']",

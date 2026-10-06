@@ -7,6 +7,11 @@ const WATCH_PAGE_BUTTON_ID = "gemini-summary-button-watch-page";
 const GEMINI_APP_URL = "https://gemini.google.com/";
 const PROMPT_PREFIX_STORAGE_KEY = "geminiPromptPrefix";
 const DEFAULT_PROMPT_PREFIX = "Résume-moi la vidéo :";
+const DEFAULT_PROMPTS = {
+    fr: "Résume-moi la vidéo :",
+    en: "Summarize this video:",
+    es: "Resúmeme el video:"
+};
 const LANGUAGE_STORAGE_KEY = "extensionLanguage";
 const BUTTON_LABELS = {
     fr: "Résumer",
@@ -36,11 +41,17 @@ const ACTION_MENU_LABELS = [
     "autres actions",
     "menu d'action",
     "menu d'actions",
-    "menu des actions"
+    "menu des actions",
+    "más acciones",
+    "mas acciones",
+    "más opciones",
+    "mas opciones"
 ];
 const COMPACT_ACTION_MENU_LABELS = [
     "plus",
-    "more"
+    "more",
+    "más",
+    "mas"
 ];
 const VIDEO_CONTEXT_SELECTOR = [
     "ytd-channel-video-player-renderer",
@@ -101,6 +112,11 @@ function getSummarizeButtonLabel() {
     return BUTTON_LABELS[lang] || (typeof chrome !== "undefined" && chrome.i18n?.getMessage?.("buttonSummarize")) || "Summarize";
 }
 
+function getDefaultPromptPrefix() {
+    const lang = resolveEffectiveLanguage(currentLanguage);
+    return DEFAULT_PROMPTS[lang] || (typeof chrome !== "undefined" && chrome.i18n?.getMessage?.("defaultPromptPrefix")) || DEFAULT_PROMPTS.en;
+}
+
 function updateInjectedButtonLabels() {
     const label = getSummarizeButtonLabel();
 
@@ -154,7 +170,7 @@ function getExtensionApi() {
 }
 
 function normalizePromptPrefix(value) {
-    if (typeof value !== "string") return DEFAULT_PROMPT_PREFIX;
+    if (typeof value !== "string") return getDefaultPromptPrefix();
     return value.trim();
 }
 
