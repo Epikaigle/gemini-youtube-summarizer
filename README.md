@@ -11,9 +11,12 @@ Extension Firefox minimaliste qui ajoute une action `Résumer` sur YouTube.
 Le flux est le suivant :
 - sur YouTube, `Résumer` apparaît dans les menus `3 points`
 - sur une page `watch`, un bouton `Résumer` apparaît aussi à côté des actions vidéo
-- le texte placé avant le lien YouTube peut être personnalisé dans les options de l’extension
+- dans la barre d'outils Firefox (icône de l'extension) ou via la page d'options :
+  - choix de la langue de l'extension (Français, Anglais, Auto)
+  - activation ou désactivation de l'envoi automatique sur Gemini (permettant de sélectionner un modèle spécifique avant d'envoyer)
+  - personnalisation du texte du prompt avec des modèles rapides (résumé classique, 5 idées clés, plan détaillé, vulgarisation, lien seul)
 - au clic, l'extension ouvre Gemini avec un prompt contenant ce texte et l'URL normalisée de la vidéo
-- sur Gemini, le prompt est injecté et l'envoi est tenté automatiquement
+- sur Gemini, le prompt est injecté et envoyé automatiquement (ou laissé prêt à l'envoi si l'option est désactivée)
 
 ## Site web
 
@@ -33,11 +36,13 @@ Le site contient :
 
 ## Structure
 
-- `manifest.json` : configuration de l'extension
-- `content.js` : logique YouTube, détection des menus, extraction des URLs, bouton `watch`
-- `gemini_auto_submit.js` : logique Gemini, remplissage et soumission du prompt
-- `options.html`, `options.css`, `options.js` : page d'options pour personnaliser le texte avant le lien
-- `icons/` : icônes de l'extension
+- `manifest.json` : configuration de l'extension (Manifest V3)
+- `popup.html` : interface rapide accessible au clic sur l'icône de la barre d'outils Firefox
+- `content.js` : logique YouTube, détection des menus, extraction des URLs, bouton `watch`, boutons multilingues
+- `gemini_auto_submit.js` : logique Gemini, remplissage du prompt et envoi automatique ou manuel
+- `options.html`, `options.css`, `options.js` : interface complète de réglages (langue, envoi auto, prompt)
+- `_locales/` : dictionnaires i18n officiels (`fr`, `en`, `es`)
+- `icons/` : icônes officielles de l'extension
 - `docs/` : site GitHub Pages de présentation de l'extension
 
 ## Installation locale dans Firefox
@@ -47,17 +52,14 @@ Le site contient :
 3. Sélectionner `manifest.json`
 4. Recharger YouTube avec `Ctrl+Shift+R`
 
-## Options
+## Options et barre d'outils
 
-La page d’options permet de personnaliser le texte ajouté avant l’URL YouTube. Le champ peut rester vide pour envoyer uniquement le lien.
-
-Valeur par défaut :
-
-`Résume-moi la vidéo :`
-
-Exemple de prompt envoyé à Gemini :
-
-`Résume-moi la vidéo : https://www.youtube.com/watch?v=VIDEO_ID`
+En cliquant sur l'icône de l'extension dans la barre d'outils ou via `about:addons` :
+- **Langue d'affichage** : Français (`fr`), English (`en`), ou détection automatique du navigateur.
+- **Envoi automatique sur Gemini** :
+  - *Coché* : Gemini envoie la requête immédiatement à l'ouverture de l'onglet.
+  - *Décoché* : Le prompt arrive directement dans la zone de texte de Gemini sans être envoyé. Vous pouvez ainsi tranquillement sélectionner votre modèle (Flash, Pro, Advanced...) avant de cliquer sur Envoyer.
+- **Texte personnalisé du prompt** : Préréglages en un clic ou rédaction libre.
 
 ## Soumission AMO
 

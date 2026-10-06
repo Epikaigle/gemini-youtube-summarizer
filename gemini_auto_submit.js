@@ -5,6 +5,7 @@
 (function() {
     const SCRIPT_FLAG = "__geminiAutoSubmitInitialized";
     const PROMPT_PARAM = "prompt";
+    const AUTO_SUBMIT_STORAGE_KEY = "geminiAutoSubmit";
     const INPUT_TIMEOUT = 20000;
     const SUBMIT_TIMEOUT = 15000;
     const SUBMIT_READY_DELAY_MS = 450;
@@ -71,6 +72,48 @@
     function getPromptFromUrl() {
         const params = new URLSearchParams(window.location.search);
         return params.get(PROMPT_PARAM)?.trim() || "";
+    }
+
+    function getExtensionApi() {
+        if (typeof browser !== "undefined" && browser.storage?.local) {
+            return {
+                api: browser,
+                isPromiseBased: true
+            };
+        }
+
+        if (typeof chrome !== "undefined" && chrome.storage?.local) {
+            return {
+                api: chrome,
+                isPromiseBased: false
+            };
+        }
+
+        return null;
+    }
+
+    async function isAutoSubmitEnabled() {
+        const extensionApi = getExtensionApi();
+        if (!extensionApi) return true;
+
+        try {
+            if (extensionApi.isPromiseBased) {
+                const result = await extensionApi.api.storage.local.get(AUTO_SUBMIT_STORAGE_KEY);
+                return result[AUTO_SUBMIT_STORAGE_KEY] !== false;
+            }
+
+            return await new Promise((resolve) => {
+                extensionApi.api.storage.local.get(AUTO_SUBMIT_STORAGE_KEY, (result) => {
+                    if (extensionApi.api.runtime?.lastError) {
+                        resolve(true);
+                    } else {
+                        resolve(result[AUTO_SUBMIT_STORAGE_KEY] !== false);
+                    }
+                });
+            });
+        } catch {
+            return true;
+        }
     }
 
     function isVisibleElement(element) {
@@ -381,10 +424,19 @@
         const promptText = getPromptFromUrl();
         if (!promptText) return;
 
+        const autoSubmitEnabled = await isAutoSubmitEnabled();
+
         window.__geminiAutoSubmitStatus = "waiting_for_input";
         const promptInput = await waitFor(() => findPromptInput(), { timeout: INPUT_TIMEOUT });
         window.__geminiAutoSubmitStatus = "filling_prompt";
         await ensurePromptInInput(promptInput, promptText);
+
+        if (!autoSubmitEnabled) {
+            promptInput.focus?.();
+            cleanupPromptParam();
+            window.__geminiAutoSubmitStatus = "ready_for_manual_send";
+            return;
+        }
 
         window.__geminiAutoSubmitStatus = "waiting_for_submit";
         const submitButton = await waitFor(() => {

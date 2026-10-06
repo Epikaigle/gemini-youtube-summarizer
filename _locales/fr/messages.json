@@ -14,5 +14,105 @@
   "defaultPromptPrefix": {
     "message": "Résume-moi la vidéo :",
     "description": "Consigne par défaut envoyée à Gemini"
+  },
+  "optionsTitle": {
+    "message": "Résumé YouTube avec Gemini",
+    "description": "Titre des réglages"
+  },
+  "optionsIntro": {
+    "message": "Personnalisez la langue, l'envoi automatique sur Gemini et le texte de votre prompt.",
+    "description": "Introduction des réglages"
+  },
+  "languageSectionTitle": {
+    "message": "Langue de l'extension",
+    "description": "Titre de la section langue"
+  },
+  "languageLabel": {
+    "message": "Langue d'affichage",
+    "description": "Libellé du sélecteur de langue"
+  },
+  "languageAuto": {
+    "message": "Automatique (navigateur)",
+    "description": "Option langue automatique"
+  },
+  "languageFr": {
+    "message": "Français",
+    "description": "Option langue français"
+  },
+  "languageEn": {
+    "message": "English",
+    "description": "Option langue anglais"
+  },
+  "geminiSectionTitle": {
+    "message": "Comportement sur Gemini",
+    "description": "Titre de la section Gemini"
+  },
+  "autoSubmitLabel": {
+    "message": "Envoyer automatiquement le prompt",
+    "description": "Libellé de l'option d'envoi automatique"
+  },
+  "autoSubmitHelp": {
+    "message": "Activé : Gemini lance l'analyse automatiquement dès le chargement.\nDésactivé : le prompt est injecté dans le champ de saisie sans être envoyé, vous permettant de choisir votre modèle (Flash, Pro, Advanced...) avant de cliquer sur Envoyer.",
+    "description": "Explication claire de l'intérêt de désactiver l'envoi auto"
+  },
+  "promptSectionTitle": {
+    "message": "Personnalisation du prompt",
+    "description": "Titre de la section personnalisation du prompt"
+  },
+  "promptPrefixLabel": {
+    "message": "Texte avant le lien YouTube",
+    "description": "Libellé du champ de préfixe de prompt"
+  },
+  "promptPrefixHint": {
+    "message": "Le lien est ajouté automatiquement. Laisse le champ vide pour envoyer uniquement le lien.",
+    "description": "Indication sous le champ de prompt"
+  },
+  "presetClassic": {
+    "message": "Résumé classique",
+    "description": "Bouton preset résumé classique"
+  },
+  "presetKeyPoints": {
+    "message": "5 idées clés",
+    "description": "Bouton preset 5 idées clés"
+  },
+  "presetPlan": {
+    "message": "Plan détaillé",
+    "description": "Bouton preset plan détaillé"
+  },
+  "presetSimple": {
+    "message": "Vulgarisation",
+    "description": "Bouton preset vulgarisation"
+  },
+  "presetLinkOnly": {
+    "message": "Lien seul",
+    "description": "Bouton preset lien seul"
+  },
+  "previewLabel": {
+    "message": "Aperçu envoyé à Gemini",
+    "description": "Libellé de l'aperçu"
+  },
+  "saveButton": {
+    "message": "Enregistrer",
+    "description": "Bouton enregistrer"
+  },
+  "resetButton": {
+    "message": "Réinitialiser",
+    "description": "Bouton réinitialiser"
+  },
+  "openFullTab": {
+    "message": "Ouvrir en plein écran ↗",
+    "description": "Lien pour ouvrir les options dans un onglet"
+  },
+  "statusSaved": {
+    "message": "Paramètres enregistrés avec succès.",
+    "description": "Message de confirmation d'enregistrement"
+  },
+  "statusError": {
+    "message": "Impossible d'enregistrer les paramètres.",
+    "description": "Message d'erreur d'enregistrement"
+  },
+  "statusReset": {
+    "message": "Paramètres réinitialisés par défaut.",
+    "description": "Message après réinitialisation"
   }
 }

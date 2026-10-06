@@ -4,13 +4,13 @@
 
 Fichier généré :
 
-`web-ext-artifacts/r_sum_youtube_par_gemini-3.7.zip`
+`web-ext-artifacts/youtube_summarizer_with_gemini-3.8.zip`
 
 AMO accepte les archives `.zip` pour la soumission.
 
 Commande de génération :
 
-`npx --yes web-ext build --source-dir . --overwrite-dest --ignore-files README.md TESTING.md AMO_SUBMISSION.md AMO_REVIEW_NOTES.md PRIVACY_POLICY.md "docs/**"`
+`npx --yes web-ext build --source-dir . --overwrite-dest --ignore-files README.md TESTING.md AMO_SUBMISSION.md AMO_REVIEW_NOTES.md PRIVACY_POLICY.md "docs/**" "tests/**" "scripts/**" "artifacts/**"`
 
 Le dossier `docs/` contient le site GitHub Pages et ne doit pas être inclus dans l’archive de l’extension.
 

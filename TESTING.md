@@ -27,19 +27,22 @@ Vérifier aussi :
 
 Vérifier :
 - ouverture de Gemini avec `?prompt=...`
-- prompt bien injecté
-- envoi automatique déclenché quand l’interface est prête
+- prompt bien injecté dans la zone de saisie
+- si « Envoyer automatiquement » est actif : envoi déclenché quand l’interface est prête
+- si « Envoyer automatiquement » est inactif : le prompt reste dans la zone de texte, le champ a le focus, l'URL est nettoyée, et l'utilisateur peut choisir son modèle (Flash, Pro...) avant de cliquer sur Envoyer
 
-## Options
+## Barre d'outils (Popup) et Options
 
 Vérifier :
-- ouverture de la page d’options depuis les détails de l’extension
+- ouverture rapide de la popup au clic sur l'icône dans la barre d'outils
+- sélecteur de langue : basculer entre Français et Anglais met à jour l'interface immédiatement
+- les boutons sur YouTube s'adaptent à la langue choisie (« Résumer » en FR, « Summarize » en EN)
+- bascule de l'option « Envoyer automatiquement le prompt »
 - sauvegarde d’un texte personnalisé avant le lien
-- sauvegarde d’un champ vide pour envoyer uniquement le lien
-- aperçu du prompt mis à jour
-- message d’erreur visible si le stockage est indisponible
-- Gemini reçoit le texte personnalisé suivi de l’URL YouTube
-- réinitialisation vers `Résume-moi la vidéo :`
+- raccourcis de prompt (chips) : Classic, 5 points, Plan, Simple, Lien seul
+- aperçu du prompt mis à jour en direct
+- réinitialisation des paramètres par défaut
+- lien « Ouvrir en plein écran » ouvre bien `options.html` dans un nouvel onglet
 
 ## Régressions visuelles
 

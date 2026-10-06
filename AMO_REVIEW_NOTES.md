@@ -2,21 +2,25 @@
 
 ## Fonctionnement
 
-Cette extension ajoute une action `Résumer` sur YouTube :
+Cette extension ajoute une action `Résumer` (ou `Summarize` en anglais) sur YouTube :
 - dans les menus `3 points` des cartes vidéo ;
 - sur la page `watch`, à côté des actions de la vidéo.
 
-L’utilisateur peut personnaliser le texte placé avant le lien YouTube depuis la page d’options de l’extension. Par défaut, au clic, elle ouvre Gemini avec un prompt de la forme :
+Depuis l'icône de la barre d'outils (popup) ou la page d'options, l'utilisateur dispose de :
+1. **Sélecteur de langue** : Français (`fr`), Anglais (`en`) ou Automatique selon le navigateur.
+2. **Option d'envoi automatique sur Gemini** :
+   - *Activé* (par défaut) : le script injecte le prompt et déclenche automatiquement l'envoi dès le chargement de Gemini.
+   - *Désactivé* : le script insère le prompt dans la zone de texte de Gemini, lui donne le focus et s'arrête sans cliquer sur le bouton d'envoi. Cela permet à l'utilisateur de choisir manuellement le modèle souhaité (Gemini Flash, Gemini Pro, Advanced...) ou d'affiner sa question avant de soumettre.
+3. **Personnalisation du prompt** : modèles prédéfinis (résumé classique, 5 idées clés, plan structuré, vulgarisation, lien seul) et zone de saisie libre.
 
+Au clic sur le bouton de l'extension :
 `Résume-moi la vidéo : https://www.youtube.com/watch?v=VIDEO_ID`
-
-Puis le content script sur `https://gemini.google.com/*` remplit le champ de saisie et tente l’envoi automatiquement.
 
 ## Données transmises
 
 L’extension transmet uniquement l’URL de la vidéo YouTube choisie par l’utilisateur et le texte personnalisé du prompt, uniquement après un clic sur `Résumer`.
 
-Le texte personnalisé est stocké localement via `storage.local`. Il n’est jamais transmis au développeur.
+Les préférences de l'utilisateur (texte du prompt, activation de l'envoi auto, langue) sont stockées strictement en local via `storage.local`. Aucune donnée n’est transmise à des tiers ou au développeur.
 
 La déclaration `browsingActivity` dans le manifeste correspond ici au fait d’envoyer l’URL exacte de la vidéo sélectionnée à Gemini.
 
@@ -26,8 +30,8 @@ La déclaration `browsingActivity` dans le manifeste correspond ici au fait d’
 - aucun code minifié ;
 - aucune dépendance npm au runtime ;
 - aucune collecte vers un serveur du développeur ;
-- permission `storage` utilisée uniquement pour conserver le texte personnalisé local ;
-- aucun background script.
+- permission `storage` utilisée uniquement pour conserver les préférences utilisateur locales ;
+- popup légère accessible depuis la barre d'outils (`popup.html`).
 
 ## Compatibilité
 

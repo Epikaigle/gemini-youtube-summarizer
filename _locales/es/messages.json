@@ -14,5 +14,105 @@
   "defaultPromptPrefix": {
     "message": "Resúmeme el video:",
     "description": "Instrucción predeterminada enviada a Gemini"
+  },
+  "optionsTitle": {
+    "message": "YouTube Summarizer with Gemini",
+    "description": "Título de configuración"
+  },
+  "optionsIntro": {
+    "message": "Personaliza el idioma, el envío automático a Gemini y el texto de tu instrucción.",
+    "description": "Introducción de configuración"
+  },
+  "languageSectionTitle": {
+    "message": "Idioma de la extensión",
+    "description": "Título de sección de idioma"
+  },
+  "languageLabel": {
+    "message": "Idioma de visualización",
+    "description": "Etiqueta del selector de idioma"
+  },
+  "languageAuto": {
+    "message": "Automático (navegador)",
+    "description": "Opción de idioma automático"
+  },
+  "languageFr": {
+    "message": "Français",
+    "description": "Opción francés"
+  },
+  "languageEn": {
+    "message": "English",
+    "description": "Opción inglés"
+  },
+  "geminiSectionTitle": {
+    "message": "Comportamiento en Gemini",
+    "description": "Título de sección Gemini"
+  },
+  "autoSubmitLabel": {
+    "message": "Enviar automáticamente la instrucción en Gemini",
+    "description": "Etiqueta de envío automático"
+  },
+  "autoSubmitHelp": {
+    "message": "Activado: Gemini inicia el análisis inmediatamente al cargar.\nDesactivado: La instrucción se inserta en el campo sin enviarse, lo que te permite elegir el modelo (Flash, Pro, Advanced...) antes de pulsar Enviar.",
+    "description": "Explicación de envío automático"
+  },
+  "promptSectionTitle": {
+    "message": "Personalización de la instrucción",
+    "description": "Título de sección de instrucción"
+  },
+  "promptPrefixLabel": {
+    "message": "Texto antes del enlace de YouTube",
+    "description": "Etiqueta de instrucción"
+  },
+  "promptPrefixHint": {
+    "message": "El enlace se añade automáticamente. Deja el campo vacío para enviar solo el enlace.",
+    "description": "Ayuda de instrucción"
+  },
+  "presetClassic": {
+    "message": "Resumen clásico",
+    "description": "Botón resumen clásico"
+  },
+  "presetKeyPoints": {
+    "message": "5 ideas clave",
+    "description": "Botón 5 ideas clave"
+  },
+  "presetPlan": {
+    "message": "Esquema detallado",
+    "description": "Botón esquema detallado"
+  },
+  "presetSimple": {
+    "message": "Explicación simple",
+    "description": "Botón explicación simple"
+  },
+  "presetLinkOnly": {
+    "message": "Solo enlace",
+    "description": "Botón solo enlace"
+  },
+  "previewLabel": {
+    "message": "Vista previa enviada a Gemini",
+    "description": "Etiqueta de vista previa"
+  },
+  "saveButton": {
+    "message": "Guardar",
+    "description": "Botón guardar"
+  },
+  "resetButton": {
+    "message": "Restablecer",
+    "description": "Botón restablecer"
+  },
+  "openFullTab": {
+    "message": "Abrir en pestaña completa ↗",
+    "description": "Enlace para abrir en pestaña"
+  },
+  "statusSaved": {
+    "message": "Configuración guardada correctamente.",
+    "description": "Estado guardado"
+  },
+  "statusError": {
+    "message": "No se pudo guardar la configuración.",
+    "description": "Error al guardar"
+  },
+  "statusReset": {
+    "message": "Configuración restablecida por defecto.",
+    "description": "Estado restablecido"
   }
 }

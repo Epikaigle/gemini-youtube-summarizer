@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YouTube Summarizer with Gemini</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body class="is-popup">
+  <main class="page">
+    <header class="popup-header">
+      <div class="brand">
+        <img src="icons/icon-48.png" width="26" height="26" alt="" class="brand-icon">
+        <h1 id="title" data-i18n="optionsTitle">Résumé YouTube avec Gemini</h1>
+      </div>
+      <a href="options.html" id="open-full-tab" class="icon-link" data-i18n-title="openFullTab" title="Ouvrir en plein écran ↗" aria-label="Ouvrir en plein écran">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+          <polyline points="15 3 21 3 21 9"></polyline>
+          <line x1="10" y1="14" x2="21" y2="3"></line>
+        </svg>
+      </a>
+    </header>
+
+    <form id="options-form">
+      <!-- Section Langue -->
+      <fieldset class="setting-group">
+        <legend class="group-title" data-i18n="languageSectionTitle">Langue de l'extension</legend>
+        <div class="lang-selector" role="radiogroup" aria-labelledby="lang-label">
+          <label class="lang-pill">
+            <input type="radio" name="extension-language" value="fr">
+            <span>🇫🇷 Français</span>
+          </label>
+          <label class="lang-pill">
+            <input type="radio" name="extension-language" value="en">
+            <span>🇬🇧 English</span>
+          </label>
+          <label class="lang-pill">
+            <input type="radio" name="extension-language" value="">
+            <span data-i18n="languageAuto">Auto</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- Section Comportement Gemini (Envoi automatique) -->
+      <fieldset class="setting-group">
+        <legend class="group-title" data-i18n="geminiSectionTitle">Comportement sur Gemini</legend>
+        <label class="toggle-card" for="auto-submit">
+          <div class="toggle-switch">
+            <input type="checkbox" id="auto-submit" name="auto-submit" checked>
+            <span class="toggle-slider" aria-hidden="true"></span>
+          </div>
+          <div class="toggle-copy">
+            <strong data-i18n="autoSubmitLabel">Envoyer automatiquement le prompt</strong>
+            <p class="setting-desc" data-i18n="autoSubmitHelp">
+              Activé : Gemini lance l'analyse dès le chargement.<br>
+              Désactivé : le prompt est injecté sans être envoyé, vous permettant de choisir votre modèle (Flash, Pro, Advanced...) avant de cliquer sur Envoyer.
+            </p>
+          </div>
+        </label>
+      </fieldset>
+
+      <!-- Section Prompt Customization -->
+      <fieldset class="setting-group">
+        <legend class="group-title" data-i18n="promptSectionTitle">Personnalisation du prompt</legend>
+        
+        <div class="presets-bar" aria-label="Modèles de prompt">
+          <button type="button" class="preset-chip" data-preset="classic" data-i18n="presetClassic">Résumé classique</button>
+          <button type="button" class="preset-chip" data-preset="points" data-i18n="presetKeyPoints">5 idées clés</button>
+          <button type="button" class="preset-chip" data-preset="plan" data-i18n="presetPlan">Plan détaillé</button>
+          <button type="button" class="preset-chip" data-preset="simple" data-i18n="presetSimple">Vulgarisation</button>
+          <button type="button" class="preset-chip" data-preset="link" data-i18n="presetLinkOnly">Lien seul</button>
+        </div>
+
+        <label for="prompt-prefix" class="sr-only" data-i18n="promptPrefixLabel">Texte avant le lien YouTube</label>
+        <textarea
+          id="prompt-prefix"
+          name="prompt-prefix"
+          rows="3"
+          maxlength="1200"
+          spellcheck="true"
+        ></textarea>
+        <div class="hint" data-i18n="promptPrefixHint">
+          Le lien est ajouté automatiquement. Laisse le champ vide pour envoyer uniquement le lien.
+        </div>
+
+        <div class="preview" aria-live="polite">
+          <span class="preview-label" data-i18n="previewLabel">Aperçu envoyé à Gemini</span>
+          <pre id="prompt-preview"></pre>
+        </div>
+      </fieldset>
+
+      <div class="actions">
+        <button type="submit" id="save-button" class="primary" data-i18n="saveButton">Enregistrer</button>
+        <button type="button" id="reset-button" class="secondary" data-i18n="resetButton">Réinitialiser</button>
+      </div>
+
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </form>
+  </main>
+
+  <script src="options.js"></script>
+</body>
+</html>

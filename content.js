@@ -7,6 +7,12 @@ const WATCH_PAGE_BUTTON_ID = "gemini-summary-button-watch-page";
 const GEMINI_APP_URL = "https://gemini.google.com/";
 const PROMPT_PREFIX_STORAGE_KEY = "geminiPromptPrefix";
 const DEFAULT_PROMPT_PREFIX = "Résume-moi la vidéo :";
+const LANGUAGE_STORAGE_KEY = "extensionLanguage";
+const BUTTON_LABELS = {
+    fr: "Résumer",
+    en: "Summarize",
+    es: "Resumir"
+};
 const MENU_VIDEO_URL_ATTRIBUTE = "data-gemini-summary-video-url";
 const MENU_POPUP_SELECTOR = [
     "tp-yt-iron-dropdown",
@@ -78,6 +84,56 @@ let lastSummaryActivation = {
     timestamp: 0
 };
 let promptPrefix = DEFAULT_PROMPT_PREFIX;
+let currentLanguage = "";
+
+function resolveEffectiveLanguage(savedLang) {
+    if (savedLang === "fr" || savedLang === "en" || savedLang === "es") {
+        return savedLang;
+    }
+    const browserLang = (typeof chrome !== "undefined" && chrome.i18n?.getUILanguage?.()) || navigator.language || "en";
+    if (browserLang.startsWith("fr")) return "fr";
+    if (browserLang.startsWith("es")) return "es";
+    return "en";
+}
+
+function getSummarizeButtonLabel() {
+    const lang = resolveEffectiveLanguage(currentLanguage);
+    return BUTTON_LABELS[lang] || (typeof chrome !== "undefined" && chrome.i18n?.getMessage?.("buttonSummarize")) || "Summarize";
+}
+
+function updateInjectedButtonLabels() {
+    const label = getSummarizeButtonLabel();
+
+    const watchButton = document.getElementById(WATCH_PAGE_BUTTON_ID);
+    if (watchButton) {
+        watchButton.setAttribute("aria-label", label);
+        watchButton.setAttribute("title", label);
+        const textContent = watchButton.querySelector(
+            ".ytSpecButtonShapeNextButtonTextContent, .yt-spec-button-shape-next__button-text-content, .yt-core-attributed-string"
+        );
+        if (textContent) {
+            textContent.textContent = label;
+        }
+    }
+
+    const menuButton = document.getElementById(MENU_BUTTON_ID);
+    if (menuButton) {
+        menuButton.setAttribute("aria-label", label);
+        const actionTarget =
+            menuButton.querySelector("button, a, .ytButtonOrAnchorHost, .yt-list-item-view-model__button-or-anchor") ||
+            menuButton;
+        if (actionTarget) {
+            actionTarget.setAttribute("aria-label", label);
+            actionTarget.setAttribute("title", label);
+        }
+        const title = menuButton.querySelector(
+            ".ytListItemViewModelTitle, .yt-list-item-view-model__title, span[role='text'], yt-formatted-string"
+        );
+        if (title) {
+            title.textContent = label;
+        }
+    }
+}
 
 function getExtensionApi() {
     if (typeof browser !== "undefined" && browser.storage?.local) {
@@ -106,37 +162,52 @@ function getPromptPrefixSeparator(value) {
     return /\s$/.test(value) ? "" : " ";
 }
 
-async function loadPromptPrefix() {
+async function loadSettings() {
     const extensionApi = getExtensionApi();
     if (!extensionApi) return;
 
     try {
         if (extensionApi.isPromiseBased) {
-            const result = await extensionApi.api.storage.local.get(PROMPT_PREFIX_STORAGE_KEY);
+            const result = await extensionApi.api.storage.local.get([PROMPT_PREFIX_STORAGE_KEY, LANGUAGE_STORAGE_KEY]);
             promptPrefix = normalizePromptPrefix(result[PROMPT_PREFIX_STORAGE_KEY]);
+            currentLanguage = typeof result[LANGUAGE_STORAGE_KEY] === "string" ? result[LANGUAGE_STORAGE_KEY] : "";
+            updateInjectedButtonLabels();
             return;
         }
 
         await new Promise((resolve) => {
-            extensionApi.api.storage.local.get(PROMPT_PREFIX_STORAGE_KEY, (result) => {
+            extensionApi.api.storage.local.get([PROMPT_PREFIX_STORAGE_KEY, LANGUAGE_STORAGE_KEY], (result) => {
                 if (!extensionApi.api.runtime?.lastError) {
                     promptPrefix = normalizePromptPrefix(result[PROMPT_PREFIX_STORAGE_KEY]);
+                    currentLanguage = typeof result[LANGUAGE_STORAGE_KEY] === "string" ? result[LANGUAGE_STORAGE_KEY] : "";
+                    updateInjectedButtonLabels();
                 }
                 resolve();
             });
         });
     } catch {
         promptPrefix = DEFAULT_PROMPT_PREFIX;
+        currentLanguage = "";
     }
 }
 
-function watchPromptPrefixChanges() {
+function watchSettingsChanges() {
     const extensionApi = getExtensionApi();
     if (!extensionApi?.api.storage?.onChanged) return;
 
     extensionApi.api.storage.onChanged.addListener((changes, areaName) => {
-        if (areaName !== "local" || !changes[PROMPT_PREFIX_STORAGE_KEY]) return;
-        promptPrefix = normalizePromptPrefix(changes[PROMPT_PREFIX_STORAGE_KEY].newValue);
+        if (areaName !== "local") return;
+
+        if (changes[PROMPT_PREFIX_STORAGE_KEY]) {
+            promptPrefix = normalizePromptPrefix(changes[PROMPT_PREFIX_STORAGE_KEY].newValue);
+        }
+
+        if (changes[LANGUAGE_STORAGE_KEY]) {
+            currentLanguage = typeof changes[LANGUAGE_STORAGE_KEY].newValue === "string"
+                ? changes[LANGUAGE_STORAGE_KEY].newValue
+                : "";
+            updateInjectedButtonLabels();
+        }
     });
 }
 
@@ -397,7 +468,7 @@ function createViewModelMenuItem(itemsContainer, videoUrl) {
     const menuItem = templateItem.cloneNode(true);
     menuItem.id = MENU_BUTTON_ID;
     menuItem.setAttribute("role", "menuitem");
-    menuItem.setAttribute("aria-label", "Résumer");
+    menuItem.setAttribute("aria-label", getSummarizeButtonLabel());
     menuItem.removeAttribute("aria-disabled");
 
     const actionTarget =
@@ -411,8 +482,8 @@ function createViewModelMenuItem(itemsContainer, videoUrl) {
         actionTarget.removeAttribute("rel");
         actionTarget.removeAttribute("aria-disabled");
         actionTarget.disabled = false;
-        actionTarget.setAttribute("aria-label", "Résumer");
-        actionTarget.setAttribute("title", "Résumer");
+        actionTarget.setAttribute("aria-label", getSummarizeButtonLabel());
+        actionTarget.setAttribute("title", getSummarizeButtonLabel());
         actionTarget.setAttribute("tabindex", "0");
 
         if (actionTarget instanceof HTMLButtonElement) {
@@ -425,7 +496,7 @@ function createViewModelMenuItem(itemsContainer, videoUrl) {
 
     const title = menuItem.querySelector(".ytListItemViewModelTitle, .yt-list-item-view-model__title, span[role='text'], yt-formatted-string");
     if (title) {
-        title.textContent = "Résumer";
+        title.textContent = getSummarizeButtonLabel();
     }
 
     const iconWrapper =
@@ -451,7 +522,7 @@ function createPaperListboxMenuItem(itemsContainer, videoUrl) {
 
     const menuItem = templateItem.cloneNode(true);
     menuItem.id = MENU_BUTTON_ID;
-    menuItem.setAttribute("aria-label", "Résumer");
+    menuItem.setAttribute("aria-label", getSummarizeButtonLabel());
     menuItem.setAttribute("aria-disabled", "false");
     setSummaryVideoUrlAttribute(menuItem, videoUrl);
 
@@ -463,7 +534,7 @@ function finalizePaperListboxMenuItem(menuItem) {
     const textElement = menuItem.querySelector("yt-formatted-string");
     if (textElement) {
         textElement.removeAttribute("is-empty");
-        textElement.textContent = "Résumer";
+        textElement.textContent = getSummarizeButtonLabel();
     }
 
     const legacyIcon = menuItem.querySelector("yt-icon, [data-gemini-summary-paper-icon='true']");
@@ -850,8 +921,8 @@ function createWatchPageButton() {
 
         button.id = WATCH_PAGE_BUTTON_ID;
         button.type = "button";
-        button.setAttribute("aria-label", "Résumer");
-        button.setAttribute("title", "Résumer");
+        button.setAttribute("aria-label", getSummarizeButtonLabel());
+        button.setAttribute("title", getSummarizeButtonLabel());
         button.removeAttribute("aria-pressed");
         button.style.removeProperty("display");
         button.style.removeProperty("visibility");
@@ -865,7 +936,7 @@ function createWatchPageButton() {
         const textContent = button.querySelector(".ytSpecButtonShapeNextButtonTextContent, .yt-spec-button-shape-next__button-text-content");
         if (textContent) {
             textContent.replaceChildren();
-            textContent.textContent = "Résumer";
+            textContent.textContent = getSummarizeButtonLabel();
         }
 
         button.addEventListener("click", (event) => {
@@ -893,7 +964,7 @@ function createWatchPageButton() {
 
     const label = document.createElement("span");
     label.className = "yt-core-attributed-string yt-core-attributed-string--white-space-no-wrap";
-    label.textContent = "Résumer";
+    label.textContent = getSummarizeButtonLabel();
 
     textContent.appendChild(label);
     button.appendChild(icon);
@@ -1007,6 +1078,6 @@ document.addEventListener("yt-page-data-updated", () => {
 });
 
 removeLegacyInlineButtons();
-void loadPromptPrefix();
-watchPromptPrefixChanges();
+void loadSettings();
+watchSettingsChanges();
 ensureWatchPageButton();

@@ -14,5 +14,105 @@
   "defaultPromptPrefix": {
     "message": "Summarize this video:",
     "description": "Default prompt sent to Gemini"
+  },
+  "optionsTitle": {
+    "message": "YouTube Summarizer with Gemini",
+    "description": "Settings title"
+  },
+  "optionsIntro": {
+    "message": "Customize language, auto-submit behavior on Gemini, and your default prompt text.",
+    "description": "Settings introduction"
+  },
+  "languageSectionTitle": {
+    "message": "Extension Language",
+    "description": "Language section title"
+  },
+  "languageLabel": {
+    "message": "Display Language",
+    "description": "Language selector label"
+  },
+  "languageAuto": {
+    "message": "Automatic (browser)",
+    "description": "Automatic language choice"
+  },
+  "languageFr": {
+    "message": "Français",
+    "description": "French language option"
+  },
+  "languageEn": {
+    "message": "English",
+    "description": "English language option"
+  },
+  "geminiSectionTitle": {
+    "message": "Gemini Behavior",
+    "description": "Gemini section title"
+  },
+  "autoSubmitLabel": {
+    "message": "Automatically submit prompt on Gemini",
+    "description": "Auto submit toggle label"
+  },
+  "autoSubmitHelp": {
+    "message": "Enabled: Gemini immediately triggers analysis upon loading.\nDisabled: Prompt is placed in the input field without sending, allowing you to select your Gemini model (Flash, Pro, Advanced...) before clicking Send manually.",
+    "description": "Help text explaining why to disable auto-submit"
+  },
+  "promptSectionTitle": {
+    "message": "Prompt Customization",
+    "description": "Prompt customization section title"
+  },
+  "promptPrefixLabel": {
+    "message": "Text before the YouTube link",
+    "description": "Prompt prefix label"
+  },
+  "promptPrefixHint": {
+    "message": "The video URL is appended automatically. Leave empty to send only the link.",
+    "description": "Hint under prompt prefix textarea"
+  },
+  "presetClassic": {
+    "message": "Classic Summary",
+    "description": "Classic summary preset button"
+  },
+  "presetKeyPoints": {
+    "message": "5 Key Takeaways",
+    "description": "5 key points preset button"
+  },
+  "presetPlan": {
+    "message": "Detailed Outline",
+    "description": "Detailed outline preset button"
+  },
+  "presetSimple": {
+    "message": "Simple Explanation",
+    "description": "Simple explanation preset button"
+  },
+  "presetLinkOnly": {
+    "message": "Link Only",
+    "description": "Link only preset button"
+  },
+  "previewLabel": {
+    "message": "Preview sent to Gemini",
+    "description": "Label above preview"
+  },
+  "saveButton": {
+    "message": "Save",
+    "description": "Save settings button"
+  },
+  "resetButton": {
+    "message": "Reset",
+    "description": "Reset settings button"
+  },
+  "openFullTab": {
+    "message": "Open in full tab ↗",
+    "description": "Link to open settings in a new tab"
+  },
+  "statusSaved": {
+    "message": "Settings saved successfully.",
+    "description": "Status message after saving"
+  },
+  "statusError": {
+    "message": "Unable to save settings.",
+    "description": "Status error message"
+  },
+  "statusReset": {
+    "message": "Settings reset to defaults.",
+    "description": "Status message after reset"
   }
 }
