@@ -21,6 +21,47 @@ const check = (condition, message) => {
 
 const browser = await firefox.launch();
 
+const localized = {
+  fr: {home: 'Résumé YouTube avec Gemini — Extension Firefox', privacy: 'Confidentialité — Résumé YouTube avec Gemini', how: 'Fonctionnement', light: 'Passer au thème clair', dark: 'Passer au thème sombre', open: 'Ouvrir le menu', close: 'Fermer le menu', pause: 'Mettre en pause l’animation', resume: 'Reprendre l’animation'},
+  en: {home: 'YouTube Summarizer with Gemini — Firefox Extension', privacy: 'Privacy — YouTube Summarizer with Gemini', how: 'How it works', light: 'Switch to light theme', dark: 'Switch to dark theme', open: 'Open menu', close: 'Close menu', pause: 'Pause animation', resume: 'Resume animation'},
+  es: {home: 'Resumen de YouTube con Gemini — Extensión de Firefox', privacy: 'Privacidad — Resumen de YouTube con Gemini', how: 'Cómo funciona', light: 'Cambiar al tema claro', dark: 'Cambiar al tema oscuro', open: 'Abrir el menú', close: 'Cerrar el menú', pause: 'Pausar la animación', resume: 'Reanudar la animación'},
+  zh: {home: 'YouTube 视频总结工具（Gemini）— Firefox 扩展', privacy: '隐私政策 — YouTube 视频总结工具（Gemini）', how: '工作原理', light: '切换到浅色主题', dark: '切换到深色主题', open: '打开菜单', close: '关闭菜单', pause: '暂停动画', resume: '继续动画'}
+};
+
+const checkLanguages = async (page, viewport, theme) => {
+  for (const [lang, text] of Object.entries(localized)) {
+    await page.goto(baseUrl);
+    await page.locator(`.lang-btn[data-lang=${lang}]`).click();
+    const label = `${viewport.name}/${theme}/${lang}`;
+    check(await page.title() === text.home, `${label}: untranslated home title`);
+    check(await page.locator('html').getAttribute('lang') === lang, `${label}: wrong language`);
+    const toggle = page.locator('#demo-ctrl-toggle');
+    await toggle.click();
+    check(await toggle.getAttribute('aria-label') === text.resume, `${label}: pause action not translated`);
+    await page.locator('#demo-ctrl-replay').click();
+    check(await toggle.getAttribute('aria-label') === text.pause, `${label}: replay retained wrong action label`);
+    const themeToggle = page.locator('.theme-toggle');
+    await themeToggle.click();
+    const activeTheme = await page.locator('html').getAttribute('data-theme');
+    check(await themeToggle.getAttribute('aria-label') === (activeTheme === 'light' ? text.dark : text.light), `${label}: theme action not translated`);
+    await themeToggle.click();
+    if (viewport.width <= 920) {
+      const menuButton = page.locator('.menu-button');
+      check(await menuButton.textContent().then(value => value.trim()) === text.open, `${label}: menu action not translated`);
+      await menuButton.click();
+      check(await menuButton.textContent().then(value => value.trim()) === text.close, `${label}: open menu action not translated`);
+      await page.keyboard.press('Escape');
+    }
+    check(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1), `${label}: localized home overflow`);
+    await page.goto(`${baseUrl}/privacy.html`);
+    check(await page.title() === text.privacy, `${label}: untranslated privacy title`);
+    check(await page.locator('.privacy-content h2').first().textContent() === text.how, `${label}: privacy body not translated`);
+    check(await page.locator('html').getAttribute('lang') === lang, `${label}: language lost during navigation`);
+    check(await page.locator('.privacy-content [data-i18n]').count() === 20, `${label}: missing privacy translations`);
+    check(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1), `${label}: localized privacy overflow`);
+  }
+};
+
 for (const viewport of viewports) {
   for (const theme of themes) {
     const context = await browser.newContext({
@@ -143,6 +184,10 @@ for (const viewport of viewports) {
       fullPage: true
     });
 
+    if ([1440, 390].includes(viewport.width)) {
+      await checkLanguages(page, viewport, theme);
+    }
+
     await context.close();
   }
 }
@@ -155,4 +200,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`Visual checks passed for ${viewports.length} viewports × ${themes.length} themes.`);
+console.log(`Visual checks passed for ${viewports.length} viewports × ${themes.length} themes, plus FR/EN/ES/ZH navigation and controls.`);

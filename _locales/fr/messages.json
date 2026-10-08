@@ -32,7 +32,7 @@
     "description": "Libellé du sélecteur de langue"
   },
   "languageAuto": {
-    "message": "Automatique (navigateur)",
+    "message": "Auto",
     "description": "Option langue automatique"
   },
   "languageFr": {
@@ -56,7 +56,7 @@
     "description": "Libellé de l'option d'envoi automatique"
   },
   "autoSubmitHelp": {
-    "message": "Activé : Gemini lance l'analyse automatiquement dès le chargement.\nDésactivé : le prompt est injecté dans le champ de saisie sans être envoyé, vous permettant de choisir votre modèle (Flash, Pro, Advanced...) avant de cliquer sur Envoyer.",
+    "message": "Activé : Gemini lance l'analyse dès le chargement.\nDésactivé : le prompt est injecté sans être envoyé, vous permettant de choisir votre modèle (Flash, Pro, Advanced...) avant de cliquer sur Envoyer.",
     "description": "Explication claire de l'intérêt de désactiver l'envoi auto"
   },
   "promptSectionTitle": {
@@ -64,11 +64,11 @@
     "description": "Titre de la section personnalisation du prompt"
   },
   "promptPrefixLabel": {
-    "message": "Texte avant le lien YouTube",
+    "message": "Consigne à envoyer avant le lien YouTube",
     "description": "Libellé du champ de préfixe de prompt"
   },
   "promptPrefixHint": {
-    "message": "Le lien est ajouté automatiquement. Laisse le champ vide pour envoyer uniquement le lien.",
+    "message": "Écrivez ce que Gemini doit faire avec la vidéo. Son lien sera ajouté à la suite de votre consigne. Laissez ce champ vide pour envoyer uniquement le lien.",
     "description": "Indication sous le champ de prompt"
   },
   "presetClassic": {
@@ -92,7 +92,7 @@
     "description": "Bouton preset lien seul"
   },
   "previewLabel": {
-    "message": "Aperçu envoyé à Gemini",
+    "message": "Exemple du message envoyé à Gemini",
     "description": "Libellé de l'aperçu"
   },
   "saveButton": {
@@ -104,7 +104,7 @@
     "description": "Bouton réinitialiser"
   },
   "openFullTab": {
-    "message": "Ouvrir en plein écran ↗",
+    "message": "Ouvrir les préférences dans un onglet",
     "description": "Lien pour ouvrir les options dans un onglet"
   },
   "statusSaved": {
@@ -118,5 +118,21 @@
   "statusReset": {
     "message": "Paramètres réinitialisés par défaut.",
     "description": "Message après réinitialisation"
+  },
+  "presetsLabel": {
+    "description": "presetsLabel",
+    "message": "Modèles de consigne"
+  },
+  "statusLoadError": {
+    "description": "statusLoadError",
+    "message": "Impossible de charger les paramètres. Fermez puis rouvrez les préférences."
+  },
+  "statusOpenError": {
+    "description": "statusOpenError",
+    "message": "Impossible d'ouvrir les préférences dans un onglet."
+  },
+  "preferencesTitle": {
+    "description": "preferencesTitle",
+    "message": "Préférences"
   }
 }

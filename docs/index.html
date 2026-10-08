@@ -28,7 +28,7 @@
   <meta name="twitter:image:alt" content="YouTube Summarizer with Gemini — de YouTube à Gemini en un clic">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://epikaigle.github.io/gemini-youtube-summarizer/">
-  <link rel="alternate" type="text/markdown" href="llms.txt" title="Documentation LLM">
+  <link rel="alternate" type="text/markdown" href="llms.txt" data-i18n-title="llm_docs" title="Documentation pour les assistants IA">
   <title>YouTube Summarizer with Gemini — Extension Firefox</title>
   <link rel="icon" href="assets/extension-icon.png?v=20260924" type="image/png" sizes="96x96">
   <link rel="apple-touch-icon" href="assets/extension-icon.png?v=20260924">
@@ -55,7 +55,6 @@
         "alternateName": "Résumé YouTube avec Gemini",
         "applicationCategory": "BrowserApplication",
         "operatingSystem": "Firefox, Firefox for Android",
-        "softwareVersion": "3.7",
         "description": "Extension Firefox qui ajoute un bouton Résumer sur YouTube et ouvre Gemini avec le lien de la vidéo et un prompt 100% personnalisable.",
         "url": "https://epikaigle.github.io/gemini-youtube-summarizer/",
         "downloadUrl": "https://addons.mozilla.org/firefox/addon/gemini-youtube-summarizer/",
@@ -115,18 +114,18 @@
   </script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Aller au contenu</a>
+  <a class="skip-link" href="#main" data-i18n="skip_content">Aller au contenu</a>
   <div class="progress" aria-hidden="true"><span></span></div>
 
   <header class="site-header">
     <div class="container nav">
-      <a class="brand" href="#main" aria-label="Accueil">
+      <a class="brand" href="#main" data-i18n-aria="nav_home" aria-label="Accueil">
         <img class="brand-icon" src="assets/extension-icon.png?v=20260923" width="34" height="34" alt="" aria-hidden="true">
         <span class="brand-text" data-i18n="nav_brand">Résumé YouTube <b>avec Gemini</b></span>
       </a>
 
       <!-- Sélecteur de Langue (FR, EN, ES, ZH) -->
-      <div class="lang-switcher" role="group" aria-label="Choisir la langue / Select language">
+      <div class="lang-switcher" role="group" data-i18n-aria="choose_language" aria-label="Choisir la langue">
         <button class="lang-btn active" data-lang="fr" type="button" aria-label="Français">FR</button>
         <button class="lang-btn" data-lang="en" type="button" aria-label="English">EN</button>
         <button class="lang-btn" data-lang="es" type="button" aria-label="Español">ES</button>
@@ -179,11 +178,11 @@
           </div>
         </div>
 
-        <div class="hero-visual reveal" id="demo" data-flow-mode="watch" data-flow-phase="idle" role="region" aria-label="Démonstration animée de l'extension YouTube et Google Gemini">
+        <div class="hero-visual reveal" id="demo" data-flow-mode="watch" data-flow-phase="idle" role="region" data-i18n-aria="demo_region" aria-label="Démonstration animée de l'extension YouTube et Google Gemini">
           
           <!-- Contrôles positionnés au-dessus de la fenêtre YouTube (sans superposition) -->
-          <div class="demo-controls-bar" aria-label="Contrôles de la démonstration">
-            <div class="demo-modes" role="tablist" aria-label="Scénario YouTube">
+          <div class="demo-controls-bar" data-i18n-aria="demo_controls" aria-label="Contrôles de la démonstration">
+            <div class="demo-modes" role="tablist" data-i18n-aria="demo_scenario" aria-label="Scénario YouTube">
               <button class="demo-mode-tab active" type="button" data-mode="watch" role="tab" aria-selected="true" data-i18n="demo_tab_watch">Page Vidéo</button>
               <button class="demo-mode-tab" type="button" data-mode="feed" role="tab" aria-selected="false" data-i18n="demo_tab_feed">Accueil YouTube</button>
             </div>
@@ -192,7 +191,7 @@
                 <svg class="icon-pause" viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
                 <svg class="icon-play" viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="m7 4 13 8-13 8V4Z"/></svg>
               </button>
-              <button class="demo-ctrl-btn" id="demo-ctrl-replay" type="button" aria-label="Rejouer l’animation" title="Rejouer">
+              <button class="demo-ctrl-btn" id="demo-ctrl-replay" type="button" data-i18n-aria="demo_replay" aria-label="Rejouer l’animation" data-i18n-title="demo_replay" title="Rejouer">
                 <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
               </button>
             </div>
@@ -267,7 +266,7 @@
                       <span class="yt-pill"><svg class="yt-action-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 6h5v5M19 6l-8 8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M18 14v4H6V8h4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span class="demo-yt-share">Partager</span></span>
                       
                       <!-- Exact Injected Button from extension content.js -->
-                      <strong class="yt-resume-action yt-spec-button-tonal" id="gemini-summary-button-watch-page" title="Résumer">
+                      <strong class="yt-resume-action yt-spec-button-tonal" id="gemini-summary-button-watch-page" data-i18n-title="action_summarize" title="Résumer">
                         <svg class="yt-summary-svg" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" fill="currentColor"/></svg>
                         <span class="demo-yt-btn-text">Résumer</span>
                         <i></i>
@@ -466,10 +465,10 @@
                       <li class="response-line response-three"><b class="demo-resp-p3-title">Synthèse :</b> <span class="demo-resp-p3-text">retenir les 3 enseignements majeurs pour gagner un temps précieux.</span></li>
                     </ul>
                     <div class="gemini-response-actions">
-                      <span title="Bonne réponse">👍</span>
-                      <span title="Mauvaise réponse">👎</span>
-                      <span title="Copier">📋</span>
-                      <span title="Partager">↗</span>
+                      <span data-i18n-title="response_good" title="Bonne réponse">👍</span>
+                      <span data-i18n-title="response_bad" title="Mauvaise réponse">👎</span>
+                      <span data-i18n-title="action_copy" title="Copier">📋</span>
+                      <span data-i18n-title="action_share" title="Partager">↗</span>
                     </div>
                   </div>
                 </div>
@@ -548,7 +547,7 @@
           <div class="prompt-studio">
             <div class="studio-header">
               <span class="studio-title" data-i18n="studio_test_title">✦ Testez vos consignes en direct</span>
-              <div class="studio-preset-list" role="group" aria-label="Exemples de prompts">
+              <div class="studio-preset-list" role="group" data-i18n-aria="prompt_examples" aria-label="Exemples de prompts">
                 <button class="preset-chip active" type="button" data-preset-id="classic" data-i18n="preset_classic">Résumé classique</button>
                 <button class="preset-chip" type="button" data-preset-id="points" data-i18n="preset_points">5 idées clés</button>
                 <button class="preset-chip" type="button" data-preset-id="plan" data-i18n="preset_plan">Plan détaillé</button>
@@ -612,6 +611,6 @@
     <div class="container legal-line" data-i18n="footer_legal">Projet indépendant — non affilié à YouTube, Google ou Mozilla.</div>
   </footer>
 
-  <script src="script.js?v=20260923"></script>
+  <script src="script.js?v=20261008"></script>
 </body>
 </html>

@@ -1,35 +1,32 @@
-# Politique de confidentialite
+# Politique de confidentialité
 
-## YouTube Summarizer with Gemini
+[Français](PRIVACY_POLICY.md) · [English](PRIVACY_POLICY.en.md) · [Español](PRIVACY_POLICY.es.md)
 
-Cette extension n'envoie aucune donnee au developpeur de l'extension.
+## Résumé YouTube avec Gemini
 
-L'extension agit uniquement quand vous cliquez volontairement sur `Resumer` dans YouTube.
+L’extension n’envoie aucune donnée au développeur. Elle ne possède aucun serveur de collecte, aucune télémétrie et aucun compte utilisateur.
 
-Quand vous cliquez sur `Resumer`, l'extension :
-- recupere l'URL de la video YouTube selectionnee ;
-- lit le texte personnalise localement dans votre navigateur ;
-- ouvre `https://gemini.google.com/` avec un prompt contenant ce texte et cette URL ;
-- tente de remplir et d'envoyer ce prompt dans l'interface Gemini.
+## Action sur YouTube
 
-Donnees transmises a un tiers :
-- l'URL de la video YouTube que vous avez choisi de resumer.
-- le texte personnalise que vous avez configure dans les options de l'extension.
+Lorsque vous cliquez volontairement sur **Résumer**, l’extension récupère l’URL de la vidéo sélectionnée, lit votre consigne enregistrée localement et ouvre `https://gemini.google.com/` avec ces informations. Elle tente de remplir le champ de Gemini et d’envoyer le message. Si vous désactivez l’envoi automatique dans les préférences, le message reste prêt à être envoyé manuellement.
 
-Donnees non collectees par le developpeur :
-- aucun compte utilisateur ;
-- aucun historique stocke par l'extension ;
-- aucune statistique, telemetrie ou tracking ;
-- aucun cookie ;
-- aucun contenu envoye a un serveur du developpeur.
+## Données transmises à Gemini
 
-Stockage local :
-- l'extension stocke uniquement le texte personnalise du prompt dans le stockage local de Firefox.
-- ce texte reste dans votre navigateur et n'est pas envoye au developpeur.
+- L’URL de la vidéo YouTube que vous avez choisi de résumer.
+- La consigne configurée dans les préférences de l’extension, le cas échéant.
 
-Services tiers :
-- Gemini est un service de Google. L'utilisation de Gemini est soumise aux conditions et a la politique de confidentialite de Google.
+Ces informations sont transmises à Gemini uniquement pour exécuter l’action que vous avez demandée.
 
-Controle utilisateur :
-- rien n'est envoye sans action explicite sur le bouton `Resumer`.
-- vous pouvez desinstaller l'extension a tout moment.
+## Stockage local
+
+Votre consigne, la langue de l’extension et le choix de l’envoi automatique sont conservés dans le stockage local de Firefox. Ces préférences ne sont pas envoyées au développeur. La consigne est transmise à Gemini lorsque vous déclenchez volontairement une demande.
+
+## Absence de collecte par le développeur
+
+L’extension ne gère aucun compte utilisateur, ne conserve aucun historique et n’ajoute aucun cookie. Elle ne produit aucune statistique ni télémétrie et n’envoie aucun contenu à un serveur du développeur.
+
+## Service tiers et contrôle utilisateur
+
+Gemini est un service de Google. Son utilisation reste soumise aux conditions et à la politique de confidentialité de Google. Une connexion à un compte Google peut être nécessaire pour utiliser Gemini.
+
+Rien n’est transmis à Gemini sans votre action sur **Résumer**. Vous pouvez modifier vos préférences, réinitialiser les réglages ou désinstaller l’extension à tout moment.

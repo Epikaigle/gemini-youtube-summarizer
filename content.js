@@ -96,12 +96,13 @@ let lastSummaryActivation = {
 };
 let promptPrefix = DEFAULT_PROMPT_PREFIX;
 let currentLanguage = "";
+let hasCustomPromptPrefix = false;
 
 function resolveEffectiveLanguage(savedLang) {
     if (savedLang === "fr" || savedLang === "en" || savedLang === "es") {
         return savedLang;
     }
-    const browserLang = (typeof chrome !== "undefined" && chrome.i18n?.getUILanguage?.()) || navigator.language || "en";
+    const browserLang = (getExtensionApi()?.api.i18n?.getUILanguage?.() || navigator.language || "en").toLowerCase();
     if (browserLang.startsWith("fr")) return "fr";
     if (browserLang.startsWith("es")) return "es";
     return "en";
@@ -180,13 +181,15 @@ function getPromptPrefixSeparator(value) {
 
 async function loadSettings() {
     const extensionApi = getExtensionApi();
+    promptPrefix = getDefaultPromptPrefix();
     if (!extensionApi) return;
 
     try {
         if (extensionApi.isPromiseBased) {
             const result = await extensionApi.api.storage.local.get([PROMPT_PREFIX_STORAGE_KEY, LANGUAGE_STORAGE_KEY]);
-            promptPrefix = normalizePromptPrefix(result[PROMPT_PREFIX_STORAGE_KEY]);
             currentLanguage = typeof result[LANGUAGE_STORAGE_KEY] === "string" ? result[LANGUAGE_STORAGE_KEY] : "";
+            hasCustomPromptPrefix = typeof result[PROMPT_PREFIX_STORAGE_KEY] === "string";
+            promptPrefix = normalizePromptPrefix(result[PROMPT_PREFIX_STORAGE_KEY]);
             updateInjectedButtonLabels();
             return;
         }
@@ -194,16 +197,18 @@ async function loadSettings() {
         await new Promise((resolve) => {
             extensionApi.api.storage.local.get([PROMPT_PREFIX_STORAGE_KEY, LANGUAGE_STORAGE_KEY], (result) => {
                 if (!extensionApi.api.runtime?.lastError) {
-                    promptPrefix = normalizePromptPrefix(result[PROMPT_PREFIX_STORAGE_KEY]);
                     currentLanguage = typeof result[LANGUAGE_STORAGE_KEY] === "string" ? result[LANGUAGE_STORAGE_KEY] : "";
+                    hasCustomPromptPrefix = typeof result[PROMPT_PREFIX_STORAGE_KEY] === "string";
+                    promptPrefix = normalizePromptPrefix(result[PROMPT_PREFIX_STORAGE_KEY]);
                     updateInjectedButtonLabels();
                 }
                 resolve();
             });
         });
     } catch {
-        promptPrefix = DEFAULT_PROMPT_PREFIX;
         currentLanguage = "";
+        hasCustomPromptPrefix = false;
+        promptPrefix = getDefaultPromptPrefix();
     }
 }
 
@@ -214,15 +219,18 @@ function watchSettingsChanges() {
     extensionApi.api.storage.onChanged.addListener((changes, areaName) => {
         if (areaName !== "local") return;
 
-        if (changes[PROMPT_PREFIX_STORAGE_KEY]) {
-            promptPrefix = normalizePromptPrefix(changes[PROMPT_PREFIX_STORAGE_KEY].newValue);
-        }
-
         if (changes[LANGUAGE_STORAGE_KEY]) {
             currentLanguage = typeof changes[LANGUAGE_STORAGE_KEY].newValue === "string"
                 ? changes[LANGUAGE_STORAGE_KEY].newValue
                 : "";
             updateInjectedButtonLabels();
+        }
+
+        if (changes[PROMPT_PREFIX_STORAGE_KEY]) {
+            hasCustomPromptPrefix = typeof changes[PROMPT_PREFIX_STORAGE_KEY].newValue === "string";
+            promptPrefix = normalizePromptPrefix(changes[PROMPT_PREFIX_STORAGE_KEY].newValue);
+        } else if (!hasCustomPromptPrefix && changes[LANGUAGE_STORAGE_KEY]) {
+            promptPrefix = getDefaultPromptPrefix();
         }
     });
 }

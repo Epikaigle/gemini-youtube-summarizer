@@ -1,18 +1,20 @@
 # YouTube Summarizer with Gemini (Résumé YouTube avec Gemini)
 
+[Français](README.md) · [English](README.en.md) · [Español](README.es.md)
+
 Extension Firefox minimaliste qui ajoute une action `Résumer` sur YouTube.
 
 ## Liens officiels
 
-- Site : `https://epikaigle.github.io/gemini-youtube-summarizer/`
-- Firefox Add-ons : `https://addons.mozilla.org/firefox/addon/gemini-youtube-summarizer/`
-- Code source : `https://github.com/Epikaigle/gemini-youtube-summarizer`
+- [Site officiel](https://epikaigle.github.io/gemini-youtube-summarizer/)
+- [Firefox Add-ons](https://addons.mozilla.org/firefox/addon/gemini-youtube-summarizer/)
+- [Code source](https://github.com/Epikaigle/gemini-youtube-summarizer)
 
 Le flux est le suivant :
 - sur YouTube, `Résumer` apparaît dans les menus `3 points`
 - sur une page `watch`, un bouton `Résumer` apparaît aussi à côté des actions vidéo
 - dans la barre d'outils Firefox (icône de l'extension) ou via la page d'options :
-  - choix de la langue de l'extension (Français, Anglais, Auto)
+  - choix de la langue de l'extension (Français, Anglais, Espagnol, Auto)
   - activation ou désactivation de l'envoi automatique sur Gemini (permettant de sélectionner un modèle spécifique avant d'envoyer)
   - personnalisation du texte du prompt avec des modèles rapides (résumé classique, 5 idées clés, plan détaillé, vulgarisation, lien seul)
 - au clic, l'extension ouvre Gemini avec un prompt contenant ce texte et l'URL normalisée de la vidéo
@@ -33,6 +35,8 @@ Le site contient :
 - une présentation du prompt personnalisable et de la confidentialité
 - une page de politique de confidentialité
 - des liens vers le code source et Firefox Add-ons
+
+L’extension et sa documentation utilisateur sont disponibles en français, anglais et espagnol. Le site propose aussi le chinois. Les guides techniques restent en français. Les traductions de la fiche Firefox Add-ons se renseignent séparément dans AMO ; l’envoi de l’archive ne les met pas à jour.
 
 ## Structure
 
@@ -55,11 +59,20 @@ Le site contient :
 ## Options et barre d'outils
 
 En cliquant sur l'icône de l'extension dans la barre d'outils ou via `about:addons` :
-- **Langue d'affichage** : Français (`fr`), English (`en`), ou détection automatique du navigateur.
+- **Langue d'affichage** : Français (`fr`), English (`en`), Español (`es`), ou détection automatique du navigateur.
 - **Envoi automatique sur Gemini** :
   - *Coché* : Gemini envoie la requête immédiatement à l'ouverture de l'onglet.
   - *Décoché* : Le prompt arrive directement dans la zone de texte de Gemini sans être envoyé. Vous pouvez ainsi tranquillement sélectionner votre modèle (Flash, Pro, Advanced...) avant de cliquer sur Envoyer.
 - **Texte personnalisé du prompt** : Préréglages en un clic ou rédaction libre.
+
+La popup donne un accès rapide aux réglages. Le bouton en haut à droite ouvre une page
+plus large, avec une zone de rédaction agrandie et l'aperçu complet du message.
+Cliquez sur **Enregistrer** pour appliquer la langue, l'envoi automatique et le prompt
+ensemble. Un champ vide conserve le mode « lien seul », même après un changement de langue.
+
+Les corrections et les limites des vérifications de la version 3.8.1 sont détaillées dans
+[EXTENSION_AUDIT.md](EXTENSION_AUDIT.md). Les tests de l'extension se lancent avec
+`python3 tests/extension-firefox.py` (Firefox et geckodriver nécessaires).
 
 ## Soumission AMO
 
@@ -67,10 +80,13 @@ Fichiers utiles pour la soumission Firefox Add-ons :
 - `manifest.json`
 - `PRIVACY_POLICY.md`
 - `AMO_REVIEW_NOTES.md`
+- `AMO_LISTING.md` : textes français, anglais et espagnol pour la fiche et les notes de version
 
 Archive de soumission :
-- générer une archive propre avec `npx --yes web-ext build --source-dir . --overwrite-dest --ignore-files README.md TESTING.md AMO_SUBMISSION.md AMO_REVIEW_NOTES.md PRIVACY_POLICY.md "docs/**"`
+- générer une archive propre avec `npx --yes web-ext build --source-dir . --overwrite-dest --ignore-files "*.md" "docs/**" "tests/**" "scripts/**" "artifacts/**" ".github/**" .gitignore`
 - envoyer ensuite l’archive sur le portail développeur AMO
+
+Les contrôles GitHub vérifient le site, les traductions et le paquet de l’extension. Le workflow **Extension checks** fournit également une archive non signée dans l’artifact `unsigned-firefox-extension`.
 
 ## Licence
 

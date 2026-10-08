@@ -1,0 +1,57 @@
+name: Extension checks
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "manifest.json"
+      - "*.js"
+      - "options.css"
+      - "options.html"
+      - "popup.html"
+      - "icons/**"
+      - "_locales/**"
+      - "scripts/translation-check.mjs"
+      - ".github/workflows/extension-check.yml"
+  pull_request:
+    paths:
+      - "manifest.json"
+      - "*.js"
+      - "options.css"
+      - "options.html"
+      - "popup.html"
+      - "icons/**"
+      - "_locales/**"
+      - "scripts/translation-check.mjs"
+      - ".github/workflows/extension-check.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+      - name: Validate translations
+        run: node scripts/translation-check.mjs
+      - name: Install web-ext
+        run: npm install --no-save --package-lock=false web-ext@10.7.0
+      - name: Validate extension
+        run: npx web-ext lint --source-dir . --ignore-files "*.md" "docs/**" "tests/**" "scripts/**" "artifacts/**" ".github/**" .gitignore
+      - name: Build unsigned AMO archive
+        run: npx web-ext build --source-dir . --overwrite-dest --ignore-files "*.md" "docs/**" "tests/**" "scripts/**" "artifacts/**" ".github/**" .gitignore
+      - name: Upload unsigned AMO archive
+        uses: actions/upload-artifact@v7
+        with:
+          name: unsigned-firefox-extension
+          path: web-ext-artifacts/*.zip
+          if-no-files-found: error
+          retention-days: 30

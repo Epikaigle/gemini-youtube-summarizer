@@ -62,6 +62,47 @@
       privacy_subtitle: "L’extension ne collecte aucune donnée pour le compte du développeur.",
       privacy_summary_label: "En bref",
       privacy_summary_text: "Rien n’est envoyé sans votre clic sur <b>Résumer</b>. L’extension ne possède aucun serveur de collecte, aucun système de télémétrie et aucun compte utilisateur.",
+      skip_content: "Aller au contenu",
+      choose_language: "Choisir la langue",
+      theme_dark: "Passer au thème sombre",
+      theme_light: "Passer au thème clair",
+      menu_open: "Ouvrir le menu",
+      menu_close: "Fermer le menu",
+      demo_region: "Démonstration animée de YouTube et Gemini",
+      demo_controls: "Contrôles de la démonstration",
+      demo_scenario: "Scénario YouTube",
+      demo_pause: "Mettre en pause l’animation",
+      demo_resume: "Reprendre l’animation",
+      demo_replay: "Rejouer l’animation",
+      action_summarize: "Résumer",
+      response_good: "Bonne réponse",
+      response_bad: "Mauvaise réponse",
+      action_copy: "Copier",
+      action_share: "Partager",
+      prompt_examples: "Exemples de consignes",
+      llm_docs: "Documentation pour les assistants IA",
+      page_title: "Résumé YouTube avec Gemini — Extension Firefox",
+      page_description: "Résumez une vidéo YouTube avec Gemini et votre consigne personnalisée. Extension Firefox gratuite, sans télémétrie ni serveur du développeur.",
+      privacy_page_title: "Confidentialité — Résumé YouTube avec Gemini",
+      privacy_page_description: "Données envoyées à Gemini après votre clic : lien de la vidéo et consigne. Préférences stockées dans Firefox, aucune collecte par le développeur.",
+      privacy_how_title: "Fonctionnement",
+      privacy_how_text: "Lorsque vous cliquez sur <strong>Résumer</strong> dans YouTube, l’extension récupère l’URL de la vidéo sélectionnée, lit votre consigne enregistrée localement dans Firefox, puis ouvre Gemini avec ces informations. L’envoi automatique peut être désactivé dans les préférences ; le message reste alors prêt à être envoyé manuellement.",
+      privacy_data_title: "Données transmises à Gemini",
+      privacy_data_url: "L’URL de la vidéo YouTube que vous avez choisi de résumer.",
+      privacy_data_prompt: "La consigne configurée dans les préférences de l’extension, le cas échéant.",
+      privacy_data_use: "Ces informations sont transmises à Gemini uniquement pour exécuter l’action que vous avez demandée.",
+      privacy_no_collection_title: "Ce que le développeur ne collecte pas",
+      privacy_no_account: "Aucun compte utilisateur géré par l’extension.",
+      privacy_no_history: "Aucun historique conservé par l’extension.",
+      privacy_no_telemetry: "Aucune statistique ni télémétrie.",
+      privacy_no_cookies: "Aucun cookie ajouté par l’extension.",
+      privacy_no_server: "Aucun contenu envoyé à un serveur du développeur.",
+      privacy_storage_title: "Stockage local",
+      privacy_storage_text: "Votre consigne, la langue de l’extension et le choix de l’envoi automatique sont conservés dans le stockage local de Firefox. Ces préférences ne sont pas envoyées au développeur. La consigne est transmise à Gemini lorsque vous déclenchez volontairement une demande.",
+      privacy_third_party_title: "Service tiers",
+      privacy_third_party_text: "Gemini est un service de Google. Son utilisation reste soumise aux conditions et à la politique de confidentialité de Google. Une connexion à un compte Google peut être nécessaire pour utiliser Gemini.",
+      privacy_source_title: "Code source",
+      privacy_source_text: "Le code de l’extension est public et peut être vérifié sur <a href=\"https://github.com/Epikaigle/gemini-youtube-summarizer\" target=\"_blank\" rel=\"noreferrer\">GitHub ↗</a>.",
       presets: {
         classic: { prompt: "Résume-moi la vidéo :" },
         points: { prompt: "Donne-moi les 5 idées clés et les points d'action de cette vidéo :" },
@@ -157,6 +198,47 @@
       privacy_subtitle: "The extension does not collect any user data for the developer.",
       privacy_summary_label: "In brief",
       privacy_summary_text: "Nothing is sent without your explicit click on <b>Summarize</b>. The extension has no backend servers, no telemetry, and requires no user accounts.",
+      skip_content: "Skip to content",
+      choose_language: "Choose language",
+      theme_dark: "Switch to dark theme",
+      theme_light: "Switch to light theme",
+      menu_open: "Open menu",
+      menu_close: "Close menu",
+      demo_region: "Animated demonstration of YouTube and Gemini",
+      demo_controls: "Demonstration controls",
+      demo_scenario: "YouTube scenario",
+      demo_pause: "Pause animation",
+      demo_resume: "Resume animation",
+      demo_replay: "Replay animation",
+      action_summarize: "Summarize",
+      response_good: "Good response",
+      response_bad: "Bad response",
+      action_copy: "Copy",
+      action_share: "Share",
+      prompt_examples: "Example instructions",
+      llm_docs: "Documentation for AI assistants",
+      page_title: "YouTube Summarizer with Gemini — Firefox Extension",
+      page_description: "Summarize a YouTube video with Gemini and your own instructions. Free Firefox extension with no telemetry or developer server.",
+      privacy_page_title: "Privacy — YouTube Summarizer with Gemini",
+      privacy_page_description: "Data sent to Gemini after your click: the video link and your instructions. Preferences stored in Firefox; no data collected by the developer.",
+      privacy_how_title: "How it works",
+      privacy_how_text: "When you click <strong>Summarize</strong> on YouTube, the extension retrieves the selected video’s URL, reads your instructions stored locally in Firefox, and opens Gemini with this information. You can disable automatic submission in preferences; the message is then left ready to send manually.",
+      privacy_data_title: "Data sent to Gemini",
+      privacy_data_url: "The URL of the YouTube video you chose to summarize.",
+      privacy_data_prompt: "The instructions configured in the extension’s preferences, if any.",
+      privacy_data_use: "This information is sent to Gemini only to carry out the action you requested.",
+      privacy_no_collection_title: "What the developer does not collect",
+      privacy_no_account: "No user accounts managed by the extension.",
+      privacy_no_history: "No history kept by the extension.",
+      privacy_no_telemetry: "No statistics or telemetry.",
+      privacy_no_cookies: "No cookies added by the extension.",
+      privacy_no_server: "No content sent to a developer server.",
+      privacy_storage_title: "Local storage",
+      privacy_storage_text: "Your instructions, extension language, and automatic submission setting are kept in Firefox’s local storage. These preferences are not sent to the developer. Your instructions are sent to Gemini when you explicitly start a request.",
+      privacy_third_party_title: "Third-party service",
+      privacy_third_party_text: "Gemini is a Google service. Its use is subject to Google’s terms and privacy policy. Signing in to a Google account may be required to use Gemini.",
+      privacy_source_title: "Source code",
+      privacy_source_text: "The extension’s code is public and can be inspected on <a href=\"https://github.com/Epikaigle/gemini-youtube-summarizer\" target=\"_blank\" rel=\"noreferrer\">GitHub ↗</a>.",
       presets: {
         classic: { prompt: "Summarize this video:" },
         points: { prompt: "Give me the 5 key ideas and action points from this video:" },
@@ -252,6 +334,47 @@
       privacy_subtitle: "La extensión no recopila ningún dato para el desarrollador.",
       privacy_summary_label: "En resumen",
       privacy_summary_text: "Nada se envía sin tu clic explícito en <b>Resumir</b>. La extensión no tiene servidores de recopilación, telemetría ni cuentas de usuario.",
+      skip_content: "Ir al contenido",
+      choose_language: "Elegir idioma",
+      theme_dark: "Cambiar al tema oscuro",
+      theme_light: "Cambiar al tema claro",
+      menu_open: "Abrir el menú",
+      menu_close: "Cerrar el menú",
+      demo_region: "Demostración animada de YouTube y Gemini",
+      demo_controls: "Controles de la demostración",
+      demo_scenario: "Escenario de YouTube",
+      demo_pause: "Pausar la animación",
+      demo_resume: "Reanudar la animación",
+      demo_replay: "Repetir la animación",
+      action_summarize: "Resumir",
+      response_good: "Buena respuesta",
+      response_bad: "Mala respuesta",
+      action_copy: "Copiar",
+      action_share: "Compartir",
+      prompt_examples: "Ejemplos de instrucciones",
+      llm_docs: "Documentación para asistentes de IA",
+      page_title: "Resumen de YouTube con Gemini — Extensión de Firefox",
+      page_description: "Resume un video de YouTube con Gemini y tus propias instrucciones. Extensión gratuita de Firefox sin telemetría ni servidor del desarrollador.",
+      privacy_page_title: "Privacidad — Resumen de YouTube con Gemini",
+      privacy_page_description: "Datos enviados a Gemini tras tu clic: el enlace del video y tus instrucciones. Preferencias guardadas en Firefox; el desarrollador no recopila datos.",
+      privacy_how_title: "Cómo funciona",
+      privacy_how_text: "Cuando pulsas <strong>Resumir</strong> en YouTube, la extensión obtiene la URL del video seleccionado, lee tus instrucciones guardadas localmente en Firefox y abre Gemini con esta información. Puedes desactivar el envío automático en las preferencias; el mensaje quedará listo para enviarlo manualmente.",
+      privacy_data_title: "Datos enviados a Gemini",
+      privacy_data_url: "La URL del video de YouTube que has elegido resumir.",
+      privacy_data_prompt: "Las instrucciones configuradas en las preferencias de la extensión, si las hay.",
+      privacy_data_use: "Esta información se envía a Gemini únicamente para realizar la acción que has solicitado.",
+      privacy_no_collection_title: "Lo que el desarrollador no recopila",
+      privacy_no_account: "Ninguna cuenta de usuario gestionada por la extensión.",
+      privacy_no_history: "Ningún historial conservado por la extensión.",
+      privacy_no_telemetry: "Ninguna estadística ni telemetría.",
+      privacy_no_cookies: "Ninguna cookie añadida por la extensión.",
+      privacy_no_server: "Ningún contenido enviado a un servidor del desarrollador.",
+      privacy_storage_title: "Almacenamiento local",
+      privacy_storage_text: "Tus instrucciones, el idioma de la extensión y la opción de envío automático se guardan en el almacenamiento local de Firefox. Estas preferencias no se envían al desarrollador. Tus instrucciones se envían a Gemini cuando inicias una solicitud voluntariamente.",
+      privacy_third_party_title: "Servicio de terceros",
+      privacy_third_party_text: "Gemini es un servicio de Google. Su uso está sujeto a los términos y a la política de privacidad de Google. Puede ser necesario iniciar sesión con una cuenta de Google para utilizar Gemini.",
+      privacy_source_title: "Código fuente",
+      privacy_source_text: "El código de la extensión es público y se puede consultar en <a href=\"https://github.com/Epikaigle/gemini-youtube-summarizer\" target=\"_blank\" rel=\"noreferrer\">GitHub ↗</a>.",
       presets: {
         classic: { prompt: "Resúmeme el video:" },
         points: { prompt: "Dame las 5 ideas clave y puntos de acción de este video:" },
@@ -347,6 +470,47 @@
       privacy_subtitle: "本插件不会为开发者收集任何用户数据。",
       privacy_summary_label: "简而言之",
       privacy_summary_text: "除非你主动点击<b>总结</b>按钮，否则不会发送任何内容。插件无后端服务器、无数据分析追踪，无需注册账户。",
+      skip_content: "跳转到内容",
+      choose_language: "选择语言",
+      theme_dark: "切换到深色主题",
+      theme_light: "切换到浅色主题",
+      menu_open: "打开菜单",
+      menu_close: "关闭菜单",
+      demo_region: "YouTube 与 Gemini 动画演示",
+      demo_controls: "演示控制",
+      demo_scenario: "YouTube 场景",
+      demo_pause: "暂停动画",
+      demo_resume: "继续动画",
+      demo_replay: "重新播放动画",
+      action_summarize: "总结",
+      response_good: "回答不错",
+      response_bad: "回答不好",
+      action_copy: "复制",
+      action_share: "分享",
+      prompt_examples: "指令示例",
+      llm_docs: "AI 助手文档",
+      page_title: "YouTube 视频总结工具（Gemini）— Firefox 扩展",
+      page_description: "使用 Gemini 和自定义指令总结 YouTube 视频。免费的 Firefox 扩展，没有遥测或开发者服务器。",
+      privacy_page_title: "隐私政策 — YouTube 视频总结工具（Gemini）",
+      privacy_page_description: "点击后发送给 Gemini 的数据：视频链接和指令。偏好设置保存在 Firefox 中，开发者不收集数据。",
+      privacy_how_title: "工作原理",
+      privacy_how_text: "当您在 YouTube 上点击<strong>总结</strong>时，扩展会获取所选视频的 URL，读取保存在 Firefox 本地的指令，并将这些信息填入 Gemini。您可以在偏好设置中关闭自动发送，消息将保留在输入框中，等待手动发送。",
+      privacy_data_title: "发送给 Gemini 的数据",
+      privacy_data_url: "您选择总结的 YouTube 视频 URL。",
+      privacy_data_prompt: "在扩展偏好设置中配置的指令（如果有）。",
+      privacy_data_use: "这些信息仅用于执行您向 Gemini 请求的操作。",
+      privacy_no_collection_title: "开发者不收集的数据",
+      privacy_no_account: "扩展不管理用户账户。",
+      privacy_no_history: "扩展不保留历史记录。",
+      privacy_no_telemetry: "没有统计或遥测。",
+      privacy_no_cookies: "扩展不添加 Cookie。",
+      privacy_no_server: "不向开发者服务器发送任何内容。",
+      privacy_storage_title: "本地存储",
+      privacy_storage_text: "您的指令、扩展语言和自动发送设置保存在 Firefox 的本地存储中。这些偏好设置不会发送给开发者。只有当您主动发起请求时，指令才会发送给 Gemini。",
+      privacy_third_party_title: "第三方服务",
+      privacy_third_party_text: "Gemini 是 Google 提供的服务，其使用受 Google 的条款和隐私政策约束。使用 Gemini 可能需要登录 Google 账户。",
+      privacy_source_title: "源代码",
+      privacy_source_text: "扩展代码公开，可在 <a href=\"https://github.com/Epikaigle/gemini-youtube-summarizer\" target=\"_blank\" rel=\"noreferrer\">GitHub ↗</a> 查看。",
       presets: {
         classic: { prompt: "请为我总结这个视频：" },
         points: { prompt: "请提炼出该视频的5个核心观点和行动建议：" },
@@ -395,6 +559,24 @@
     }
   };
 
+  const siteMessage = (key) => translations[root.lang]?.[key] || translations.fr[key] || '';
+
+  const updateLocalizedControls = () => {
+    const menuText = menuButton?.querySelector('.sr-only');
+    if (menuText) menuText.textContent = siteMessage(menuButton.getAttribute('aria-expanded') === 'true' ? 'menu_close' : 'menu_open');
+    if (themeToggle) {
+      const label = siteMessage(root.dataset.theme === 'light' ? 'theme_dark' : 'theme_light');
+      themeToggle.setAttribute('aria-label', label);
+      themeToggle.title = label;
+    }
+    const toggle = document.querySelector('#demo-ctrl-toggle');
+    if (toggle) {
+      const label = siteMessage(toggle.classList.contains('is-paused') ? 'demo_resume' : 'demo_pause');
+      toggle.setAttribute('aria-label', label);
+      toggle.title = label;
+    }
+  };
+
   /* ---------------- Thème Sombre / Clair ---------------- */
   const getStoredTheme = () => {
     try {
@@ -415,8 +597,7 @@
     if (themeToggle) {
       const isLight = normalized === 'light';
       themeToggle.setAttribute('aria-pressed', String(isLight));
-      themeToggle.setAttribute('aria-label', isLight ? 'Passer au thème sombre' : 'Passer au thème clair');
-      themeToggle.title = isLight ? 'Passer au thème sombre' : 'Passer au thème clair';
+      updateLocalizedControls();
     }
 
     if (persist) {
@@ -463,7 +644,7 @@
   if (menuButton && nav) {
     const updateMenuText = (isOpen) => {
       const sr = menuButton.querySelector('.sr-only');
-      if (sr) sr.textContent = isOpen ? 'Fermer le menu' : 'Ouvrir le menu';
+      if (sr) sr.textContent = siteMessage(isOpen ? 'menu_close' : 'menu_open');
     };
 
     const closeMenu = ({ restoreFocus = false } = {}) => {
@@ -688,6 +869,22 @@
       }
     });
 
+    for (const [attribute, dataAttribute] of [['aria-label', 'data-i18n-aria'], ['title', 'data-i18n-title']]) {
+      document.querySelectorAll(`[${dataAttribute}]`).forEach((element) => {
+        element.setAttribute(attribute, siteMessage(element.getAttribute(dataAttribute)));
+      });
+    }
+    updateLocalizedControls();
+    const isPrivacy = Boolean(document.querySelector('.privacy-page'));
+    const title = siteMessage(isPrivacy ? 'privacy_page_title' : 'page_title');
+    const description = siteMessage(isPrivacy ? 'privacy_page_description' : 'page_description');
+    document.title = title;
+    document.querySelectorAll('meta[property="og:image:alt"], meta[name="twitter:image:alt"]').forEach((meta) => meta.content = title);
+    document.querySelectorAll('meta[property="og:title"], meta[name="twitter:title"]').forEach((meta) => meta.content = title);
+    document.querySelectorAll('meta[name="description"], meta[property="og:description"], meta[name="twitter:description"]').forEach((meta) => meta.content = description);
+    const locale = {fr: 'fr_FR', en: 'en_US', es: 'es_ES', zh: 'zh_CN'}[activeLang];
+    document.querySelector('meta[property="og:locale"]')?.setAttribute('content', locale);
+
     // Mettre à jour les boutons du sélecteur
     langButtons.forEach((btn) => {
       const isSelected = btn.dataset.lang === activeLang;
@@ -872,6 +1069,7 @@
         flow.classList.remove('demo-paused');
         ctrlToggle?.classList.remove('is-paused');
       }
+      updateLocalizedControls();
       restartCurrentFlow();
     });
   }
@@ -882,8 +1080,7 @@
       isPaused = !isPaused;
       flow.classList.toggle('demo-paused', isPaused);
       ctrlToggle.classList.toggle('is-paused', isPaused);
-      ctrlToggle.setAttribute('aria-label', isPaused ? 'Reprendre l’animation' : 'Mettre en pause l’animation');
-      ctrlToggle.title = isPaused ? 'Reprendre l’animation' : 'Mettre en pause l’animation';
+      updateLocalizedControls();
     });
   }
 
@@ -894,6 +1091,7 @@
         flow.classList.remove('demo-paused');
         ctrlToggle?.classList.remove('is-paused');
       }
+      updateLocalizedControls();
       restartCurrentFlow();
     });
   }
@@ -903,7 +1101,8 @@
       const mode = tab.dataset.mode;
       if (mode && mode !== currentMode) {
         setMode(mode);
-        restartCurrentFlow();
+        updateLocalizedControls();
+      restartCurrentFlow();
       }
     });
   });

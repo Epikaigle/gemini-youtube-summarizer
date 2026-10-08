@@ -1,6 +1,6 @@
 {
   "extensionName": {
-    "message": "YouTube Summarizer with Gemini",
+    "message": "Resumen de YouTube con Gemini",
     "description": "Nombre de la extensión"
   },
   "extensionDescription": {
@@ -16,7 +16,7 @@
     "description": "Instrucción predeterminada enviada a Gemini"
   },
   "optionsTitle": {
-    "message": "YouTube Summarizer with Gemini",
+    "message": "Resumen de YouTube con Gemini",
     "description": "Título de configuración"
   },
   "optionsIntro": {
@@ -32,7 +32,7 @@
     "description": "Etiqueta del selector de idioma"
   },
   "languageAuto": {
-    "message": "Automático (navegador)",
+    "message": "Auto",
     "description": "Opción de idioma automático"
   },
   "languageFr": {
@@ -64,11 +64,11 @@
     "description": "Título de sección de instrucción"
   },
   "promptPrefixLabel": {
-    "message": "Texto antes del enlace de YouTube",
+    "message": "Instrucción antes del enlace de YouTube",
     "description": "Etiqueta de instrucción"
   },
   "promptPrefixHint": {
-    "message": "El enlace se añade automáticamente. Deja el campo vacío para enviar solo el enlace.",
+    "message": "Describe qué debe hacer Gemini con el video. Su enlace se añadirá después de tu instrucción. Deja este campo vacío para enviar solo el enlace.",
     "description": "Ayuda de instrucción"
   },
   "presetClassic": {
@@ -92,7 +92,7 @@
     "description": "Botón solo enlace"
   },
   "previewLabel": {
-    "message": "Vista previa enviada a Gemini",
+    "message": "Ejemplo del mensaje enviado a Gemini",
     "description": "Etiqueta de vista previa"
   },
   "saveButton": {
@@ -104,7 +104,7 @@
     "description": "Botón restablecer"
   },
   "openFullTab": {
-    "message": "Abrir en pestaña completa ↗",
+    "message": "Abrir las preferencias en una pestaña",
     "description": "Enlace para abrir en pestaña"
   },
   "statusSaved": {
@@ -118,5 +118,21 @@
   "statusReset": {
     "message": "Configuración restablecida por defecto.",
     "description": "Estado restablecido"
+  },
+  "presetsLabel": {
+    "description": "presetsLabel",
+    "message": "Plantillas de instrucciones"
+  },
+  "statusLoadError": {
+    "description": "statusLoadError",
+    "message": "No se pudo cargar la configuración. Cierra y vuelve a abrir las preferencias."
+  },
+  "statusOpenError": {
+    "description": "statusOpenError",
+    "message": "No se pudieron abrir las preferencias en una pestaña."
+  },
+  "preferencesTitle": {
+    "description": "preferencesTitle",
+    "message": "Preferencias"
   }
 }

@@ -32,7 +32,7 @@
     "description": "Language selector label"
   },
   "languageAuto": {
-    "message": "Automatic (browser)",
+    "message": "Auto",
     "description": "Automatic language choice"
   },
   "languageFr": {
@@ -64,11 +64,11 @@
     "description": "Prompt customization section title"
   },
   "promptPrefixLabel": {
-    "message": "Text before the YouTube link",
+    "message": "Instructions to send before the YouTube link",
     "description": "Prompt prefix label"
   },
   "promptPrefixHint": {
-    "message": "The video URL is appended automatically. Leave empty to send only the link.",
+    "message": "Describe what Gemini should do with the video. Its link will be added after your instructions. Leave this field empty to send only the link.",
     "description": "Hint under prompt prefix textarea"
   },
   "presetClassic": {
@@ -92,7 +92,7 @@
     "description": "Link only preset button"
   },
   "previewLabel": {
-    "message": "Preview sent to Gemini",
+    "message": "Example message sent to Gemini",
     "description": "Label above preview"
   },
   "saveButton": {
@@ -104,7 +104,7 @@
     "description": "Reset settings button"
   },
   "openFullTab": {
-    "message": "Open in full tab ↗",
+    "message": "Open preferences in a tab",
     "description": "Link to open settings in a new tab"
   },
   "statusSaved": {
@@ -118,5 +118,21 @@
   "statusReset": {
     "message": "Settings reset to defaults.",
     "description": "Status message after reset"
+  },
+  "presetsLabel": {
+    "description": "presetsLabel",
+    "message": "Instruction templates"
+  },
+  "statusLoadError": {
+    "description": "statusLoadError",
+    "message": "Unable to load settings. Close and reopen preferences."
+  },
+  "statusOpenError": {
+    "description": "statusOpenError",
+    "message": "Unable to open preferences in a tab."
+  },
+  "preferencesTitle": {
+    "description": "preferencesTitle",
+    "message": "Preferences"
   }
 }

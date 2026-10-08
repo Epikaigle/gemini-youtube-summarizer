@@ -6,11 +6,25 @@ on:
     paths:
       - "docs/**"
       - "scripts/site-check.mjs"
+      - "scripts/translation-check.mjs"
+      - "_locales/**"
+      - "options.js"
+      - "options.html"
+      - "popup.html"
+      - "README*.md"
+      - "PRIVACY_POLICY*.md"
       - ".github/workflows/site-check.yml"
   pull_request:
     paths:
       - "docs/**"
       - "scripts/site-check.mjs"
+      - "scripts/translation-check.mjs"
+      - "_locales/**"
+      - "options.js"
+      - "options.html"
+      - "popup.html"
+      - "README*.md"
+      - "PRIVACY_POLICY*.md"
       - ".github/workflows/site-check.yml"
 
 permissions:
@@ -21,10 +35,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Set up Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: "22"
       - name: Validate site
         run: node scripts/site-check.mjs
+      - name: Validate translations
+        run: node scripts/translation-check.mjs

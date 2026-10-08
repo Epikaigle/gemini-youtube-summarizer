@@ -11,7 +11,7 @@
     <div class="panel">
       <header class="options-header">
         <div class="brand">
-          <img src="icons/icon-48.png" width="36" height="36" alt="" class="brand-icon">
+          <img src="icons/icon.svg" width="36" height="36" alt="" class="brand-icon">
           <h1 id="title" data-i18n="optionsTitle">Résumé YouTube avec Gemini</h1>
         </div>
         <p class="intro" data-i18n="optionsIntro">
@@ -22,7 +22,7 @@
       <form id="options-form">
         <!-- Section Langue -->
         <fieldset class="setting-group">
-          <legend class="group-title" data-i18n="languageSectionTitle">Langue de l'extension</legend>
+          <legend id="lang-label" class="group-title" data-i18n="languageSectionTitle">Langue de l'extension</legend>
           <div class="lang-selector" role="radiogroup" aria-labelledby="lang-label">
             <label class="lang-pill">
               <input type="radio" name="extension-language" value="fr">
@@ -48,12 +48,12 @@
           <legend class="group-title" data-i18n="geminiSectionTitle">Comportement sur Gemini</legend>
           <label class="toggle-card" for="auto-submit">
             <div class="toggle-switch">
-              <input type="checkbox" id="auto-submit" name="auto-submit" checked>
+              <input type="checkbox" id="auto-submit" name="auto-submit" aria-labelledby="auto-submit-label" aria-describedby="auto-submit-help" checked>
               <span class="toggle-slider" aria-hidden="true"></span>
             </div>
             <div class="toggle-copy">
-              <strong data-i18n="autoSubmitLabel">Envoyer automatiquement le prompt</strong>
-              <p class="setting-desc" data-i18n="autoSubmitHelp">
+              <strong id="auto-submit-label" data-i18n="autoSubmitLabel">Envoyer automatiquement le prompt</strong>
+              <p id="auto-submit-help" class="setting-desc" data-i18n="autoSubmitHelp">
                 Activé : Gemini lance l'analyse dès le chargement.<br>
                 Désactivé : le prompt est injecté sans être envoyé, vous permettant de choisir votre modèle (Flash, Pro, Advanced...) avant de cliquer sur Envoyer.
               </p>
@@ -65,7 +65,7 @@
         <fieldset class="setting-group">
           <legend class="group-title" data-i18n="promptSectionTitle">Personnalisation du prompt</legend>
           
-          <div class="presets-bar" aria-label="Modèles de prompt">
+          <div class="presets-bar" role="group" data-i18n-title="presetsLabel" aria-label="Modèles de prompt">
             <button type="button" class="preset-chip" data-preset="classic" data-i18n="presetClassic">Résumé classique</button>
             <button type="button" class="preset-chip" data-preset="points" data-i18n="presetKeyPoints">5 idées clés</button>
             <button type="button" class="preset-chip" data-preset="plan" data-i18n="presetPlan">Plan détaillé</button>
@@ -73,20 +73,21 @@
             <button type="button" class="preset-chip" data-preset="link" data-i18n="presetLinkOnly">Lien seul</button>
           </div>
 
-          <label for="prompt-prefix" data-i18n="promptPrefixLabel">Texte avant le lien YouTube</label>
+          <label for="prompt-prefix" data-i18n="promptPrefixLabel">Consigne à envoyer avant le lien YouTube</label>
           <textarea
             id="prompt-prefix"
             name="prompt-prefix"
-            rows="4"
+            rows="8"
             maxlength="1200"
             spellcheck="true"
+            aria-describedby="prompt-prefix-hint"
           ></textarea>
-          <div class="hint" data-i18n="promptPrefixHint">
-            Le lien est ajouté automatiquement. Laisse le champ vide pour envoyer uniquement le lien.
+          <div id="prompt-prefix-hint" class="hint" data-i18n="promptPrefixHint">
+            Écrivez ce que Gemini doit faire avec la vidéo. Son lien sera ajouté à la suite de votre consigne. Laissez ce champ vide pour envoyer uniquement le lien.
           </div>
 
           <div class="preview" aria-live="polite">
-            <span class="preview-label" data-i18n="previewLabel">Aperçu envoyé à Gemini</span>
+            <span class="preview-label" data-i18n="previewLabel">Exemple du message envoyé à Gemini</span>
             <pre id="prompt-preview"></pre>
           </div>
         </fieldset>

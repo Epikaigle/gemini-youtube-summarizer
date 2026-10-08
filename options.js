@@ -11,6 +11,7 @@ const SAMPLE_VIDEO_URL = "https://www.youtube.com/watch?v=abcdefghijk";
 const UI_TRANSLATIONS = {
   fr: {
     optionsTitle: "Résumé YouTube avec Gemini",
+    preferencesTitle: "Préférences",
     optionsIntro: "Personnalisez la langue, l'envoi automatique sur Gemini et le texte de votre prompt.",
     languageSectionTitle: "Langue de l'extension",
     languageLabel: "Langue d'affichage",
@@ -20,24 +21,28 @@ const UI_TRANSLATIONS = {
     autoSubmitLabel: "Envoyer automatiquement le prompt",
     autoSubmitHelp: "Activé : Gemini lance l'analyse dès le chargement.\nDésactivé : le prompt est injecté sans être envoyé, vous permettant de choisir votre modèle (Flash, Pro, Advanced...) avant de cliquer sur Envoyer.",
     promptSectionTitle: "Personnalisation du prompt",
-    promptPrefixLabel: "Texte avant le lien YouTube",
-    promptPrefixHint: "Le lien est ajouté automatiquement. Laisse le champ vide pour envoyer uniquement le lien.",
+    promptPrefixLabel: "Consigne à envoyer avant le lien YouTube",
+    promptPrefixHint: "Écrivez ce que Gemini doit faire avec la vidéo. Son lien sera ajouté à la suite de votre consigne. Laissez ce champ vide pour envoyer uniquement le lien.",
+    presetsLabel: "Modèles de consigne",
     presetClassic: "Résumé classique",
     presetKeyPoints: "5 idées clés",
     presetPlan: "Plan détaillé",
     presetSimple: "Vulgarisation",
     presetLinkOnly: "Lien seul",
-    previewLabel: "Aperçu envoyé à Gemini",
+    previewLabel: "Exemple du message envoyé à Gemini",
     saveButton: "Enregistrer",
     resetButton: "Réinitialiser",
-    openFullTab: "Ouvrir en plein écran ↗",
+    openFullTab: "Ouvrir les préférences dans un onglet",
     statusSaved: "Paramètres enregistrés avec succès.",
     statusError: "Impossible d'enregistrer les paramètres.",
+    statusLoadError: "Impossible de charger les paramètres. Fermez puis rouvrez les préférences.",
+    statusOpenError: "Impossible d'ouvrir les préférences dans un onglet.",
     statusReset: "Paramètres réinitialisés par défaut.",
     defaultPromptPrefix: "Résume-moi la vidéo :"
   },
   en: {
     optionsTitle: "YouTube Summarizer with Gemini",
+    preferencesTitle: "Preferences",
     optionsIntro: "Customize language, auto-submit behavior on Gemini, and your default prompt text.",
     languageSectionTitle: "Extension Language",
     languageLabel: "Display Language",
@@ -47,46 +52,53 @@ const UI_TRANSLATIONS = {
     autoSubmitLabel: "Automatically submit prompt on Gemini",
     autoSubmitHelp: "Enabled: Gemini immediately triggers analysis upon loading.\nDisabled: Prompt is placed in the input field without sending, allowing you to select your Gemini model (Flash, Pro, Advanced...) before clicking Send manually.",
     promptSectionTitle: "Prompt Customization",
-    promptPrefixLabel: "Text before the YouTube link",
-    promptPrefixHint: "The video URL is appended automatically. Leave empty to send only the link.",
+    promptPrefixLabel: "Instructions to send before the YouTube link",
+    promptPrefixHint: "Describe what Gemini should do with the video. Its link will be added after your instructions. Leave this field empty to send only the link.",
+    presetsLabel: "Instruction templates",
     presetClassic: "Classic Summary",
     presetKeyPoints: "5 Key Takeaways",
     presetPlan: "Detailed Outline",
     presetSimple: "Simple Explanation",
     presetLinkOnly: "Link Only",
-    previewLabel: "Preview sent to Gemini",
+    previewLabel: "Example message sent to Gemini",
     saveButton: "Save",
     resetButton: "Reset",
-    openFullTab: "Open in full tab ↗",
+    openFullTab: "Open preferences in a tab",
     statusSaved: "Settings saved successfully.",
     statusError: "Unable to save settings.",
+    statusLoadError: "Unable to load settings. Close and reopen preferences.",
+    statusOpenError: "Unable to open preferences in a tab.",
     statusReset: "Settings reset to defaults.",
     defaultPromptPrefix: "Summarize this video:"
   },
   es: {
-    optionsTitle: "YouTube Summarizer with Gemini",
+    optionsTitle: "Resumen de YouTube con Gemini",
+    preferencesTitle: "Preferencias",
     optionsIntro: "Personaliza el idioma, el envío automático a Gemini y el texto de tu instrucción.",
     languageSectionTitle: "Idioma de la extensión",
     languageLabel: "Idioma de visualización",
     languageAuto: "Auto",
     languageEs: "Español",
-    geminiSectionTitle: "Comportamento en Gemini",
+    geminiSectionTitle: "Comportamiento en Gemini",
     autoSubmitLabel: "Enviar automáticamente la instrucción en Gemini",
     autoSubmitHelp: "Activado: Gemini inicia el análisis inmediatamente al cargar.\nDesactivado: La instrucción se inserta en el campo sin enviarse, lo que te permite elegir el modelo (Flash, Pro, Advanced...) antes de pulsar Enviar.",
     promptSectionTitle: "Personalización de la instrucción",
-    promptPrefixLabel: "Texto antes del enlace de YouTube",
-    promptPrefixHint: "El enlace se añade automáticamente. Deja el campo vacío para enviar solo el enlace.",
+    promptPrefixLabel: "Instrucción antes del enlace de YouTube",
+    promptPrefixHint: "Describe qué debe hacer Gemini con el video. Su enlace se añadirá después de tu instrucción. Deja este campo vacío para enviar solo el enlace.",
+    presetsLabel: "Plantillas de instrucciones",
     presetClassic: "Resumen clásico",
     presetKeyPoints: "5 ideas clave",
     presetPlan: "Esquema detallado",
     presetSimple: "Explicación simple",
     presetLinkOnly: "Solo enlace",
-    previewLabel: "Vista previa enviada a Gemini",
+    previewLabel: "Ejemplo del mensaje enviado a Gemini",
     saveButton: "Guardar",
     resetButton: "Restablecer",
-    openFullTab: "Abrir en pestaña completa ↗",
+    openFullTab: "Abrir las preferencias en una pestaña",
     statusSaved: "Configuración guardada correctamente.",
     statusError: "No se pudo guardar la configuración.",
+    statusLoadError: "No se pudo cargar la configuración. Cierra y vuelve a abrir las preferencias.",
+    statusOpenError: "No se pudieron abrir las preferencias en una pestaña.",
     statusReset: "Configuración restablecida por defecto.",
     defaultPromptPrefix: "Resúmeme el video:"
   }
@@ -128,6 +140,8 @@ const langRadioButtons = document.querySelectorAll('input[name="extension-langua
 let statusTimeoutId = 0;
 let currentLanguageSetting = ""; // "" = auto, "fr", "en", "es"
 let activeEffectiveLang = "fr";
+let settingsLoaded = false;
+let focusBeforeBusy = null;
 
 function getExtensionApi() {
   if (typeof browser !== "undefined" && browser.storage?.local) {
@@ -151,7 +165,7 @@ function resolveEffectiveLanguage(savedLang) {
   if (savedLang === "fr" || savedLang === "en" || savedLang === "es") {
     return savedLang;
   }
-  const browserLang = (typeof chrome !== "undefined" && chrome.i18n?.getUILanguage?.()) || navigator.language || "en";
+  const browserLang = (getExtensionApi()?.api.i18n?.getUILanguage?.() || navigator.language || "en").toLowerCase();
   if (browserLang.startsWith("fr")) return "fr";
   if (browserLang.startsWith("es")) return "es";
   return "en";
@@ -159,7 +173,7 @@ function resolveEffectiveLanguage(savedLang) {
 
 function getTranslation(key, lang = activeEffectiveLang) {
   const dict = UI_TRANSLATIONS[lang] || UI_TRANSLATIONS.en;
-  return dict[key] || (typeof chrome !== "undefined" && chrome.i18n?.getMessage?.(key)) || "";
+  return dict[key] || getExtensionApi()?.api.i18n?.getMessage?.(key) || "";
 }
 
 function applyTranslations(effectiveLang) {
@@ -193,15 +207,8 @@ function applyTranslations(effectiveLang) {
   if (docTitle) {
     document.title = document.body.classList.contains("is-popup")
       ? docTitle
-      : `Options — ${docTitle}`;
+      : `${getTranslation("preferencesTitle", effectiveLang)} — ${docTitle}`;
   }
-}
-
-function normalizePromptPrefix(value) {
-  if (typeof value !== "string") {
-    return getTranslation("defaultPromptPrefix", activeEffectiveLang);
-  }
-  return value.trim();
 }
 
 function getPromptPrefixSeparator(value) {
@@ -227,10 +234,31 @@ function setStatus(message, isError = false) {
   statusMessage.textContent = message;
   statusMessage.classList.toggle("error", isError);
 
-  statusTimeoutId = window.setTimeout(() => {
-    statusMessage.textContent = "";
-    statusMessage.classList.remove("error");
-  }, 3500);
+  if (!isError) {
+    statusTimeoutId = window.setTimeout(() => {
+      statusMessage.textContent = "";
+    }, 3500);
+  }
+}
+
+function setFormBusy(busy) {
+  if (!form) return;
+  if (busy) {
+    focusBeforeBusy = form.contains(document.activeElement) ? document.activeElement : null;
+  }
+  form.setAttribute("aria-busy", String(busy));
+  for (const control of form.querySelectorAll("fieldset, button")) {
+    control.disabled = busy;
+  }
+  if (!busy) {
+    const previousFocus = focusBeforeBusy;
+    focusBeforeBusy = null;
+    // Disabling controls blurs them; resume keyboard navigation after saving.
+    // Keep any focus the user moved outside the form while the write was pending.
+    if (previousFocus?.isConnected && document.activeElement === document.body) {
+      previousFocus.focus({ preventScroll: true });
+    }
+  }
 }
 
 function storageGet(keys) {
@@ -241,9 +269,14 @@ function storageGet(keys) {
     return extensionApi.api.storage.local.get(keys);
   }
 
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     extensionApi.api.storage.local.get(keys, (result) => {
-      resolve(extensionApi.api.runtime?.lastError ? {} : result);
+      const error = extensionApi.api.runtime?.lastError;
+      if (error) {
+        reject(new Error(error.message));
+        return;
+      }
+      resolve(result);
     });
   });
 }
@@ -295,7 +328,8 @@ async function restoreOptions() {
     LANGUAGE_STORAGE_KEY
   ]);
 
-  currentLanguageSetting = stored[LANGUAGE_STORAGE_KEY] || "";
+  currentLanguageSetting = ["fr", "en", "es"].includes(stored[LANGUAGE_STORAGE_KEY])
+    ? stored[LANGUAGE_STORAGE_KEY] : "";
   activeEffectiveLang = resolveEffectiveLanguage(currentLanguageSetting);
   applyTranslations(activeEffectiveLang);
 
@@ -316,6 +350,8 @@ async function restoreOptions() {
 
 async function saveOptions(event) {
   if (event) event.preventDefault();
+  if (!settingsLoaded || form.getAttribute("aria-busy") === "true") return;
+  setFormBusy(true);
 
   const selectedLangRadio = document.querySelector('input[name="extension-language"]:checked');
   currentLanguageSetting = selectedLangRadio ? selectedLangRadio.value : "";
@@ -331,13 +367,19 @@ async function saveOptions(event) {
       [AUTO_SUBMIT_STORAGE_KEY]: autoSubmit,
       [PROMPT_PREFIX_STORAGE_KEY]: promptPrefix
     });
+    promptPrefixInput.value = promptPrefix;
+    updatePreview();
     setStatus(getTranslation("statusSaved", activeEffectiveLang));
   } catch {
     setStatus(getTranslation("statusError", activeEffectiveLang), true);
+  } finally {
+    setFormBusy(false);
   }
 }
 
 async function resetOptions() {
+  if (!settingsLoaded || form.getAttribute("aria-busy") === "true") return;
+  setFormBusy(true);
   currentLanguageSetting = "";
   activeEffectiveLang = resolveEffectiveLanguage(currentLanguageSetting);
   applyTranslations(activeEffectiveLang);
@@ -363,6 +405,8 @@ async function resetOptions() {
     setStatus(getTranslation("statusReset", activeEffectiveLang));
   } catch {
     setStatus(getTranslation("statusError", activeEffectiveLang), true);
+  } finally {
+    setFormBusy(false);
   }
 }
 
@@ -373,13 +417,12 @@ function handleLanguageChange(event) {
 
   // If prompt is currently untouched or at the default of another language, update it to the new default
   const previousDefaults = Object.values(UI_TRANSLATIONS).map((d) => d.defaultPromptPrefix);
-  if (!promptPrefixInput.value || previousDefaults.includes(promptPrefixInput.value.trim())) {
+  if (previousDefaults.includes(promptPrefixInput.value.trim())) {
     promptPrefixInput.value = getTranslation("defaultPromptPrefix", activeEffectiveLang);
   }
   updatePreview();
 
-  // Save the language preference immediately
-  storageSet({ [LANGUAGE_STORAGE_KEY]: currentLanguageSetting }).catch(() => {});
+  // Commit all preferences together with Save, including the translated prompt.
 }
 
 function handlePresetClick(event) {
@@ -416,22 +459,31 @@ if (presetsBar) {
 }
 
 if (openFullTabBtn) {
-  openFullTabBtn.addEventListener("click", (event) => {
-    event.preventDefault();
+  openFullTabBtn.addEventListener("click", async (event) => {
     const extensionApi = getExtensionApi();
-    if (extensionApi?.api.tabs?.create) {
-      extensionApi.api.tabs.create({ url: "options.html" });
-    } else {
-      window.open("options.html", "_blank");
+    if (!extensionApi?.api.runtime?.openOptionsPage) return;
+    event.preventDefault();
+    try {
+      await extensionApi.api.runtime.openOptionsPage();
+      window.close();
+    } catch {
+      setStatus(getTranslation("statusOpenError"), true);
     }
   });
 }
 
-void restoreOptions().catch(() => {
+setFormBusy(true);
+void restoreOptions().then(() => {
+  settingsLoaded = true;
+  setFormBusy(false);
+}).catch(() => {
   activeEffectiveLang = resolveEffectiveLanguage("");
   applyTranslations(activeEffectiveLang);
   if (promptPrefixInput) {
     promptPrefixInput.value = getTranslation("defaultPromptPrefix", activeEffectiveLang);
   }
   updatePreview();
+  // Keep the form disabled so a failed read cannot overwrite saved preferences.
+  form?.setAttribute("aria-busy", "false");
+  setStatus(getTranslation("statusLoadError"), true);
 });

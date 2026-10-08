@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#0a0a0f">
-  <meta name="description" content="Politique de confidentialité de l’extension YouTube Summarizer with Gemini : aucune collecte de données, aucun compte, aucun serveur tiers.">
+  <meta name="description" content="Données envoyées à Gemini après votre clic : lien de la vidéo et consigne. Préférences stockées dans Firefox, aucune collecte par le développeur.">
   <meta name="author" content="Epikaigle">
   <meta property="og:title" content="Confidentialité — YouTube Summarizer with Gemini">
-  <meta property="og:description" content="Politique de confidentialité de l’extension YouTube Summarizer with Gemini : aucune collecte de données, aucun compte, aucun serveur tiers.">
+  <meta property="og:description" content="Données envoyées à Gemini après votre clic : lien de la vidéo et consigne. Préférences stockées dans Firefox, aucune collecte par le développeur.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:locale:alternate" content="en_US">
@@ -22,12 +22,12 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Confidentialité — YouTube Summarizer with Gemini">
-  <meta name="twitter:description" content="Politique de confidentialité de l’extension YouTube Summarizer with Gemini : aucune collecte, aucun compte.">
+  <meta name="twitter:description" content="Données envoyées à Gemini après votre clic : lien de la vidéo et consigne. Préférences stockées dans Firefox, aucune collecte par le développeur.">
   <meta name="twitter:image" content="https://epikaigle.github.io/gemini-youtube-summarizer/assets/social-preview.png?v=20260924">
   <meta name="twitter:image:alt" content="YouTube Summarizer with Gemini — Politique de confidentialité">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://epikaigle.github.io/gemini-youtube-summarizer/privacy.html">
-  <link rel="alternate" type="text/markdown" href="llms.txt" title="Documentation LLM">
+  <link rel="alternate" type="text/markdown" href="llms.txt" data-i18n-title="llm_docs" title="Documentation pour les assistants IA">
   <title>Confidentialité — YouTube Summarizer with Gemini</title>
   <link rel="icon" href="assets/extension-icon.png?v=20260924" type="image/png" sizes="96x96">
   <link rel="apple-touch-icon" href="assets/extension-icon.png?v=20260924">
@@ -46,18 +46,18 @@
   <link rel="stylesheet" href="styles.css?v=20260923">
 </head>
 <body>
-  <a class="skip-link" href="#main">Aller au contenu</a>
+  <a class="skip-link" href="#main" data-i18n="skip_content">Aller au contenu</a>
   <div class="progress" aria-hidden="true"><span></span></div>
 
   <header class="site-header scrolled">
     <div class="container nav">
-      <a class="brand" href="./" aria-label="Retour à l’accueil">
+      <a class="brand" href="./" data-i18n-aria="nav_home" aria-label="Retour à l’accueil">
         <img class="brand-icon" src="assets/extension-icon.png?v=20260923" width="34" height="34" alt="" aria-hidden="true">
         <span class="brand-text" data-i18n="nav_brand">Résumé YouTube <b>avec Gemini</b></span>
       </a>
 
       <!-- Sélecteur de Langue (FR, EN, ES, ZH) -->
-      <div class="lang-switcher" role="group" aria-label="Choisir la langue / Select language">
+      <div class="lang-switcher" role="group" data-i18n-aria="choose_language" aria-label="Choisir la langue">
         <button class="lang-btn active" data-lang="fr" type="button" aria-label="Français">FR</button>
         <button class="lang-btn" data-lang="en" type="button" aria-label="English">EN</button>
         <button class="lang-btn" data-lang="es" type="button" aria-label="Español">ES</button>
@@ -98,43 +98,43 @@
       </div>
 
       <section>
-        <h2>Fonctionnement</h2>
-        <p>Lorsque vous cliquez sur <strong>Résumer</strong> dans YouTube, l’extension récupère l’URL de la vidéo sélectionnée, lit votre texte personnalisé enregistré localement dans Firefox, puis ouvre Gemini avec un prompt contenant ces informations.</p>
+        <h2 data-i18n="privacy_how_title">Fonctionnement</h2>
+        <p data-i18n="privacy_how_text">Lorsque vous cliquez sur <strong>Résumer</strong> dans YouTube, l’extension récupère l’URL de la vidéo sélectionnée, lit votre consigne enregistrée localement dans Firefox, puis ouvre Gemini avec ces informations. L’envoi automatique peut être désactivé dans les préférences ; le message reste alors prêt à être envoyé manuellement.</p>
       </section>
 
       <section>
-        <h2>Données transmises à Gemini</h2>
+        <h2 data-i18n="privacy_data_title">Données transmises à Gemini</h2>
         <ul>
-          <li>l’URL de la vidéo YouTube que vous avez choisi de résumer ;</li>
-          <li>le texte personnalisé configuré dans les options de l’extension, le cas échéant.</li>
+          <li data-i18n="privacy_data_url">L’URL de la vidéo YouTube que vous avez choisi de résumer.</li>
+          <li data-i18n="privacy_data_prompt">La consigne configurée dans les préférences de l’extension, le cas échéant.</li>
         </ul>
-        <p>Ces informations sont envoyées à Gemini uniquement pour exécuter l’action demandée par l’utilisateur.</p>
+        <p data-i18n="privacy_data_use">Ces informations sont transmises à Gemini uniquement pour exécuter l’action que vous avez demandée.</p>
       </section>
 
       <section>
-        <h2>Ce que le développeur ne collecte pas</h2>
+        <h2 data-i18n="privacy_no_collection_title">Ce que le développeur ne collecte pas</h2>
         <ul>
-          <li>aucun compte utilisateur ;</li>
-          <li>aucun historique ;</li>
-          <li>aucune statistique ou télémétrie ;</li>
-          <li>aucun cookie ajouté par l’extension ;</li>
-          <li>aucun contenu envoyé à un serveur du développeur.</li>
+          <li data-i18n="privacy_no_account">Aucun compte utilisateur géré par l’extension.</li>
+          <li data-i18n="privacy_no_history">Aucun historique conservé par l’extension.</li>
+          <li data-i18n="privacy_no_telemetry">Aucune statistique ni télémétrie.</li>
+          <li data-i18n="privacy_no_cookies">Aucun cookie ajouté par l’extension.</li>
+          <li data-i18n="privacy_no_server">Aucun contenu envoyé à un serveur du développeur.</li>
         </ul>
       </section>
 
       <section>
-        <h2>Stockage local</h2>
-        <p>Le texte personnalisé du prompt est stocké uniquement dans le stockage local de Firefox. Il reste dans votre navigateur jusqu’au moment où vous déclenchez volontairement une demande vers Gemini.</p>
+        <h2 data-i18n="privacy_storage_title">Stockage local</h2>
+        <p data-i18n="privacy_storage_text">Votre consigne, la langue de l’extension et le choix de l’envoi automatique sont conservés dans le stockage local de Firefox. Ces préférences ne sont pas envoyées au développeur. La consigne est transmise à Gemini lorsque vous déclenchez volontairement une demande.</p>
       </section>
 
       <section>
-        <h2>Service tiers</h2>
-        <p>Gemini est un service fourni par Google. Son utilisation reste soumise aux conditions et à la politique de confidentialité de Google.</p>
+        <h2 data-i18n="privacy_third_party_title">Service tiers</h2>
+        <p data-i18n="privacy_third_party_text">Gemini est un service de Google. Son utilisation reste soumise aux conditions et à la politique de confidentialité de Google. Une connexion à un compte Google peut être nécessaire pour utiliser Gemini.</p>
       </section>
 
       <section>
-        <h2>Code source</h2>
-        <p>Le code de l’extension est public et peut être vérifié sur <a href="https://github.com/Epikaigle/gemini-youtube-summarizer" target="_blank" rel="noreferrer">GitHub ↗</a>.</p>
+        <h2 data-i18n="privacy_source_title">Code source</h2>
+        <p data-i18n="privacy_source_text">Le code de l’extension est public et peut être vérifié sur <a href="https://github.com/Epikaigle/gemini-youtube-summarizer" target="_blank" rel="noreferrer">GitHub ↗</a>.</p>
       </section>
     </article>
   </main>
@@ -151,6 +151,6 @@
     <div class="container legal-line" data-i18n="footer_legal">Projet indépendant — non affilié à YouTube, Google ou Mozilla.</div>
   </footer>
 
-  <script src="script.js?v=20260923"></script>
+  <script src="script.js?v=20261008"></script>
 </body>
 </html>
