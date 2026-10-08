@@ -1,6 +1,6 @@
 # YouTube Summarizer with Gemini
 
-[Français](README.md) · [English](README.en.md) · [Español](README.es.md)
+[English](README.md) · [Français](README.fr.md) · [Español](README.es.md)
 
 A lightweight Firefox extension that adds a **Summarize** action to YouTube.
 

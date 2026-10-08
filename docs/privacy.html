@@ -1,34 +1,34 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#0a0a0f">
-  <meta name="description" content="Données envoyées à Gemini après votre clic : lien de la vidéo et consigne. Préférences stockées dans Firefox, aucune collecte par le développeur.">
+  <meta name="description" content="Data sent to Gemini after your click: the video link and your instructions. Preferences stored in Firefox; no data collected by the developer.">
   <meta name="author" content="Epikaigle">
-  <meta property="og:title" content="Confidentialité — YouTube Summarizer with Gemini">
-  <meta property="og:description" content="Données envoyées à Gemini après votre clic : lien de la vidéo et consigne. Préférences stockées dans Firefox, aucune collecte par le développeur.">
+  <meta property="og:title" content="Privacy — YouTube Summarizer with Gemini">
+  <meta property="og:description" content="Data sent to Gemini after your click: the video link and your instructions. Preferences stored in Firefox; no data collected by the developer.">
   <meta property="og:type" content="website">
-  <meta property="og:locale" content="fr_FR">
-  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="es_ES">
   <meta property="og:locale:alternate" content="zh_CN">
   <meta property="og:site_name" content="YouTube Summarizer with Gemini">
   <meta property="og:url" content="https://epikaigle.github.io/gemini-youtube-summarizer/privacy.html">
-  <meta property="og:image" content="https://epikaigle.github.io/gemini-youtube-summarizer/assets/social-preview.png?v=20260924">
-  <meta property="og:image:alt" content="YouTube Summarizer with Gemini — Politique de confidentialité">
+  <meta property="og:image" content="https://epikaigle.github.io/gemini-youtube-summarizer/assets/social-preview.png?v=20261008">
+  <meta property="og:image:alt" content="Privacy — YouTube Summarizer with Gemini">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Confidentialité — YouTube Summarizer with Gemini">
-  <meta name="twitter:description" content="Données envoyées à Gemini après votre clic : lien de la vidéo et consigne. Préférences stockées dans Firefox, aucune collecte par le développeur.">
-  <meta name="twitter:image" content="https://epikaigle.github.io/gemini-youtube-summarizer/assets/social-preview.png?v=20260924">
-  <meta name="twitter:image:alt" content="YouTube Summarizer with Gemini — Politique de confidentialité">
+  <meta name="twitter:title" content="Privacy — YouTube Summarizer with Gemini">
+  <meta name="twitter:description" content="Data sent to Gemini after your click: the video link and your instructions. Preferences stored in Firefox; no data collected by the developer.">
+  <meta name="twitter:image" content="https://epikaigle.github.io/gemini-youtube-summarizer/assets/social-preview.png?v=20261008">
+  <meta name="twitter:image:alt" content="Privacy — YouTube Summarizer with Gemini">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://epikaigle.github.io/gemini-youtube-summarizer/privacy.html">
-  <link rel="alternate" type="text/markdown" href="llms.txt" data-i18n-title="llm_docs" title="Documentation pour les assistants IA">
-  <title>Confidentialité — YouTube Summarizer with Gemini</title>
+  <link rel="alternate" type="text/markdown" href="llms.txt" data-i18n-title="llm_docs" title="Documentation for AI assistants">
+  <title>Privacy — YouTube Summarizer with Gemini</title>
   <link rel="icon" href="assets/extension-icon.png?v=20260924" type="image/png" sizes="96x96">
   <link rel="apple-touch-icon" href="assets/extension-icon.png?v=20260924">
   <script>
@@ -46,38 +46,38 @@
   <link rel="stylesheet" href="styles.css?v=20260923">
 </head>
 <body>
-  <a class="skip-link" href="#main" data-i18n="skip_content">Aller au contenu</a>
+  <a class="skip-link" href="#main" data-i18n="skip_content">Skip to content</a>
   <div class="progress" aria-hidden="true"><span></span></div>
 
   <header class="site-header scrolled">
     <div class="container nav">
-      <a class="brand" href="./" data-i18n-aria="nav_home" aria-label="Retour à l’accueil">
+      <a class="brand" href="./" data-i18n-aria="nav_home" aria-label="Home">
         <img class="brand-icon" src="assets/extension-icon.png?v=20260923" width="34" height="34" alt="" aria-hidden="true">
-        <span class="brand-text" data-i18n="nav_brand">Résumé YouTube <b>avec Gemini</b></span>
+        <span class="brand-text" data-i18n="nav_brand">YouTube Summarizer <b>with Gemini</b></span>
       </a>
 
       <!-- Sélecteur de Langue (FR, EN, ES, ZH) -->
-      <div class="lang-switcher" role="group" data-i18n-aria="choose_language" aria-label="Choisir la langue">
-        <button class="lang-btn active" data-lang="fr" type="button" aria-label="Français">FR</button>
-        <button class="lang-btn" data-lang="en" type="button" aria-label="English">EN</button>
-        <button class="lang-btn" data-lang="es" type="button" aria-label="Español">ES</button>
-        <button class="lang-btn" data-lang="zh" type="button" aria-label="中文">ZH</button>
+      <div class="lang-switcher" role="group" data-i18n-aria="choose_language" aria-label="Choose language">
+        <button class="lang-btn" data-lang="fr" aria-pressed="false" type="button" aria-label="Français">FR</button>
+        <button class="lang-btn active" data-lang="en" aria-pressed="true" type="button" aria-label="English">EN</button>
+        <button class="lang-btn" data-lang="es" aria-pressed="false" type="button" aria-label="Español">ES</button>
+        <button class="lang-btn" data-lang="zh" aria-pressed="false" type="button" aria-label="中文">ZH</button>
       </div>
 
-      <button class="theme-toggle" type="button" aria-label="Passer au thème clair" aria-pressed="false" title="Changer de thème">
+      <button class="theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="false" title="Switch to light theme">
         <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
         <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
       </button>
 
       <button class="menu-button" type="button" aria-expanded="false" aria-controls="nav-links">
         <span></span><span></span><span></span>
-        <span class="sr-only">Ouvrir le menu</span>
+        <span class="sr-only">Open menu</span>
       </button>
 
       <nav class="nav-links" id="nav-links">
-        <a href="./" data-i18n="nav_home">Accueil</a>
+        <a href="./" data-i18n="nav_home">Home</a>
         <a href="https://github.com/Epikaigle/gemini-youtube-summarizer" target="_blank" rel="noreferrer">GitHub</a>
-        <a class="nav-install" href="https://addons.mozilla.org/firefox/addon/gemini-youtube-summarizer/" target="_blank" rel="noreferrer" data-i18n="nav_install">Ajouter à Firefox ↗</a>
+        <a class="nav-install" href="https://addons.mozilla.org/firefox/addon/gemini-youtube-summarizer/" target="_blank" rel="noreferrer" data-i18n="nav_install">Add to Firefox ↗</a>
       </nav>
     </div>
   </header>
@@ -85,70 +85,70 @@
   <main class="privacy-page" id="main">
     <section class="privacy-hero">
       <div class="container narrow">
-        <span class="kicker" data-i18n="privacy_kicker">Transparence</span>
-        <h1 data-i18n="privacy_title">Politique de confidentialité</h1>
-        <p data-i18n="privacy_subtitle">L’extension ne collecte aucune donnée pour le compte du développeur.</p>
+        <span class="kicker" data-i18n="privacy_kicker">Transparency</span>
+        <h1 data-i18n="privacy_title">Privacy Policy</h1>
+        <p data-i18n="privacy_subtitle">The extension does not collect any user data for the developer.</p>
       </div>
     </section>
 
     <article class="container narrow privacy-content">
       <div class="privacy-summary">
-        <strong data-i18n="privacy_summary_label">En bref</strong>
-        <p data-i18n="privacy_summary_text">Rien n’est envoyé sans votre clic sur <b>Résumer</b>. L’extension ne possède aucun serveur de collecte, aucun système de télémétrie et aucun compte utilisateur.</p>
+        <strong data-i18n="privacy_summary_label">In brief</strong>
+        <p data-i18n="privacy_summary_text">Nothing is sent without your explicit click on <b>Summarize</b>. The extension has no backend servers, no telemetry, and requires no user accounts.</p>
       </div>
 
       <section>
-        <h2 data-i18n="privacy_how_title">Fonctionnement</h2>
-        <p data-i18n="privacy_how_text">Lorsque vous cliquez sur <strong>Résumer</strong> dans YouTube, l’extension récupère l’URL de la vidéo sélectionnée, lit votre consigne enregistrée localement dans Firefox, puis ouvre Gemini avec ces informations. L’envoi automatique peut être désactivé dans les préférences ; le message reste alors prêt à être envoyé manuellement.</p>
+        <h2 data-i18n="privacy_how_title">How it works</h2>
+        <p data-i18n="privacy_how_text">When you click <strong>Summarize</strong> on YouTube, the extension retrieves the selected video’s URL, reads your instructions stored locally in Firefox, and opens Gemini with this information. You can disable automatic submission in preferences; the message is then left ready to send manually.</p>
       </section>
 
       <section>
-        <h2 data-i18n="privacy_data_title">Données transmises à Gemini</h2>
+        <h2 data-i18n="privacy_data_title">Data sent to Gemini</h2>
         <ul>
-          <li data-i18n="privacy_data_url">L’URL de la vidéo YouTube que vous avez choisi de résumer.</li>
-          <li data-i18n="privacy_data_prompt">La consigne configurée dans les préférences de l’extension, le cas échéant.</li>
+          <li data-i18n="privacy_data_url">The URL of the YouTube video you chose to summarize.</li>
+          <li data-i18n="privacy_data_prompt">The instructions configured in the extension’s preferences, if any.</li>
         </ul>
-        <p data-i18n="privacy_data_use">Ces informations sont transmises à Gemini uniquement pour exécuter l’action que vous avez demandée.</p>
+        <p data-i18n="privacy_data_use">This information is sent to Gemini only to carry out the action you requested.</p>
       </section>
 
       <section>
-        <h2 data-i18n="privacy_no_collection_title">Ce que le développeur ne collecte pas</h2>
+        <h2 data-i18n="privacy_no_collection_title">What the developer does not collect</h2>
         <ul>
-          <li data-i18n="privacy_no_account">Aucun compte utilisateur géré par l’extension.</li>
-          <li data-i18n="privacy_no_history">Aucun historique conservé par l’extension.</li>
-          <li data-i18n="privacy_no_telemetry">Aucune statistique ni télémétrie.</li>
-          <li data-i18n="privacy_no_cookies">Aucun cookie ajouté par l’extension.</li>
-          <li data-i18n="privacy_no_server">Aucun contenu envoyé à un serveur du développeur.</li>
+          <li data-i18n="privacy_no_account">No user accounts managed by the extension.</li>
+          <li data-i18n="privacy_no_history">No history kept by the extension.</li>
+          <li data-i18n="privacy_no_telemetry">No statistics or telemetry.</li>
+          <li data-i18n="privacy_no_cookies">No cookies added by the extension.</li>
+          <li data-i18n="privacy_no_server">No content sent to a developer server.</li>
         </ul>
       </section>
 
       <section>
-        <h2 data-i18n="privacy_storage_title">Stockage local</h2>
-        <p data-i18n="privacy_storage_text">Votre consigne, la langue de l’extension et le choix de l’envoi automatique sont conservés dans le stockage local de Firefox. Ces préférences ne sont pas envoyées au développeur. La consigne est transmise à Gemini lorsque vous déclenchez volontairement une demande.</p>
+        <h2 data-i18n="privacy_storage_title">Local storage</h2>
+        <p data-i18n="privacy_storage_text">Your instructions, extension language, and automatic submission setting are kept in Firefox’s local storage. These preferences are not sent to the developer. Your instructions are sent to Gemini when you explicitly start a request.</p>
       </section>
 
       <section>
-        <h2 data-i18n="privacy_third_party_title">Service tiers</h2>
-        <p data-i18n="privacy_third_party_text">Gemini est un service de Google. Son utilisation reste soumise aux conditions et à la politique de confidentialité de Google. Une connexion à un compte Google peut être nécessaire pour utiliser Gemini.</p>
+        <h2 data-i18n="privacy_third_party_title">Third-party service</h2>
+        <p data-i18n="privacy_third_party_text">Gemini is a Google service. Its use is subject to Google’s terms and privacy policy. Signing in to a Google account may be required to use Gemini.</p>
       </section>
 
       <section>
-        <h2 data-i18n="privacy_source_title">Code source</h2>
-        <p data-i18n="privacy_source_text">Le code de l’extension est public et peut être vérifié sur <a href="https://github.com/Epikaigle/gemini-youtube-summarizer" target="_blank" rel="noreferrer">GitHub ↗</a>.</p>
+        <h2 data-i18n="privacy_source_title">Source code</h2>
+        <p data-i18n="privacy_source_text">The extension’s code is public and can be inspected on <a href="https://github.com/Epikaigle/gemini-youtube-summarizer" target="_blank" rel="noreferrer">GitHub ↗</a>.</p>
       </section>
     </article>
   </main>
 
   <footer>
     <div class="container footer-row">
-      <span class="footer-brand-title" data-i18n="footer_brand">Résumé YouTube avec Gemini</span>
+      <span class="footer-brand-title" data-i18n="footer_brand">YouTube Summarizer with Gemini</span>
       <div>
-        <a href="./" data-i18n="nav_home">Accueil</a>
+        <a href="./" data-i18n="nav_home">Home</a>
         <a href="https://github.com/Epikaigle/gemini-youtube-summarizer" target="_blank" rel="noreferrer">GitHub</a>
         <a href="https://addons.mozilla.org/firefox/addon/gemini-youtube-summarizer/" target="_blank" rel="noreferrer">Firefox Add-ons</a>
       </div>
     </div>
-    <div class="container legal-line" data-i18n="footer_legal">Projet indépendant — non affilié à YouTube, Google ou Mozilla.</div>
+    <div class="container legal-line" data-i18n="footer_legal">Independent project — not affiliated with YouTube, Google, or Mozilla.</div>
   </footer>
 
   <script src="script.js?v=20261008"></script>

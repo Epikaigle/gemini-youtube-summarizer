@@ -1,6 +1,6 @@
 # Resumen de YouTube con Gemini
 
-[Français](README.md) · [English](README.en.md) · [Español](README.es.md)
+[English](README.md) · [Français](README.fr.md) · [Español](README.es.md)
 
 Una extensión ligera de Firefox que añade la acción **Resumir** a YouTube.
 

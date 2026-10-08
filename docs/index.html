@@ -1,35 +1,35 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#0a0a0f">
-  <meta name="description" content="YouTube Summarizer with Gemini ajoute un bouton Résumer directement dans YouTube, puis ouvre Gemini avec la vidéo et votre prompt 100% personnalisable.">
+  <meta name="description" content="Summarize a YouTube video with Gemini and your own instructions. Free Firefox extension with no telemetry or developer server.">
   <meta name="author" content="Epikaigle">
-  <meta name="keywords" content="YouTube Summarizer, Résumé YouTube, Gemini, Google Gemini, Extension Firefox, YouTube Summary, Video Summarizer, Custom Prompt, AI Summary, Open Source">
-  <meta property="og:title" content="YouTube Summarizer with Gemini">
-  <meta property="og:description" content="Un clic sur YouTube. Gemini s’ouvre. Votre résumé démarre avec votre prompt personnalisé.">
+  <meta name="keywords" content="YouTube Summarizer, Résumé YouTube, Gemini, Google Gemini, Firefox Extension, YouTube Summary, Video Summarizer, Custom Prompt, AI Summary, Open Source">
+  <meta property="og:title" content="YouTube Summarizer with Gemini — Firefox Extension">
+  <meta property="og:description" content="Summarize a YouTube video with Gemini and your own instructions. Free Firefox extension with no telemetry or developer server.">
   <meta property="og:type" content="website">
-  <meta property="og:locale" content="fr_FR">
-  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="es_ES">
   <meta property="og:locale:alternate" content="zh_CN">
   <meta property="og:site_name" content="YouTube Summarizer with Gemini">
   <meta property="og:url" content="https://epikaigle.github.io/gemini-youtube-summarizer/">
-  <meta property="og:image" content="https://epikaigle.github.io/gemini-youtube-summarizer/assets/social-preview.png?v=20260924">
-  <meta property="og:image:alt" content="YouTube Summarizer with Gemini — de YouTube à Gemini en un clic">
+  <meta property="og:image" content="https://epikaigle.github.io/gemini-youtube-summarizer/assets/social-preview.png?v=20261008">
+  <meta property="og:image:alt" content="YouTube Summarizer with Gemini — Firefox Extension">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="YouTube Summarizer with Gemini">
-  <meta name="twitter:description" content="Un clic sur YouTube. Gemini s’ouvre avec le lien et votre consigne personnalisée.">
-  <meta name="twitter:image" content="https://epikaigle.github.io/gemini-youtube-summarizer/assets/social-preview.png?v=20260924">
-  <meta name="twitter:image:alt" content="YouTube Summarizer with Gemini — de YouTube à Gemini en un clic">
+  <meta name="twitter:title" content="YouTube Summarizer with Gemini — Firefox Extension">
+  <meta name="twitter:description" content="Summarize a YouTube video with Gemini and your own instructions. Free Firefox extension with no telemetry or developer server.">
+  <meta name="twitter:image" content="https://epikaigle.github.io/gemini-youtube-summarizer/assets/social-preview.png?v=20261008">
+  <meta name="twitter:image:alt" content="YouTube Summarizer with Gemini — Firefox Extension">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://epikaigle.github.io/gemini-youtube-summarizer/">
-  <link rel="alternate" type="text/markdown" href="llms.txt" data-i18n-title="llm_docs" title="Documentation pour les assistants IA">
-  <title>YouTube Summarizer with Gemini — Extension Firefox</title>
+  <link rel="alternate" type="text/markdown" href="llms.txt" data-i18n-title="llm_docs" title="Documentation for AI assistants">
+  <title>YouTube Summarizer with Gemini — Firefox Extension</title>
   <link rel="icon" href="assets/extension-icon.png?v=20260924" type="image/png" sizes="96x96">
   <link rel="apple-touch-icon" href="assets/extension-icon.png?v=20260924">
   <script>
@@ -55,7 +55,7 @@
         "alternateName": "Résumé YouTube avec Gemini",
         "applicationCategory": "BrowserApplication",
         "operatingSystem": "Firefox, Firefox for Android",
-        "description": "Extension Firefox qui ajoute un bouton Résumer sur YouTube et ouvre Gemini avec le lien de la vidéo et un prompt 100% personnalisable.",
+        "description": "Summarize a YouTube video with Gemini and your own instructions. Free Firefox extension with no telemetry or developer server.",
         "url": "https://epikaigle.github.io/gemini-youtube-summarizer/",
         "downloadUrl": "https://addons.mozilla.org/firefox/addon/gemini-youtube-summarizer/",
         "isAccessibleForFree": true,
@@ -70,41 +70,41 @@
           "url": "https://github.com/Epikaigle"
         },
         "codeRepository": "https://github.com/Epikaigle/gemini-youtube-summarizer",
-        "image": "https://epikaigle.github.io/gemini-youtube-summarizer/assets/social-preview.png?v=20260924"
+        "image": "https://epikaigle.github.io/gemini-youtube-summarizer/assets/social-preview.png?v=20261008"
       },
       {
         "@type": "FAQPage",
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "Comment fonctionne l'extension YouTube Summarizer with Gemini ?",
+            "name": "How does YouTube Summarizer with Gemini work?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "L'extension ajoute un bouton Résumer directement sous le lecteur de vidéo YouTube et dans les menus trois points de chaque vidéo. Au clic, elle ouvre Google Gemini avec le lien normalisé de la vidéo et votre prompt personnalisé."
+              "text": "The extension adds Summarize below the YouTube player and to video-card menus. Clicking opens Gemini with the selected video link and your customizable instructions."
             }
           },
           {
             "@type": "Question",
-            "name": "L'extension est-elle gratuite et sans inscription ?",
+            "name": "Is the extension free?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Oui, l'extension est 100% gratuite, open source et ne nécessite aucune inscription ni abonnement. Elle fonctionne directement avec votre compte Gemini habituel sans clé API payante."
+              "text": "The extension is free and open source. No paid API key is needed. Gemini is a Google service and may require signing in to a Google account."
             }
           },
           {
             "@type": "Question",
-            "name": "Peut-on personnaliser le prompt envoyé à Gemini ?",
+            "name": "Can I customize the instructions sent to Gemini?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Absolument. Contrairement aux extensions rigides, vous disposez d'une totale liberté dans les options : résumé classique, 5 idées clés, plan structuré, vulgarisation simple ou envoi du lien seul."
+              "text": "Yes. Choose a classic summary, five key takeaways, a structured outline, a simple explanation, the link only, or your own text in preferences."
             }
           },
           {
             "@type": "Question",
-            "name": "Mes données personnelles ou mon historique sont-ils collectés ?",
+            "name": "Does the developer collect my data or browsing history?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Non. Aucune donnée n'est collectée. Votre consigne est enregistrée exclusivement en local dans votre navigateur Firefox. L'extension n'a aucun serveur intermédiaire, aucune télémétrie et aucun suivi."
+              "text": "No data is sent to the developer. Preferences stay in Firefox. After your click, the video URL and your instructions are sent directly to Gemini. There is no intermediary server or telemetry."
             }
           }
         ]
@@ -114,40 +114,40 @@
   </script>
 </head>
 <body>
-  <a class="skip-link" href="#main" data-i18n="skip_content">Aller au contenu</a>
+  <a class="skip-link" href="#main" data-i18n="skip_content">Skip to content</a>
   <div class="progress" aria-hidden="true"><span></span></div>
 
   <header class="site-header">
     <div class="container nav">
-      <a class="brand" href="#main" data-i18n-aria="nav_home" aria-label="Accueil">
+      <a class="brand" href="#main" data-i18n-aria="nav_home" aria-label="Home">
         <img class="brand-icon" src="assets/extension-icon.png?v=20260923" width="34" height="34" alt="" aria-hidden="true">
-        <span class="brand-text" data-i18n="nav_brand">Résumé YouTube <b>avec Gemini</b></span>
+        <span class="brand-text" data-i18n="nav_brand">YouTube Summarizer <b>with Gemini</b></span>
       </a>
 
       <!-- Sélecteur de Langue (FR, EN, ES, ZH) -->
-      <div class="lang-switcher" role="group" data-i18n-aria="choose_language" aria-label="Choisir la langue">
-        <button class="lang-btn active" data-lang="fr" type="button" aria-label="Français">FR</button>
-        <button class="lang-btn" data-lang="en" type="button" aria-label="English">EN</button>
-        <button class="lang-btn" data-lang="es" type="button" aria-label="Español">ES</button>
-        <button class="lang-btn" data-lang="zh" type="button" aria-label="中文">ZH</button>
+      <div class="lang-switcher" role="group" data-i18n-aria="choose_language" aria-label="Choose language">
+        <button class="lang-btn" data-lang="fr" aria-pressed="false" type="button" aria-label="Français">FR</button>
+        <button class="lang-btn active" data-lang="en" aria-pressed="true" type="button" aria-label="English">EN</button>
+        <button class="lang-btn" data-lang="es" aria-pressed="false" type="button" aria-label="Español">ES</button>
+        <button class="lang-btn" data-lang="zh" aria-pressed="false" type="button" aria-label="中文">ZH</button>
       </div>
 
-      <button class="theme-toggle" type="button" aria-label="Passer au thème clair" aria-pressed="false" title="Changer de thème">
+      <button class="theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="false" title="Switch to light theme">
         <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
         <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
       </button>
 
       <button class="menu-button" type="button" aria-expanded="false" aria-controls="nav-links">
         <span></span><span></span><span></span>
-        <span class="sr-only">Ouvrir le menu</span>
+        <span class="sr-only">Open menu</span>
       </button>
 
       <nav class="nav-links" id="nav-links">
-        <a href="#comment" data-i18n="nav_how">Comment ça marche</a>
-        <a href="#avantages" data-i18n="nav_custom">Personnaliser le prompt</a>
-        <a href="privacy.html" data-i18n="nav_privacy">Confidentialité</a>
+        <a href="#comment" data-i18n="nav_how">How it works</a>
+        <a href="#avantages" data-i18n="nav_custom">Custom Prompt</a>
+        <a href="privacy.html" data-i18n="nav_privacy">Privacy</a>
         <a href="https://github.com/Epikaigle/gemini-youtube-summarizer" target="_blank" rel="noreferrer">GitHub</a>
-        <a class="nav-install" href="https://addons.mozilla.org/firefox/addon/gemini-youtube-summarizer/" target="_blank" rel="noreferrer" data-i18n="nav_install">Ajouter à Firefox ↗</a>
+        <a class="nav-install" href="https://addons.mozilla.org/firefox/addon/gemini-youtube-summarizer/" target="_blank" rel="noreferrer" data-i18n="nav_install">Add to Firefox ↗</a>
       </nav>
     </div>
   </header>
@@ -162,36 +162,36 @@
       <div class="container hero-grid">
         <div class="hero-copy reveal">
           <a class="amo-pill" href="https://addons.mozilla.org/firefox/addon/gemini-youtube-summarizer/" target="_blank" rel="noreferrer">
-            <span></span> <span data-i18n="hero_pill">Disponible sur Firefox Add-ons ↗</span>
+            <span></span> <span data-i18n="hero_pill">Available on Firefox Add-ons ↗</span>
           </a>
 
-          <h1 data-i18n="hero_title">Une vidéo YouTube.<br><em>Un clic.</em> Votre résumé.</h1>
-          <p class="hero-text" data-i18n="hero_text">L’extension ajoute un bouton <strong>Résumer</strong> natif directement dans YouTube. Au clic, elle ouvre Gemini avec le lien de la vidéo et <strong>votre prompt 100% personnalisable</strong>.</p>
+          <h1 data-i18n="hero_title">A YouTube video.<br><em>One click.</em> Your summary.</h1>
+          <p class="hero-text" data-i18n="hero_text">The extension adds a native <strong>Summarize</strong> button directly in YouTube. Click it to open Gemini with the video link and <strong>your 100% customizable prompt</strong>.</p>
 
           <div class="hero-actions">
             <a class="button button-primary" href="https://addons.mozilla.org/firefox/addon/gemini-youtube-summarizer/" target="_blank" rel="noreferrer">
               <span class="firefox-mark">✦</span>
-              <span data-i18n="hero_cta_add">Ajouter à Firefox</span>
+              <span data-i18n="hero_cta_add">Add to Firefox</span>
               <span>↗</span>
             </a>
-            <a class="button button-secondary" href="#avantages" data-i18n="hero_cta_custom">Personnaliser son prompt ↓</a>
+            <a class="button button-secondary" href="#avantages" data-i18n="hero_cta_custom">Customize prompt ↓</a>
           </div>
         </div>
 
-        <div class="hero-visual reveal" id="demo" data-flow-mode="watch" data-flow-phase="idle" role="region" data-i18n-aria="demo_region" aria-label="Démonstration animée de l'extension YouTube et Google Gemini">
+        <div class="hero-visual reveal" id="demo" data-flow-mode="watch" data-flow-phase="idle" role="region" data-i18n-aria="demo_region" aria-label="Animated demonstration of YouTube and Gemini">
           
           <!-- Contrôles positionnés au-dessus de la fenêtre YouTube (sans superposition) -->
-          <div class="demo-controls-bar" data-i18n-aria="demo_controls" aria-label="Contrôles de la démonstration">
-            <div class="demo-modes" role="tablist" data-i18n-aria="demo_scenario" aria-label="Scénario YouTube">
-              <button class="demo-mode-tab active" type="button" data-mode="watch" role="tab" aria-selected="true" data-i18n="demo_tab_watch">Page Vidéo</button>
-              <button class="demo-mode-tab" type="button" data-mode="feed" role="tab" aria-selected="false" data-i18n="demo_tab_feed">Accueil YouTube</button>
+          <div class="demo-controls-bar" data-i18n-aria="demo_controls" aria-label="Demonstration controls">
+            <div class="demo-modes" role="tablist" data-i18n-aria="demo_scenario" aria-label="YouTube scenario">
+              <button class="demo-mode-tab active" type="button" data-mode="watch" role="tab" aria-selected="true" data-i18n="demo_tab_watch">Watch Page</button>
+              <button class="demo-mode-tab" type="button" data-mode="feed" role="tab" aria-selected="false" data-i18n="demo_tab_feed">YouTube Feed</button>
             </div>
             <div class="demo-actions">
-              <button class="demo-ctrl-btn" id="demo-ctrl-toggle" type="button" aria-label="Mettre en pause l’animation" title="Pause / Lecture">
+              <button class="demo-ctrl-btn" id="demo-ctrl-toggle" type="button" aria-label="Pause animation" title="Pause animation">
                 <svg class="icon-pause" viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
                 <svg class="icon-play" viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="m7 4 13 8-13 8V4Z"/></svg>
               </button>
-              <button class="demo-ctrl-btn" id="demo-ctrl-replay" type="button" data-i18n-aria="demo_replay" aria-label="Rejouer l’animation" data-i18n-title="demo_replay" title="Rejouer">
+              <button class="demo-ctrl-btn" id="demo-ctrl-replay" type="button" data-i18n-aria="demo_replay" aria-label="Replay animation" data-i18n-title="demo_replay" title="Replay animation">
                 <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
               </button>
             </div>
@@ -224,7 +224,7 @@
                 </div>
 
                 <div class="yt-top-actions">
-                  <span class="yt-create">＋ Créer</span>
+                  <span class="yt-create">＋ Create</span>
                   <span class="yt-bell" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6.7 9.5a5.3 5.3 0 0 1 10.6 0c0 5 2 5.4 2 6.5H4.7c0-1.1 2-1.5 2-6.5Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 18.2a2.2 2.2 0 0 0 4 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
                   <i class="yt-profile"></i>
                 </div>
@@ -251,24 +251,24 @@
                     </div>
                   </div>
 
-                  <div class="yt-title demo-yt-title">Comprendre un sujet complexe en moins de 15 minutes</div>
+                  <div class="yt-title demo-yt-title">Mastering complex topics in under 15 minutes</div>
 
                   <div class="yt-info-row">
                     <div class="yt-channel">
                       <span class="yt-avatar">E</span>
-                      <div><strong class="demo-yt-channel">Exemple</strong><small class="demo-yt-subs">128 k abonnés</small></div>
-                      <span class="yt-subscribe demo-yt-subscribe">S’abonner</span>
+                      <div><strong class="demo-yt-channel">Example</strong><small class="demo-yt-subs">128K subscribers</small></div>
+                      <span class="yt-subscribe demo-yt-subscribe">Subscribe</span>
                     </div>
 
                     <!-- Authentic YouTube Action Buttons with the injected extension button -->
                     <div class="yt-actions-row">
                       <span class="yt-pill yt-pill-like"><svg class="yt-action-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 10 11 4.5c.5-1.1 2.1-.8 2.2.4l.2 3.1H18a2 2 0 0 1 1.9 2.5l-1.5 6A2 2 0 0 1 16.5 18H8.5v-8Z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4 10h4.5v8H4v-8Z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>12 k<i class="yt-like-sep"></i><svg class="yt-action-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14 13 19.5c-.5 1.1-2.1.8-2.2-.4l-.2-3.1H6a2 2 0 0 1-1.9-2.5l1.5-6A2 2 0 0 1 7.5 6h8v8Z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M20 14h-4.5V6H20v8Z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
-                      <span class="yt-pill"><svg class="yt-action-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 6h5v5M19 6l-8 8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M18 14v4H6V8h4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span class="demo-yt-share">Partager</span></span>
+                      <span class="yt-pill"><svg class="yt-action-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 6h5v5M19 6l-8 8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M18 14v4H6V8h4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span class="demo-yt-share">Share</span></span>
                       
                       <!-- Exact Injected Button from extension content.js -->
-                      <strong class="yt-resume-action yt-spec-button-tonal" id="gemini-summary-button-watch-page" data-i18n-title="action_summarize" title="Résumer">
+                      <strong class="yt-resume-action yt-spec-button-tonal" id="gemini-summary-button-watch-page" data-i18n-title="action_summarize" title="Summarize">
                         <svg class="yt-summary-svg" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" fill="currentColor"/></svg>
-                        <span class="demo-yt-btn-text">Résumer</span>
+                        <span class="demo-yt-btn-text">Summarize</span>
                         <i></i>
                       </strong>
 
@@ -277,13 +277,13 @@
                   </div>
 
                   <div class="yt-description">
-                    <strong class="demo-yt-views">84 k vues · il y a 2 jours</strong>
+                    <strong class="demo-yt-views">84K views · 2 days ago</strong>
                     <span>Dans cette vidéo, on découvre les idées essentielles du sujet...</span>
                   </div>
                 </div>
 
                 <aside class="yt-sidebar" aria-hidden="true">
-                  <span class="yt-filter">Tout</span>
+                  <span class="yt-filter">All</span>
                   <div class="yt-rec"><i class="thumb thumb-a"><span>8:42</span></i><div><b></b><b></b><small></small><em></em></div></div>
                   <div class="yt-rec"><i class="thumb thumb-b"><span>12:18</span></i><div><b></b><b></b><small></small><em></em></div></div>
                   <div class="yt-rec"><i class="thumb thumb-c"><span>6:05</span></i><div><b></b><b></b><small></small><em></em></div></div>
@@ -309,17 +309,17 @@
                 </div>
 
                 <div class="yt-feed-actions">
-                  <span class="yt-create">＋ Créer</span>
+                  <span class="yt-create">＋ Create</span>
                   <i class="yt-profile"></i>
                 </div>
               </div>
 
               <!-- Pill tags filter bar -->
               <div class="yt-chips-bar" aria-hidden="true">
-                <span class="yt-chip active">Tout</span>
+                <span class="yt-chip active">All</span>
                 <span class="yt-chip">Podcasts</span>
-                <span class="yt-chip">Musique</span>
-                <span class="yt-chip">Jeux vidéo</span>
+                <span class="yt-chip demo-yt-music">Music</span>
+                <span class="yt-chip demo-yt-gaming">Gaming</span>
               </div>
 
               <!-- True Regular 3-Column YouTube Grid -->
@@ -329,8 +329,8 @@
                   <div class="yt-card-meta">
                     <span class="yt-card-avatar">E</span>
                     <div class="yt-card-copy">
-                      <b class="demo-card1-title">Comprendre un sujet complexe en moins de 15 minutes</b>
-                      <small class="demo-card1-meta">Exemple · 84 k vues · il y a 2 jours</small>
+                      <b class="demo-card1-title">Mastering complex topics in under 15 minutes</b>
+                      <small class="demo-card1-meta">Example · 84K views · 2 days ago</small>
                     </div>
                     <span class="yt-card-more">⋮</span>
                   </div>
@@ -339,11 +339,11 @@
                   <div class="yt-card-menu">
                     <strong class="yt-card-resume" id="gemini-summary-button-menu">
                       <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" fill="currentColor"/></svg>
-                      <span class="demo-yt-btn-text">Résumer</span>
+                      <span class="demo-yt-btn-text">Summarize</span>
                     </strong>
-                    <span class="demo-menu-queue">Ajouter à la file d'attente</span>
-                    <span class="demo-menu-save">Enregistrer pour plus tard</span>
-                    <span class="demo-menu-share">Partager</span>
+                    <span class="demo-menu-queue">Add to queue</span>
+                    <span class="demo-menu-save">Save to Watch later</span>
+                    <span class="demo-menu-share">Share</span>
                   </div>
                 </article>
 
@@ -352,8 +352,8 @@
                   <div class="yt-card-meta">
                     <span class="yt-card-avatar">A</span>
                     <div class="yt-card-copy">
-                      <b class="demo-card2-title">Les 5 idées clés pour progresser plus vite</b>
-                      <small class="demo-card2-meta">Apprendre · 42 k vues · il y a 3 jours</small>
+                      <b class="demo-card2-title">5 key insights to accelerate your learning</b>
+                      <small class="demo-card2-meta">Learning · 42K views · 3 days ago</small>
                     </div>
                     <span class="yt-card-dots">⋮</span>
                   </div>
@@ -364,8 +364,8 @@
                   <div class="yt-card-meta">
                     <span class="yt-card-avatar">M</span>
                     <div class="yt-card-copy">
-                      <b class="demo-card3-title">Méthode simple pour retenir l'essentiel</b>
-                      <small class="demo-card3-meta">Méthode · 63 k vues · il y a 5 jours</small>
+                      <b class="demo-card3-title">Simple method to retain key concepts</b>
+                      <small class="demo-card3-meta">Method · 63K views · 5 days ago</small>
                     </div>
                     <span class="yt-card-dots">⋮</span>
                   </div>
@@ -376,8 +376,8 @@
                   <div class="yt-card-meta">
                     <span class="yt-card-avatar">S</span>
                     <div class="yt-card-copy">
-                      <b class="demo-card4-title">Guide complet : Maîtriser de nouvelles compétences</b>
-                      <small class="demo-card4-meta">Science · 95 k vues · il y a 1 semaine</small>
+                      <b class="demo-card4-title">Complete guide: Mastering new skills fast</b>
+                      <small class="demo-card4-meta">Science · 95K views · 1 week ago</small>
                     </div>
                     <span class="yt-card-dots">⋮</span>
                   </div>
@@ -388,8 +388,8 @@
                   <div class="yt-card-meta">
                     <span class="yt-card-avatar">D</span>
                     <div class="yt-card-copy">
-                      <b class="demo-card5-title">Comment organiser ses notes et ses idées efficacement</b>
-                      <small class="demo-card5-meta">Découverte · 51 k vues · il y a 4 jours</small>
+                      <b class="demo-card5-title">How to organize notes and ideas effectively</b>
+                      <small class="demo-card5-meta">Discovery · 51K views · 4 days ago</small>
                     </div>
                     <span class="yt-card-dots">⋮</span>
                   </div>
@@ -400,8 +400,8 @@
                   <div class="yt-card-meta">
                     <span class="yt-card-avatar">T</span>
                     <div class="yt-card-copy">
-                      <b class="demo-card6-title">Les secrets de la productivité moderne expliqués</b>
-                      <small class="demo-card6-meta">Tech · 112 k vues · il y a 6 jours</small>
+                      <b class="demo-card6-title">The secrets of modern productivity explained</b>
+                      <small class="demo-card6-meta">Tech · 112K views · 6 days ago</small>
                     </div>
                     <span class="yt-card-dots">⋮</span>
                   </div>
@@ -421,8 +421,8 @@
                   <span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
                   <span class="gemini-brand-badge">Gemini</span>
                 </div>
-                <div class="gemini-new-chat">＋ <span class="demo-gemini-new-chat">Nouveau chat</span></div>
-                <small class="demo-gemini-recent">Récents</small>
+                <div class="gemini-new-chat">＋ <span class="demo-gemini-new-chat">New chat</span></div>
+                <small class="demo-gemini-recent">Recent</small>
                 <div class="gemini-history">
                   <i></i><i></i><i class="short"></i>
                 </div>
@@ -444,31 +444,31 @@
                       <svg viewBox="0 0 24 24" width="16" height="16" fill="#ff0033" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                       <span>youtube.com/watch?v=VIDEO_ID</span>
                     </div>
-                    <span class="user-prompt-text demo-user-prompt">Résume-moi la vidéo :</span>
+                    <span class="user-prompt-text demo-user-prompt">Summarize this video:</span>
                   </div>
 
                   <div class="gemini-thinking">
                     <span class="gemini-glyph">✦</span>
                     <div>
-                      <strong class="demo-gemini-thinking">Analyse de la vidéo YouTube...</strong>
+                      <strong class="demo-gemini-thinking">Analyzing YouTube video...</strong>
                       <span class="thinking-dots"><i></i><i></i><i></i></span>
                     </div>
                   </div>
 
                   <div class="gemini-response">
                     <div class="gemini-response-brand"><span class="gemini-glyph">✦</span><strong>Gemini</strong></div>
-                    <div class="gemini-response-title demo-gemini-resp-title">Résumé de la vidéo</div>
-                    <p class="response-line response-intro demo-gemini-resp-intro">Voici les points clés à retenir de la présentation :</p>
+                    <div class="gemini-response-title demo-gemini-resp-title">Video Summary</div>
+                    <p class="response-line response-intro demo-gemini-resp-intro">Here are the key takeaways from the presentation:</p>
                     <ul>
-                      <li class="response-line response-one"><b class="demo-resp-p1-title">Concepts fondamentaux :</b> <span class="demo-resp-p1-text">se concentrer sur les piliers essentiels pour assimiler rapidement le sujet.</span></li>
-                      <li class="response-line response-two"><b class="demo-resp-p2-title">Mise en pratique :</b> <span class="demo-resp-p2-text">connecter les idées nouvelles à des cas réels plutôt que les mémoriser isolément.</span></li>
-                      <li class="response-line response-three"><b class="demo-resp-p3-title">Synthèse :</b> <span class="demo-resp-p3-text">retenir les 3 enseignements majeurs pour gagner un temps précieux.</span></li>
+                      <li class="response-line response-one"><b class="demo-resp-p1-title">Core Concepts:</b> <span class="demo-resp-p1-text">focus on the essential pillars to quickly grasp the subject.</span></li>
+                      <li class="response-line response-two"><b class="demo-resp-p2-title">Practical Application:</b> <span class="demo-resp-p2-text">connect new ideas to real-world scenarios rather than memorizing in isolation.</span></li>
+                      <li class="response-line response-three"><b class="demo-resp-p3-title">Key Takeaways:</b> <span class="demo-resp-p3-text">retain the 3 main takeaways to save valuable learning time.</span></li>
                     </ul>
                     <div class="gemini-response-actions">
-                      <span data-i18n-title="response_good" title="Bonne réponse">👍</span>
-                      <span data-i18n-title="response_bad" title="Mauvaise réponse">👎</span>
-                      <span data-i18n-title="action_copy" title="Copier">📋</span>
-                      <span data-i18n-title="action_share" title="Partager">↗</span>
+                      <span data-i18n-title="response_good" title="Good response">👍</span>
+                      <span data-i18n-title="response_bad" title="Bad response">👎</span>
+                      <span data-i18n-title="action_copy" title="Copy">📋</span>
+                      <span data-i18n-title="action_share" title="Share">↗</span>
                     </div>
                   </div>
                 </div>
@@ -476,8 +476,8 @@
                 <div class="gemini-composer">
                   <span class="gemini-add">＋</span>
                   <div class="gemini-composer-copy">
-                    <span class="composer-placeholder demo-gemini-placeholder">Demandez à Gemini...</span>
-                    <span class="composer-prompt" data-full-prompt="Résume-moi la vidéo : youtube.com/watch?v=VIDEO_ID"></span><span class="composer-caret" aria-hidden="true"></span>
+                    <span class="composer-placeholder demo-gemini-placeholder">Ask Gemini...</span>
+                    <span class="composer-prompt" data-full-prompt="Summarize this video: youtube.com/watch?v=VIDEO_ID"></span><span class="composer-caret" aria-hidden="true"></span>
                   </div>
                   <span class="gemini-mic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="9" y="4" width="6" height="10" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6.8 11.5a5.2 5.2 0 0 0 10.4 0M12 16.7V20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
                   <span class="gemini-send-animated">↑<i></i></span>
@@ -493,8 +493,8 @@
     <section class="how" id="comment">
       <div class="container">
         <div class="section-title reveal">
-          <h2 data-i18n="how_title">YouTube → Résumer → Gemini.</h2>
-          <p data-i18n="how_subtitle">Un flux direct, sans copier-coller ni perte de temps.</p>
+          <h2 data-i18n="how_title">YouTube → Summarize → Gemini.</h2>
+          <p data-i18n="how_subtitle">A seamless flow, no copy-pasting, no wasted time.</p>
         </div>
 
         <div class="steps">
@@ -503,8 +503,8 @@
             <div class="step-icon youtube-mini">
               <svg viewBox="0 0 28 20" aria-hidden="true"><path fill="#ff0033" d="M27.4 3.1A3.5 3.5 0 0 0 25 .7C22.8 0 14 0 14 0S5.2 0 3 .7A3.5 3.5 0 0 0 .6 3.1 36 36 0 0 0 0 10a36 36 0 0 0 .6 6.9A3.5 3.5 0 0 0 3 19.3c2.2.7 11 .7 11 .7s8.8 0 11-.7a3.5 3.5 0 0 0 2.4-2.4A36 36 0 0 0 28 10a36 36 0 0 0-.6-6.9Z"/><path fill="#fff" d="m11.2 14.3 7.3-4.3-7.3-4.3v8.6Z"/></svg>
             </div>
-            <h3 data-i18n="how_step1_title">1. Choisissez votre vidéo</h3>
-            <p data-i18n="how_step1_desc">Sur YouTube, ouvrez une vidéo ou parcourez votre fil d’accueil, vos abonnements et vos recommandations.</p>
+            <h3 data-i18n="how_step1_title">1. Pick your video</h3>
+            <p data-i18n="how_step1_desc">On YouTube, open any video or browse your home feed, subscriptions, and recommendations.</p>
           </article>
 
           <article class="step reveal">
@@ -512,8 +512,8 @@
             <div class="step-icon extension-mini">
               <img src="assets/extension-icon.png?v=20260923" width="44" height="44" loading="lazy" decoding="async" alt="" aria-hidden="true">
             </div>
-            <h3 data-i18n="how_step2_title">2. Cliquez sur Résumer</h3>
-            <p data-i18n="how_step2_desc">Un bouton natif est ajouté sous le lecteur YouTube et en tête du menu contextuel (trois points) de chaque vidéo.</p>
+            <h3 data-i18n="how_step2_title">2. Click Summarize</h3>
+            <p data-i18n="how_step2_desc">A native button is seamlessly placed below the player and at the top of the three-dots menu on every card.</p>
           </article>
 
           <article class="step reveal">
@@ -524,8 +524,8 @@
                 <path d="M24 4c1.8 10.1 9.9 18.2 20 20-10.1 1.8-18.2 9.9-20 20-1.8-10.1-9.9-18.2-20-20C14.1 22.2 22.2 14.1 24 4Z" fill="url(#gemini-step-gradient)"/>
               </svg>
             </div>
-            <h3 data-i18n="how_step3_title">3. Gemini prend le relais</h3>
-            <p data-i18n="how_step3_desc">Gemini s’ouvre dans un nouvel onglet avec votre consigne personnalisée et le lien de la vidéo, prêt pour l’analyse.</p>
+            <h3 data-i18n="how_step3_title">3. Gemini takes over</h3>
+            <p data-i18n="how_step3_desc">Gemini opens in a new tab with your custom prompt and the video link, ready for immediate analysis.</p>
           </article>
         </div>
       </div>
@@ -536,35 +536,33 @@
       <div class="container benefits-grid">
         <div class="benefit-main reveal">
           <div class="benefit-copy">
-            <span class="kicker" data-i18n="studio_kicker">Liberté totale</span>
-            <h2 data-i18n="studio_title_section">Votre prompt, personnalisé par vous-même.</h2>
-            <p class="benefit-lead" data-i18n="studio_lead">
-              Contrairement à d’autres extensions figées, vous avez le <strong>contrôle absolu sur la consigne envoyée à Gemini</strong>. Modifiez-la librement dans les options selon vos besoins : résumé rapide, plan d’action, vulgarisation ou analyse détaillée.
-            </p>
+            <span class="kicker" data-i18n="studio_kicker">Total Freedom</span>
+            <h2 data-i18n="studio_title_section">Your prompt, tailored by yourself.</h2>
+            <p class="benefit-lead" data-i18n="studio_lead">Unlike rigid extensions, you have <strong>absolute control over the prompt sent to Gemini</strong>. Customize it anytime in the options for your workflow: quick summary, action plan, simplified explanation, or in-depth analysis.</p>
           </div>
 
           <!-- Studio interactif calqué sur options.html de l'extension -->
           <div class="prompt-studio">
             <div class="studio-header">
-              <span class="studio-title" data-i18n="studio_test_title">✦ Testez vos consignes en direct</span>
-              <div class="studio-preset-list" role="group" data-i18n-aria="prompt_examples" aria-label="Exemples de prompts">
-                <button class="preset-chip active" type="button" data-preset-id="classic" data-i18n="preset_classic">Résumé classique</button>
-                <button class="preset-chip" type="button" data-preset-id="points" data-i18n="preset_points">5 idées clés</button>
-                <button class="preset-chip" type="button" data-preset-id="plan" data-i18n="preset_plan">Plan détaillé</button>
-                <button class="preset-chip" type="button" data-preset-id="simple" data-i18n="preset_simple">Vulgarisation</button>
-                <button class="preset-chip" type="button" data-preset-id="link" data-i18n="preset_link">Lien seul</button>
+              <span class="studio-title" data-i18n="studio_test_title">✦ Test your prompts live</span>
+              <div class="studio-preset-list" role="group" data-i18n-aria="prompt_examples" aria-label="Example instructions">
+                <button class="preset-chip active" type="button" data-preset-id="classic" data-i18n="preset_classic">Standard Summary</button>
+                <button class="preset-chip" type="button" data-preset-id="points" data-i18n="preset_points">5 Key Takeaways</button>
+                <button class="preset-chip" type="button" data-preset-id="plan" data-i18n="preset_plan">Structured Outline</button>
+                <button class="preset-chip" type="button" data-preset-id="simple" data-i18n="preset_simple">ELI5 / Simple</button>
+                <button class="preset-chip" type="button" data-preset-id="link" data-i18n="preset_link">Link only</button>
               </div>
             </div>
 
             <div class="studio-editor">
-              <label for="interactive-prompt-input" data-i18n="studio_input_label">Texte configuré dans les options de l’extension :</label>
-              <textarea id="interactive-prompt-input" rows="3" spellcheck="false">Résume-moi la vidéo :</textarea>
-              <small class="studio-hint" data-i18n="studio_hint">L'URL YouTube de la vidéo est ajoutée automatiquement à la fin de votre texte.</small>
+              <label for="interactive-prompt-input" data-i18n="studio_input_label">Prompt configured in extension options:</label>
+              <textarea id="interactive-prompt-input" rows="3" spellcheck="false">Summarize this video:</textarea>
+              <small class="studio-hint" data-i18n="studio_hint">The video YouTube URL is automatically appended to the end of your text.</small>
             </div>
 
             <div class="studio-preview-card" aria-live="polite">
-              <span class="preview-badge" data-i18n="studio_preview_badge">Aperçu envoyé à Gemini</span>
-              <pre class="studio-preview-text" id="interactive-prompt-preview">Résume-moi la vidéo : https://www.youtube.com/watch?v=dQw4w9WgXcQ</pre>
+              <span class="preview-badge" data-i18n="studio_preview_badge">Preview sent to Gemini</span>
+              <pre class="studio-preview-text" id="interactive-prompt-preview">Summarize this video: https://www.youtube.com/watch?v=dQw4w9WgXcQ</pre>
             </div>
           </div>
         </div>
@@ -573,9 +571,9 @@
           <span class="privacy-icon">
             <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2.6 26 6.5v7.5c0 6.1-4 11.3-10 13.4C10 25.3 6 20.1 6 14V6.5l10-3.9Zm0 3.3L9 8.6V14c0 4.5 2.8 8.5 7 10.4 4.2-1.9 7-5.9 7-10.4V8.6l-7-2.7Z"/></svg>
           </span>
-          <h3 data-i18n="privacy_card_title">Pas de collecte. Pas de serveur intermédiaire.</h3>
-          <p data-i18n="privacy_card_desc">Votre prompt est stocké <strong>uniquement en local dans votre navigateur Firefox</strong>. L'extension n'a aucun serveur, aucune télémétrie et ne conserve aucun historique.</p>
-          <a class="benefit-privacy-link" href="privacy.html" data-i18n="privacy_card_link">Lire la politique de confidentialité →</a>
+          <h3 data-i18n="privacy_card_title">No tracking. No intermediate servers.</h3>
+          <p data-i18n="privacy_card_desc">Your prompt is stored <strong>exclusively locally inside your Firefox browser</strong>. The extension operates without servers, telemetry, or saved history.</p>
+          <a class="benefit-privacy-link" href="privacy.html" data-i18n="privacy_card_link">Read the privacy policy →</a>
         </div>
       </div>
     </section>
@@ -586,14 +584,14 @@
         <div class="install-copy">
           <img src="assets/extension-icon.png?v=20260923" width="96" height="96" loading="lazy" decoding="async" alt="" aria-hidden="true">
           <div>
-            <h2 data-i18n="install_title">Ajoutez Résumer à YouTube.</h2>
-            <p data-i18n="install_desc">Gratuit, léger et open source. Installez en un clic sur Firefox.</p>
+            <h2 data-i18n="install_title">Add Summarize to YouTube.</h2>
+            <p data-i18n="install_desc">Free, lightweight, and open source. Install in one click on Firefox.</p>
           </div>
         </div>
 
         <div class="install-actions">
-          <a class="button button-white" href="https://addons.mozilla.org/firefox/addon/gemini-youtube-summarizer/" target="_blank" rel="noreferrer" data-i18n="install_btn">Ajouter à Firefox ↗</a>
-          <a class="code-link" href="https://github.com/Epikaigle/gemini-youtube-summarizer" target="_blank" rel="noreferrer" data-i18n="install_source">Voir le code source</a>
+          <a class="button button-white" href="https://addons.mozilla.org/firefox/addon/gemini-youtube-summarizer/" target="_blank" rel="noreferrer" data-i18n="install_btn">Add to Firefox ↗</a>
+          <a class="code-link" href="https://github.com/Epikaigle/gemini-youtube-summarizer" target="_blank" rel="noreferrer" data-i18n="install_source">View source code</a>
         </div>
       </div>
     </section>
@@ -601,14 +599,14 @@
 
   <footer>
     <div class="container footer-row">
-      <span class="footer-brand-title" data-i18n="footer_brand">Résumé YouTube avec Gemini</span>
+      <span class="footer-brand-title" data-i18n="footer_brand">YouTube Summarizer with Gemini</span>
       <div>
-        <a href="privacy.html" data-i18n="nav_privacy">Confidentialité</a>
+        <a href="privacy.html" data-i18n="nav_privacy">Privacy</a>
         <a href="https://github.com/Epikaigle/gemini-youtube-summarizer" target="_blank" rel="noreferrer">GitHub</a>
         <a href="https://addons.mozilla.org/firefox/addon/gemini-youtube-summarizer/" target="_blank" rel="noreferrer">Firefox Add-ons</a>
       </div>
     </div>
-    <div class="container legal-line" data-i18n="footer_legal">Projet indépendant — non affilié à YouTube, Google ou Mozilla.</div>
+    <div class="container legal-line" data-i18n="footer_legal">Independent project — not affiliated with YouTube, Google, or Mozilla.</div>
   </footer>
 
   <script src="script.js?v=20261008"></script>

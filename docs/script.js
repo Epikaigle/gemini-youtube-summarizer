@@ -112,6 +112,10 @@
       },
       demo: {
         yt_search: "Rechercher",
+        yt_create: "＋ Créer",
+        yt_all: "Tout",
+        yt_music: "Musique",
+        yt_gaming: "Jeux vidéo",
         yt_title: "Comprendre un sujet complexe en moins de 15 minutes",
         yt_channel: "Exemple",
         yt_subs: "128 k abonnés",
@@ -248,6 +252,10 @@
       },
       demo: {
         yt_search: "Search",
+        yt_create: "＋ Create",
+        yt_all: "All",
+        yt_music: "Music",
+        yt_gaming: "Gaming",
         yt_title: "Mastering complex topics in under 15 minutes",
         yt_channel: "Example",
         yt_subs: "128K subscribers",
@@ -384,6 +392,10 @@
       },
       demo: {
         yt_search: "Buscar",
+        yt_create: "＋ Crear",
+        yt_all: "Todo",
+        yt_music: "Música",
+        yt_gaming: "Videojuegos",
         yt_title: "Dominar temas complejos en menos de 15 minutos",
         yt_channel: "Ejemplo",
         yt_subs: "128 K suscriptores",
@@ -520,6 +532,10 @@
       },
       demo: {
         yt_search: "搜索",
+        yt_create: "＋ 创建",
+        yt_all: "全部",
+        yt_music: "音乐",
+        yt_gaming: "游戏",
         yt_title: "15分钟内掌握复杂主题的关键方法",
         yt_channel: "示例频道",
         yt_subs: "12.8万位订阅者",
@@ -559,7 +575,7 @@
     }
   };
 
-  const siteMessage = (key) => translations[root.lang]?.[key] || translations.fr[key] || '';
+  const siteMessage = (key) => translations[root.lang]?.[key] || translations.en[key] || '';
 
   const updateLocalizedControls = () => {
     const menuText = menuButton?.querySelector('.sr-only');
@@ -715,8 +731,8 @@
   if (studioInput && studioPreview) {
     studioInput.addEventListener('input', () => {
       updateStudioPreview(studioInput.value);
-      const currentLang = root.getAttribute('lang') || 'fr';
-      const langPresets = translations[currentLang]?.presets || translations.fr.presets;
+      const currentLang = root.getAttribute('lang') || 'en';
+      const langPresets = translations[currentLang]?.presets || translations.en.presets;
       presetChips.forEach((chip) => {
         const presetId = chip.dataset.presetId;
         const promptVal = langPresets[presetId]?.prompt ?? '';
@@ -728,8 +744,8 @@
       chip.addEventListener('click', () => {
         presetChips.forEach((c) => c.classList.remove('active'));
         chip.classList.add('active');
-        const currentLang = root.getAttribute('lang') || 'fr';
-        const langPresets = translations[currentLang]?.presets || translations.fr.presets;
+        const currentLang = root.getAttribute('lang') || 'en';
+        const langPresets = translations[currentLang]?.presets || translations.en.presets;
         const presetId = chip.dataset.presetId;
         if (presetId && langPresets[presetId] !== undefined) {
           studioInput.value = langPresets[presetId].prompt;
@@ -744,11 +760,15 @@
   /* ---------------- Démonstration & Typographie Dynamique ---------------- */
   const flow = document.querySelector('.hero-visual[data-flow-phase]');
   const promptOutput = flow?.querySelector('.composer-prompt');
-  let currentFullPrompt = 'Résume-moi la vidéo : youtube.com/watch?v=VIDEO_ID';
+  let currentFullPrompt = 'Summarize this video: youtube.com/watch?v=VIDEO_ID';
 
   const updateDemoText = (lang) => {
     if (!flow) return;
-    const t = translations[lang]?.demo || translations.fr.demo;
+    const t = translations[lang]?.demo || translations.en.demo;
+
+    for (const [selector, key] of [['.yt-create', 'yt_create'], ['.yt-filter, .yt-chip.active', 'yt_all'], ['.demo-yt-music', 'yt_music'], ['.demo-yt-gaming', 'yt_gaming']]) {
+      flow.querySelectorAll(selector).forEach(element => { element.textContent = t[key]; });
+    }
 
     const elSearch = flow.querySelectorAll('.demo-yt-search-label');
     elSearch.forEach((el) => { el.textContent = t.yt_search; });
@@ -852,7 +872,7 @@
   const langButtons = document.querySelectorAll('.lang-btn');
 
   const setLanguage = (lang, persist = false) => {
-    const activeLang = translations[lang] ? lang : 'fr';
+    const activeLang = translations[lang] ? lang : 'en';
     root.setAttribute('lang', activeLang);
 
     // Mettre à jour tous les éléments textuels data-i18n
@@ -899,7 +919,7 @@
     if (studioInput && studioPreview) {
       const activeChip = document.querySelector('.preset-chip.active');
       const presetId = activeChip?.dataset.presetId || 'classic';
-      const langPresets = translations[activeLang]?.presets || translations.fr.presets;
+      const langPresets = translations[activeLang]?.presets || translations.en.presets;
       if (langPresets[presetId] !== undefined) {
         studioInput.value = langPresets[presetId].prompt;
         updateStudioPreview(studioInput.value);
@@ -923,7 +943,8 @@
     if (browserLang.startsWith('en')) return 'en';
     if (browserLang.startsWith('es')) return 'es';
     if (browserLang.startsWith('zh')) return 'zh';
-    return 'fr';
+    if (browserLang.startsWith('fr')) return 'fr';
+    return 'en';
   };
 
   langButtons.forEach((btn) => {

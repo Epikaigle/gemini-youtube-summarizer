@@ -36,7 +36,7 @@ for (const [lang, dictionary] of Object.entries(site)) {
     }
   }
 }
-for (const file of ['README.md', 'README.en.md', 'README.es.md', 'PRIVACY_POLICY.md', 'PRIVACY_POLICY.en.md', 'PRIVACY_POLICY.es.md']) {
+for (const file of ['README.md', 'README.fr.md', 'README.en.md', 'README.es.md', 'PRIVACY_POLICY.md', 'PRIVACY_POLICY.en.md', 'PRIVACY_POLICY.es.md']) {
   for (const [, target] of read(file).matchAll(/\]\(([^)]+)\)/g)) {
     if (!target.startsWith('https://')) assert.ok(fs.existsSync(target), `${file}: missing linked file ${target}`);
   }

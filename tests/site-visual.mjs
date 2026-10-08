@@ -62,6 +62,34 @@ const checkLanguages = async (page, viewport, theme) => {
   }
 };
 
+// The public English entry point also works with an unsupported browser language
+// or without JavaScript; supported and saved language choices remain available.
+for (const scenario of [
+  {locale: 'de-DE', javaScriptEnabled: true, expected: 'en'},
+  {locale: 'fr-FR', javaScriptEnabled: true, expected: 'fr'},
+  {locale: 'es-ES', javaScriptEnabled: true, expected: 'es'},
+  {locale: 'fr-FR', javaScriptEnabled: false, expected: 'en'}
+]) {
+  const context = await browser.newContext({locale: scenario.locale, javaScriptEnabled: scenario.javaScriptEnabled});
+  const page = await context.newPage();
+  for (const path of ['', '/privacy.html']) {
+    await page.goto(baseUrl + path);
+    const label = `${scenario.locale}/JavaScript=${scenario.javaScriptEnabled}${path}`;
+    check(await page.locator('html').getAttribute('lang') === scenario.expected, `${label}: incorrect default language`);
+    check(await page.title() === localized[scenario.expected][path ? 'privacy' : 'home'], `${label}: incorrect default title`);
+    if (!scenario.javaScriptEnabled) {
+      check(await page.locator('.lang-btn.active').getAttribute('data-lang') === 'en', `${label}: incorrect static language selection`);
+      check(await page.locator(path ? 'h1' : '.hero-copy h1').textContent().then(text => text.includes(path ? 'Privacy Policy' : 'A YouTube video.')), `${label}: untranslated static content`);
+    }
+  }
+  if (scenario.javaScriptEnabled && scenario.expected === 'en') {
+    await page.locator('.lang-btn[data-lang=fr]').click();
+    await page.reload();
+    check(await page.locator('html').getAttribute('lang') === 'fr', 'Saved language choice must override the English default');
+  }
+  await context.close();
+}
+
 for (const viewport of viewports) {
   for (const theme of themes) {
     const context = await browser.newContext({
